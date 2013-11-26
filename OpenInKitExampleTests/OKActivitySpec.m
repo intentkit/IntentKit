@@ -46,6 +46,14 @@ describe(@"OKActivity", ^{
             expect(activity._activityImage).to.equal([UIImage imageNamed:@"Chrome"]);
         });
     });
+
+    describe(@"performActivity", ^{
+        it(@"should open the correct URL", ^{
+            [activity prepareWithActivityItems:@[[NSURL URLWithString:@"http://google.com"]]];
+            [activity performActivity];
+            [(UIApplication *)verify(app) openURL:[NSURL URLWithString:@"googlechrome://google.com"]];
+        });
+    });
 });
 
 SpecEnd

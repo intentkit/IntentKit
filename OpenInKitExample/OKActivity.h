@@ -5,4 +5,5 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict
                        application:(UIApplication *)application;
 
+- (BOOL)isAvailable;
 @end

@@ -22,27 +22,19 @@
                                                      inDirectory:@"Web Browsers"];
     for (NSString *path in appPaths) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-        NSString *urlString = [dict[@"scheme"] stringByAppendingString:@"://"];
-        if ([self.application canOpenURL:[NSURL URLWithString:urlString]]) {
-            [availableApps addObject:dict];
+        OKActivity *activity = [[OKActivity alloc] initWithDictionary:dict
+                                                          application:self.application];
+
+        if ([activity isAvailable]) {
+            [availableApps addObject:activity];
         }
     }
 
     if (availableApps.count == 1) {
-        NSDictionary *dict = availableApps[0];
-        NSString *string = [NSString stringWithFormat:@"%@:%@",
-                            dict[@"scheme"],
-                            [NSString stringWithFormat:dict[@"OpenURL:"], url.resourceSpecifier]];
-        [self.application openURL:[NSURL URLWithString:string]];
+        [availableApps[0] prepareWithActivityItems:@[url]];
+        [availableApps[0] performActivity];
     } else {
-        NSMutableArray *activities = [NSMutableArray array];
-        for (NSDictionary *dict in availableApps) {
-            OKActivity *activity = [[OKActivity alloc] initWithDictionary:dict
-                                                              application:self.application];
-            [activities addObject:activity];
-        }
-
-        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:[activities copy]];
+        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:[availableApps copy]];
 
         activityView.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToFacebook, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToTwitter, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
 
