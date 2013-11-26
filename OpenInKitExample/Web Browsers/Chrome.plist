@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>scheme</key>
-	<string>googlechrome</string>
+	<key>openHttpsUrl:</key>
+	<string>googlechromes://%@</string>
+	<key>openHttpUrl:</key>
+	<string>googlechrome://%@</string>
 	<key>name</key>
 	<string>Chrome</string>
-	<key>OpenURL:</key>
-	<string>%@</string>
 </dict>
 </plist>

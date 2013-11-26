@@ -1,13 +1,16 @@
 #import "OKActivity.h"
+#import "NSString+FormatWithArray.h"
 
 @interface OKActivity ()
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *scheme;
 @property (strong, nonatomic) NSDictionary *dict;
 
-@property (strong, nonatomic) UIApplication *application;
-@property (strong, nonatomic) NSURL *originalURL;
 @property (readonly) UIImage *_activityImage;
+
+@property (strong, nonatomic) UIApplication *application;
+@property (strong, nonatomic) NSString *activityCommand;
+@property (strong, nonatomic) NSArray *activityArguments;
 
 @end
 
@@ -24,8 +27,12 @@
     return self;
 }
 
-- (BOOL)isAvailable {
-    NSString *urlString = [self.scheme stringByAppendingString:@"://"];
+- (BOOL)isAvailableForCommand:(SEL)cmd arguments:(NSArray *)args {
+    NSString *command= NSStringFromSelector(cmd);
+    if (!self.dict[command]) { return NO; }
+
+    NSString *urlString = [NSString stringWithFormat:self.dict[command]
+                                               array:args];
     return [self.application canOpenURL:[NSURL URLWithString:urlString]];
 }
 
@@ -47,19 +54,19 @@
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
-
-    return (activityItems.count == 1 &&
-            [activityItems[0] isKindOfClass:[NSURL class]]);
+    return YES;
 }
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems {
-    self.originalURL = [activityItems firstObject];
+    self.activityCommand = [activityItems firstObject];
+    self.activityArguments = [activityItems subarrayWithRange:NSMakeRange(1, activityItems.count - 1)];
 }
 
 - (void)performActivity {
-    NSString *urlString = [NSString stringWithFormat:@"%@:%@",
-                        self.scheme,
-                        [NSString stringWithFormat:self.dict[@"OpenURL:"], self.originalURL.resourceSpecifier]];
+    if (!self.dict[self.activityCommand]) { return; }
+
+    NSString *urlString = [NSString stringWithFormat:self.dict[self.activityCommand]
+                                                array:self.activityArguments];
     NSURL *url = [NSURL URLWithString:urlString];
     [self.application openURL:url];
 }
