@@ -22,6 +22,8 @@
 		A610EFB61844F5B0005FA08E /* OpenInKitExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFB51844F5B0005FA08E /* OpenInKitExampleTests.m */; };
 		A610EFF31844FB80005FA08E /* OKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF21844FB80005FA08E /* OKViewController.m */; };
 		A610EFF718450079005FA08E /* OKWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF618450079005FA08E /* OKWebBrowser.m */; };
+		A6CF96DB18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
+		A6CF96DC18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		A610EFF21844FB80005FA08E /* OKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKViewController.m; sourceTree = "<group>"; };
 		A610EFF518450079005FA08E /* OKWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKWebBrowser.h; sourceTree = "<group>"; };
 		A610EFF618450079005FA08E /* OKWebBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKWebBrowser.m; sourceTree = "<group>"; };
+		A6CF96DA18450D2B002477CB /* Web Browsers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Web Browsers"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 		A610EF961844F5AF005FA08E /* OpenInKitExample */ = {
 			isa = PBXGroup;
 			children = (
+				A6CF96DA18450D2B002477CB /* Web Browsers */,
 				A610EF9F1844F5AF005FA08E /* OKAppDelegate.h */,
 				A610EFA01844F5AF005FA08E /* OKAppDelegate.m */,
 				A610EFA21844F5AF005FA08E /* Images.xcassets */,
@@ -247,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A610EF9B1844F5AF005FA08E /* InfoPlist.strings in Resources */,
+				A6CF96DB18450D2B002477CB /* Web Browsers in Resources */,
 				A610EFA31844F5AF005FA08E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CF96DC18450D2B002477CB /* Web Browsers in Resources */,
 				A610EFB41844F5B0005FA08E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

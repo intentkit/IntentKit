@@ -1,21 +1,16 @@
-//
-//  OKAppDelegate.m
-//  OpenInKitExample
-//
-//  Created by Michael Walker on 11/26/13.
-//  Copyright (c) 2013 Mike Walker. All rights reserved.
-//
-
 #import "OKAppDelegate.h"
+#import "OKViewController.h"
 
 @implementation OKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+    self.window.rootViewController = [[OKViewController alloc] init];
+
     return YES;
 }
 

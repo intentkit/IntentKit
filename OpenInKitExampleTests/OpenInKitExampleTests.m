@@ -24,28 +24,44 @@ describe(@"OKWebBrowser", ^{
     });
 
     describe(@"Opening a URL", ^{
+        __block NSURL *url;
+        beforeEach(^{
+            url = [NSURL URLWithString:@"http://google.com"];
+        });
+
         context(@"when only Mobile Safari is installed", ^{
             it(@"should open in Mobile Safari", ^{
                 [given([app canOpenURL:[NSURL URLWithString:@"googlechrome://"]]) willReturnBool:NO];
                 [given([app canOpenURL:[NSURL URLWithString:@"http://"]]) willReturnBool:YES];
 
-                NSURL *url = [NSURL URLWithString:@"http://google.com"];
                 [webBrowser openURL:url];
                 [(UIApplication *)verify(app) openURL:url];
-
             });
         });
 
         context(@"when multiple browsers are installed", ^{
+            beforeEach(^{
+                [given([app canOpenURL:anything()]) willReturnBool:YES];
+            });
+
             context(@"when a default has not been set", ^{
                 it(@"should prompt the user to pick", ^{
+                    [webBrowser openURL:url];
 
+                    UIViewController *presented = UIApplication.sharedApplication.delegate.window.rootViewController.presentedViewController;
+                    expect(presented).will.beKindOf([UIActivityViewController class]);
+                });
+
+                it(@"should contain the correct activities", ^{
+                    //UIViewController *presented = UIApplication.sharedApplication.delegate.window.rootViewController.presentedViewController;
                 });
             });
 
             context(@"when a default has been set", ^{
                 it(@"should use the default", ^{
-                    
+                    // set default to Chrome
+
+                    //[(UIApplication *)verify(app) openURL:[NSURL URLWithString:@"googlechrome://google.com"]];
                 });
             });
         });
