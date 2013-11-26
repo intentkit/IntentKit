@@ -8,6 +8,10 @@
 #import <OCMockito/OCMockito.h>
 #import "OKActivity.h"
 
+@interface OKActivity (Spec)
+@property UIImage *_activityImage;
+@end
+
 SpecBegin(OKActivity)
 
 describe(@"OKActivity", ^{
@@ -25,7 +29,6 @@ describe(@"OKActivity", ^{
 
     });
 
-
     describe(@"activityTitle", ^{
         it(@"should be the dictionary title", ^{
             expect(activity.activityTitle).to.equal(@"Chrome");
@@ -35,6 +38,12 @@ describe(@"OKActivity", ^{
     describe(@"activityType", ^{
         it(@"should be the dictionary title", ^{
             expect(activity.activityType).to.equal(@"Chrome");
+        });
+    });
+
+    describe(@"activityImage", ^{
+        it(@"should be the correct image", ^{
+            expect(activity._activityImage).to.equal([UIImage imageNamed:@"Chrome"]);
         });
     });
 });

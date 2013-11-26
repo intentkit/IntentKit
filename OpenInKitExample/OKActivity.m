@@ -3,6 +3,7 @@
 @interface OKActivity ()
 @property (strong, nonatomic) NSDictionary *dict;
 @property (strong, nonatomic) UIApplication *application;
+@property (readonly) UIImage *_activityImage;
 @end
 
 @implementation OKActivity
@@ -27,6 +28,10 @@
 
 - (NSString *)activityType {
     return self.dict[@"name"];
+}
+
+- (UIImage *)_activityImage {
+    return [UIImage imageNamed:self.dict[@"name"]];
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
