@@ -25,8 +25,7 @@
     return self;
 }
 
-- (BOOL)isAvailableForCommand:(SEL)cmd arguments:(NSArray *)args {
-    NSString *command= NSStringFromSelector(cmd);
+- (BOOL)isAvailableForCommand:(NSString *)command arguments:(NSArray *)args {
     if (!self.dict[command]) { return NO; }
 
     NSString *urlString = [NSString stringWithFormat:self.dict[command]

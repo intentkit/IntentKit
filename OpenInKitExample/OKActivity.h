@@ -5,6 +5,6 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict
                        application:(UIApplication *)application;
 
-- (BOOL)isAvailableForCommand:(SEL)cmd arguments:(NSArray *)args;
+- (BOOL)isAvailableForCommand:(NSString *)command arguments:(NSArray *)args;
 
 @end

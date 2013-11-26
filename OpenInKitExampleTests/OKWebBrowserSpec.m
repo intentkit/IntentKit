@@ -22,7 +22,6 @@ SpecBegin(OKWebBrowser)
 
 describe(@"OKWebBrowser", ^{
     __block OKWebBrowser *webBrowser;
-    __block UIApplication *app;
 
     beforeEach(^{
         webBrowser = [[OKWebBrowser alloc] init];
@@ -77,7 +76,7 @@ describe(@"OKWebBrowser", ^{
         });
     });
 
-    xdescribe(@"Opening an https URL", ^{
+    describe(@"Opening a https URL", ^{
         __block NSURL *url;
         beforeEach(^{
             url = [NSURL URLWithString:@"https://google.com"];
@@ -85,18 +84,17 @@ describe(@"OKWebBrowser", ^{
 
         context(@"when only Mobile Safari is installed", ^{
             it(@"should open in Mobile Safari", ^{
-                [given([app canOpenURL:[NSURL URLWithString:@"googlechromes://"]]) willReturnBool:NO];
-                [given([app canOpenURL:[NSURL URLWithString:@"https://"]]) willReturnBool:YES];
+                [given([webBrowser.application canOpenURL:[NSURL URLWithString:@"googlechromes://google.com"]]) willReturnBool:NO];
+                [given([webBrowser.application canOpenURL:[NSURL URLWithString:@"https://google.com"]]) willReturnBool:YES];
 
                 [webBrowser openURL:url];
-                [(UIApplication *)verify(app) openURL:url];
+                [(UIApplication *)verify(webBrowser.application) openURL:url];
             });
         });
 
         context(@"when multiple browsers are installed", ^{
             beforeEach(^{
-                [given([app canOpenURL:[NSURL URLWithString:@"googlechromes://"]]) willReturnBool:YES];
-                [given([app canOpenURL:[NSURL URLWithString:@"https://"]]) willReturnBool:YES];
+                [given([webBrowser.application canOpenURL:anything()]) willReturnBool:YES];
             });
 
             context(@"when a default has not been set", ^{
@@ -108,6 +106,8 @@ describe(@"OKWebBrowser", ^{
                 });
 
                 it(@"should contain the correct activities", ^{
+                    [webBrowser openURL:url];
+
                     UIActivityViewController *presented = (UIActivityViewController *)UIApplication.sharedApplication.delegate.window.rootViewController.presentedViewController;
                     NSArray *items = [presented applicationActivities];
                     expect(items.count).to.equal(2);

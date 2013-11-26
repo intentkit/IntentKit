@@ -16,14 +16,10 @@
 }
 
 - (void)openURL:(NSURL *)url {
-    [self openHttpUrl:url];
-}
-
-#pragma mark - Private
-
-
-- (void)openHttpUrl: (NSURL *)url {
     NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
+
+    NSString *command = ([url.scheme isEqualToString:@"https"] ?
+                         @"openHttpsUrl:" : @"openHttpUrl:");
 
     NSMutableArray *availableApps = [NSMutableArray array];
     NSArray *appPaths = [NSBundle.mainBundle pathsForResourcesOfType:@".plist"
@@ -33,12 +29,12 @@
         OKActivity *activity = [[OKActivity alloc] initWithDictionary:dict
                                                           application:self.application];
 
-        if ([activity isAvailableForCommand:_cmd arguments:@[strippedUrl]]) {
+        if ([activity isAvailableForCommand:command arguments:@[strippedUrl]]) {
             [availableApps addObject:activity];
         }
     }
 
-    NSArray *activityItems = @[NSStringFromSelector(_cmd), strippedUrl];
+    NSArray *activityItems = @[command, strippedUrl];
 
     if (availableApps.count == 1) {
         [availableApps[0] prepareWithActivityItems:activityItems];
