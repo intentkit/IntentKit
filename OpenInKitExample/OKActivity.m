@@ -3,7 +3,6 @@
 
 @interface OKActivity ()
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *scheme;
 @property (strong, nonatomic) NSDictionary *dict;
 
 @property (readonly) UIImage *_activityImage;
@@ -19,7 +18,6 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict
                        application:(UIApplication *)application {
     if (self = [super init]) {
-        self.scheme = dict[@"scheme"];
         self.name = dict[@"name"];
         self.dict = dict;
         self.application = application;
