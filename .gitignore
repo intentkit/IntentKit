@@ -1,6 +1,7 @@
 Pods/*
 
 # gitignore.io
+*.xcworkspace/xcuserdata
 .DS_Store
 */build/*
 *.pbxuser

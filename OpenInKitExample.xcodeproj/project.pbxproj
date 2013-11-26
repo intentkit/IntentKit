@@ -19,13 +19,14 @@
 		A610EFAB1844F5AF005FA08E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EF901844F5AF005FA08E /* Foundation.framework */; };
 		A610EFAC1844F5AF005FA08E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EF941844F5AF005FA08E /* UIKit.framework */; };
 		A610EFB41844F5B0005FA08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A610EFB21844F5B0005FA08E /* InfoPlist.strings */; };
-		A610EFB61844F5B0005FA08E /* OpenInKitExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFB51844F5B0005FA08E /* OpenInKitExampleTests.m */; };
+		A610EFB61844F5B0005FA08E /* OKWebBrowserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFB51844F5B0005FA08E /* OKWebBrowserSpec.m */; };
 		A610EFF31844FB80005FA08E /* OKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF21844FB80005FA08E /* OKViewController.m */; };
 		A610EFF718450079005FA08E /* OKWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF618450079005FA08E /* OKWebBrowser.m */; };
 		A6CF96DB18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
 		A6CF96DC18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
 		A6CF96DF18451583002477CB /* OKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96DE18451583002477CB /* OKActivity.m */; };
 		A6CF96E018451583002477CB /* OKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96DE18451583002477CB /* OKActivity.m */; };
+		A6CF96E218452D9A002477CB /* OKActivitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96E118452D9A002477CB /* OKActivitySpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,7 @@
 		A610EFA91844F5AF005FA08E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A610EFB11844F5B0005FA08E /* OpenInKitExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenInKitExampleTests-Info.plist"; sourceTree = "<group>"; };
 		A610EFB31844F5B0005FA08E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A610EFB51844F5B0005FA08E /* OpenInKitExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenInKitExampleTests.m; sourceTree = "<group>"; };
+		A610EFB51844F5B0005FA08E /* OKWebBrowserSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKWebBrowserSpec.m; sourceTree = "<group>"; };
 		A610EFF11844FB80005FA08E /* OKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKViewController.h; sourceTree = "<group>"; };
 		A610EFF21844FB80005FA08E /* OKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKViewController.m; sourceTree = "<group>"; };
 		A610EFF518450079005FA08E /* OKWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKWebBrowser.h; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		A6CF96DA18450D2B002477CB /* Web Browsers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Web Browsers"; sourceTree = "<group>"; };
 		A6CF96DD18451583002477CB /* OKActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKActivity.h; sourceTree = "<group>"; };
 		A6CF96DE18451583002477CB /* OKActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKActivity.m; sourceTree = "<group>"; };
+		A6CF96E118452D9A002477CB /* OKActivitySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKActivitySpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				A610EFF41844FCBD005FA08E /* Helpers */,
-				A610EFB51844F5B0005FA08E /* OpenInKitExampleTests.m */,
+				A610EFB51844F5B0005FA08E /* OKWebBrowserSpec.m */,
 				A610EFB01844F5B0005FA08E /* Supporting Files */,
+				A6CF96E118452D9A002477CB /* OKActivitySpec.m */,
 			);
 			path = OpenInKitExampleTests;
 			sourceTree = "<group>";
@@ -323,8 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CF96E218452D9A002477CB /* OKActivitySpec.m in Sources */,
 				A6CF96E018451583002477CB /* OKActivity.m in Sources */,
-				A610EFB61844F5B0005FA08E /* OpenInKitExampleTests.m in Sources */,
+				A610EFB61844F5B0005FA08E /* OKWebBrowserSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
