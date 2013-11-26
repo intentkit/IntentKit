@@ -1,4 +1,5 @@
 #import "OKWebBrowser.h"
+#import "OKActivity.h"
 
 @interface OKWebBrowser ()
 @property (strong, nonatomic) UIApplication *application;
@@ -32,11 +33,20 @@
         NSString *string = [NSString stringWithFormat:@"%@:%@",
                             dict[@"scheme"],
                             [NSString stringWithFormat:dict[@"OpenURL:"], url.resourceSpecifier]];
-        NSLog(@"================> %@", string);
         [self.application openURL:[NSURL URLWithString:string]];
     } else {
-        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:nil applicationActivities:nil];
-        [UIApplication.sharedApplication.delegate.window.rootViewController presentViewController:activityView animated:NO completion:nil];
+        NSMutableArray *activities = [NSMutableArray array];
+        for (NSDictionary *dict in availableApps) {
+            OKActivity *activity = [[OKActivity alloc] initWithDictionary:dict
+                                                              application:self.application];
+            [activities addObject:activity];
+        }
+
+        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:[activities copy]];
+
+        activityView.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToFacebook, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToTwitter, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+
+        [UIApplication.sharedApplication.delegate.window.rootViewController presentViewController:activityView animated:YES completion:nil];
     }
 }
 

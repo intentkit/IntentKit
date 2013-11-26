@@ -24,6 +24,8 @@
 		A610EFF718450079005FA08E /* OKWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF618450079005FA08E /* OKWebBrowser.m */; };
 		A6CF96DB18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
 		A6CF96DC18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
+		A6CF96DF18451583002477CB /* OKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96DE18451583002477CB /* OKActivity.m */; };
+		A6CF96E018451583002477CB /* OKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96DE18451583002477CB /* OKActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		A610EFF518450079005FA08E /* OKWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKWebBrowser.h; sourceTree = "<group>"; };
 		A610EFF618450079005FA08E /* OKWebBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKWebBrowser.m; sourceTree = "<group>"; };
 		A6CF96DA18450D2B002477CB /* Web Browsers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Web Browsers"; sourceTree = "<group>"; };
+		A6CF96DD18451583002477CB /* OKActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKActivity.h; sourceTree = "<group>"; };
+		A6CF96DE18451583002477CB /* OKActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 				A610EFF21844FB80005FA08E /* OKViewController.m */,
 				A610EFF518450079005FA08E /* OKWebBrowser.h */,
 				A610EFF618450079005FA08E /* OKWebBrowser.m */,
+				A6CF96DD18451583002477CB /* OKActivity.h */,
+				A6CF96DE18451583002477CB /* OKActivity.m */,
 			);
 			path = OpenInKitExample;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			files = (
 				A610EFA11844F5AF005FA08E /* OKAppDelegate.m in Sources */,
 				A610EFF718450079005FA08E /* OKWebBrowser.m in Sources */,
+				A6CF96DF18451583002477CB /* OKActivity.m in Sources */,
 				A610EF9D1844F5AF005FA08E /* main.m in Sources */,
 				A610EFF31844FB80005FA08E /* OKViewController.m in Sources */,
 			);
@@ -316,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CF96E018451583002477CB /* OKActivity.m in Sources */,
 				A610EFB61844F5B0005FA08E /* OpenInKitExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

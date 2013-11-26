@@ -12,6 +12,12 @@
 @property UIApplication *application;
 @end
 
+@interface UIActivityViewController (Spec)
+@property NSArray *activityItems;
+@property NSArray *applicationActivities;
+
+@end
+
 SpecBegin(OKWebBrowser)
 
 describe(@"OKWebBrowser", ^{
@@ -53,7 +59,9 @@ describe(@"OKWebBrowser", ^{
                 });
 
                 it(@"should contain the correct activities", ^{
-                    //UIViewController *presented = UIApplication.sharedApplication.delegate.window.rootViewController.presentedViewController;
+                    UIActivityViewController *presented = (UIActivityViewController *)UIApplication.sharedApplication.delegate.window.rootViewController.presentedViewController;
+                    NSArray *items = [presented applicationActivities];
+                    expect(items.count).to.equal(2);
                 });
             });
 
