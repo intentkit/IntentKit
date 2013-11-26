@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8765DACE6F3A4A22A46110B8 /* libPods-OpenInKitExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 360D5DF243D349129706EF0C /* libPods-OpenInKitExampleTests.a */; };
+		A610EF911844F5AF005FA08E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EF901844F5AF005FA08E /* Foundation.framework */; };
+		A610EF931844F5AF005FA08E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EF921844F5AF005FA08E /* CoreGraphics.framework */; };
+		A610EF951844F5AF005FA08E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EF941844F5AF005FA08E /* UIKit.framework */; };
+		A610EF9B1844F5AF005FA08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A610EF991844F5AF005FA08E /* InfoPlist.strings */; };
+		A610EF9D1844F5AF005FA08E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EF9C1844F5AF005FA08E /* main.m */; };
+		A610EFA11844F5AF005FA08E /* OKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFA01844F5AF005FA08E /* OKAppDelegate.m */; };
+		A610EFA31844F5AF005FA08E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A610EFA21844F5AF005FA08E /* Images.xcassets */; };
+		A610EFAA1844F5AF005FA08E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EFA91844F5AF005FA08E /* XCTest.framework */; };
+		A610EFAB1844F5AF005FA08E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EF901844F5AF005FA08E /* Foundation.framework */; };
+		A610EFAC1844F5AF005FA08E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A610EF941844F5AF005FA08E /* UIKit.framework */; };
+		A610EFB41844F5B0005FA08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A610EFB21844F5B0005FA08E /* InfoPlist.strings */; };
+		A610EFB61844F5B0005FA08E /* OpenInKitExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFB51844F5B0005FA08E /* OpenInKitExampleTests.m */; };
+		A610EFF31844FB80005FA08E /* OKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF21844FB80005FA08E /* OKViewController.m */; };
+		A610EFF718450079005FA08E /* OKWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF618450079005FA08E /* OKWebBrowser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A610EFAD1844F5B0005FA08E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A610EF851844F5AF005FA08E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A610EF8C1844F5AF005FA08E;
+			remoteInfo = OpenInKitExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A0321E9F86847F98DE22D68 /* Pods-OpenInKitExampleTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenInKitExampleTests.xcconfig"; path = "Pods/Pods-OpenInKitExampleTests.xcconfig"; sourceTree = "<group>"; };
+		360D5DF243D349129706EF0C /* libPods-OpenInKitExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OpenInKitExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A610EF8D1844F5AF005FA08E /* OpenInKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenInKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A610EF901844F5AF005FA08E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A610EF921844F5AF005FA08E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A610EF941844F5AF005FA08E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A610EF981844F5AF005FA08E /* OpenInKitExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenInKitExample-Info.plist"; sourceTree = "<group>"; };
+		A610EF9A1844F5AF005FA08E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A610EF9C1844F5AF005FA08E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A610EF9E1844F5AF005FA08E /* OpenInKitExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenInKitExample-Prefix.pch"; sourceTree = "<group>"; };
+		A610EF9F1844F5AF005FA08E /* OKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKAppDelegate.h; sourceTree = "<group>"; };
+		A610EFA01844F5AF005FA08E /* OKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKAppDelegate.m; sourceTree = "<group>"; };
+		A610EFA21844F5AF005FA08E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A610EFA81844F5AF005FA08E /* OpenInKitExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenInKitExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A610EFA91844F5AF005FA08E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A610EFB11844F5B0005FA08E /* OpenInKitExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenInKitExampleTests-Info.plist"; sourceTree = "<group>"; };
+		A610EFB31844F5B0005FA08E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A610EFB51844F5B0005FA08E /* OpenInKitExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenInKitExampleTests.m; sourceTree = "<group>"; };
+		A610EFF11844FB80005FA08E /* OKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKViewController.h; sourceTree = "<group>"; };
+		A610EFF21844FB80005FA08E /* OKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKViewController.m; sourceTree = "<group>"; };
+		A610EFF518450079005FA08E /* OKWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKWebBrowser.h; sourceTree = "<group>"; };
+		A610EFF618450079005FA08E /* OKWebBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKWebBrowser.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A610EF8A1844F5AF005FA08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A610EF931844F5AF005FA08E /* CoreGraphics.framework in Frameworks */,
+				A610EF951844F5AF005FA08E /* UIKit.framework in Frameworks */,
+				A610EF911844F5AF005FA08E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A610EFA51844F5AF005FA08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A610EFAA1844F5AF005FA08E /* XCTest.framework in Frameworks */,
+				A610EFAC1844F5AF005FA08E /* UIKit.framework in Frameworks */,
+				A610EFAB1844F5AF005FA08E /* Foundation.framework in Frameworks */,
+				8765DACE6F3A4A22A46110B8 /* libPods-OpenInKitExampleTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A610EF841844F5AF005FA08E = {
+			isa = PBXGroup;
+			children = (
+				A610EF961844F5AF005FA08E /* OpenInKitExample */,
+				A610EFAF1844F5B0005FA08E /* OpenInKitExampleTests */,
+				A610EF8F1844F5AF005FA08E /* Frameworks */,
+				A610EF8E1844F5AF005FA08E /* Products */,
+				1A0321E9F86847F98DE22D68 /* Pods-OpenInKitExampleTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		A610EF8E1844F5AF005FA08E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A610EF8D1844F5AF005FA08E /* OpenInKitExample.app */,
+				A610EFA81844F5AF005FA08E /* OpenInKitExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A610EF8F1844F5AF005FA08E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A610EF901844F5AF005FA08E /* Foundation.framework */,
+				A610EF921844F5AF005FA08E /* CoreGraphics.framework */,
+				A610EF941844F5AF005FA08E /* UIKit.framework */,
+				A610EFA91844F5AF005FA08E /* XCTest.framework */,
+				360D5DF243D349129706EF0C /* libPods-OpenInKitExampleTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A610EF961844F5AF005FA08E /* OpenInKitExample */ = {
+			isa = PBXGroup;
+			children = (
+				A610EF9F1844F5AF005FA08E /* OKAppDelegate.h */,
+				A610EFA01844F5AF005FA08E /* OKAppDelegate.m */,
+				A610EFA21844F5AF005FA08E /* Images.xcassets */,
+				A610EF971844F5AF005FA08E /* Supporting Files */,
+				A610EFF11844FB80005FA08E /* OKViewController.h */,
+				A610EFF21844FB80005FA08E /* OKViewController.m */,
+				A610EFF518450079005FA08E /* OKWebBrowser.h */,
+				A610EFF618450079005FA08E /* OKWebBrowser.m */,
+			);
+			path = OpenInKitExample;
+			sourceTree = "<group>";
+		};
+		A610EF971844F5AF005FA08E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A610EF981844F5AF005FA08E /* OpenInKitExample-Info.plist */,
+				A610EF991844F5AF005FA08E /* InfoPlist.strings */,
+				A610EF9C1844F5AF005FA08E /* main.m */,
+				A610EF9E1844F5AF005FA08E /* OpenInKitExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A610EFAF1844F5B0005FA08E /* OpenInKitExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				A610EFF41844FCBD005FA08E /* Helpers */,
+				A610EFB51844F5B0005FA08E /* OpenInKitExampleTests.m */,
+				A610EFB01844F5B0005FA08E /* Supporting Files */,
+			);
+			path = OpenInKitExampleTests;
+			sourceTree = "<group>";
+		};
+		A610EFB01844F5B0005FA08E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A610EFB11844F5B0005FA08E /* OpenInKitExampleTests-Info.plist */,
+				A610EFB21844F5B0005FA08E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A610EFF41844FCBD005FA08E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A610EF8C1844F5AF005FA08E /* OpenInKitExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A610EFB91844F5B0005FA08E /* Build configuration list for PBXNativeTarget "OpenInKitExample" */;
+			buildPhases = (
+				A610EF891844F5AF005FA08E /* Sources */,
+				A610EF8A1844F5AF005FA08E /* Frameworks */,
+				A610EF8B1844F5AF005FA08E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenInKitExample;
+			productName = OpenInKitExample;
+			productReference = A610EF8D1844F5AF005FA08E /* OpenInKitExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A610EFA71844F5AF005FA08E /* OpenInKitExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A610EFBC1844F5B0005FA08E /* Build configuration list for PBXNativeTarget "OpenInKitExampleTests" */;
+			buildPhases = (
+				29C7E28CA8EF49FAAE2A3559 /* Check Pods Manifest.lock */,
+				A610EFA41844F5AF005FA08E /* Sources */,
+				A610EFA51844F5AF005FA08E /* Frameworks */,
+				A610EFA61844F5AF005FA08E /* Resources */,
+				4DA2B1D8155244D497F25FD2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A610EFAE1844F5B0005FA08E /* PBXTargetDependency */,
+			);
+			name = OpenInKitExampleTests;
+			productName = OpenInKitExampleTests;
+			productReference = A610EFA81844F5AF005FA08E /* OpenInKitExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A610EF851844F5AF005FA08E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = OK;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Mike Walker";
+				TargetAttributes = {
+					A610EFA71844F5AF005FA08E = {
+						TestTargetID = A610EF8C1844F5AF005FA08E;
+					};
+				};
+			};
+			buildConfigurationList = A610EF881844F5AF005FA08E /* Build configuration list for PBXProject "OpenInKitExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A610EF841844F5AF005FA08E;
+			productRefGroup = A610EF8E1844F5AF005FA08E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A610EF8C1844F5AF005FA08E /* OpenInKitExample */,
+				A610EFA71844F5AF005FA08E /* OpenInKitExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A610EF8B1844F5AF005FA08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A610EF9B1844F5AF005FA08E /* InfoPlist.strings in Resources */,
+				A610EFA31844F5AF005FA08E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A610EFA61844F5AF005FA08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A610EFB41844F5B0005FA08E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29C7E28CA8EF49FAAE2A3559 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4DA2B1D8155244D497F25FD2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-OpenInKitExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A610EF891844F5AF005FA08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A610EFA11844F5AF005FA08E /* OKAppDelegate.m in Sources */,
+				A610EFF718450079005FA08E /* OKWebBrowser.m in Sources */,
+				A610EF9D1844F5AF005FA08E /* main.m in Sources */,
+				A610EFF31844FB80005FA08E /* OKViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A610EFA41844F5AF005FA08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A610EFB61844F5B0005FA08E /* OpenInKitExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A610EFAE1844F5B0005FA08E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A610EF8C1844F5AF005FA08E /* OpenInKitExample */;
+			targetProxy = A610EFAD1844F5B0005FA08E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A610EF991844F5AF005FA08E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A610EF9A1844F5AF005FA08E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A610EFB21844F5B0005FA08E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A610EFB31844F5B0005FA08E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A610EFB71844F5B0005FA08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A610EFB81844F5B0005FA08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A610EFBA1844F5B0005FA08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenInKitExample/OpenInKitExample-Prefix.pch";
+				INFOPLIST_FILE = "OpenInKitExample/OpenInKitExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A610EFBB1844F5B0005FA08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenInKitExample/OpenInKitExample-Prefix.pch";
+				INFOPLIST_FILE = "OpenInKitExample/OpenInKitExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A610EFBD1844F5B0005FA08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A0321E9F86847F98DE22D68 /* Pods-OpenInKitExampleTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenInKitExample.app/OpenInKitExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenInKitExample/OpenInKitExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OpenInKitExampleTests/OpenInKitExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A610EFBE1844F5B0005FA08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A0321E9F86847F98DE22D68 /* Pods-OpenInKitExampleTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenInKitExample.app/OpenInKitExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenInKitExample/OpenInKitExample-Prefix.pch";
+				INFOPLIST_FILE = "OpenInKitExampleTests/OpenInKitExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A610EF881844F5AF005FA08E /* Build configuration list for PBXProject "OpenInKitExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A610EFB71844F5B0005FA08E /* Debug */,
+				A610EFB81844F5B0005FA08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A610EFB91844F5B0005FA08E /* Build configuration list for PBXNativeTarget "OpenInKitExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A610EFBA1844F5B0005FA08E /* Debug */,
+				A610EFBB1844F5B0005FA08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A610EFBC1844F5B0005FA08E /* Build configuration list for PBXNativeTarget "OpenInKitExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A610EFBD1844F5B0005FA08E /* Debug */,
+				A610EFBE1844F5B0005FA08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A610EF851844F5AF005FA08E /* Project object */;
+}
