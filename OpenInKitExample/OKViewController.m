@@ -11,6 +11,6 @@
     [super viewDidAppear:animated]
     ;
     OKWebBrowser *browserOpen = [[OKWebBrowser alloc] init];
-    [browserOpen openURL:[NSURL URLWithString:@"http://google.com/"]];
+    //[browserOpen openURL:[NSURL URLWithString:@"http://google.com/"]];
 }
 @end
