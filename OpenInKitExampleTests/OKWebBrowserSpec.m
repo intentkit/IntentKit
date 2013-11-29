@@ -123,6 +123,28 @@ describe(@"OKWebBrowser", ^{
             });
         });
     });
+
+    describe(@"Opening a callback", ^{
+        __block NSURL *url;
+        __block NSURL *callbackURL;
+
+        beforeEach(^{
+            url = [NSURL URLWithString:@"http://google.com"];
+            callbackURL = [NSURL URLWithString:@"testapp://test"];
+        });
+
+        context(@"when Chrome is installed", ^{
+            it(@"should open the URL in Chrome via callback", ^{
+                [given([webBrowser.application canOpenURL:anything()]) willReturnBool:YES];
+
+                [webBrowser openURL:url withCallback:callbackURL];
+
+                NSString *expected = @"googlechrome-x-callback://x-callback-url/open/?x-source=OpenInKitExample&x-success=testapp%3A%2F%2Ftest&url=http%3A%2F%2Fgoogle.com";
+                NSURL *expectedURL = [NSURL URLWithString:expected];
+                [(UIApplication *)verify(webBrowser.application) openURL:expectedURL];
+            });
+        });
+    });
 });
 
 SpecEnd

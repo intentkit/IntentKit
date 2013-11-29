@@ -6,6 +6,8 @@
 	<string>googlechromes://%@</string>
 	<key>openHttpURL:</key>
 	<string>googlechrome://%@</string>
+	<key>openURL:withCallback:</key>
+	<string>googlechrome-x-callback://x-callback-url/open/?x-source=%@&amp;x-success=%@&amp;url=%@</string>
 	<key>name</key>
 	<string>Chrome</string>
 </dict>
