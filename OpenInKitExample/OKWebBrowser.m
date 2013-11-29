@@ -19,7 +19,7 @@
     NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
 
     NSString *command = ([url.scheme isEqualToString:@"https"] ?
-                         @"openHttpsUrl:" : @"openHttpUrl:");
+                         @"openHttpsURL:" : @"openHttpURL:");
 
     NSMutableArray *availableApps = [NSMutableArray array];
     NSArray *appPaths = [NSBundle.mainBundle pathsForResourcesOfType:@".plist"

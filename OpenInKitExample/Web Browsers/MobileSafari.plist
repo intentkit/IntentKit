@@ -4,9 +4,9 @@
 <dict>
 	<key>name</key>
 	<string>Safari</string>
-	<key>openHttpUrl:</key>
+	<key>openHttpURL:</key>
 	<string>http://%@</string>
-	<key>openHttpsUrl:</key>
+	<key>openHttpsURL:</key>
 	<string>https://%@</string>
 </dict>
 </plist>

@@ -49,7 +49,7 @@ describe(@"OKActivity", ^{
 
     describe(@"performActivity", ^{
         it(@"should open the correct URL", ^{
-            [activity prepareWithActivityItems:@[@"openHttpUrl:", [NSURL URLWithString:@"google.com"]]];
+            [activity prepareWithActivityItems:@[@"openHttpURL:", [NSURL URLWithString:@"google.com"]]];
             [activity performActivity];
             [(UIApplication *)verify(app) openURL:[NSURL URLWithString:@"googlechrome://google.com"]];
         });
