@@ -16,10 +16,21 @@
 }
 
 - (void)searchFor:(NSString *)query near:(CLLocationCoordinate2D)center {
+    NSString *(^encode)(NSString *) = ^NSString *(NSString *input){
+        CFStringRef urlString = CFURLCreateStringByAddingPercentEscapes(
+                                                                        kCFAllocatorDefault,
+                                                                        (CFStringRef)input,
+                                                                        NULL,
+                                                                        (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                        kCFStringEncodingUTF8);
+        return (__bridge NSString *)urlString;
+    };
+
     NSString *command = NSStringFromSelector(_cmd);
     NSString *centerString = [NSString stringWithFormat:@"%f,%f", center.latitude, center.longitude];
-    NSArray *args = @[query, centerString];
-    NSArray *activityItems = [@[command] arrayByAddingObjectsFromArray:args];
+    NSDictionary *args = @{@"query": encode(query),
+                      @"center": centerString};
+    NSArray *activityItems = @[command, args];
 
     NSMutableArray *availableApps = [NSMutableArray array];
     NSArray *appPaths = [NSBundle.mainBundle pathsForResourcesOfType:@".plist"

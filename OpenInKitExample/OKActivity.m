@@ -9,7 +9,7 @@
 
 @property (strong, nonatomic) UIApplication *application;
 @property (strong, nonatomic) NSString *activityCommand;
-@property (strong, nonatomic) NSArray *activityArguments;
+@property (strong, nonatomic) NSDictionary *activityArguments;
 
 @end
 
@@ -25,11 +25,15 @@
     return self;
 }
 
-- (BOOL)isAvailableForCommand:(NSString *)command arguments:(NSArray *)args {
+- (BOOL)isAvailableForCommand:(NSString *)command arguments:(NSDictionary *)args {
     if (!self.dict[command]) { return NO; }
 
-    NSString *urlString = [NSString stringWithFormat:self.dict[command]
-                                               array:args];
+    NSString *urlString = self.dict[command];
+    for (NSString *key in args) {
+        NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
+        urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:args[key]];
+    }
+
     return [self.application canOpenURL:[NSURL URLWithString:urlString]];
 }
 
@@ -55,15 +59,21 @@
 }
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems {
+    if (activityItems.count != 2) return;
+
     self.activityCommand = [activityItems firstObject];
-    self.activityArguments = [activityItems subarrayWithRange:NSMakeRange(1, activityItems.count - 1)];
+    self.activityArguments = [activityItems lastObject];
 }
 
 - (void)performActivity {
     if (!self.dict[self.activityCommand]) { return; }
 
-    NSString *urlString = [NSString stringWithFormat:self.dict[self.activityCommand]
-                                                array:self.activityArguments];
+    NSString *urlString = self.dict[self.activityCommand];
+    for (NSString *key in self.activityArguments) {
+        NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
+        urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:self.activityArguments[key]];
+    }
+
     NSURL *url = [NSURL URLWithString:urlString];
     [self.application openURL:url];
 }

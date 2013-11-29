@@ -5,8 +5,8 @@
 	<key>name</key>
 	<string>Safari</string>
 	<key>openHttpURL:</key>
-	<string>http://%@</string>
+	<string>http://{url}</string>
 	<key>openHttpsURL:</key>
-	<string>https://%@</string>
+	<string>https://{url}</string>
 </dict>
 </plist>

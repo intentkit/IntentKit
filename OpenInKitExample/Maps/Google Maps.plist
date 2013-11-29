@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>searchFor:near:</key>
-	<string>comgooglemaps://?q=%@&amp;center=%@</string>
+	<string>comgooglemaps://?q={query}&amp;center={center}</string>
 	<key>name</key>
 	<string>Google Maps</string>
 </dict>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>searchFor:near:</key>
-	<string>http://maps.apple.com/?q=%@&amp;ll=%@</string>
+	<string>http://maps.apple.com/?q={query}&amp;ll={center}</string>
 	<key>name</key>
 	<string>Apple Maps</string>
 </dict>

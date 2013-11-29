@@ -17,6 +17,7 @@
 
 - (void)openURL:(NSURL *)url {
     NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
+    NSDictionary *args = @{@"url": strippedUrl};
 
     NSString *command = ([url.scheme isEqualToString:@"https"] ?
                          @"openHttpsURL:" : @"openHttpURL:");
@@ -29,12 +30,12 @@
         OKActivity *activity = [[OKActivity alloc] initWithDictionary:dict
                                                           application:self.application];
 
-        if ([activity isAvailableForCommand:command arguments:@[strippedUrl]]) {
+        if ([activity isAvailableForCommand:command arguments:args]) {
             [availableApps addObject:activity];
         }
     }
 
-    NSArray *activityItems = @[command, strippedUrl];
+    NSArray *activityItems = @[command, args];
 
     if (availableApps.count == 1) {
         [availableApps[0] prepareWithActivityItems:activityItems];
@@ -65,6 +66,9 @@
     NSString *command = NSStringFromSelector(_cmd);
     NSString *targetURL = encode(url.absoluteString);
     NSString *callbackURL = encode(callback.absoluteString);
+    NSDictionary *args = @{@"url": targetURL,
+                           @"callback": callbackURL,
+                           @"source": appName};
 
     NSMutableArray *availableApps = [NSMutableArray array];
     NSArray *appPaths = [NSBundle.mainBundle pathsForResourcesOfType:@".plist"
@@ -74,12 +78,12 @@
         OKActivity *activity = [[OKActivity alloc] initWithDictionary:dict
                                                           application:self.application];
 
-        if ([activity isAvailableForCommand:command arguments:@[appName, callbackURL, targetURL]]) {
+        if ([activity isAvailableForCommand:command arguments:args]) {
             [availableApps addObject:activity];
         }
     }
 
-    NSArray *activityItems = @[command, appName, callbackURL, targetURL];
+    NSArray *activityItems = @[command, args];
 
     if (availableApps.count == 1) {
         [availableApps[0] prepareWithActivityItems:activityItems];

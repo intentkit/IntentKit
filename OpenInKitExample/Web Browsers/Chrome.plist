@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>openHttpsURL:</key>
-	<string>googlechromes://%@</string>
+	<string>googlechromes://{url}</string>
 	<key>openHttpURL:</key>
-	<string>googlechrome://%@</string>
+	<string>googlechrome://{url}</string>
 	<key>openURL:withCallback:</key>
-	<string>googlechrome-x-callback://x-callback-url/open/?x-source=%@&amp;x-success=%@&amp;url=%@</string>
+	<string>googlechrome-x-callback://x-callback-url/open/?x-source={source}&amp;x-success={callback}&amp;url={url}</string>
 	<key>name</key>
 	<string>Chrome</string>
 </dict>

@@ -20,7 +20,7 @@
 
 SpecBegin(OKMapsHandler)
 
-fdescribe(@"OKMapsHandler", ^{
+describe(@"OKMapsHandler", ^{
     __block OKMapsHandler *mapsHandler;
 
     beforeEach(^{
@@ -38,8 +38,8 @@ fdescribe(@"OKMapsHandler", ^{
             query = @"Roberto's";
             center = CLLocationCoordinate2DMake(32.715, -117.1625);
 
-            appleString = @"http://maps.apple.com/?q=Roberto's&ll=32.715000,-117.162500";
-            googleString = @"comgooglemaps://?q=Roberto's&center=32.715000,-117.162500";
+            appleString = @"http://maps.apple.com/?q=Roberto%27s&ll=32.715000,-117.162500";
+            googleString = @"comgooglemaps://?q=Roberto%27s&center=32.715000,-117.162500";
         });
 
         context(@"when only Apple Maps", ^{
