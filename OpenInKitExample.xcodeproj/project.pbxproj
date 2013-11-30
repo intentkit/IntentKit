@@ -35,6 +35,7 @@
 		A6CF96E618453746002477CB /* Web Browsers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96E418453746002477CB /* Web Browsers.xcassets */; };
 		A6CF96EE184545EF002477CB /* NSString+FormatWithArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96ED184545EF002477CB /* NSString+FormatWithArray.m */; };
 		A6CF96EF184545EF002477CB /* NSString+FormatWithArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96ED184545EF002477CB /* NSString+FormatWithArray.m */; };
+		A6DF3FD8184A7A4E007C9241 /* OKHandlerSharedExampleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DF3FD7184A7A4E007C9241 /* OKHandlerSharedExampleSpec.m */; };
 		A6E1A59A184848EE00F3CC76 /* OKMapsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E1A599184848EE00F3CC76 /* OKMapsHandler.m */; };
 		A6E1A59B184848EE00F3CC76 /* OKMapsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E1A599184848EE00F3CC76 /* OKMapsHandler.m */; };
 		A6E1A59D1848490D00F3CC76 /* OKMapsHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E1A59C1848490D00F3CC76 /* OKMapsHandlerSpec.m */; };
@@ -85,6 +86,7 @@
 		A6CF96E418453746002477CB /* Web Browsers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Web Browsers.xcassets"; path = "Web Browsers/Web Browsers.xcassets"; sourceTree = "<group>"; };
 		A6CF96EC184545EF002477CB /* NSString+FormatWithArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+FormatWithArray.h"; path = "Helpers/NSString+FormatWithArray.h"; sourceTree = "<group>"; };
 		A6CF96ED184545EF002477CB /* NSString+FormatWithArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+FormatWithArray.m"; path = "Helpers/NSString+FormatWithArray.m"; sourceTree = "<group>"; };
+		A6DF3FD7184A7A4E007C9241 /* OKHandlerSharedExampleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKHandlerSharedExampleSpec.m; sourceTree = "<group>"; };
 		A6E1A598184848EE00F3CC76 /* OKMapsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKMapsHandler.h; sourceTree = "<group>"; };
 		A6E1A599184848EE00F3CC76 /* OKMapsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKMapsHandler.m; sourceTree = "<group>"; };
 		A6E1A59C1848490D00F3CC76 /* OKMapsHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKMapsHandlerSpec.m; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				A610EFF41844FCBD005FA08E /* Helpers */,
 				A610EFB01844F5B0005FA08E /* Supporting Files */,
 				A6E1A59C1848490D00F3CC76 /* OKMapsHandlerSpec.m */,
+				A6DF3FD7184A7A4E007C9241 /* OKHandlerSharedExampleSpec.m */,
 			);
 			path = OpenInKitExampleTests;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				A6CF96E218452D9A002477CB /* OKActivitySpec.m in Sources */,
 				A6CF96E018451583002477CB /* OKActivity.m in Sources */,
 				A6E1A59B184848EE00F3CC76 /* OKMapsHandler.m in Sources */,
+				A6DF3FD8184A7A4E007C9241 /* OKHandlerSharedExampleSpec.m in Sources */,
 				A6E1A59D1848490D00F3CC76 /* OKMapsHandlerSpec.m in Sources */,
 				A610EFB61844F5B0005FA08E /* OKWebBrowserSpec.m in Sources */,
 			);
