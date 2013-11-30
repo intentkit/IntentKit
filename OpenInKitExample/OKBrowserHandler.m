@@ -1,7 +1,7 @@
-#import "OKWebHandler.h"
+#import "OKBrowserHandler.h"
 #import "OKActivity.h"
 
-@implementation OKWebHandler
+@implementation OKBrowserHandler
 
 + (NSString *)directoryName {
     return @"Web Browsers";

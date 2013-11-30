@@ -1,5 +1,5 @@
 #import "OKViewController.h"
-#import "OKWebHandler.h"
+#import "OKBrowserHandler.h"
 #import "OKMapsHandler.h"
 
 @interface OKViewController ()
@@ -11,9 +11,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated]
     ;
-//    OKWebBrowser *browserOpen = [[OKWebBrowser alloc] init];
-//    [browserOpen openURL:[NSURL URLWithString:@"http://google.com/"]];
+//    OKBrowserHandler *browserHandler = [[OKBrowserHandler alloc] init];
 //    OKMapsHandler *mapsHandler = [[OKMapsHandler alloc] init];
+//    [browserHandler openURL:[NSURL URLWithString:@"http://google.com/"]];
 //    [mapsHandler searchFor:@"gray's papaya" near:CLLocationCoordinate2DMake(40.728333, -73.994167)];
 }
 @end

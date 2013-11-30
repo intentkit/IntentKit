@@ -6,9 +6,9 @@
 #import "Expecta.h"
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
-#import "OKWebHandler.h"
+#import "OKBrowserHandler.h"
 
-@interface OKWebHandler (Spec)
+@interface OKBrowserHandler (Spec)
 @property UIApplication *application;
 @end
 
@@ -21,10 +21,10 @@
 SpecBegin(OKWebBrowser)
 
 describe(@"OKWebBrowser", ^{
-    __block OKWebHandler *webBrowser;
+    __block OKBrowserHandler *webBrowser;
 
     beforeEach(^{
-        webBrowser = [[OKWebHandler alloc] init];
+        webBrowser = [[OKBrowserHandler alloc] init];
         webBrowser.application = mock([UIApplication class]);
     });
 
