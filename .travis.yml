@@ -1,1 +1,3 @@
 language: objective-c
+xcode_workspace: OpenInKitExample.xcworkspace
+xcode_scheme: OpenInKitExample
