@@ -2,6 +2,7 @@ Pods/*
 
 # gitignore.io
 *.xcworkspace/xcuserdata
+*.xcworkspace/xcshareddata
 .DS_Store
 */build/*
 *.pbxuser
