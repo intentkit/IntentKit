@@ -4,6 +4,9 @@
 
 @interface OKMapsHandler : OKHandler
 
-- (void)searchFor:(NSString *)query near:(CLLocationCoordinate2D)center;
+@property (nonatomic, assign) CLLocationCoordinate2D center;
+@property (nonatomic, assign) NSUInteger zoom;
+
+- (void)searchFor:(NSString *)query;
 
 @end

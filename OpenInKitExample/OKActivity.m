@@ -69,11 +69,21 @@
     if (!self.dict[self.activityCommand]) { return; }
 
     NSString *urlString = self.dict[self.activityCommand];
+    NSMutableArray *optionals = [NSMutableArray array];
     for (NSString *key in self.activityArguments) {
         NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
-        urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:self.activityArguments[key]];
-    }
 
+        NSString *optionalParam = self.dict[@"optional"][key];
+        if (optionalParam) {
+            NSString *optionalString = [optionalParam stringByReplacingOccurrencesOfString:handlebarKey
+                                                                                withString:self.activityArguments[key]];
+            [optionals addObject:optionalString];
+        } else {
+            urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:self.activityArguments[key]];
+        }
+    }
+    urlString = [urlString stringByAppendingString:[optionals componentsJoinedByString:@""]];
+    
     NSURL *url = [NSURL URLWithString:urlString];
     [self.application openURL:url];
 }

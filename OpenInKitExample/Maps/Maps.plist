@@ -2,8 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>searchFor:near:</key>
-	<string>http://maps.apple.com/?q={query}&amp;ll={center}</string>
+	<key>optional</key>
+	<dict>
+		<key>zoom</key>
+		<string>&amp;z={zoom}</string>
+		<key>center</key>
+		<string>&amp;ll={center}</string>
+	</dict>
+	<key>searchFor:</key>
+	<string>http://maps.apple.com/?q={query}</string>
 	<key>name</key>
 	<string>Maps</string>
 </dict>
