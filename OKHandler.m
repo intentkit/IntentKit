@@ -1,6 +1,10 @@
 #import "OKHandler.h"
 #import "OKActivity.h"
 
+@interface OKHandler ()
+@property (strong, nonatomic) UIApplication *application;
+@end
+
 NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     CFStringRef urlString = CFURLCreateStringByAddingPercentEscapes(
                                                                     kCFAllocatorDefault,
