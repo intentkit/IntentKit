@@ -9,6 +9,8 @@
 		<key>center</key>
 		<string>&amp;center={center}</string>
 	</dict>
+	<key>directionsFrom:to:mode:</key>
+	<string>comgooglemaps://?saddr={from}&amp;daddr={to}&amp;directionsmode={mode}</string>
 	<key>searchFor:</key>
 	<string>comgooglemaps://?q={query}</string>
 	<key>name</key>

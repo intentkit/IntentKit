@@ -53,7 +53,7 @@ describe(@"OKMapsHandler", ^{
         });
     });
 
-    describe(@"Opening a search query", ^{
+    describe(@"Search query", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  mapsHandler,
                      @"urlString": @"http://maps.apple.com/?q=Roberto%27s",
@@ -61,6 +61,30 @@ describe(@"OKMapsHandler", ^{
                      @"subjectAction": [^{
                          [mapsHandler searchFor:@"Roberto's"];
                      } copy]};
+        });
+    });
+
+    fdescribe(@"Turn-by-turn directions", ^{
+        context(@"without a mode", ^{
+            itShouldBehaveLike(@"a handler action", ^{
+                return @{@"handler":  mapsHandler,
+                         @"urlString": @"http://maps.apple.com/?saddr=New%20Jersey&daddr=California",
+                         @"maxApps": @2,
+                         @"subjectAction": [^{
+                             [mapsHandler directionsFrom:@"New Jersey" to:@"California"];
+                         } copy]};
+            });
+        });
+
+        context(@"with a directions mode", ^{
+            itShouldBehaveLike(@"a handler action", ^{
+                return @{@"handler":  mapsHandler,
+                         @"urlString": @"comgooglemaps://?saddr=New%20Jersey&daddr=California&directionsmode=walking",
+                         @"maxApps": @2,
+                         @"subjectAction": [^{
+                             [mapsHandler directionsFrom:@"New Jersey" to:@"California" mode:OKMapsHandlerDirectionsModeWalking];
+                         } copy]};
+            });
         });
     });
 });
