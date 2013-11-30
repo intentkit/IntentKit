@@ -24,6 +24,7 @@
 		A610EFF718450079005FA08E /* OKBrowserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A610EFF618450079005FA08E /* OKBrowserHandler.m */; };
 		A69812FB1849A73600853626 /* OKHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A69812FA1849A73600853626 /* OKHandler.m */; };
 		A69812FC1849A73600853626 /* OKHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A69812FA1849A73600853626 /* OKHandler.m */; };
+		A69813051849B2B800853626 /* Maps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69813041849B2B800853626 /* Maps.xcassets */; };
 		A6CF96DB18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
 		A6CF96DC18450D2B002477CB /* Web Browsers in Resources */ = {isa = PBXBuildFile; fileRef = A6CF96DA18450D2B002477CB /* Web Browsers */; };
 		A6CF96DF18451583002477CB /* OKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CF96DE18451583002477CB /* OKActivity.m */; };
@@ -76,6 +77,7 @@
 		A610EFF618450079005FA08E /* OKBrowserHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKBrowserHandler.m; sourceTree = "<group>"; };
 		A69812F91849A73600853626 /* OKHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKHandler.h; sourceTree = "<group>"; };
 		A69812FA1849A73600853626 /* OKHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKHandler.m; sourceTree = "<group>"; };
+		A69813041849B2B800853626 /* Maps.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Maps.xcassets; path = Maps/Maps.xcassets; sourceTree = "<group>"; };
 		A6CF96DA18450D2B002477CB /* Web Browsers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Web Browsers"; sourceTree = "<group>"; };
 		A6CF96DD18451583002477CB /* OKActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKActivity.h; sourceTree = "<group>"; };
 		A6CF96DE18451583002477CB /* OKActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKActivity.m; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				A610EFF618450079005FA08E /* OKBrowserHandler.m */,
 				A6CF96DD18451583002477CB /* OKActivity.h */,
 				A6CF96DE18451583002477CB /* OKActivity.m */,
+				A69813041849B2B800853626 /* Maps.xcassets */,
 				A6CF96E418453746002477CB /* Web Browsers.xcassets */,
 				A6E1A598184848EE00F3CC76 /* OKMapsHandler.h */,
 				A6E1A599184848EE00F3CC76 /* OKMapsHandler.m */,
@@ -300,6 +303,7 @@
 				A610EF9B1844F5AF005FA08E /* InfoPlist.strings in Resources */,
 				A6E1A59F18484B2400F3CC76 /* Maps in Resources */,
 				A6CF96DB18450D2B002477CB /* Web Browsers in Resources */,
+				A69813051849B2B800853626 /* Maps.xcassets in Resources */,
 				A6CF96E518453746002477CB /* Web Browsers.xcassets in Resources */,
 				A610EFA31844F5AF005FA08E /* Images.xcassets in Resources */,
 			);
