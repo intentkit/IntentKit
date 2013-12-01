@@ -64,7 +64,7 @@ describe(@"OKMapsHandler", ^{
         });
     });
 
-    fdescribe(@"Turn-by-turn directions", ^{
+    describe(@"Turn-by-turn directions", ^{
         context(@"without a mode", ^{
             itShouldBehaveLike(@"a handler action", ^{
                 return @{@"handler":  mapsHandler,
