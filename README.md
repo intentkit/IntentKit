@@ -1,5 +1,7 @@
 OpenInKit
----------
+=========
+[![Build Status](https://travis-ci.org/lazerwalker/OpenInKit.png)](https://travis-ci.org/lazerwalker/OpenInKit)
+
 One of the weaker spots in Apple's iOS development ecosystem is linking from one third-party app to another. Even though there may be many applications on a user's phone that can perform similar tasks (e.g. mail clients, web browsers), each individual application must present its own unique URL scheme. As a result, there historically hasn't been a good way for users to set a third-party app as the default application for things like web browsing or mapping.
 
 Even worse, very few apps even provide the option of linking to non-Apple apps, since non-trivial development work is required to support it. Let's say you want to allow users to open map links in Google Maps instead of the built-in Maps.app. You now need to write a whole bunch of custom code that determines whether Google Maps is installed, ask the user which they would prefer, and ideally remember that preference. It gets even more out-of-hand when you start dealing with something like Twitter clients, where you're potentially managing a dozen different third-party URL schemes that are all drastically different and most likely poorly-documented.
@@ -15,12 +17,12 @@ OpenInKit attempts to solve this problem in a number of ways.
 
 
 Installation
-============
+------------
 OpenInKit is easiest to set up using CocoaPods. But not yet.
 
 
 Usage
-=====
+-----
 OpenInKit provides a handful of different classes, each one designed to handle a specific type of resource.
 
 As an example, this is how you would open a HTTP or HTTPS URL in a web browser (currently either Mobile Safari or Google Chrome):
