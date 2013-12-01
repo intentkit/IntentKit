@@ -1,4 +1,3 @@
 language: objective-c
-xcode_workspace: OpenInKitExample.xcworkspace
-xcode_scheme: OpenInKitExample
-before_install: gem install cocoapods
+rvm: 1.9.3
+script: xctool -workspace OpenInKitExample.xcworkspace -scheme OpenInKitExample build test -sdk iphonesimulator ONLY_ACTIVE_ARCHS=NO
