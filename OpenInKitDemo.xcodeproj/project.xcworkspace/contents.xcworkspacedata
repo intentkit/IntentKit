@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:OpenInKitExample.xcodeproj">
+      location = "self:OpenInKitDemo.xcodeproj">
    </FileRef>
 </Workspace>

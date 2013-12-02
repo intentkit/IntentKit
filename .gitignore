@@ -1,6 +1,7 @@
 Pods/*
 
 # gitignore.io
+*.xcworkspace
 *.xcworkspace/xcuserdata
 *.xcworkspace/xcshareddata
 .DS_Store
