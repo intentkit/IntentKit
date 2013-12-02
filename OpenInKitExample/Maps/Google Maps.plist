@@ -13,7 +13,5 @@
 	<string>comgooglemaps://?saddr={from}&amp;daddr={to}&amp;directionsmode={mode}</string>
 	<key>searchFor:</key>
 	<string>comgooglemaps://?q={query}</string>
-	<key>name</key>
-	<string>Google Maps</string>
 </dict>
 </plist>

@@ -36,7 +36,11 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
                                                          inDirectory:self.class.directoryName];
     for (NSString *path in appPaths) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+        NSString *name = [[[[path componentsSeparatedByString:@"/"] lastObject]
+                           componentsSeparatedByString:@"."] firstObject];
+
         OKActivity *activity = [[OKActivity alloc] initWithDictionary:dict
+                                                                 name: name
                                                           application:self.application];
 
         if ([activity isAvailableForCommand:command arguments:args]) {

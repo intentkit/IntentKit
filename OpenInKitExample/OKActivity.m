@@ -16,9 +16,10 @@
 @implementation OKActivity
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict
+                              name: (NSString *)name
                        application:(UIApplication *)application {
     if (self = [super init]) {
-        self.name = dict[@"name"];
+        self.name = name;
         self.dict = dict;
         self.application = application;
     }

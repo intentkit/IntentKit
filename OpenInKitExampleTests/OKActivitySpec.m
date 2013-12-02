@@ -25,7 +25,9 @@ describe(@"OKActivity", ^{
         NSString *path = [NSBundle.mainBundle pathForResource:@"Chrome" ofType:@"plist" inDirectory:@"Web Browsers"];
         dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
-        activity = [[OKActivity alloc] initWithDictionary:dict application:app];
+        activity = [[OKActivity alloc] initWithDictionary:dict
+                                                     name:@"Chrome"
+                                              application:app];
 
     });
 

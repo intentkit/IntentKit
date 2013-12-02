@@ -8,7 +8,5 @@
 	<string>googlechrome://{url}</string>
 	<key>openURL:withCallback:</key>
 	<string>googlechrome-x-callback://x-callback-url/open/?x-source={source}&amp;x-success={callback}&amp;url={url}</string>
-	<key>name</key>
-	<string>Chrome</string>
 </dict>
 </plist>

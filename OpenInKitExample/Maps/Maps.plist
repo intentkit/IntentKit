@@ -13,7 +13,5 @@
 	<string>http://maps.apple.com/?saddr={from}&amp;daddr={to}</string>
 	<key>searchFor:</key>
 	<string>http://maps.apple.com/?q={query}</string>
-	<key>name</key>
-	<string>Maps</string>
 </dict>
 </plist>
