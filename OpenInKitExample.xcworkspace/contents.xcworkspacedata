@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:OpenInKitExample/Web Browsers/1password.plist">
+   </FileRef>
+   <FileRef
       location = "group:OpenInKitExample.xcodeproj">
    </FileRef>
    <FileRef
