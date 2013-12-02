@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/OKMapsHandler.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/OKMapsHandler</TokenIdentifier>
+			<Abstract type="html">An instance of OKMapsHandler opens third-party mapping applications to perform mapping tasks</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/setCenter:</TokenIdentifier>
+			<Abstract type="html">Coordinates representing where the map should be centered. This will also be used as a nearly starting location for any text searches.</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CLLocationCoordinate2D center</Declaration>
+			
+			
+			<Anchor>//api/name/center</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/center</TokenIdentifier>
+			<Abstract type="html">Coordinates representing where the map should be centered. This will also be used as a nearly starting location for any text searches.</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CLLocationCoordinate2D center</Declaration>
+			
+			
+			<Anchor>//api/name/center</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OKMapsHandler/center</TokenIdentifier>
+			<Abstract type="html">Coordinates representing where the map should be centered. This will also be used as a nearly starting location for any text searches.</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CLLocationCoordinate2D center</Declaration>
+			
+			
+			<Anchor>//api/name/center</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/setZoom:</TokenIdentifier>
+			<Abstract type="html">The amount to zoom in the map. 0 is the most zoomed out, 22 is the most zoomed in.</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSUInteger zoom</Declaration>
+			
+			
+			<Anchor>//api/name/zoom</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/zoom</TokenIdentifier>
+			<Abstract type="html">The amount to zoom in the map. 0 is the most zoomed out, 22 is the most zoomed in.</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSUInteger zoom</Declaration>
+			
+			
+			<Anchor>//api/name/zoom</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OKMapsHandler/zoom</TokenIdentifier>
+			<Abstract type="html">The amount to zoom in the map. 0 is the most zoomed out, 22 is the most zoomed in.</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSUInteger zoom</Declaration>
+			
+			
+			<Anchor>//api/name/zoom</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/searchFor:</TokenIdentifier>
+			<Abstract type="html">Searches for points of interest on a map</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>- (UIActivityViewController *)searchFor:(NSString *)query</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>query</Name>
+					<Abstract type="html">What to search for. May be lat/long coordinates, an address, or a business name/point of interest.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/searchFor:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/directionsFrom:to:mode:</TokenIdentifier>
+			<Abstract type="html">Brings up turn-by-turn directions between two locations</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+			<Declaration>- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to mode:(OKMapsHandlerDirectionsMode)mode</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>from</Name>
+					<Abstract type="html">The starting location. May be lat/long coordinates, an address, or a business name/point of interest.</Abstract>
+				</Parameter><Parameter>
+					<Name>to</Name>
+					<Abstract type="html">The destination. May be lat/long coordinates, an address, or a business name/point of interest.</Abstract>
+				</Parameter><Parameter>
+					<Name>mode</Name>
+					<Abstract type="html">An OKMapsHandlerDirectionsMode indicating what mode of transporation to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/directionsFrom:to:mode:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/directionsFrom:to:</TokenIdentifier>
+			<Abstract type="html">Brings up turn-by-turn driving directions between two locations</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/OKMapsHandler/directionsFrom:to:mode:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to</Declaration>
+			
+			
+			<Anchor>//api/name/directionsFrom:to:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

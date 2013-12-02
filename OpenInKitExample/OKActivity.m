@@ -2,8 +2,6 @@
 #import "NSString+FormatWithArray.h"
 
 @interface OKActivity ()
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSDictionary *dict;
 
 @property (readonly) UIImage *_activityImage;
 

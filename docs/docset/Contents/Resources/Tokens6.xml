@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/OKMapsHandlerDirectionsMode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/OKMapsHandlerDirectionsMode</TokenIdentifier>
+			<Abstract type="html">Specifies the mode of transporation for turn-by-turn directions.</Abstract>
+			<DeclaredIn>OKMapsHandler.h</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OKMapsHandlerDirectionsModeDriving</TokenIdentifier>
+            <Abstract type="html">Driving/automobile directions</Abstract>
+            <Declaration>OKMapsHandlerDirectionsModeDriving</Declaration>
+            
+            <DeclaredIn>OKMapsHandler.h</DeclaredIn>
+            
+            <NodeRef refid="6"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OKMapsHandlerDirectionsModeTransit</TokenIdentifier>
+            <Abstract type="html">Public transit directions</Abstract>
+            <Declaration>OKMapsHandlerDirectionsModeTransit</Declaration>
+            
+            <DeclaredIn>OKMapsHandler.h</DeclaredIn>
+            
+            <NodeRef refid="6"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OKMapsHandlerDirectionsModeWalking</TokenIdentifier>
+            <Abstract type="html">Walking directions</Abstract>
+            <Declaration>OKMapsHandlerDirectionsModeWalking</Declaration>
+            
+            <DeclaredIn>OKMapsHandler.h</DeclaredIn>
+            
+            <NodeRef refid="6"/>
+        </Token>
+        
+	</File>
+</Tokens>

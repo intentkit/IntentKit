@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>OpenInKit Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">OpenInKit </a></h1>
+				<a id="developerHome" href="index.html">Mike Walker</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">OpenInKit Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">OpenInKit Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>OpenInKit</h1>
+
+<p><a href="https://travis-ci.org/lazerwalker/OpenInKit"><img src="https://travis-ci.org/lazerwalker/OpenInKit.png" alt="Build Status" /></a></p>
+
+<p>One of the weaker spots in Apple&rsquo;s iOS development ecosystem is linking from one third-party app to another. Even though there may be many applications on a user&rsquo;s phone that can perform similar tasks (e.g. mail clients, web browsers), each individual application must present its own unique URL scheme. As a result, there historically hasn&rsquo;t been a good way for users to set a third-party app as the default application for things like web browsing or mapping.</p>
+
+<p>Even worse, very few apps even provide the option of linking to non-Apple apps, since non-trivial development work is required to support it. Let&rsquo;s say you want to allow users to open map links in Google Maps instead of the built-in Maps.app. You now need to write a whole bunch of custom code that determines whether Google Maps is installed, ask the user which they would prefer, and ideally remember that preference. It gets even more out-of-hand when you start dealing with something like Twitter clients, where you&rsquo;re potentially managing a dozen different third-party URL schemes that are all drastically different and most likely poorly-documented.</p>
+
+<p>OpenInKit attempts to solve this problem in a number of ways.</p>
+
+<p><strong>For users</strong>, it provides a standardized interface to choose which third-party app they want to open a link in.</p>
+
+<p><strong>For developers</strong>, it provides an elegant, unified API based on semantic actions. It also enables easy addition and modification of third-party URL schemes by declaring each app&rsquo;s URL scheme in its own plist file; the hope is that the list of supported URL schemes will be maintained by the community, similar to CocoaPods podspec files.</p>
+
+<p><strong>There&rsquo;s not yet much to see here. I&rsquo;d recommend coming back later.</strong></p>
+
+<h2>Installation</h2>
+
+<p>OpenInKit is easiest to set up using CocoaPods. But not yet.</p>
+
+<h2>Usage</h2>
+
+<p>OpenInKit provides a handful of different classes, each one designed to handle a specific type of resource.</p>
+
+<p>As an example, this is how you would open a HTTP or HTTPS URL in a web browser (currently either Mobile Safari or Google Chrome):</p>
+
+<pre><code>OKBrowserHandler *browserHandler = [[OKBrowserHandler alloc] init];
+[browserHandler openURL:[NSURL urlWithString:@"http://google.com"]];
+</code></pre>
+
+<p>If the user has Google Chrome installed, a UIActivityViewController will be displayed asking them to select between Mobile Safari and Chrome. If the user does not have Chrome installed, the link will just open in Mobile Safari as normal.</p>
+
+<p>Web sites are fairly simple; for a more instructive example, here is how to get turn-by-turn driving directions in either Apple Maps or Google Maps:</p>
+
+<pre><code>OKMapsHandler *mapsHandler = [[OKMapsHandler alloc] init];
+mapsHandler.center = CLLocationCoordinate2DMake(42.523, -73.544);
+mapsHandler.zoom = 14;
+[mapsHandler directionsFrom:@"Washington Square Park" to:@"Lincoln Center"];
+</code></pre>
+
+<p><code>center</code> and <code>zoom</code> are both optional and may be omitted.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/OKActivity.html">OKActivity</a></li>
+							
+							<li><a href="Classes/OKBrowserHandler.html">OKBrowserHandler</a></li>
+							
+							<li><a href="Classes/OKHandler.html">OKHandler</a></li>
+							
+							<li><a href="Classes/OKMapsHandler.html">OKMapsHandler</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+                        
+						<h2 class="index-title">Constant References</h2>
+						<ul>
+                        
+                        <li><a href="Constants/OKMapsHandlerDirectionsMode.html">OKMapsHandlerDirectionsMode</a></li>
+                        
+						</ul>
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/NSString+FormatWithArray.html">NSString(FormatWithArray)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.lazerwalker.OpenInKit</string>
+	<key>CFBundleName</key>
+	<string>OpenInKit Documentation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	
+	
+	
+	<key>DocSetFallbackURL</key>
+	<string>http://lazerwalker.com/OpenInKit/</string>
+	<key>DocSetFeedName</key>
+	<string>OpenInKit Documentation</string>
+	<key>DocSetFeedURL</key>
+	<string>http://lazerwalker.com/OpenInKit/OpenInKit.atom</string>
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DashDocSetFamily</key>
+	<string>appledoc</string>
+	<key>DocSetPublisherIdentifier</key>
+	<string>com.lazerwalker.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>Mike Walker</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2013 Mike Walker. All rights reserved.</string>
+</dict>
+</plist>
