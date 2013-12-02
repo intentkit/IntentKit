@@ -2,7 +2,7 @@
 
 @interface OKBrowserHandler : OKHandler
 
-- (void)openURL:(NSURL *)url;
-- (void)openURL:(NSURL *)url withCallback:(NSURL *)callback;
+- (UIActivityViewController *)openURL:(NSURL *)url;
+- (UIActivityViewController *)openURL:(NSURL *)url withCallback:(NSURL *)callback;
 
 @end

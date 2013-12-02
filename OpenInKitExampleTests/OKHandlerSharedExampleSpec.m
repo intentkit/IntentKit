@@ -23,7 +23,7 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     __block OKHandler *handler;
     __block NSString *urlString;
     __block NSUInteger maxApps;
-    __block void(^subjectAction)(void);
+    __block UIActivityViewController *(^subjectAction)(void);
 
     beforeEach(^{
         handler.application = mock([UIApplication class]);
@@ -51,17 +51,13 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
 
         context(@"when a default has not been set", ^{
             it(@"should prompt the user to pick", ^{
-                subjectAction();
-
-                UIViewController *presented = UIApplication.sharedApplication.delegate.window.rootViewController.presentedViewController;
-                expect(presented).will.beKindOf([UIActivityViewController class]);
+                UIActivityViewController *result = subjectAction();
+                expect(result).will.beKindOf([UIActivityViewController class]);
             });
 
             it(@"should contain the correct activities", ^{
-                subjectAction();
-
-                UIActivityViewController *presented = (UIActivityViewController *)UIApplication.sharedApplication.delegate.window.rootViewController.presentedViewController;
-                NSArray *items = [presented applicationActivities];
+                UIActivityViewController *result = subjectAction();
+                NSArray *items = [result applicationActivities];
                 expect(items.count).to.equal(maxApps);
             });
         });

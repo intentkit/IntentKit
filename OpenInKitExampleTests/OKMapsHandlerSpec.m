@@ -59,7 +59,7 @@ describe(@"OKMapsHandler", ^{
                      @"urlString": @"http://maps.apple.com/?q=Roberto%27s",
                      @"maxApps": @2,
                      @"subjectAction": [^{
-                         [mapsHandler searchFor:@"Roberto's"];
+                         return [mapsHandler searchFor:@"Roberto's"];
                      } copy]};
         });
     });
@@ -71,7 +71,7 @@ describe(@"OKMapsHandler", ^{
                          @"urlString": @"http://maps.apple.com/?saddr=New%20Jersey&daddr=California",
                          @"maxApps": @2,
                          @"subjectAction": [^{
-                             [mapsHandler directionsFrom:@"New Jersey" to:@"California"];
+                             return [mapsHandler directionsFrom:@"New Jersey" to:@"California"];
                          } copy]};
             });
         });
@@ -82,7 +82,7 @@ describe(@"OKMapsHandler", ^{
                          @"urlString": @"comgooglemaps://?saddr=New%20Jersey&daddr=California&directionsmode=walking",
                          @"maxApps": @2,
                          @"subjectAction": [^{
-                             [mapsHandler directionsFrom:@"New Jersey" to:@"California" mode:OKMapsHandlerDirectionsModeWalking];
+                             return [mapsHandler directionsFrom:@"New Jersey" to:@"California" mode:OKMapsHandlerDirectionsModeWalking];
                          } copy]};
             });
         });

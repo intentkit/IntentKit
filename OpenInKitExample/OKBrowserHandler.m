@@ -7,17 +7,17 @@
     return @"Web Browsers";
 }
 
-- (void)openURL:(NSURL *)url {
+- (UIActivityViewController *)openURL:(NSURL *)url {
     NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
     NSDictionary *args = @{@"url": strippedUrl};
 
     NSString *command = ([url.scheme isEqualToString:@"https"] ?
                          @"openHttpsURL:" : @"openHttpURL:");
 
-    [self performCommand:command withArguments:args];
+    return [self performCommand:command withArguments:args];
 }
 
-- (void)openURL:(NSURL *)url withCallback:(NSURL *)callback {
+- (UIActivityViewController *)openURL:(NSURL *)url withCallback:(NSURL *)callback {
     NSString *command = NSStringFromSelector(_cmd);
 
     NSString *appName = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"];
@@ -27,6 +27,6 @@
                            @"callback": callbackURL,
                            @"source": appName};
 
-    [self performCommand:command withArguments:args];
+    return [self performCommand:command withArguments:args];
 }
 @end

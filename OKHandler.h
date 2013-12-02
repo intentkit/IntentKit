@@ -4,6 +4,6 @@ NSString *(^urlEncode)(NSString *);
 
 + (NSString *)directoryName;
 
-- (void)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
+- (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
 
 @end

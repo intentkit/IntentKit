@@ -30,7 +30,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     return self;
 }
 
-- (void)performCommand:(NSString *)command withArguments:(NSDictionary *)args {
+- (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args {
     NSMutableArray *availableApps = [NSMutableArray array];
     NSArray *appPaths = [NSBundle.mainBundle pathsForResourcesOfType:@".plist"
                                                          inDirectory:self.class.directoryName];
@@ -53,6 +53,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     if (availableApps.count == 1) {
         [availableApps[0] prepareWithActivityItems:activityItems];
         [availableApps[0] performActivity];
+        return nil;
     } else {
         UIActivityViewController *activityView = [[UIActivityViewController alloc]
                                                   initWithActivityItems:activityItems
@@ -60,8 +61,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
         activityView.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToFacebook, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToTwitter, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
 
-        [UIApplication.sharedApplication.delegate.window.rootViewController presentViewController:activityView animated:YES completion:nil];
+        return activityView;
     }
-
 }
 @end

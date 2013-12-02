@@ -35,7 +35,7 @@ describe(@"OKWebBrowser", ^{
                      @"urlString": urlString,
                      @"maxApps": @2,
                      @"subjectAction": [^{
-                         [webBrowser openURL:[NSURL URLWithString:urlString]];
+                         return [webBrowser openURL:[NSURL URLWithString:urlString]];
                      } copy]};
         });
     });
@@ -47,7 +47,7 @@ describe(@"OKWebBrowser", ^{
                      @"urlString": urlString,
                      @"maxApps": @2,
                      @"subjectAction": [^{
-                         [webBrowser openURL:[NSURL URLWithString:urlString]];
+                         return [webBrowser openURL:[NSURL URLWithString:urlString]];
                      } copy]};
         });
     });

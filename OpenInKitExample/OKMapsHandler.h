@@ -13,8 +13,8 @@ typedef NS_ENUM(NSInteger, OKMapsHandlerDirectionsMode) {
 @property (nonatomic, assign) CLLocationCoordinate2D center;
 @property (nonatomic, assign) NSUInteger zoom;
 
-- (void)searchFor:(NSString *)query;
-- (void)directionsFrom:(NSString *)from to:(NSString *)to mode:(OKMapsHandlerDirectionsMode)mode;
-- (void)directionsFrom:(NSString *)from to:(NSString *)to;
+- (UIActivityViewController *)searchFor:(NSString *)query;
+- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to mode:(OKMapsHandlerDirectionsMode)mode;
+- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to;
 
 @end

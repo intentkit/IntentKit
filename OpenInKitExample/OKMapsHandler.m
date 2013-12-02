@@ -22,14 +22,14 @@
     return self;
 }
 
-- (void)searchFor:(NSString *)query {
+- (UIActivityViewController *)searchFor:(NSString *)query {
     NSString *command = NSStringFromSelector(_cmd);
     NSDictionary *args = [self argsDictionaryWithDictionary: @{@"query": urlEncode(query)}];
 
-    [self performCommand:command withArguments:args];
+    return [self performCommand:command withArguments:args];
 }
 
-- (void)directionsFrom:(NSString *)from to:(NSString *)to mode:(OKMapsHandlerDirectionsMode)mode {
+- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to mode:(OKMapsHandlerDirectionsMode)mode {
     NSString *command = NSStringFromSelector(_cmd);
     NSString *modeString = self.class.directionModes[@(mode)];
     NSDictionary *args = [self argsDictionaryWithDictionary:
@@ -37,11 +37,11 @@
                            @"to": urlEncode(to),
                            @"mode": modeString}];
 
-    [self performCommand:command withArguments:args];
+    return [self performCommand:command withArguments:args];
 }
 
-- (void)directionsFrom:(NSString *)from to:(NSString *)to {
-    [self directionsFrom:from to:to mode:OKMapsHandlerDirectionsModeDriving];
+- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to {
+    return [self directionsFrom:from to:to mode:OKMapsHandlerDirectionsModeDriving];
 }
 
 #pragma mark - Private methods
