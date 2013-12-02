@@ -15,6 +15,8 @@
 						<NodeRef refid="2"/>
 						<NodeRef refid="3"/>
 						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
 						
 					</Subnodes>
 				</Node>
@@ -24,7 +26,7 @@
 					<Name>Categories</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="5"/>
+						<NodeRef refid="7"/>
 						
 					</Subnodes>
 				</Node>
@@ -35,7 +37,7 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="6"/>
+						<NodeRef refid="8"/>
 						
 					</Subnodes>
 				</Node>
@@ -46,23 +48,23 @@
 	<Library>
 		
 		<Node id="1" type="file" documentType="reference">
-            <Name>OKActivity</Name>
-            <Path>Classes/OKActivity.html</Path>
+            <Name>MWActivity</Name>
+            <Path>Classes/MWActivity.html</Path>
             
                 <Subnodes>
                 <Node type="section">
-                    <Path>Classes/OKActivity.html</Path>
+                    <Path>Classes/MWActivity.html</Path>
                     <Name>Overview</Name>
                     <Anchor>overview</Anchor>
                 </Node>
                 <Node type="section">
-                    <Path>Classes/OKActivity.html</Path>
+                    <Path>Classes/MWActivity.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
                 </Node>
                 
                 <Node type="section">
-                    <Path>Classes/OKActivity.html</Path>
+                    <Path>Classes/MWActivity.html</Path>
                     <Name>Properties</Name>
                     <Anchor>properties</Anchor>
                 </Node>
@@ -70,7 +72,7 @@
                 
                 
                 <Node type="section">
-                    <Path>Classes/OKActivity.html</Path>
+                    <Path>Classes/MWActivity.html</Path>
                     <Name>Instance Methods</Name>
                     <Anchor>instance_methods</Anchor>
                 </Node>
@@ -79,58 +81,52 @@
             
         </Node>
 		<Node id="2" type="file" documentType="reference">
-            <Name>OKBrowserHandler</Name>
-            <Path>Classes/OKBrowserHandler.html</Path>
+            <Name>MWAppDelegate</Name>
+            <Path>Classes/MWAppDelegate.html</Path>
             
                 <Subnodes>
                 <Node type="section">
-                    <Path>Classes/OKBrowserHandler.html</Path>
+                    <Path>Classes/MWAppDelegate.html</Path>
                     <Name>Overview</Name>
                     <Anchor>overview</Anchor>
                 </Node>
                 <Node type="section">
-                    <Path>Classes/OKBrowserHandler.html</Path>
+                    <Path>Classes/MWAppDelegate.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
                 </Node>
                 
-                
-                
                 <Node type="section">
-                    <Path>Classes/OKBrowserHandler.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
+                    <Path>Classes/MWAppDelegate.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
+                
+                
                 
             </Subnodes>
             
         </Node>
 		<Node id="3" type="file" documentType="reference">
-            <Name>OKHandler</Name>
-            <Path>Classes/OKHandler.html</Path>
+            <Name>MWBrowserHandler</Name>
+            <Path>Classes/MWBrowserHandler.html</Path>
             
                 <Subnodes>
                 <Node type="section">
-                    <Path>Classes/OKHandler.html</Path>
+                    <Path>Classes/MWBrowserHandler.html</Path>
                     <Name>Overview</Name>
                     <Anchor>overview</Anchor>
                 </Node>
                 <Node type="section">
-                    <Path>Classes/OKHandler.html</Path>
+                    <Path>Classes/MWBrowserHandler.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
                 </Node>
                 
                 
-                <Node type="section">
-                    <Path>Classes/OKHandler.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
                 
                 <Node type="section">
-                    <Path>Classes/OKHandler.html</Path>
+                    <Path>Classes/MWBrowserHandler.html</Path>
                     <Name>Instance Methods</Name>
                     <Anchor>instance_methods</Anchor>
                 </Node>
@@ -139,31 +135,31 @@
             
         </Node>
 		<Node id="4" type="file" documentType="reference">
-            <Name>OKMapsHandler</Name>
-            <Path>Classes/OKMapsHandler.html</Path>
+            <Name>MWHandler</Name>
+            <Path>Classes/MWHandler.html</Path>
             
                 <Subnodes>
                 <Node type="section">
-                    <Path>Classes/OKMapsHandler.html</Path>
+                    <Path>Classes/MWHandler.html</Path>
                     <Name>Overview</Name>
                     <Anchor>overview</Anchor>
                 </Node>
                 <Node type="section">
-                    <Path>Classes/OKMapsHandler.html</Path>
+                    <Path>Classes/MWHandler.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                
                 <Node type="section">
-                    <Path>Classes/OKMapsHandler.html</Path>
-                    <Name>Properties</Name>
-                    <Anchor>properties</Anchor>
+                    <Path>Classes/MWHandler.html</Path>
+                    <Name>Class Methods</Name>
+                    <Anchor>class_methods</Anchor>
                 </Node>
                 
                 
-                
                 <Node type="section">
-                    <Path>Classes/OKMapsHandler.html</Path>
+                    <Path>Classes/MWHandler.html</Path>
                     <Name>Instance Methods</Name>
                     <Anchor>instance_methods</Anchor>
                 </Node>
@@ -171,8 +167,46 @@
             </Subnodes>
             
         </Node>
-		
 		<Node id="5" type="file" documentType="reference">
+            <Name>MWMapsHandler</Name>
+            <Path>Classes/MWMapsHandler.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/MWMapsHandler.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/MWMapsHandler.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/MWMapsHandler.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Classes/MWMapsHandler.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="6" type="file" documentType="reference">
+            <Name>MWViewController</Name>
+            <Path>Classes/MWViewController.html</Path>
+            
+        </Node>
+		
+		<Node id="7" type="file" documentType="reference">
             <Name>NSString(FormatWithArray)</Name>
             <Path>Categories/NSString+FormatWithArray.html</Path>
             
@@ -201,9 +235,9 @@
         </Node>
 		
         
-        <Node id="6" type="file" documentType="reference">
-            <Name>OKMapsHandlerDirectionsMode</Name>
-            <Path>Constants/OKMapsHandlerDirectionsMode.html</Path>
+        <Node id="8" type="file" documentType="reference">
+            <Name>MWMapsHandlerDirectionsMode</Name>
+            <Path>Constants/MWMapsHandlerDirectionsMode.html</Path>
             
         </Node>
 		

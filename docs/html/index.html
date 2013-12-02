@@ -34,15 +34,15 @@
 					<div class="section section-overview index-overview">
 						
 						
-						<h1>OpenInKit</h1>
+						<h1>MWOpenInKit</h1>
 
-<p><a href="https://travis-ci.org/lazerwalker/OpenInKit"><img src="https://travis-ci.org/lazerwalker/OpenInKit.png" alt="Build Status" /></a></p>
+<p><a href="https://travis-ci.org/lazerwalker/MWOpenInKit"><img src="https://travis-ci.org/lazerwalker/MWOpenInKit.png" alt="Build Status" /></a></p>
 
 <p>One of the weaker spots in Apple&rsquo;s iOS development ecosystem is linking from one third-party app to another. Even though there may be many applications on a user&rsquo;s phone that can perform similar tasks (e.g. mail clients, web browsers), each individual application must present its own unique URL scheme. As a result, there historically hasn&rsquo;t been a good way for users to set a third-party app as the default application for things like web browsing or mapping.</p>
 
 <p>Even worse, very few apps even provide the option of linking to non-Apple apps, since non-trivial development work is required to support it. Let&rsquo;s say you want to allow users to open map links in Google Maps instead of the built-in Maps.app. You now need to write a whole bunch of custom code that determines whether Google Maps is installed, ask the user which they would prefer, and ideally remember that preference. It gets even more out-of-hand when you start dealing with something like Twitter clients, where you&rsquo;re potentially managing a dozen different third-party URL schemes that are all drastically different and most likely poorly-documented.</p>
 
-<p>OpenInKit attempts to solve this problem in a number of ways.</p>
+<p>MWOpenInKit attempts to solve this problem in a number of ways.</p>
 
 <p><strong>For users</strong>, it provides a standardized interface to choose which third-party app they want to open a link in.</p>
 
@@ -52,15 +52,15 @@
 
 <h2>Installation</h2>
 
-<p>OpenInKit is easiest to set up using CocoaPods. But not yet.</p>
+<p>MWOpenInKit is easiest to set up using CocoaPods. But not yet.</p>
 
 <h2>Usage</h2>
 
-<p>OpenInKit provides a handful of different classes, each one designed to handle a specific type of resource.</p>
+<p>MWOpenInKit provides a handful of different classes, each one designed to handle a specific type of resource.</p>
 
 <p>As an example, this is how you would open a HTTP or HTTPS URL in a web browser (currently either Mobile Safari or Google Chrome):</p>
 
-<pre><code>OKBrowserHandler *browserHandler = [[OKBrowserHandler alloc] init];
+<pre><code>MWBrowserHandler *browserHandler = [[MWBrowserHandler alloc] init];
 [browserHandler openURL:[NSURL urlWithString:@"http://google.com"]];
 </code></pre>
 
@@ -68,7 +68,7 @@
 
 <p>Web sites are fairly simple; for a more instructive example, here is how to get turn-by-turn driving directions in either Apple Maps or Google Maps:</p>
 
-<pre><code>OKMapsHandler *mapsHandler = [[OKMapsHandler alloc] init];
+<pre><code>MWMapsHandler *mapsHandler = [[MWMapsHandler alloc] init];
 mapsHandler.center = CLLocationCoordinate2DMake(42.523, -73.544);
 mapsHandler.zoom = 14;
 [mapsHandler directionsFrom:@"Washington Square Park" to:@"Lincoln Center"];
@@ -87,13 +87,17 @@ mapsHandler.zoom = 14;
 						<h2 class="index-title">Class References</h2>
 						<ul>
 							
-							<li><a href="Classes/OKActivity.html">OKActivity</a></li>
+							<li><a href="Classes/MWActivity.html">MWActivity</a></li>
 							
-							<li><a href="Classes/OKBrowserHandler.html">OKBrowserHandler</a></li>
+							<li><a href="Classes/MWAppDelegate.html">MWAppDelegate</a></li>
 							
-							<li><a href="Classes/OKHandler.html">OKHandler</a></li>
+							<li><a href="Classes/MWBrowserHandler.html">MWBrowserHandler</a></li>
 							
-							<li><a href="Classes/OKMapsHandler.html">OKMapsHandler</a></li>
+							<li><a href="Classes/MWHandler.html">MWHandler</a></li>
+							
+							<li><a href="Classes/MWMapsHandler.html">MWMapsHandler</a></li>
+							
+							<li><a href="Classes/MWViewController.html">MWViewController</a></li>
 							
 						</ul>
 					</div>
@@ -106,7 +110,7 @@ mapsHandler.zoom = 14;
 						<h2 class="index-title">Constant References</h2>
 						<ul>
                         
-                        <li><a href="Constants/OKMapsHandlerDirectionsMode.html">OKMapsHandlerDirectionsMode</a></li>
+                        <li><a href="Constants/MWMapsHandlerDirectionsMode.html">MWMapsHandlerDirectionsMode</a></li>
                         
 						</ul>
 						

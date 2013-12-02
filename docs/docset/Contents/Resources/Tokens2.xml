@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/OKBrowserHandler.html">
+	<File path="Classes/MWAppDelegate.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/OKBrowserHandler</TokenIdentifier>
-			<Abstract type="html">An instance of OKBrowserHandler opens http and https URLs in a third-party web browser.</Abstract>
-			<DeclaredIn>OKBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/MWAppDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
             
 			
 			<NodeRef refid="2"/>
@@ -13,44 +13,38 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OKBrowserHandler/openURL:</TokenIdentifier>
-			<Abstract type="html">Opens a URL</Abstract>
-			<DeclaredIn>OKBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/MWAppDelegate/setWindow:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
 			
-			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/openURL:</Anchor>
+			<Declaration>@property (strong, nonatomic) UIWindow *window</Declaration>
+			
+			
+			<Anchor>//api/name/window</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OKBrowserHandler/openURL:withCallback:</TokenIdentifier>
-			<Abstract type="html">Opens a URL with a callback</Abstract>
-			<DeclaredIn>OKBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/MWAppDelegate/window</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
 			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/OKBrowserHandler/openURL:</TokenIdentifier>
+			<Declaration>@property (strong, nonatomic) UIWindow *window</Declaration>
+			
+			
+			<Anchor>//api/name/window</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
 		
-	</RelatedTokens>
-	
-			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url withCallback:(NSURL *)callback</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
-				</Parameter><Parameter>
-					<Name>callback</Name>
-					<Abstract type="html">A URL to be opened by the third-party app when the action has been completed.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/openURL:withCallback:</Anchor>
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MWAppDelegate/window</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIWindow *window</Declaration>
+			
+			
+			<Anchor>//api/name/window</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
