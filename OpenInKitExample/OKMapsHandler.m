@@ -52,7 +52,7 @@
     }
 
     if (self.zoom != -1) {
-        newArgs[@"zoom"] = [NSString stringWithFormat:@"%d", self.zoom];
+        newArgs[@"zoom"] = [NSString stringWithFormat:@"%lu", (unsigned long)self.zoom];
     }
 
     return [newArgs copy];
