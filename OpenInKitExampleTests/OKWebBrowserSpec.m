@@ -33,7 +33,7 @@ describe(@"OKWebBrowser", ^{
             NSString *urlString = @"http://google.com";
             return @{@"handler":  webBrowser,
                      @"urlString": urlString,
-                     @"maxApps": @2,
+                     @"maxApps": @3,
                      @"subjectAction": [^{
                          return [webBrowser openURL:[NSURL URLWithString:urlString]];
                      } copy]};
@@ -45,7 +45,7 @@ describe(@"OKWebBrowser", ^{
             NSString *urlString = @"http://google.com";
             return @{@"handler":  webBrowser,
                      @"urlString": urlString,
-                     @"maxApps": @2,
+                     @"maxApps": @3,
                      @"subjectAction": [^{
                          return [webBrowser openURL:[NSURL URLWithString:urlString]];
                      } copy]};
