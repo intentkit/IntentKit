@@ -53,3 +53,7 @@ Web sites are fairly simple; for a more instructive example, here is how to get 
     [mapsHandler directionsFrom:@"Washington Square Park" to:@"Lincoln Center"];
 
 `center` and `zoom` are both optional and may be omitted.
+
+License
+-------
+MIT.
