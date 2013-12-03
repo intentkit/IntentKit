@@ -58,7 +58,18 @@
 }
 
 - (UIImage *)_activityImage {
-    return [UIImage imageNamed:self.name];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"MWOpenInKit" withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle  = [NSBundle bundleWithURL:bundleURL];
+    }
+
+    NSString *filename = self.name;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        filename = [filename stringByAppendingString:@"-iPad"];
+    }
+    filename = [bundle pathForResource:filename ofType:@"png"];
+    return [UIImage imageWithContentsOfFile:filename];
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {

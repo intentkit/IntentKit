@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0CF5A10985834057A27A1551 /* libPods-MWOpenInKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19E678BCBB9409FBE1FDD1D /* libPods-MWOpenInKitTests.a */; };
-		A60493B5184D40140061B614 /* Maps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60493B4184D40140061B614 /* Maps.xcassets */; };
-		A60493B6184D40160061B614 /* Maps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60493B4184D40140061B614 /* Maps.xcassets */; };
-		A60493B8184D40220061B614 /* Web Browsers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60493B7184D40220061B614 /* Web Browsers.xcassets */; };
-		A60493B9184D40220061B614 /* Web Browsers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60493B7184D40220061B614 /* Web Browsers.xcassets */; };
 		A6B73C67184D341E0055C60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C66184D341E0055C60D /* Foundation.framework */; };
 		A6B73C69184D341E0055C60D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C68184D341E0055C60D /* CoreGraphics.framework */; };
 		A6B73C6B184D341E0055C60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C6A184D341E0055C60D /* UIKit.framework */; };
@@ -57,8 +53,6 @@
 
 /* Begin PBXFileReference section */
 		79A767499BC64DE9810CBD73 /* Pods-OpenInKitDemoTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenInKitDemoTests.xcconfig"; path = "Pods/Pods-OpenInKitDemoTests.xcconfig"; sourceTree = "<group>"; };
-		A60493B4184D40140061B614 /* Maps.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Maps.xcassets; path = MWOpenInKit/Maps/Maps.xcassets; sourceTree = "<group>"; };
-		A60493B7184D40220061B614 /* Web Browsers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Web Browsers.xcassets"; path = "MWOpenInKit/Web Browsers/Web Browsers.xcassets"; sourceTree = "<group>"; };
 		A6B73C63184D341E0055C60D /* MWOpenInKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWOpenInKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C66184D341E0055C60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6B73C68184D341E0055C60D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,7 +76,7 @@
 		A6B73D06184D387D0055C60D /* MWBrowserHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MWBrowserHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A6B73D07184D387D0055C60D /* MWBrowserHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWBrowserHandler.m; sourceTree = "<group>"; };
 		A6B73D08184D387D0055C60D /* MWHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MWHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A6B73D09184D387D0055C60D /* MWHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MWHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A6B73D09184D387D0055C60D /* MWHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MWHandler.m; sourceTree = "<group>"; };
 		A6B73D0A184D387D0055C60D /* MWMapsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MWMapsHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A6B73D0B184D387D0055C60D /* MWMapsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MWMapsHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6B73D0D184D387D0055C60D /* NSString+FormatWithArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FormatWithArray.h"; sourceTree = "<group>"; };
@@ -124,8 +118,6 @@
 		A6B73C5A184D341E0055C60D = {
 			isa = PBXGroup;
 			children = (
-				A60493B4184D40140061B614 /* Maps.xcassets */,
-				A60493B7184D40220061B614 /* Web Browsers.xcassets */,
 				A6B73D03184D38720055C60D /* MWOpenInKit */,
 				A6B73CEF184D38650055C60D /* MWOpenInKitTests */,
 				A6B73CDB184D38450055C60D /* MWOpenInKitDemo */,
@@ -303,8 +295,6 @@
 			files = (
 				A6B73D34184D38910055C60D /* Maps in Resources */,
 				A6B73D39184D38A90055C60D /* Images.xcassets in Resources */,
-				A60493B8184D40220061B614 /* Web Browsers.xcassets in Resources */,
-				A60493B5184D40140061B614 /* Maps.xcassets in Resources */,
 				A6B73D36184D38910055C60D /* Web Browsers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,8 +305,6 @@
 			files = (
 				A6B73D35184D38910055C60D /* Maps in Resources */,
 				A6B73D37184D38910055C60D /* Web Browsers in Resources */,
-				A60493B9184D40220061B614 /* Web Browsers.xcassets in Resources */,
-				A60493B6184D40160061B614 /* Maps.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
