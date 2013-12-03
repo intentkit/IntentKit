@@ -40,8 +40,15 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
 - (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args {
     NSMutableArray *availableApps = [NSMutableArray array];
-    NSArray *appPaths = [NSBundle.mainBundle pathsForResourcesOfType:@".plist"
-                                                         inDirectory:self.class.directoryName];
+
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"MWOpenInKit" withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle = [NSBundle bundleWithURL:bundleURL];
+    }
+
+    NSArray *appPaths = [bundle pathsForResourcesOfType:@".plist"
+                                                         inDirectory:@"."];
     for (NSString *path in appPaths) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
         NSString *name = [[[[path componentsSeparatedByString:@"/"] lastObject]
