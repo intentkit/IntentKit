@@ -41,7 +41,6 @@ describe(@"MWActivity", ^{
         activity = [[MWActivity alloc] initWithDictionary:dict
                                                      name:@"Chrome"
                                               application:app];
-
     });
 
     describe(@"activityTitle", ^{
