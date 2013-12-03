@@ -58,7 +58,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
                                                                  name: name
                                                           application:self.application];
 
-        if ([activity isAvailableForCommand:command arguments:args]) {
+        if ([activity canPerformCommand:command withArguments:args]) {
             [availableApps addObject:activity];
         }
     }

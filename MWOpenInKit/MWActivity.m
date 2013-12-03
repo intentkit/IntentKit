@@ -32,7 +32,7 @@
     return self;
 }
 
-- (BOOL)isAvailableForCommand:(NSString *)command arguments:(NSDictionary *)args {
+- (BOOL)canPerformCommand:(NSString *)command withArguments:(NSDictionary *)args {
     if (!self.dict[command]) { return NO; }
 
     NSString *urlString = self.dict[command];

@@ -12,7 +12,7 @@
  
  Typically, the dictionary of accepted URL schemes and the name of the application should come from the contents of a plist file and its filename, respetively. In practice, you shouldn't need to manually initialize an `MWActivity` outside of the `MWHandler` class.
  
- @warning `MWActivity`'s implementation of the `UIActivity` method `canPerformWithActivityItems:` always returns `YES`. It is your responsibility to ensure that an MWActivity can actually respond to a URL (using `isAvailableForCommand:arguments:`) before adding it to a `UIActivityViewController`
+ @warning `MWActivity`'s implementation of the `UIActivity` method `canPerformWithActivityItems:` always returns `YES`. It is your responsibility to ensure that an MWActivity can actually respond to a URL (using `canPerformCommand:withArguments:`) before adding it to a `UIActivityViewController`
  
  @warning `MWActivity` currently makes use of the private method `_activityImage` to coax the `UIActivityViewController` into displaying a full-color image rather than creating a black-and-white representation using the `UIImage` returned by `activityImage` as a mask. It remains to be seen whether Apple will allow this private API usage or not. */
 @interface MWActivity : UIActivity
@@ -40,6 +40,6 @@
  @param args A dictionary of arguments whose keys correspond to templating variable names in the activity's `dict` value for the given command.
  
  @return YES if the third-party app responds to a custom URL scheme to perform the corresponding command.*/
-- (BOOL)isAvailableForCommand:(NSString *)command arguments:(NSDictionary *)args;
+- (BOOL)canPerformCommand:(NSString *)command withArguments:(NSDictionary *)args;
 
 @end
