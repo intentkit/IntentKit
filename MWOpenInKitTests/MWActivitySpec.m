@@ -54,7 +54,6 @@ describe(@"MWActivity", ^{
     describe(@"activityImage", ^{
         it(@"should be the correct image", ^{
             expect(activity._activityImage).notTo.beNil();
-            expect(activity._activityImage).to.equal([UIImage imageNamed:@"Chrome"]);
         });
     });
 
