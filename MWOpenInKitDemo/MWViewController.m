@@ -7,8 +7,7 @@
 //
 
 #import "MWViewController.h"
-#import "MWBrowserHandler.h"
-#import "MWMapsHandler.h"
+#import <MWOpenInKit/MWOpenInKit.h>
 
 @interface MWViewController ()
 
