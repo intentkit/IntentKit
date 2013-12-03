@@ -21,6 +21,11 @@ NSString *(^urlEncode)(NSString *);
  - All custom methods you create that perform actions should ultimately return a UIActivityController created by calling performCommand:withArguments:. */
 @interface MWHandler : NSObject
 
+/** By default, if there is only one valid application, a `MWHandler` will automatically open that app instead of showing a `UIActivityViewController`. Setting this to `YES` overrides that behavior and always shows an activity view. 
+ 
+ This is mostly useful for demo purposes (e.g. running in the simulator). */
+@property (nonatomic, assign) BOOL alwaysShowActivityView;
+
 /** This method is a no-op by default. You should override it in your custom subclass.
     @return A NSString with the name of a directory inside the resource path where all of the subclass's resources may be found. */
 + (NSString *)directoryName;

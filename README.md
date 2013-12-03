@@ -20,6 +20,19 @@ Installation
 ------------
 MWOpenInKit is easiest to set up using CocoaPods. But not yet.
 
+Example Project
+---------------
+A demo app has been provided so you can see MWOpenInKit in action.
+
+1. Clone this repo
+2. Run `pod install` to fetch dependencies
+3. Open `MWOpenInKitDemo.xcworkspace`
+4. Build and run the app
+
+The demo lets you perform any of the actions supported by MWOpenInKit.
+
+If you only have one app installed capable of performing a task, MWOpenInKit will by default open up that app directly rather than prompt the user to pick. In the demo app, there is a toggle to always show the selection UI. It's recommended that you run the demo on an actual iOS device that has third-party apps installed, but if you must run it in the simulator that toggle will let you see what the selection UI looks like.
+
 
 Usage
 -----

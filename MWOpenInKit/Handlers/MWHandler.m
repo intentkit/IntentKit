@@ -58,7 +58,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
     NSArray *activityItems = @[command, args];
 
-    if (availableApps.count == 1) {
+    if (availableApps.count == 1 && !self.alwaysShowActivityView) {
         [availableApps[0] prepareWithActivityItems:activityItems];
         [availableApps[0] performActivity];
         return nil;
