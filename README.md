@@ -20,7 +20,7 @@ MWOpenInKit attempts to solve this problem.
 
 - An elegant, cohesive API based on semantic actions. Instead of manually constructing URLs, just tell it what you're trying to do. Instead of manually checking which applications a user has installed, let MWOpenInKit automatically query the device for you to figure out what applications are available to perform a given action.
 
-- A unified, human-readable repository of third-party URL schemes. Every application's URL scheme is just a plaintext property list (.plist) file. You can add support for your application to MWOpenInKit without writing a single line of code.
+- A unified, human-readable repository of third-party URL schemes. Every application's URL scheme is just a plaintext plist. You can add support for your application to MWOpenInKit without writing a single line of code.
 
 
 Installation
@@ -89,6 +89,28 @@ A demo app has been provided so you can see MWOpenInKit in action.
 The demo lets you perform any of the actions supported by MWOpenInKit.
 
 If you only have one app installed capable of performing a task, MWOpenInKit will by default open up that app directly rather than prompt the user to pick. In the demo app, there is a toggle to always show the selection UI. It's recommended that you run the demo on an actual iOS device that has third-party apps installed, but if you must run it in the simulator that toggle will let you see what the selection UI looks like.
+
+
+Adding new URL Schemes
+----------------------
+Extending MWOpenInKit to include your own application's URL scheme is easy.
+
+1. Create a new .plist file inside the appropriate directory inside the `MWOpenInKit/` folder. For example, the `Web Browsers` folder contains (surprise) plists for web browser applications. The name of the plist is the name that will be displayed.
+
+2. The plist should contain a dictionary. Each key is the signature of a method in the appropriate `MWHandler` object, and the key is a template string used to generate a URL for that method, where variables wrapped in `{handlebars}` will be interpolated at runtime. For now, I'd recommend looking at other plist files in the directory to see what the correct method keys and template keys are.
+
+3. Your app's icon goes in the `icons` folder in the same directory. You will need four copies of the icon, all with the same root name as your plist file:
+
+- `AppName.png`: 60x60
+- `AppName@2x.png`: 120x120
+- `AppName-iPhone.png`: 76x76
+- `AppName-iPad@2x.png`: 152x152
+
+These will all be shown as-is, so they should be prerendered.
+
+4. Submit a pull request! There is no need to manually add any of the files to Xcode.
+
+Make sure to try it out first using the demo app to make sure that it works. If this project becomes sufficiently popular, it is likely I'll build a linting tool.
 
 
 Contact
