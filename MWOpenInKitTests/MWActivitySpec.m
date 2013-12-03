@@ -30,7 +30,12 @@ describe(@"MWActivity", ^{
     beforeEach(^{
         app = mock([UIApplication class]);
 
-        NSString *path = [NSBundle.mainBundle pathForResource:@"Chrome" ofType:@"plist" inDirectory:@"Web Browsers"];
+        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"MWOpenInKit" withExtension:@"bundle"];
+        NSBundle *bundle;
+        if (bundleURL) {
+            bundle = [NSBundle bundleWithURL:bundleURL];
+        }
+        NSString *path = [bundle pathForResource:@"Chrome" ofType:@"plist"];
         dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
         activity = [[MWActivity alloc] initWithDictionary:dict
