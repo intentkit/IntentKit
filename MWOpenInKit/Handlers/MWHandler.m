@@ -48,11 +48,10 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     }
 
     NSArray *appPaths = [bundle pathsForResourcesOfType:@".plist"
-                                                         inDirectory:@"."];
+                                                         inDirectory:nil];
     for (NSString *path in appPaths) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-        NSString *name = [[[[path componentsSeparatedByString:@"/"] lastObject]
-                           componentsSeparatedByString:@"."] firstObject];
+        NSString *name = [path.pathComponents.lastObject stringByDeletingPathExtension];
 
         MWActivity *activity = [[MWActivity alloc] initWithDictionary:dict
                                                                  name: name
