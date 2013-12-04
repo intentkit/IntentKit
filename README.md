@@ -25,15 +25,12 @@ MWOpenInKit attempts to solve this problem.
 
 Installation
 ------------
-MWOpenInKit is easy to install using [CocoaPods](http://cocoapods.org). Just add the following to your Podfile.
+MWOpenInKit is easiest to install using [CocoaPods](http://cocoapods.org). Just add the following to your Podfile.
 
     pod "MWOpenInKit"
 
 
 After running `pod install`, you should be able to `#import <MWOpenInKit/MWOpenInKit.h>` inside your application code and go to town.
-
-It's not currently possible to install MWOpenInKit without CocoaPods.
-
 
 **IMPORTANT**
 

@@ -7,7 +7,7 @@
 //
 
 #import "MWViewController.h"
-#import <MWOpenInKit/MWOpenInKit.h>
+#import "MWOpenInKit.h"
 
 @interface MWViewController ()
 
