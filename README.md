@@ -79,9 +79,8 @@ Example Project
 A demo app has been provided so you can see MWOpenInKit in action.
 
 1. Clone this repo
-2. Run `pod install` to fetch dependencies
-3. Open `MWOpenInKitDemo.xcworkspace`
-4. Build and run the app
+2. Open `MWOpenInKitDemo.xcworkspace`
+3. Build and run the app
 
 The demo lets you perform any of the actions supported by MWOpenInKit.
 
@@ -92,18 +91,20 @@ Adding new URL Schemes
 ----------------------
 Extending MWOpenInKit to include your own application's URL scheme is easy.
 
-1. Create a new .plist file inside the appropriate directory inside the `MWOpenInKit/` folder. For example, the `Web Browsers` folder contains (surprise) plists for web browser applications. The name of the plist is the name that will be displayed.
+1. Inside the `/MWOpenKit/Apps/` directory, create a new directory with the name of your app.
 
-2. The plist should contain a dictionary. Each key is the signature of a method in the appropriate `MWHandler` object, and the key is a template string used to generate a URL for that method, where variables wrapped in `{handlebars}` will be interpolated at runtime. For now, I'd recommend looking at other plist files in the directory to see what the correct method keys and template keys are.
+2. Inside that directory, create a plist. Its name should be the name you want displayed, and it should contain a dictionary. Each key is the signature of a method in the appropriate `MWHandler` object, and the key is a template string used to generate a URL for that method, where variables wrapped in `{handlebars}` will be interpolated at runtime.
 
-3. Your app's icon goes in the `icons` folder in the same directory. You will need four copies of the icon, all with the same root name as your plist file:
+As much as possible, the template variable keys are named the same as the parameter names of the corresponding Objective-C methods, but there's nothing enforcin that. I'd recommend looking at other plist files in the directory to see what the correct method keys and template keys are.
+
+3. Your app's icon goes in the same directory. You will need four copies of the icon, all with the same root name as your plist file:
 
 - `AppName.png`: 60x60
 - `AppName@2x.png`: 120x120
 - `AppName-iPhone.png`: 76x76
 - `AppName-iPad@2x.png`: 152x152
 
-These will all be shown as-is, so they should be prerendered.
+These will all be shown as-is, so they should be prerendered. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
 
 4. Submit a pull request! There is no need to manually add any of the files to Xcode.
 
