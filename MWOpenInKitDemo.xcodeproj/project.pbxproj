@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A60A033118503843009278EF /* MWActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* MWActivity.m */; };
-		A60A03361850395D009278EF /* Apps in Create Apps Resource Bundle */ = {isa = PBXBuildFile; fileRef = A60A033318503918009278EF /* Apps */; };
 		A630A924184EE4DF00918F6A /* NSString+FormatWithArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F6184EE00F002EED53 /* NSString+FormatWithArray.m */; };
+		A660DD3118513B7F00EFF0E6 /* MWOpenInKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6A16CC81851375000778944 /* MWOpenInKit.bundle */; };
 		A69DAC3E185037B40028FCD1 /* MWHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F1184EE00F002EED53 /* MWHandler.m */; };
 		A69DAC3F185037B60028FCD1 /* MWBrowserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39EF184EE00F002EED53 /* MWBrowserHandler.m */; };
 		A69DAC40185037BA0028FCD1 /* MWMapsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F3184EE00F002EED53 /* MWMapsHandler.m */; };
+		A6A16CC91851375000778944 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67F39D5184EDFE5002EED53 /* Cocoa.framework */; };
 		A6B73C67184D341E0055C60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C66184D341E0055C60D /* Foundation.framework */; };
 		A6B73C69184D341E0055C60D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C68184D341E0055C60D /* CoreGraphics.framework */; };
 		A6B73C6B184D341E0055C60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C6A184D341E0055C60D /* UIKit.framework */; };
@@ -33,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A6A16CD51851378900778944 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6B73C5B184D341E0055C60D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6A16CC71851375000778944;
+			remoteInfo = MWOpenInKit;
+		};
 		A6B73C83184D341E0055C60D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A6B73C5B184D341E0055C60D /* Project object */;
@@ -42,24 +50,11 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		A60A033518503944009278EF /* Create Apps Resource Bundle */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = MWOpenInKit.bundle;
-			dstSubfolderSpec = 7;
-			files = (
-				A60A03361850395D009278EF /* Apps in Create Apps Resource Bundle */,
-			);
-			name = "Create Apps Resource Bundle";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB1A92AD90442B2ADE581B1 /* Pods-MWOpenInKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWOpenInKitTests.xcconfig"; path = "Pods/Pods-MWOpenInKitTests.xcconfig"; sourceTree = "<group>"; };
-		A60A033318503918009278EF /* Apps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Apps; sourceTree = "<group>"; };
+		A6474F7618513C5600671B42 /* MWOpenInKitBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MWOpenInKitBundle-Info.plist"; path = "MWOpenInKit/Apps/MWOpenInKitBundle-Info.plist"; sourceTree = "<group>"; };
+		A660DD2F18513A9500EFF0E6 /* Apps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Apps; sourceTree = "<group>"; };
 		A67F39D5184EDFE5002EED53 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		A67F39D8184EDFE5002EED53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A67F39D9184EDFE5002EED53 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -78,6 +73,10 @@
 		A67F39F3184EE00F002EED53 /* MWMapsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWMapsHandler.m; sourceTree = "<group>"; };
 		A67F39F5184EE00F002EED53 /* NSString+FormatWithArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FormatWithArray.h"; sourceTree = "<group>"; };
 		A67F39F6184EE00F002EED53 /* NSString+FormatWithArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FormatWithArray.m"; sourceTree = "<group>"; };
+		A6A16CB51851355E00778944 /* MWOpenInKitDerpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MWOpenInKitDerpTests-Info.plist"; sourceTree = "<group>"; };
+		A6A16CB71851355E00778944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A6A16CB91851355E00778944 /* MWOpenInKitDerpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWOpenInKitDerpTests.m; sourceTree = "<group>"; };
+		A6A16CC81851375000778944 /* MWOpenInKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MWOpenInKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C63184D341E0055C60D /* MWOpenInKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWOpenInKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C66184D341E0055C60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6B73C68184D341E0055C60D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +102,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A6A16CC51851375000778944 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A16CC91851375000778944 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6B73C60184D341E0055C60D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,7 +147,7 @@
 		A67F39DB184EDFE5002EED53 /* MWOpenInKit */ = {
 			isa = PBXGroup;
 			children = (
-				A60A033318503918009278EF /* Apps */,
+				A660DD2F18513A9500EFF0E6 /* Apps */,
 				A67F39ED184EE00F002EED53 /* Handlers */,
 				A67F39F4184EE00F002EED53 /* Helpers */,
 				A67F39E7184EDFFF002EED53 /* MWActivity.h */,
@@ -183,12 +190,32 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		A6A16CB31851355E00778944 /* MWOpenInKitDerpTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6A16CB91851355E00778944 /* MWOpenInKitDerpTests.m */,
+				A6A16CB41851355E00778944 /* Supporting Files */,
+			);
+			path = MWOpenInKitDerpTests;
+			sourceTree = "<group>";
+		};
+		A6A16CB41851355E00778944 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6A16CB51851355E00778944 /* MWOpenInKitDerpTests-Info.plist */,
+				A6A16CB61851355E00778944 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A6B73C5A184D341E0055C60D = {
 			isa = PBXGroup;
 			children = (
+				A6474F7618513C5600671B42 /* MWOpenInKitBundle-Info.plist */,
 				A6B73CEF184D38650055C60D /* MWOpenInKitTests */,
 				A6B73CDB184D38450055C60D /* MWOpenInKitDemo */,
 				A67F39DB184EDFE5002EED53 /* MWOpenInKit */,
+				A6A16CB31851355E00778944 /* MWOpenInKitDerpTests */,
 				A6B73C65184D341E0055C60D /* Frameworks */,
 				A6B73C64184D341E0055C60D /* Products */,
 				7CB1A92AD90442B2ADE581B1 /* Pods-MWOpenInKitTests.xcconfig */,
@@ -200,6 +227,7 @@
 			children = (
 				A6B73C63184D341E0055C60D /* MWOpenInKitDemo.app */,
 				A6B73C7E184D341E0055C60D /* MWOpenInKitDemoTests.xctest */,
+				A6A16CC81851375000778944 /* MWOpenInKit.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,6 +279,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A6A16CC71851375000778944 /* MWOpenInKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6A16CD11851375000778944 /* Build configuration list for PBXNativeTarget "MWOpenInKit" */;
+			buildPhases = (
+				A6A16CC41851375000778944 /* Sources */,
+				A6A16CC51851375000778944 /* Frameworks */,
+				A660DD2C185138E800EFF0E6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MWOpenInKit;
+			productName = MWOpenInKitBundle;
+			productReference = A6A16CC81851375000778944 /* MWOpenInKit.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		A6B73C62184D341E0055C60D /* MWOpenInKitDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6B73C8F184D341E0055C60D /* Build configuration list for PBXNativeTarget "MWOpenInKitDemo" */;
@@ -258,11 +303,11 @@
 				A6B73C5F184D341E0055C60D /* Sources */,
 				A6B73C61184D341E0055C60D /* Resources */,
 				A6B73C60184D341E0055C60D /* Frameworks */,
-				A60A033518503944009278EF /* Create Apps Resource Bundle */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A6A16CD61851378900778944 /* PBXTargetDependency */,
 			);
 			name = MWOpenInKitDemo;
 			productName = OpenInKitDemo;
@@ -318,6 +363,7 @@
 			targets = (
 				A6B73C62184D341E0055C60D /* MWOpenInKitDemo */,
 				A6B73C7D184D341E0055C60D /* MWOpenInKitTests */,
+				A6A16CC71851375000778944 /* MWOpenInKit */,
 			);
 		};
 /* End PBXProject section */
@@ -327,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A660DD3118513B7F00EFF0E6 /* MWOpenInKit.bundle in Resources */,
 				A6B73D39184D38A90055C60D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +403,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-MWOpenInKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A660DD2C185138E800EFF0E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "find -L ${SRCROOT}/MWOpenInKit/Apps \\\n-type f -not -name \".*\" \\\n| xargs -t -I {} \\\ncp {} ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/";
+		};
 		BB3370C53A97476F89F3441C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -374,6 +434,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A6A16CC41851375000778944 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6B73C5F184D341E0055C60D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +472,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A6A16CD61851378900778944 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6A16CC71851375000778944 /* MWOpenInKit */;
+			targetProxy = A6A16CD51851378900778944 /* PBXContainerItemProxy */;
+		};
 		A6B73C84184D341E0055C60D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A6B73C62184D341E0055C60D /* MWOpenInKitDemo */;
@@ -417,6 +489,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				A67F39DF184EDFE5002EED53 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A6A16CB61851355E00778944 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6A16CB71851355E00778944 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -440,6 +520,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A6A16CD21851375000778944 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MWOpenInKitBundle/MWOpenInKitBundle-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MWOpenInKit/Apps/MWOpenInKitBundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A6A16CD31851375000778944 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MWOpenInKitBundle/MWOpenInKitBundle-Prefix.pch";
+				INFOPLIST_FILE = "MWOpenInKit/Apps/MWOpenInKitBundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		A6B73C8D184D341E0055C60D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -589,6 +714,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A6A16CD11851375000778944 /* Build configuration list for PBXNativeTarget "MWOpenInKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6A16CD21851375000778944 /* Debug */,
+				A6A16CD31851375000778944 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A6B73C5E184D341E0055C60D /* Build configuration list for PBXProject "MWOpenInKitDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

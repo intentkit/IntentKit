@@ -38,6 +38,16 @@
                ReferencedContainer = "container:MWOpenInKitDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A6A16CAC1851355E00778944"
+               BuildableName = "MWOpenInKitDerpTests.xctest"
+               BlueprintName = "MWOpenInKitDerpTests"
+               ReferencedContainer = "container:MWOpenInKitDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
