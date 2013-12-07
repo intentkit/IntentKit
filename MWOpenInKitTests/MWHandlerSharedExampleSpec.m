@@ -72,4 +72,30 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     });
 });
 
+sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
+    __block MWHandler *handler;
+    __block NSString *urlStringWithoutParam;
+    __block NSString *urlStringWithParam;
+    __block UIActivityViewController *(^subjectAction)(void);
+
+    beforeEach(^{
+        handler.application = mock([UIApplication class]);
+
+        handler = data[@"handler"];
+        urlStringWithoutParam = data[@"urlStringWithoutParam"];
+        urlStringWithParam = data[@"urlStringWithParam"];
+        subjectAction = data[@"subjectAction"];
+    });
+
+    context(@"when only one application is available", ^{
+        it(@"should open in that application", ^{
+            [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithoutParam]]) willReturnBool:YES];
+
+            subjectAction();
+
+            [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlStringWithParam]];
+        });
+    });
+});
+
 SharedExamplesEnd

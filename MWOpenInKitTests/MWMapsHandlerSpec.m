@@ -32,31 +32,27 @@ describe(@"MWMapsHandler", ^{
     });
 
     describe(@"passing along optional variables", ^{
-        context(@"when the center is set", ^{
-            it(@"should pass along the center", ^{
-                NSString *appleStringWithCenter = @"http://maps.apple.com/?q=Roberto%27s&ll=32.715000,-117.162500";
-                NSString *appleStringWithoutCenter = @"http://maps.apple.com/?q=Roberto%27s";
-
-                mapsHandler.center = CLLocationCoordinate2DMake(32.715, -117.1625);
-
-                [given([mapsHandler.application canOpenURL:[NSURL URLWithString:appleStringWithoutCenter]]) willReturnBool:YES];
-
-                [mapsHandler searchForLocation:@"Roberto's"];
-                [(UIApplication *)verify(mapsHandler.application) openURL:[NSURL URLWithString:appleStringWithCenter]];
+        context(@"the map center", ^{
+            itShouldBehaveLike(@"an optional handler property", ^{
+                return @{@"handler":  mapsHandler,
+                         @"urlStringWithoutParam": @"http://maps.apple.com/?q=Roberto%27s",
+                         @"urlStringWithParam": @"http://maps.apple.com/?q=Roberto%27s&ll=32.715000,-117.162500",
+                         @"subjectAction": [^{
+                             mapsHandler.center = CLLocationCoordinate2DMake(32.715, -117.1625);
+                             return [mapsHandler searchForLocation:@"Roberto's"];
+                         } copy]};
             });
         });
 
-        context(@"when the zoom is set", ^{
-            it(@"should pass along the zoom", ^{
-                NSString *appleStringWithZoom = @"http://maps.apple.com/?q=Roberto%27s&z=5";
-                NSString *appleStringWithoutZoom = @"http://maps.apple.com/?q=Roberto%27s";
-
-                mapsHandler.zoom = 5;
-
-                [given([mapsHandler.application canOpenURL:[NSURL URLWithString:appleStringWithoutZoom]]) willReturnBool:YES];
-
-                [mapsHandler searchForLocation:@"Roberto's"];
-                [(UIApplication *)verify(mapsHandler.application) openURL:[NSURL URLWithString:appleStringWithZoom]];
+        context(@"the map zoon", ^{
+            itShouldBehaveLike(@"an optional handler property", ^{
+                return @{@"handler":  mapsHandler,
+                         @"urlStringWithoutParam": @"http://maps.apple.com/?q=Roberto%27s",
+                         @"urlStringWithParam": @"http://maps.apple.com/?q=Roberto%27s&z=5",
+                         @"subjectAction": [^{
+                             mapsHandler.zoom = 5;
+                             [mapsHandler searchForLocation:@"Roberto's"];
+                         } copy]};
             });
         });
     });
