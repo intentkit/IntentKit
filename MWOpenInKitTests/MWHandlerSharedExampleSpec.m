@@ -87,14 +87,12 @@ sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
         subjectAction = data[@"subjectAction"];
     });
 
-    context(@"when only one application is available", ^{
-        it(@"should open in that application", ^{
-            [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithoutParam]]) willReturnBool:YES];
+    it(@"should include the given param", ^{
+        [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithoutParam]]) willReturnBool:YES];
 
-            subjectAction();
+        subjectAction();
 
-            [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlStringWithParam]];
-        });
+        [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlStringWithParam]];
     });
 });
 

@@ -36,6 +36,32 @@ describe(@"MWTwitterHandler", ^{
         handler.application = mock([UIApplication class]);
     });
 
+    describe(@"passing along optional variables", ^{
+        context(@"callback URL", ^{
+            itShouldBehaveLike(@"an optional handler property", ^{
+                return @{@"handler":  handler,
+                         @"urlStringWithoutParam": @"tweetbot:///user_profile/ev",
+                         @"urlStringWithParam": @"tweetbot:///user_profile/ev?callback_url=http%3A%2F%2Fgoogle.com",
+                         @"subjectAction": [^{
+                             handler.callbackURL = [NSURL URLWithString:@"http://google.com"];
+                             return [handler showUserWithScreenName:@"ev"];
+                         } copy]};
+            });
+        });
+
+        context(@"screen name", ^{
+            itShouldBehaveLike(@"an optional handler property", ^{
+                return @{@"handler":  handler,
+                         @"urlStringWithoutParam": @"tweetbot://xxMyLittlePony42xx/timeline",
+                         @"urlStringWithParam": @"tweetbot://xxMyLittlePony42xx/timeline",
+                         @"subjectAction": [^{
+                             handler.activeUser = @"xxMyLittlePony42xx";
+                             return [handler showTimeline];
+                         } copy]};
+            });
+        });
+    });
+
     describe(@"Tweet by id", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,

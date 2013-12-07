@@ -5,47 +5,47 @@
 	<key>optional</key>
 	<dict>
 		<key>callbackURL</key>
-		<string>&amp;callback_url={callbackURL}</string>
+		<string>?callback_url={callbackURL}</string>
 	</dict>
 	<key>showTweetWithId:</key>
-	<string>tweetbot://{screenName}/status/{tweetId}</string>
+	<string>tweetbot://{activeUser}/status/{tweetId}</string>
 	<key>showUserWithScreenName:</key>
-	<string>tweetbot://{screenName}/user_profile/{screenName}</string>
+	<string>tweetbot://{activeUser}/user_profile/{screenName}</string>
 	<key>showUserWithId:</key>
-	<string>tweetbot://{screenName}/user_profile/{userId}</string>
+	<string>tweetbot://{activeUser}/user_profile/{userId}</string>
 	<key>showTimeline</key>
-	<string>tweetbot://{screenName}/timeline</string>
+	<string>tweetbot://{activeUser}/timeline</string>
 	<key>showMentions</key>
-	<string>tweetbot://{screenName}/mentions</string>
+	<string>tweetbot://{activeUser}/mentions</string>
 	<key>showDirectMessages</key>
-	<string>tweetbot://{screenName}/direct_messages</string>
+	<string>tweetbot://{activeUser}/direct_messages</string>
 	<key>showRetweets</key>
-	<string>tweetbot://{screenName}/retweets</string>
+	<string>tweetbot://{activeUser}/retweets</string>
 	<key>showLists</key>
-	<string>tweetbot://{screenName}/lists</string>
+	<string>tweetbot://{activeUser}/lists</string>
 	<key>showListWithId:</key>
-	<string>tweetbot://{screenName}/list/{listId}</string>
+	<string>tweetbot://{activeUser}/list/{listId}</string>
 	<key>showFavorites</key>
-	<string>tweetbot://{screenName}/favorites</string>
+	<string>tweetbot://{activeUser}/favorites</string>
 	<key>searchFor:</key>
-	<string>tweetbot://{screenName}/search?query={query}</string>
+	<string>tweetbot://{activeUser}/search?query={query}</string>
 	<key>search</key>
-	<string>tweetbot://{screenName}/search</string>
+	<string>tweetbot://{activeUser}/search</string>
 	<key>tweet</key>
-	<string>tweetbot://{screenName}/post</string>
+	<string>tweetbot://{activeUser}/post</string>
 	<key>tweetMessage:</key>
-	<string>tweetbot://{screenName}/post?text={message}</string>
+	<string>tweetbot://{activeUser}/post?text={message}</string>
 	<key>tweetMessage:inReplyTo:</key>
-	<string>tweetbot://{screenName}/post?text={message}&amp;in_reply_to_status_id={replyId}</string>
+	<string>tweetbot://{activeUser}/post?text={message}&amp;in_reply_to_status_id={replyId}</string>
 	<key>followUser:</key>
-	<string>tweetbot://{screenName}/follow/{user}</string>
+	<string>tweetbot://{activeUser}/follow/{user}</string>
 	<key>unfollowUser:</key>
-	<string>tweetbot://{screenName}/unfollow/{user}</string>
+	<string>tweetbot://{activeUser}/unfollow/{user}</string>
 	<key>favoriteTweetWithId:</key>
-	<string>tweetbot://{screenName}/favorite/{tweetId}</string>
+	<string>tweetbot://{activeUser}/favorite/{tweetId}</string>
 	<key>unfavoriteTweetWithId:</key>
-	<string>tweetbot://{screenName}/unfavorite/{tweetId}</string>
+	<string>tweetbot://{activeUser}/unfavorite/{tweetId}</string>
 	<key>retweetTweetWithId:</key>
-	<string>tweetbot://{screenName}/retweet/{tweetId}</string>
+	<string>tweetbot://{activeUser}/retweet/{tweetId}</string>
 </dict>
 </plist>

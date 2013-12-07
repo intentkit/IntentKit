@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSURL *callbackURL;
 
 /** For Twitter clients that support multiple accounts, specifies the screen name of the account that should be used. */
-@property (strong, nonatomic) NSURL *screenName;
+@property (strong, nonatomic) NSString *activeUser;
 
 /** Shows a specific single tweet
  @param tweetId The id of a status update

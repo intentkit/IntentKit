@@ -75,15 +75,15 @@
     NSMutableDictionary *newArgs = [args mutableCopy];
 
     if (self.callbackURL) {
-        newArgs[@"callbackURL"] = self.callbackURL;
+        newArgs[@"callbackURL"] = urlEncode(self.callbackURL.absoluteString);
     }
 
-    if (self.screenName) {
-        newArgs[@"screenName"] = self.callbackURL;
+    if (self.activeUser) {
+        newArgs[@"activeUser"] = self.activeUser;
     }
 
-    if (!newArgs[@"screenName"]) {
-        newArgs[@"screenName"] = @"";
+    if (!newArgs[@"activeUser"]) {
+        newArgs[@"activeUser"] = @"";
     }
 
     return [newArgs copy];
