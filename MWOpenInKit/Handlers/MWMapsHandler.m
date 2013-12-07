@@ -30,7 +30,7 @@
     return self;
 }
 
-- (UIActivityViewController *)searchFor:(NSString *)query {
+- (UIActivityViewController *)searchForLocation:(NSString *)query {
     NSString *command = NSStringFromSelector(_cmd);
     NSDictionary *args = [self argsDictionaryWithDictionary: @{@"query": urlEncode(query)}];
 

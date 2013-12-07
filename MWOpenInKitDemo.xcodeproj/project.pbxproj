@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A60A033118503843009278EF /* MWActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* MWActivity.m */; };
 		A630A924184EE4DF00918F6A /* NSString+FormatWithArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F6184EE00F002EED53 /* NSString+FormatWithArray.m */; };
+		A6474F7A185140E400671B42 /* MWHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F1184EE00F002EED53 /* MWHandler.m */; };
+		A6474F7D1851416F00671B42 /* MWTwitterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A6474F7C1851416F00671B42 /* MWTwitterHandler.m */; };
+		A6474F7F1851418500671B42 /* MWTwitterHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6474F7E1851418500671B42 /* MWTwitterHandlerSpec.m */; };
 		A660DD3118513B7F00EFF0E6 /* MWOpenInKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6A16CC81851375000778944 /* MWOpenInKit.bundle */; };
 		A69DAC3E185037B40028FCD1 /* MWHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F1184EE00F002EED53 /* MWHandler.m */; };
 		A69DAC3F185037B60028FCD1 /* MWBrowserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39EF184EE00F002EED53 /* MWBrowserHandler.m */; };
@@ -53,7 +56,10 @@
 /* Begin PBXFileReference section */
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB1A92AD90442B2ADE581B1 /* Pods-MWOpenInKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWOpenInKitTests.xcconfig"; path = "Pods/Pods-MWOpenInKitTests.xcconfig"; sourceTree = "<group>"; };
-		A6474F7618513C5600671B42 /* MWOpenInKitBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MWOpenInKitBundle-Info.plist"; path = "MWOpenInKit/Apps/MWOpenInKitBundle-Info.plist"; sourceTree = "<group>"; };
+		A6474F7618513C5600671B42 /* MWOpenInKitBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MWOpenInKitBundle-Info.plist"; path = "MWOpenInKit/Apps/MWOpenInKitBundle-Info.plist"; sourceTree = "<group>"; };
+		A6474F7B1851416F00671B42 /* MWTwitterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTwitterHandler.h; sourceTree = "<group>"; };
+		A6474F7C1851416F00671B42 /* MWTwitterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTwitterHandler.m; sourceTree = "<group>"; };
+		A6474F7E1851418500671B42 /* MWTwitterHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTwitterHandlerSpec.m; sourceTree = "<group>"; };
 		A660DD2F18513A9500EFF0E6 /* Apps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Apps; sourceTree = "<group>"; };
 		A67F39D5184EDFE5002EED53 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		A67F39D8184EDFE5002EED53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,9 +79,6 @@
 		A67F39F3184EE00F002EED53 /* MWMapsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWMapsHandler.m; sourceTree = "<group>"; };
 		A67F39F5184EE00F002EED53 /* NSString+FormatWithArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FormatWithArray.h"; sourceTree = "<group>"; };
 		A67F39F6184EE00F002EED53 /* NSString+FormatWithArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FormatWithArray.m"; sourceTree = "<group>"; };
-		A6A16CB51851355E00778944 /* MWOpenInKitDerpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MWOpenInKitDerpTests-Info.plist"; sourceTree = "<group>"; };
-		A6A16CB71851355E00778944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A6A16CB91851355E00778944 /* MWOpenInKitDerpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWOpenInKitDerpTests.m; sourceTree = "<group>"; };
 		A6A16CC81851375000778944 /* MWOpenInKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MWOpenInKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C63184D341E0055C60D /* MWOpenInKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWOpenInKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C66184D341E0055C60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +174,8 @@
 		A67F39ED184EE00F002EED53 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				A6474F7B1851416F00671B42 /* MWTwitterHandler.h */,
+				A6474F7C1851416F00671B42 /* MWTwitterHandler.m */,
 				A67F39EE184EE00F002EED53 /* MWBrowserHandler.h */,
 				A67F39EF184EE00F002EED53 /* MWBrowserHandler.m */,
 				A67F39F0184EE00F002EED53 /* MWHandler.h */,
@@ -190,24 +195,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		A6A16CB31851355E00778944 /* MWOpenInKitDerpTests */ = {
-			isa = PBXGroup;
-			children = (
-				A6A16CB91851355E00778944 /* MWOpenInKitDerpTests.m */,
-				A6A16CB41851355E00778944 /* Supporting Files */,
-			);
-			path = MWOpenInKitDerpTests;
-			sourceTree = "<group>";
-		};
-		A6A16CB41851355E00778944 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A6A16CB51851355E00778944 /* MWOpenInKitDerpTests-Info.plist */,
-				A6A16CB61851355E00778944 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		A6B73C5A184D341E0055C60D = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +202,6 @@
 				A6B73CEF184D38650055C60D /* MWOpenInKitTests */,
 				A6B73CDB184D38450055C60D /* MWOpenInKitDemo */,
 				A67F39DB184EDFE5002EED53 /* MWOpenInKit */,
-				A6A16CB31851355E00778944 /* MWOpenInKitDerpTests */,
 				A6B73C65184D341E0055C60D /* Frameworks */,
 				A6B73C64184D341E0055C60D /* Products */,
 				7CB1A92AD90442B2ADE581B1 /* Pods-MWOpenInKitTests.xcconfig */,
@@ -268,6 +254,7 @@
 			children = (
 				A6B73CF0184D38650055C60D /* InfoPlist.strings */,
 				A6B73CF2184D38650055C60D /* MWOpenInKitTests-Info.plist */,
+				A6474F7E1851418500671B42 /* MWTwitterHandlerSpec.m */,
 				A6B73CF3184D38650055C60D /* MWActivitySpec.m */,
 				A6B73CF4184D38650055C60D /* MWHandlerSharedExampleSpec.m */,
 				A6B73CF5184D38650055C60D /* MWMapsHandlerSpec.m */,
@@ -447,6 +434,7 @@
 			files = (
 				A69DAC40185037BA0028FCD1 /* MWMapsHandler.m in Sources */,
 				A630A924184EE4DF00918F6A /* NSString+FormatWithArray.m in Sources */,
+				A6474F7D1851416F00671B42 /* MWTwitterHandler.m in Sources */,
 				A60A033118503843009278EF /* MWActivity.m in Sources */,
 				A6B73CEB184D38450055C60D /* MWAppDelegate.m in Sources */,
 				A6B73CE7184D38450055C60D /* main.m in Sources */,
@@ -461,11 +449,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6B73D02184D38650055C60D /* MWWebBrowserSpec.m in Sources */,
+				A6474F7F1851418500671B42 /* MWTwitterHandlerSpec.m in Sources */,
 				A6B73CE8184D38450055C60D /* main.m in Sources */,
 				A6B73CFC184D38650055C60D /* MWActivitySpec.m in Sources */,
 				A6B73CFE184D38650055C60D /* MWHandlerSharedExampleSpec.m in Sources */,
 				A6B73D00184D38650055C60D /* MWMapsHandlerSpec.m in Sources */,
 				A6B73CEC184D38450055C60D /* MWAppDelegate.m in Sources */,
+				A6474F7A185140E400671B42 /* MWHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,14 +479,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A67F39DF184EDFE5002EED53 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A6A16CB61851355E00778944 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6A16CB71851355E00778944 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -646,7 +628,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWOpenInKitDemo/MWOpenInKitDemo-Prefix.pch";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/MWOpenInKitDemo/MWOpenInKitDemo-Info.plist";
 				PRODUCT_NAME = MWOpenInKitDemo;
 				WRAPPER_EXTENSION = app;
@@ -660,7 +642,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWOpenInKitDemo/MWOpenInKitDemo-Prefix.pch";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/MWOpenInKitDemo/MWOpenInKitDemo-Info.plist";
 				PRODUCT_NAME = MWOpenInKitDemo;
 				WRAPPER_EXTENSION = app;

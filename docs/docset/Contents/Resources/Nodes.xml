@@ -17,6 +17,7 @@
 						<NodeRef refid="4"/>
 						<NodeRef refid="5"/>
 						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
 						
 					</Subnodes>
 				</Node>
@@ -26,7 +27,7 @@
 					<Name>Categories</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
 						
 					</Subnodes>
 				</Node>
@@ -37,7 +38,7 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="8"/>
+						<NodeRef refid="9"/>
 						
 					</Subnodes>
 				</Node>
@@ -150,6 +151,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/MWHandler.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/MWHandler.html</Path>
@@ -201,12 +208,45 @@
             
         </Node>
 		<Node id="6" type="file" documentType="reference">
+            <Name>MWTwitterHandler</Name>
+            <Path>Classes/MWTwitterHandler.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/MWTwitterHandler.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/MWTwitterHandler.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/MWTwitterHandler.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Classes/MWTwitterHandler.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="7" type="file" documentType="reference">
             <Name>MWViewController</Name>
             <Path>Classes/MWViewController.html</Path>
             
         </Node>
 		
-		<Node id="7" type="file" documentType="reference">
+		<Node id="8" type="file" documentType="reference">
             <Name>NSString(FormatWithArray)</Name>
             <Path>Categories/NSString+FormatWithArray.html</Path>
             
@@ -235,7 +275,7 @@
         </Node>
 		
         
-        <Node id="8" type="file" documentType="reference">
+        <Node id="9" type="file" documentType="reference">
             <Name>MWMapsHandlerDirectionsMode</Name>
             <Path>Constants/MWMapsHandlerDirectionsMode.html</Path>
             

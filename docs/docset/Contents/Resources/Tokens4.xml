@@ -13,6 +13,42 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MWHandler/setAlwaysShowActivityView:</TokenIdentifier>
+			<Abstract type="html">By default, if there is only one valid application, a MWHandler will automatically open that app instead of showing a UIActivityViewController. Setting this to YES overrides that behavior and always shows an activity view.</Abstract>
+			<DeclaredIn>MWHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL alwaysShowActivityView</Declaration>
+			
+			
+			<Anchor>//api/name/alwaysShowActivityView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MWHandler/alwaysShowActivityView</TokenIdentifier>
+			<Abstract type="html">By default, if there is only one valid application, a MWHandler will automatically open that app instead of showing a UIActivityViewController. Setting this to YES overrides that behavior and always shows an activity view.</Abstract>
+			<DeclaredIn>MWHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL alwaysShowActivityView</Declaration>
+			
+			
+			<Anchor>//api/name/alwaysShowActivityView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MWHandler/alwaysShowActivityView</TokenIdentifier>
+			<Abstract type="html">By default, if there is only one valid application, a MWHandler will automatically open that app instead of showing a UIActivityViewController. Setting this to YES overrides that behavior and always shows an activity view.</Abstract>
+			<DeclaredIn>MWHandler.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL alwaysShowActivityView</Declaration>
+			
+			
+			<Anchor>//api/name/alwaysShowActivityView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/MWHandler/directoryName</TokenIdentifier>
 			<Abstract type="html">This method is a no-op by default. You should override it in your custom subclass.</Abstract>
 			<DeclaredIn>MWHandler.h</DeclaredIn>

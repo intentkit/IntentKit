@@ -85,11 +85,11 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWMapsHandler/searchFor:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/MWMapsHandler/searchForLocation:</TokenIdentifier>
 			<Abstract type="html">Searches for points of interest on a map</Abstract>
 			<DeclaredIn>MWMapsHandler.h</DeclaredIn>
 			
-			<Declaration>- (UIActivityViewController *)searchFor:(NSString *)query</Declaration>
+			<Declaration>- (UIActivityViewController *)searchForLocation:(NSString *)query</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>query</Name>
@@ -97,7 +97,7 @@
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/searchFor:</Anchor>
+			<Anchor>//api/name/searchForLocation:</Anchor>
             <NodeRef refid="5"/>
 		</Token>
 		

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>optional</key>
+	<dict>
+		<key>callbackURL</key>
+		<string>&amp;callback_url={callbackURL}</string>
+	</dict>
+	<key>showTweetWithId:</key>
+	<string>tweetbot://{screenName}/status/{tweetId}</string>
+	<key>showUserWithScreenName:</key>
+	<string>tweetbot://{screenName}/user_profile/{screenName}</string>
+	<key>showUserWithId:</key>
+	<string>tweetbot://{screenName}/user_profile/{userId}</string>
+	<key>showTimeline</key>
+	<string>tweetbot://{screenName}/timeline</string>
+	<key>showMentions</key>
+	<string>tweetbot://{screenName}/mentions</string>
+	<key>showDirectMessages</key>
+	<string>tweetbot://{screenName}/direct_messages</string>
+	<key>showRetweets</key>
+	<string>tweetbot://{screenName}/retweets</string>
+	<key>showLists</key>
+	<string>tweetbot://{screenName}/lists</string>
+	<key>showListWithId:</key>
+	<string>tweetbot://{screenName}/list/{listId}</string>
+	<key>showFavorites</key>
+	<string>tweetbot://{screenName}/favorites</string>
+	<key>searchFor:</key>
+	<string>tweetbot://{screenName}/search?query={query}</string>
+	<key>search</key>
+	<string>tweetbot://{screenName}/search</string>
+	<key>tweet</key>
+	<string>tweetbot://{screenName}/post</string>
+	<key>tweetMessage:</key>
+	<string>tweetbot://{screenName}/post?text={message}</string>
+	<key>tweetMessage:inReplyTo:</key>
+	<string>tweetbot://{screenName}/post?text={message}&amp;in_reply_to_status_id={replyId}</string>
+	<key>followUser:</key>
+	<string>tweetbot://{screenName}/follow/{user}</string>
+	<key>unfollowUser:</key>
+	<string>tweetbot://{screenName}/unfollow/{user}</string>
+	<key>favoriteTweetWithId:</key>
+	<string>tweetbot://{screenName}/favorite/{tweetId}</string>
+	<key>unfavoriteTweetWithId:</key>
+	<string>tweetbot://{screenName}/unfavorite/{tweetId}</string>
+	<key>retweetTweetWithId:</key>
+	<string>tweetbot://{screenName}/retweet/{tweetId}</string>
+</dict>
+</plist>

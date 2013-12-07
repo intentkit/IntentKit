@@ -11,7 +11,7 @@
 	</dict>
 	<key>directionsFrom:to:mode:</key>
 	<string>http://maps.apple.com/?saddr={from}&amp;daddr={to}</string>
-	<key>searchFor:</key>
+	<key>searchForLocation:</key>
 	<string>http://maps.apple.com/?q={query}</string>
 </dict>
 </plist>

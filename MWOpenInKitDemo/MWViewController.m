@@ -65,7 +65,7 @@
                              MWMapsHandler *handler = [[MWMapsHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
                              handler.center = CLLocationCoordinate2DMake(32.715, -117.1625); // New York City
-                             return [handler searchFor:@"Ray's Pizza"];
+                             return [handler searchForLocation:@"Ray's Pizza"];
                          }},
                        @{@"description": @"Get turn-by-turn directions",
                          @"action": (UIActivityViewController *)^{
@@ -74,6 +74,64 @@
                              handler.center = CLLocationCoordinate2DMake(32.715, -117.1625); // New York City
                              return [handler directionsFrom:@"Central Park" to:@"Radio City Music Hall"];
                          }}
+                       ]
+               },
+             @{@"name": @"MWTwitterHandler",
+               @"items": @[
+                       @{@"description": @"Show a specific tweet",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler showTweetWithId:@"28"];
+                         }},
+                       @{@"description": @"Show a user by screen name",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler showUserWithScreenName:@"Seinfeld2000"];
+                         }},
+                       @{@"description": @"Show a user by ID",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler showUserWithId:@"1081562149"];
+                         }},
+                       @{@"description": @"Show timeline",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler showTimeline];
+                         }},
+                       @{@"description": @"Show mentions",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler showMentions];
+                         }},
+                       @{@"description": @"Show DMs",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler showDirectMessages];
+                         }},
+                       @{@"description": @"Search",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler searchFor:@"#yolo"];
+                         }},
+                       @{@"description": @"Post a tweet",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler tweetMessage:@"MWOpenInKit is blowing my mind! https://github.com/lazerwalker/MWOpenInKit"];
+                         }},
+                       @{@"description": @"Reply to a tweet",
+                         @"action": (UIActivityViewController *)^{
+                             MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                             return [handler tweetMessage:@"MWOpenInKit is blowing my mind! https://github.com/lazerwalker/MWOpenInKit" inReplyTo:@"28"];
+                         }},
                        ]
                }
              ];

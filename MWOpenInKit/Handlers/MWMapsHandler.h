@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, MWMapsHandlerDirectionsMode) {
  @param query What to search for. May be lat/long coordinates, an address, or a business name/point of interest.
  
  @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)searchFor:(NSString *)query;
+- (UIActivityViewController *)searchForLocation:(NSString *)query;
 
 
 /** Brings up turn-by-turn directions between two locations

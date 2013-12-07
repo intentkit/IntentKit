@@ -41,7 +41,7 @@ describe(@"MWMapsHandler", ^{
 
                 [given([mapsHandler.application canOpenURL:[NSURL URLWithString:appleStringWithoutCenter]]) willReturnBool:YES];
 
-                [mapsHandler searchFor:@"Roberto's"];
+                [mapsHandler searchForLocation:@"Roberto's"];
                 [(UIApplication *)verify(mapsHandler.application) openURL:[NSURL URLWithString:appleStringWithCenter]];
             });
         });
@@ -55,7 +55,7 @@ describe(@"MWMapsHandler", ^{
 
                 [given([mapsHandler.application canOpenURL:[NSURL URLWithString:appleStringWithoutZoom]]) willReturnBool:YES];
 
-                [mapsHandler searchFor:@"Roberto's"];
+                [mapsHandler searchForLocation:@"Roberto's"];
                 [(UIApplication *)verify(mapsHandler.application) openURL:[NSURL URLWithString:appleStringWithZoom]];
             });
         });
@@ -67,7 +67,7 @@ describe(@"MWMapsHandler", ^{
                      @"urlString": @"http://maps.apple.com/?q=Roberto%27s",
                      @"maxApps": @2,
                      @"subjectAction": [^{
-                         return [mapsHandler searchFor:@"Roberto's"];
+                         return [mapsHandler searchForLocation:@"Roberto's"];
                      } copy]};
         });
     });

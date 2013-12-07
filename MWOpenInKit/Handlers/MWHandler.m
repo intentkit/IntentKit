@@ -39,6 +39,8 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 }
 
 - (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args {
+    if (!args) { args = @{}; }
+
     NSMutableArray *availableApps = [NSMutableArray array];
 
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"MWOpenInKit" withExtension:@"bundle"];

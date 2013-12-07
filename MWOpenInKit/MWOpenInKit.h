@@ -9,3 +9,4 @@
 #import "MWActivity.h"
 #import "MWBrowserHandler.h"
 #import "MWMapsHandler.h"
+#import "MWTwitterHandler.h"

@@ -1,4 +1,4 @@
 Documentation set was installed to Xcode!
 
 Path: /Users/michaelwalker/Library/Developer/Shared/Documentation/DocSets/com.lazerwalker.OpenInKit.docset
-Time: 2013-12-02 22:28:43 +0000
+Time: 2013-12-07 20:39:57 +0000

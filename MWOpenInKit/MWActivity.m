@@ -40,7 +40,6 @@
         NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
         urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:args[key]];
     }
-
     return [self.application canOpenURL:[NSURL URLWithString:urlString]];
 }
 

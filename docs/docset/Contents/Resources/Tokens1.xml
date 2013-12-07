@@ -108,11 +108,11 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWActivity/isAvailableForCommand:arguments:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivity/canPerformCommand:withArguments:</TokenIdentifier>
 			<Abstract type="html">Checks whether or not the third-party app can accept a custom URL corresponding to a given command</Abstract>
 			<DeclaredIn>MWActivity.h</DeclaredIn>
 			
-			<Declaration>- (BOOL)isAvailableForCommand:(NSString *)command arguments:(NSDictionary *)args</Declaration>
+			<Declaration>- (BOOL)canPerformCommand:(NSString *)command withArguments:(NSDictionary *)args</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>command</Name>
@@ -123,7 +123,7 @@
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">YES if the third-party app responds to a custom URL scheme to perform the corresponding command.</Abstract></ReturnValue>
-			<Anchor>//api/name/isAvailableForCommand:arguments:</Anchor>
+			<Anchor>//api/name/canPerformCommand:withArguments:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
