@@ -12,23 +12,13 @@ NSString *(^urlEncode)(NSString *);
 
  ## Subclassing Notes
 
- If you are defining URL schemes for a new discrete class of third-party applications (such as "web browsers" or "mapping applications", you may want to create your own `MWHandler` subclass.
- 
- - Create a directory to store plist and image files, and add it to the project in Xcode. Select "Create folder reference for any added folders" when adding it, and then confirm the entire folder is included in the "Copy Bundle Resources" phase of the `OpenInKit` target.
- 
- - Override directoryName with the name of your folder.
- 
- - All custom methods you create that perform actions should ultimately return a UIActivityController created by calling performCommand:withArguments:. */
+ If you are defining URL schemes for a new discrete class of third-party applications (such as "web browsers" or "mapping applications", you may want to create your own `MWHandler` subclass. All custom methods you create that perform actions should ultimately return a UIActivityController created by calling performCommand:withArguments:. */
 @interface MWHandler : NSObject
 
 /** By default, if there is only one valid application, a `MWHandler` will automatically open that app instead of showing a `UIActivityViewController`. Setting this to `YES` overrides that behavior and always shows an activity view. 
  
  This is mostly useful for demo purposes (e.g. running in the simulator). */
 @property (nonatomic, assign) BOOL alwaysShowActivityView;
-
-/** This method is a no-op by default. You should override it in your custom subclass.
-    @return A NSString with the name of a directory inside the resource path where all of the subclass's resources may be found. */
-+ (NSString *)directoryName;
 
 /**
 Opens a third-party application to perform some task.

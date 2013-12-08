@@ -25,11 +25,6 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
 @implementation MWHandler
 
-+ (NSString *)directoryName {
-    @throw [NSString stringWithFormat:@"%@ needs to overwrite the `directoryName` class method", self];
-    return nil;
-}
-
 - (instancetype)init {
     if (self = [super init]) {
         self.application = [UIApplication sharedApplication];

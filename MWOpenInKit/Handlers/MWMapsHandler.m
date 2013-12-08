@@ -11,10 +11,6 @@
 
 @implementation MWMapsHandler
 
-+ (NSString *)directoryName {
-    return @"Maps";
-}
-
 + (NSDictionary *)directionModes {
   return @{
     @(MWMapsHandlerDirectionsModeDriving): @"driving",
