@@ -105,7 +105,7 @@ describe(@"MWTwitterHandler", ^{
     describe(@"Mentions", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
-                     @"urlString": @"twitter://mentions",
+                     @"urlString": @"tweetbot:///mentions",
                      @"subjectAction": [^{
                          return [handler showMentions];
                      } copy]};
@@ -115,7 +115,7 @@ describe(@"MWTwitterHandler", ^{
     describe(@"DMs", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
-                     @"urlString": @"twitter://direct_messages",
+                     @"urlString": @"tweetbot:///direct_messages",
                      @"subjectAction": [^{
                          return [handler showDirectMessages];
                      } copy]};
