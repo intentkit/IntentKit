@@ -23,36 +23,36 @@
 @property MWApplicationList *appList;
 @end
 
-SpecBegin(MWMapsHandler)
+SpecBegin(MWhandler)
 
 describe(@"MWMapsHandler", ^{
-    __block MWMapsHandler *mapsHandler;
+    __block MWMapsHandler *handler;
 
     beforeEach(^{
-        mapsHandler = [[MWMapsHandler alloc] init];
-        mapsHandler.application = mock([UIApplication class]);
-        mapsHandler.appList = [[MWApplicationList alloc] initWithApplication:mapsHandler.application];
+        handler = [[MWMapsHandler alloc] init];
+        handler.application = mock([UIApplication class]);
+        handler.appList = [[MWApplicationList alloc] initWithApplication:handler.application];
     });
 
     describe(@"passing along optional variables", ^{
         context(@"the map center", ^{
             itShouldBehaveLike(@"an optional handler property", ^{
-                return @{@"handler":  mapsHandler,
+                return @{@"handler":  handler,
                          @"urlStringWithParam": @"http://maps.apple.com/?q=Roberto%27s&ll=32.715000,-117.162500",
                          @"subjectAction": [^{
-                             mapsHandler.center = CLLocationCoordinate2DMake(32.715, -117.1625);
-                             return [mapsHandler searchForLocation:@"Roberto's"];
+                             handler.center = CLLocationCoordinate2DMake(32.715, -117.1625);
+                             return [handler searchForLocation:@"Roberto's"];
                          } copy]};
             });
         });
 
         context(@"the map zoon", ^{
             itShouldBehaveLike(@"an optional handler property", ^{
-                return @{@"handler":  mapsHandler,
+                return @{@"handler":  handler,
                          @"urlStringWithParam": @"http://maps.apple.com/?q=Roberto%27s&z=5",
                          @"subjectAction": [^{
-                             mapsHandler.zoom = 5;
-                             return [mapsHandler searchForLocation:@"Roberto's"];
+                             handler.zoom = 5;
+                             return [handler searchForLocation:@"Roberto's"];
                          } copy]};
             });
         });
@@ -60,10 +60,10 @@ describe(@"MWMapsHandler", ^{
 
     describe(@"Search query", ^{
         itShouldBehaveLike(@"a handler action", ^{
-            return @{@"handler":  mapsHandler,
+            return @{@"handler":  handler,
                      @"urlString": @"http://maps.apple.com/?q=Roberto%27s",
                      @"subjectAction": [^{
-                         return [mapsHandler searchForLocation:@"Roberto's"];
+                         return [handler searchForLocation:@"Roberto's"];
                      } copy]};
         });
     });
@@ -71,20 +71,20 @@ describe(@"MWMapsHandler", ^{
     describe(@"Turn-by-turn directions", ^{
         context(@"without a mode", ^{
             itShouldBehaveLike(@"a handler action", ^{
-                return @{@"handler":  mapsHandler,
+                return @{@"handler":  handler,
                          @"urlString": @"http://maps.apple.com/?saddr=New%20Jersey&daddr=California",
                          @"subjectAction": [^{
-                             return [mapsHandler directionsFrom:@"New Jersey" to:@"California"];
+                             return [handler directionsFrom:@"New Jersey" to:@"California"];
                          } copy]};
             });
         });
 
         context(@"with a directions mode", ^{
             itShouldBehaveLike(@"a handler action", ^{
-                return @{@"handler":  mapsHandler,
+                return @{@"handler":  handler,
                          @"urlString": @"comgooglemaps://?saddr=New%20Jersey&daddr=California&directionsmode=walking",
                          @"subjectAction": [^{
-                             return [mapsHandler directionsFrom:@"New Jersey" to:@"California" mode:MWMapsHandlerDirectionsModeWalking];
+                             return [handler directionsFrom:@"New Jersey" to:@"California" mode:MWMapsHandlerDirectionsModeWalking];
                          } copy]};
             });
         });

@@ -1,5 +1,5 @@
 //
-//  MWWebBrowserSpec.m
+//  MWBrowserHandlerSpec.m
 //  MWOpenInKitTests
 //
 //  Created by Michael Walker on 11/26/13.
@@ -28,24 +28,24 @@
 
 @end
 
-SpecBegin(MWWebBrowser)
+SpecBegin(MWBrowserHandler)
 
-describe(@"MWWebBrowser", ^{
-    __block MWBrowserHandler *webBrowser;
+describe(@"MWBrowserHandler", ^{
+    __block MWBrowserHandler *handler;
 
     beforeEach(^{
-        webBrowser = [[MWBrowserHandler alloc] init];
-        webBrowser.application = mock([UIApplication class]);
-        webBrowser.appList = [[MWApplicationList alloc] initWithApplication:webBrowser.application];
+        handler = [[MWBrowserHandler alloc] init];
+        handler.application = mock([UIApplication class]);
+        handler.appList = [[MWApplicationList alloc] initWithApplication:handler.application];
     });
 
     describe(@"Opening a http URL", ^{
         itShouldBehaveLike(@"a handler action", ^{
             NSString *urlString = @"http://google.com";
-            return @{@"handler":  webBrowser,
+            return @{@"handler":  handler,
                      @"urlString": urlString,
                      @"subjectAction": [^{
-                         return [webBrowser openURL:[NSURL URLWithString:urlString]];
+                         return [handler openURL:[NSURL URLWithString:urlString]];
                      } copy]};
         });
     });
@@ -53,10 +53,10 @@ describe(@"MWWebBrowser", ^{
     describe(@"Opening a https URL", ^{
         itShouldBehaveLike(@"a handler action", ^{
             NSString *urlString = @"http://google.com";
-            return @{@"handler":  webBrowser,
+            return @{@"handler":  handler,
                      @"urlString": urlString,
                      @"subjectAction": [^{
-                         return [webBrowser openURL:[NSURL URLWithString:urlString]];
+                         return [handler openURL:[NSURL URLWithString:urlString]];
                      } copy]};
         });
     });
@@ -72,13 +72,13 @@ describe(@"MWWebBrowser", ^{
 
         context(@"when Chrome is installed", ^{
             it(@"should open the URL in Chrome via callback", ^{
-                [given([webBrowser.application canOpenURL:anything()]) willReturnBool:YES];
+                [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
 
-                [webBrowser openURL:url withCallback:callbackURL];
+                [handler openURL:url withCallback:callbackURL];
 
                 NSString *expected = @"googlechrome-x-callback://x-callback-url/open/?x-source=MWOpenInKitDemo&x-success=testapp%3A%2F%2Ftest&url=http%3A%2F%2Fgoogle.com";
                 NSURL *expectedURL = [NSURL URLWithString:expected];
-                [(UIApplication *)verify(webBrowser.application) openURL:expectedURL];
+                [(UIApplication *)verify(handler.application) openURL:expectedURL];
             });
         });
     });
