@@ -66,7 +66,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://status?id=658273",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler showTweetWithId:@"658273"];
                      } copy]};
@@ -77,7 +76,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://user?screen_name=lazerwalker",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler showUserWithScreenName:@"lazerwalker"];
                      } copy]};
@@ -88,7 +86,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://user?id=12345",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler showUserWithId:@"12345"];
                      } copy]};
@@ -99,7 +96,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://timeline",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler showTimeline];
                      } copy]};
@@ -110,7 +106,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://mentions",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler showMentions];
                      } copy]};
@@ -121,7 +116,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://direct_messages",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler showDirectMessages];
                      } copy]};
@@ -132,7 +126,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://search?query=%23yoloswag%20for%20life",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler searchFor:@"#yoloswag for life"];
                      } copy]};
@@ -143,7 +136,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://post?message=HI%20MOM",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler tweetMessage:@"HI MOM"];
                      } copy]};
@@ -154,7 +146,6 @@ describe(@"MWTwitterHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
                      @"urlString": @"twitter://post?message=HI%20MOM&in_reply_to_status_id=12345",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [handler tweetMessage:@"HI MOM" inReplyTo:@"12345"];
                      } copy]};

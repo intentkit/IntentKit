@@ -30,7 +30,6 @@ SharedExamplesBegin(MWHandler)
 sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     __block MWHandler *handler;
     __block NSString *urlString;
-    __block NSUInteger maxApps;
     __block UIActivityViewController *(^subjectAction)(void);
 
     beforeEach(^{
@@ -38,7 +37,6 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
 
         handler = data[@"handler"];
         urlString = data[@"urlString"];
-        maxApps = [data[@"maxApps"] intValue];
         subjectAction = data[@"subjectAction"];
     });
 
@@ -63,10 +61,10 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
                 expect(result).will.beKindOf([UIActivityViewController class]);
             });
 
-            it(@"should contain the correct activities", ^{
+            it(@"should contain some activities", ^{
                 UIActivityViewController *result = subjectAction();
                 NSArray *items = [result applicationActivities];
-                expect(items.count).to.equal(maxApps);
+                expect(items.count).toNot.equal(0);
             });
         });
     });

@@ -61,7 +61,6 @@ describe(@"MWMapsHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  mapsHandler,
                      @"urlString": @"http://maps.apple.com/?q=Roberto%27s",
-                     @"maxApps": @2,
                      @"subjectAction": [^{
                          return [mapsHandler searchForLocation:@"Roberto's"];
                      } copy]};
@@ -73,7 +72,6 @@ describe(@"MWMapsHandler", ^{
             itShouldBehaveLike(@"a handler action", ^{
                 return @{@"handler":  mapsHandler,
                          @"urlString": @"http://maps.apple.com/?saddr=New%20Jersey&daddr=California",
-                         @"maxApps": @2,
                          @"subjectAction": [^{
                              return [mapsHandler directionsFrom:@"New Jersey" to:@"California"];
                          } copy]};
@@ -84,7 +82,6 @@ describe(@"MWMapsHandler", ^{
             itShouldBehaveLike(@"a handler action", ^{
                 return @{@"handler":  mapsHandler,
                          @"urlString": @"comgooglemaps://?saddr=New%20Jersey&daddr=California&directionsmode=walking",
-                         @"maxApps": @2,
                          @"subjectAction": [^{
                              return [mapsHandler directionsFrom:@"New Jersey" to:@"California" mode:MWMapsHandlerDirectionsModeWalking];
                          } copy]};
