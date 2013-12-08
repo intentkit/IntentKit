@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>NSString(FormatWithArray) Category Reference</title>
+		<title>MWApplicationList Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">NSString(FormatWithArray) Category Reference</h1>
+				<h1 class="hideInXcode">MWApplicationList Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -25,6 +25,8 @@
 				<li id="jumpto_button" role="navigation">
 					<select id="jumpTo">
 	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
 	
 	
 	
@@ -35,13 +37,18 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/activities">&nbsp;&nbsp;&nbsp;&nbsp;activities</option>
 	
 	
-	<option value="class_methods">Class Methods</option>
-	
-	<option value="//api/name/stringWithFormat:array:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringWithFormat:array:</option>
 	
 	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/initWithApplication:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithApplication:</option>
 	
 	
 	
@@ -52,6 +59,8 @@
 		<nav id="tocContainer" class="isShowingTOC">
 			<ul id="toc" role="tree">
 				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
 
 
 
@@ -63,22 +72,28 @@
 
 
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringWithFormat:array:">stringWithFormat:array:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activities">activities</a></span></li>
 	
 </ul></li>
 
 
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithApplication:">initWithApplication:</a></span></li>
+	
+</ul></li>
+
+
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="NSString(FormatWithArray) Category Reference" name="top"></a>
+				<a title="MWApplicationList Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -87,20 +102,31 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">NSString(FormatWithArray) Category Reference</h1>
+						<h1 class="title title-header">MWApplicationList Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">NSString+FormatWithArray.h</td>
+	<td class="specification-value">MWApplicationList.h</td>
 </tr>
 						</tbody></table></div>
 					
                     
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A <code>MWApplicationList</code> is a data source that provides a list of third-party applications.</p>
+					</div>
+					
+					
 					
 					
 					
@@ -115,7 +141,13 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/stringWithFormat:array:">+&nbsp;stringWithFormat:array:</a></code>
+		<code><a href="#//api/name/activities">&nbsp;&nbsp;activities</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithApplication:">&ndash;&nbsp;initWithApplication:</a></code>
 	</span>
 	
 	
@@ -128,49 +160,28 @@
 					
 					
 					
-					
-					
 					<div class="section section-methods">
-						<a title="Class Methods" name="class_methods"></a>
-						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/stringWithFormat:array:" title="stringWithFormat:array:"></a>
-	<h3 class="subsubtitle method-title">stringWithFormat:array:</h3>
+	<a name="//api/name/activities" title="activities"></a>
+	<h3 class="subsubtitle method-title">activities</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>An alias to [NSString stringWithFormat:] that uses an array of arguments rather than a varargs list.</p>
+		<p>An array containing <a href="../Classes/MWActivity.html">MWActivity</a> objects representing every possible third-party app,
+including ones that aren&rsquo;t installed or aren&rsquo;t relevant to a given handler.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (instancetype)stringWithFormat:(NSString *)<em>format</em> array:(NSArray *)<em>arguments</em></code></div>
+	<div class="method-subsection method-declaration"><code>@property (readonly) NSArray *activities</code></div>
 
     
 	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>format</em></dt>
-			<dd><p>A C-style format string.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>arguments</em></dt>
-			<dd><p>An array of arguments corresponding to the placeholders in <code>format</code>.</p></dd>
-		</dl>
-		
-	</div>
 	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>An instantiated NSString with a value created from evaluating <code>[NSString stringWithFormat:]</code> with the given format and arguments.</p>
-	</div>
 	
 	
 	
@@ -184,7 +195,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">NSString+FormatWithArray.h</code><br />
+		<code class="declared-in-ref">MWApplicationList.h</code><br />
 	</div>				
 	
 	
@@ -193,6 +204,50 @@
 					</div>
 					
 					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithApplication:" title="initWithApplication:"></a>
+	<h3 class="subsubtitle method-title">initWithApplication:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Custom constructor to stub out UIApplication in test.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithApplication:(UIApplication *)<em>application</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MWApplicationList.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
                     
@@ -207,7 +262,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-07)</span><br />
+						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-08)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

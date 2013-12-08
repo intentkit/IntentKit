@@ -7,7 +7,7 @@
 //
 
 #import "MWActivity.h"
-#import "NSString+FormatWithArray.h"
+#import "NSString+Helpers.h"
 
 @interface MWActivity ()
 
@@ -32,15 +32,10 @@
     return self;
 }
 
-- (BOOL)canPerformCommand:(NSString *)command withArguments:(NSDictionary *)args {
+- (BOOL)canPerformCommand:(NSString *)command {
     if (!self.dict[command]) { return NO; }
-
-    NSString *urlString = self.dict[command];
-    for (NSString *key in args) {
-        NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
-        urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:args[key]];
-    }
-    return [self.application canOpenURL:[NSURL URLWithString:urlString]];
+    NSURL *url = [NSURL URLWithString:[self.dict[command] urlScheme]];
+    return [self.application canOpenURL:url];
 }
 
 #pragma mark - UIActivity methods

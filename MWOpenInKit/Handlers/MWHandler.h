@@ -16,13 +16,22 @@ NSString *(^urlEncode)(NSString *);
 @interface MWHandler : NSObject
 
 /** By default, if there is only one valid application, a `MWHandler` will automatically open that app instead of showing a `UIActivityViewController`. Setting this to `YES` overrides that behavior and always shows an activity view. 
- 
- This is mostly useful for demo purposes (e.g. running in the simulator). */
+    
+  This is mostly useful for demo purposes (e.g. running in the simulator). */
 @property (nonatomic, assign) BOOL alwaysShowActivityView;
 
-/**
-Opens a third-party application to perform some task.
- 
+/** An array of MWActivity objects that represent all apps, regardless of whether they are available or relevant */
+@property (strong, readonly) NSArray *activities;
+
+
+
+/** Returns whether or not an action can be performed at all.
+ @param command The name of a command to perform, corresponding with the keys in each application's plist.
+ @return YES if the user has at least one application installed that responds to the given command.
+ */
+- (BOOL)canPerformCommand:(NSString *)command;
+
+/** Opens a third-party application to perform some task.
  If there is only one application installed that can respond to that command, it will open that app with the correct URL.
  Otherwise, it will create a `UIActivityViewController` to prompt the user to pick an app.
 

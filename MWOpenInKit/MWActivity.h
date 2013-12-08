@@ -37,9 +37,8 @@
 /** Checks whether or not the third-party app can accept a custom URL corresponding to a given command
  
  @param command A command to perform. If the third-party app knows how to perform this command, it should have a corresponding key in the activity's `dict` property.
- @param args A dictionary of arguments whose keys correspond to templating variable names in the activity's `dict` value for the given command.
  
  @return YES if the third-party app responds to a custom URL scheme to perform the corresponding command.*/
-- (BOOL)canPerformCommand:(NSString *)command withArguments:(NSDictionary *)args;
+- (BOOL)canPerformCommand:(NSString *)command;
 
 @end

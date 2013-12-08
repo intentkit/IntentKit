@@ -15,14 +15,21 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 #import "MWHandler.h"
+#import "NSString+Helpers.h"
+#import "MWApplicationList.h"
 
 @interface MWHandler (Spec)
 @property UIApplication *application;
+@property MWApplicationList *appList;
 @end
 
 @interface UIActivityViewController (Spec)
 @property NSArray *activityItems;
 @property NSArray *applicationActivities;
+@end
+
+@interface MWApplicationList (Spec)
+@property UIApplication *application;
 @end
 
 SharedExamplesBegin(MWHandler)
@@ -42,7 +49,7 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
 
     context(@"when only one application is available", ^{
         it(@"should open in that application", ^{
-            [given([handler.application canOpenURL:[NSURL URLWithString:urlString]]) willReturnBool:YES];
+            [given([handler.application canOpenURL:[NSURL URLWithString:urlString.urlScheme]]) willReturnBool:YES];
 
             subjectAction();
 
@@ -72,7 +79,6 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
 
 sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
     __block MWHandler *handler;
-    __block NSString *urlStringWithoutParam;
     __block NSString *urlStringWithParam;
     __block UIActivityViewController *(^subjectAction)(void);
 
@@ -80,13 +86,12 @@ sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
         handler.application = mock([UIApplication class]);
 
         handler = data[@"handler"];
-        urlStringWithoutParam = data[@"urlStringWithoutParam"];
         urlStringWithParam = data[@"urlStringWithParam"];
         subjectAction = data[@"subjectAction"];
     });
 
     it(@"should include the given param", ^{
-        [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithoutParam]]) willReturnBool:YES];
+        [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithParam.urlScheme]]) willReturnBool:YES];
 
         subjectAction();
 

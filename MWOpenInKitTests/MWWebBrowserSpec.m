@@ -15,9 +15,11 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 #import "MWBrowserHandler.h"
+#import "MWApplicationList.h"
 
 @interface MWBrowserHandler (Spec)
 @property UIApplication *application;
+@property MWApplicationList *appList;
 @end
 
 @interface UIActivityViewController (Spec)
@@ -34,6 +36,7 @@ describe(@"MWWebBrowser", ^{
     beforeEach(^{
         webBrowser = [[MWBrowserHandler alloc] init];
         webBrowser.application = mock([UIApplication class]);
+        webBrowser.appList = [[MWApplicationList alloc] initWithApplication:webBrowser.application];
     });
 
     describe(@"Opening a http URL", ^{

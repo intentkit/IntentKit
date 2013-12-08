@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>MWViewController Class Reference</title>
+		<title>NSString(Helpers) Category Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">MWViewController Class Reference</h1>
+				<h1 class="hideInXcode">NSString(Helpers) Category Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -29,10 +29,22 @@
 	
 	
 	
+	<option value="tasks">Tasks</option>
 	
 	
 	
 	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/urlScheme">&nbsp;&nbsp;&nbsp;&nbsp;urlScheme</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/stringWithFormat:array:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringWithFormat:array:</option>
 	
 	
 	
@@ -48,11 +60,27 @@
 
 
 
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
 
 
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlScheme">urlScheme</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringWithFormat:array:">stringWithFormat:array:</a></span></li>
+	
+</ul></li>
 
 
 
@@ -61,7 +89,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="MWViewController Class Reference" name="top"></a>
+				<a title="NSString(Helpers) Category Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -70,21 +98,15 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">MWViewController Class Reference</h1>
+						<h1 class="title title-header">NSString(Helpers) Category Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">UITableViewController</td>
-</tr><tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">UITableViewDataSource<br />UITableViewDelegate</td>
-</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">MWViewController.h</td>
+	<td class="specification-value">NSString+Helpers.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -93,11 +115,141 @@
 					
 					
 					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/urlScheme">&nbsp;&nbsp;urlScheme</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringWithFormat:array:">+&nbsp;stringWithFormat:array:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
 					
 					
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/urlScheme" title="urlScheme"></a>
+	<h3 class="subsubtitle method-title">urlScheme</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If the string is URL-like, will return a string containing the URL scheme and trailing ://</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly) NSString *urlScheme</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">NSString+Helpers.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/stringWithFormat:array:" title="stringWithFormat:array:"></a>
+	<h3 class="subsubtitle method-title">stringWithFormat:array:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An alias to [NSString stringWithFormat:] that uses an array of arguments rather than a varargs list.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (instancetype)stringWithFormat:(NSString *)<em>format</em> array:(NSArray *)<em>arguments</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>format</em></dt>
+			<dd><p>A C-style format string.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arguments</em></dt>
+			<dd><p>An array of arguments corresponding to the placeholders in <code>format</code>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An instantiated NSString with a value created from evaluating <code>[NSString stringWithFormat:]</code> with the given format and arguments.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">NSString+Helpers.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 					

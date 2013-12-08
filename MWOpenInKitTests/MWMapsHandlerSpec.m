@@ -15,10 +15,12 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 #import "MWMapsHandler.h"
+#import "MWApplicationList.h"
 #import <MapKit/MapKit.h>
 
 @interface MWMapsHandler (Spec)
 @property UIApplication *application;
+@property MWApplicationList *appList;
 @end
 
 SpecBegin(MWMapsHandler)
@@ -29,13 +31,13 @@ describe(@"MWMapsHandler", ^{
     beforeEach(^{
         mapsHandler = [[MWMapsHandler alloc] init];
         mapsHandler.application = mock([UIApplication class]);
+        mapsHandler.appList = [[MWApplicationList alloc] initWithApplication:mapsHandler.application];
     });
 
     describe(@"passing along optional variables", ^{
         context(@"the map center", ^{
             itShouldBehaveLike(@"an optional handler property", ^{
                 return @{@"handler":  mapsHandler,
-                         @"urlStringWithoutParam": @"http://maps.apple.com/?q=Roberto%27s",
                          @"urlStringWithParam": @"http://maps.apple.com/?q=Roberto%27s&ll=32.715000,-117.162500",
                          @"subjectAction": [^{
                              mapsHandler.center = CLLocationCoordinate2DMake(32.715, -117.1625);
@@ -47,11 +49,10 @@ describe(@"MWMapsHandler", ^{
         context(@"the map zoon", ^{
             itShouldBehaveLike(@"an optional handler property", ^{
                 return @{@"handler":  mapsHandler,
-                         @"urlStringWithoutParam": @"http://maps.apple.com/?q=Roberto%27s",
                          @"urlStringWithParam": @"http://maps.apple.com/?q=Roberto%27s&z=5",
                          @"subjectAction": [^{
                              mapsHandler.zoom = 5;
-                             [mapsHandler searchForLocation:@"Roberto's"];
+                             return [mapsHandler searchForLocation:@"Roberto's"];
                          } copy]};
             });
         });

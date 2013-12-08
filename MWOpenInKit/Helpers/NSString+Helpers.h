@@ -6,7 +6,10 @@
 //  Copyright (c) 2013 Mike Walker. All rights reserved.
 //
 
-@interface NSString (FormatWithArray)
+@interface NSString (Helpers)
+
+/** If the string is URL-like, will return a string containing the URL scheme and trailing :// */
+@property (readonly) NSString *urlScheme;
 
 /** An alias to [NSString stringWithFormat:] that uses an array of arguments rather than a varargs list.
  

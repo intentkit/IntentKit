@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/MWBrowserHandler.html">
+	<File path="Classes/MWApplicationList.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/MWBrowserHandler</TokenIdentifier>
-			<Abstract type="html">An instance of MWBrowserHandler opens http and https URLs in a third-party web browser.</Abstract>
-			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/MWApplicationList</TokenIdentifier>
+			<Abstract type="html">A MWApplicationList is a data source that provides a list of third-party applications.</Abstract>
+			<DeclaredIn>MWApplicationList.h</DeclaredIn>
             
 			
 			<NodeRef refid="3"/>
@@ -13,44 +13,53 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:</TokenIdentifier>
-			<Abstract type="html">Opens a URL</Abstract>
-			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/MWApplicationList/setActivities:</TokenIdentifier>
+			<Abstract type="html">An array containing MWActivity objects representing every possible third-party app,
+including ones that aren&apos;t installed or aren&apos;t relevant to a given handler.</Abstract>
+			<DeclaredIn>MWApplicationList.h</DeclaredIn>
 			
-			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/openURL:</Anchor>
+			<Declaration>@property (readonly) NSArray *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:withCallback:</TokenIdentifier>
-			<Abstract type="html">Opens a URL with a callback</Abstract>
-			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/MWApplicationList/activities</TokenIdentifier>
+			<Abstract type="html">An array containing MWActivity objects representing every possible third-party app,
+including ones that aren&apos;t installed or aren&apos;t relevant to a given handler.</Abstract>
+			<DeclaredIn>MWApplicationList.h</DeclaredIn>
 			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:</TokenIdentifier>
+			<Declaration>@property (readonly) NSArray *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
 		
-	</RelatedTokens>
-	
-			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url withCallback:(NSURL *)callback</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
-				</Parameter><Parameter>
-					<Name>callback</Name>
-					<Abstract type="html">A URL to be opened by the third-party app when the action has been completed.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/openURL:withCallback:</Anchor>
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MWApplicationList/activities</TokenIdentifier>
+			<Abstract type="html">An array containing MWActivity objects representing every possible third-party app,
+including ones that aren&apos;t installed or aren&apos;t relevant to a given handler.</Abstract>
+			<DeclaredIn>MWApplicationList.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) NSArray *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MWApplicationList/initWithApplication:</TokenIdentifier>
+			<Abstract type="html">Custom constructor to stub out UIApplication in test.</Abstract>
+			<DeclaredIn>MWApplicationList.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithApplication:(UIApplication *)application</Declaration>
+			
+			
+			<Anchor>//api/name/initWithApplication:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		

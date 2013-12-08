@@ -1,47 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/MWMapsHandlerDirectionsMode.html">
+	<File path="Categories/NSString+Helpers.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/MWMapsHandlerDirectionsMode</TokenIdentifier>
-			<Abstract type="html">Specifies the mode of transporation for turn-by-turn directions.</Abstract>
-			<DeclaredIn>MWMapsHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cat/NSString(Helpers)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSString+Helpers.h</DeclaredIn>
             
 			
 			<NodeRef refid="9"/>
 		</Token>
 		
 		
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/MWMapsHandlerDirectionsModeDriving</TokenIdentifier>
-            <Abstract type="html">Driving/automobile directions</Abstract>
-            <Declaration>MWMapsHandlerDirectionsModeDriving</Declaration>
-            
-            <DeclaredIn>MWMapsHandler.h</DeclaredIn>
-            
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/setUrlScheme:</TokenIdentifier>
+			<Abstract type="html">If the string is URL-like, will return a string containing the URL scheme and trailing ://</Abstract>
+			<DeclaredIn>NSString+Helpers.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) NSString *urlScheme</Declaration>
+			
+			
+			<Anchor>//api/name/urlScheme</Anchor>
             <NodeRef refid="9"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/MWMapsHandlerDirectionsModeTransit</TokenIdentifier>
-            <Abstract type="html">Public transit directions</Abstract>
-            <Declaration>MWMapsHandlerDirectionsModeTransit</Declaration>
-            
-            <DeclaredIn>MWMapsHandler.h</DeclaredIn>
-            
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/urlScheme</TokenIdentifier>
+			<Abstract type="html">If the string is URL-like, will return a string containing the URL scheme and trailing ://</Abstract>
+			<DeclaredIn>NSString+Helpers.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) NSString *urlScheme</Declaration>
+			
+			
+			<Anchor>//api/name/urlScheme</Anchor>
             <NodeRef refid="9"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/MWMapsHandlerDirectionsModeWalking</TokenIdentifier>
-            <Abstract type="html">Walking directions</Abstract>
-            <Declaration>MWMapsHandlerDirectionsModeWalking</Declaration>
-            
-            <DeclaredIn>MWMapsHandler.h</DeclaredIn>
-            
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSString/urlScheme</TokenIdentifier>
+			<Abstract type="html">If the string is URL-like, will return a string containing the URL scheme and trailing ://</Abstract>
+			<DeclaredIn>NSString+Helpers.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) NSString *urlScheme</Declaration>
+			
+			
+			<Anchor>//api/name/urlScheme</Anchor>
             <NodeRef refid="9"/>
-        </Token>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/stringWithFormat:array:</TokenIdentifier>
+			<Abstract type="html">An alias to [NSString stringWithFormat:] that uses an array of arguments rather than a varargs list.</Abstract>
+			<DeclaredIn>NSString+Helpers.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)stringWithFormat:(NSString *)format array:(NSArray *)arguments</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>format</Name>
+					<Abstract type="html">A C-style format string.</Abstract>
+				</Parameter><Parameter>
+					<Name>arguments</Name>
+					<Abstract type="html">An array of arguments corresponding to the placeholders in format.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instantiated NSString with a value created from evaluating [NSString stringWithFormat:] with the given format and arguments.</Abstract></ReturnValue>
+			<Anchor>//api/name/stringWithFormat:array:</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
         
 	</File>
 </Tokens>

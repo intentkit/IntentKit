@@ -50,7 +50,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/canPerformCommand:withArguments:">&nbsp;&nbsp;&nbsp;&nbsp;- canPerformCommand:withArguments:</option>
+	<option value="//api/name/canPerformCommand:">&nbsp;&nbsp;&nbsp;&nbsp;- canPerformCommand:</option>
 	
 	<option value="//api/name/initWithDictionary:name:application:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithDictionary:name:application:</option>
 	
@@ -90,7 +90,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canPerformCommand:withArguments:">canPerformCommand:withArguments:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canPerformCommand:">canPerformCommand:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithDictionary:name:application:">initWithDictionary:name:application:</a></span></li>
 	
@@ -133,7 +133,7 @@
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>A subclass of <code>UIActivity</code> that presents a single third-party application capable of opening a given URL scheme or set of URL schemes.</p>
 
-<p>Typically, the dictionary of accepted URL schemes and the <a href="#//api/name/name">name</a> of the application should come from the contents of a plist file and its file<a href="#//api/name/name">name</a>, respetively. In practice, you shouldn&rsquo;t need to manually initialize an <code>MWActivity</code> outside of the <a href="../Classes/MWHandler.html"><code>MWHandler</code></a> class.</p><div class="warning"><p><strong>Warning:</strong> <code>MWActivity</code>&rsquo;s implementation of the <code>UIActivity</code> method <code>canPerformWithActivityItems:</code> always returns <code>YES</code>. It is your responsibility to ensure that an MWActivity can actually respond to a URL (using <a href="#//api/name/canPerformCommand:withArguments:"><code>canPerformCommand:withArguments:</code></a>) before adding it to a <code>UIActivityViewController</code></p></div><div class="warning"><p><strong>Warning:</strong> <code>MWActivity</code> currently makes use of the private method <code>_activityImage</code> to coax the <code>UIActivityViewController</code> into displaying a full-color image rather than creating a black-and-white representation using the <code>UIImage</code> returned by <code>activityImage</code> as a mask. It remains to be seen whether Apple will allow this private API usage or not.</p></div>
+<p>Typically, the dictionary of accepted URL schemes and the <a href="#//api/name/name">name</a> of the application should come from the contents of a plist file and its file<a href="#//api/name/name">name</a>, respetively. In practice, you shouldn&rsquo;t need to manually initialize an <code>MWActivity</code> outside of the <a href="../Classes/MWHandler.html"><code>MWHandler</code></a> class.</p><div class="warning"><p><strong>Warning:</strong> <code>MWActivity</code>&rsquo;s implementation of the <code>UIActivity</code> method <code>canPerformWithActivityItems:</code> always returns <code>YES</code>. It is your responsibility to ensure that an MWActivity can actually respond to a URL (using <code>canPerformCommand:withArguments:</code>) before adding it to a <code>UIActivityViewController</code></p></div><div class="warning"><p><strong>Warning:</strong> <code>MWActivity</code> currently makes use of the private method <code>_activityImage</code> to coax the <code>UIActivityViewController</code> into displaying a full-color image rather than creating a black-and-white representation using the <code>UIImage</code> returned by <code>activityImage</code> as a mask. It remains to be seen whether Apple will allow this private API usage or not.</p></div>
 					</div>
 					
 					
@@ -169,7 +169,7 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/canPerformCommand:withArguments:">&ndash;&nbsp;canPerformCommand:withArguments:</a></code>
+		<code><a href="#//api/name/canPerformCommand:">&ndash;&nbsp;canPerformCommand:</a></code>
 	</span>
 	
 	
@@ -269,8 +269,8 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/canPerformCommand:withArguments:" title="canPerformCommand:withArguments:"></a>
-	<h3 class="subsubtitle method-title">canPerformCommand:withArguments:</h3>
+	<a name="//api/name/canPerformCommand:" title="canPerformCommand:"></a>
+	<h3 class="subsubtitle method-title">canPerformCommand:</h3>
 	
 	
 	
@@ -280,7 +280,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BOOL)canPerformCommand:(NSString *)<em>command</em> withArguments:(NSDictionary *)<em>args</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)canPerformCommand:(NSString *)<em>command</em></code></div>
 
     
 	
@@ -290,11 +290,6 @@
 		<dl class="argument-def parameter-def">
 			<dt><em>command</em></dt>
 			<dd><p>A command to perform. If the third-party app knows how to perform this command, it should have a corresponding key in the activity&rsquo;s <a href="#//api/name/dict"><code>dict</code></a> property.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>args</em></dt>
-			<dd><p>A dictionary of arguments whose keys correspond to templating variable names in the activity&rsquo;s <a href="#//api/name/dict"><code>dict</code></a> value for the given command.</p></dd>
 		</dl>
 		
 	</div>
@@ -400,7 +395,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-07)</span><br />
+						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-08)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

@@ -8,9 +8,11 @@
 
 #import "MWHandler.h"
 #import "MWActivity.h"
+#import "MWApplicationList.h"
 
 @interface MWHandler ()
 @property (strong, nonatomic) UIApplication *application;
+@property (strong, nonatomic) MWApplicationList *appList;
 @end
 
 NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
@@ -28,33 +30,27 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 - (instancetype)init {
     if (self = [super init]) {
         self.application = [UIApplication sharedApplication];
+        self.appList = [[MWApplicationList alloc] initWithApplication:self.application];
     }
 
     return self;
+}
+
+- (BOOL)canPerformCommand:(NSString *)command {
+    BOOL canPerform = NO;
+    for (MWActivity *activity in self.appList.activities) {
+        canPerform = canPerform || [activity canPerformCommand:command];
+    }
+
+    return canPerform;
 }
 
 - (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args {
     if (!args) { args = @{}; }
 
     NSMutableArray *availableApps = [NSMutableArray array];
-
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"MWOpenInKit" withExtension:@"bundle"];
-    NSBundle *bundle;
-    if (bundleURL) {
-        bundle = [NSBundle bundleWithURL:bundleURL];
-    }
-
-    NSArray *appPaths = [bundle pathsForResourcesOfType:@".plist"
-                                                         inDirectory:nil];
-    for (NSString *path in appPaths) {
-        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-        NSString *name = [path.pathComponents.lastObject stringByDeletingPathExtension];
-
-        MWActivity *activity = [[MWActivity alloc] initWithDictionary:dict
-                                                                 name: name
-                                                          application:self.application];
-
-        if ([activity canPerformCommand:command withArguments:args]) {
+    for (MWActivity *activity in self.appList.activities) {
+        if ([activity canPerformCommand:command]) {
             [availableApps addObject:activity];
         }
     }

@@ -39,19 +39,18 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/activities">&nbsp;&nbsp;&nbsp;&nbsp;activities</option>
+	
 	<option value="//api/name/alwaysShowActivityView">&nbsp;&nbsp;&nbsp;&nbsp;alwaysShowActivityView</option>
 	
 	
 	
 	
-	<option value="class_methods">Class Methods</option>
-	
-	<option value="//api/name/directoryName">&nbsp;&nbsp;&nbsp;&nbsp;+ directoryName</option>
-	
-	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/canPerformCommand:">&nbsp;&nbsp;&nbsp;&nbsp;- canPerformCommand:</option>
 	
 	<option value="//api/name/performCommand:withArguments:">&nbsp;&nbsp;&nbsp;&nbsp;- performCommand:withArguments:</option>
 	
@@ -79,21 +78,19 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activities">activities</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/alwaysShowActivityView">alwaysShowActivityView</a></span></li>
 	
 </ul></li>
 
 
 
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/directoryName">directoryName</a></span></li>
-	
-</ul></li>
-
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canPerformCommand:">canPerformCommand:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performCommand:withArguments:">performCommand:withArguments:</a></span></li>
 	
@@ -138,14 +135,7 @@
 
 <h2>Subclassing Notes</h2>
 
-<p>If you are defining URL schemes for a new discrete class of third-party applications (such as &ldquo;web browsers&rdquo; or &ldquo;mapping applications&rdquo;, you may want to create your own <code>MWHandler</code> subclass.</p>
-
-<ul>
-<li><p>Create a directory to store plist and image files, and add it to the project in Xcode. Select &ldquo;Create folder reference for any added folders&rdquo; when adding it, and then confirm the entire folder is included in the &ldquo;Copy Bundle Resources&rdquo; phase of the <code>OpenInKit</code> target.</p></li>
-<li><p>Override <a href="#//api/name/directoryName">directoryName</a> with the name of your folder.</p></li>
-<li><p>All custom methods you create that perform actions should ultimately return a UIActivityController created by calling <a href="#//api/name/performCommand:withArguments:">performCommand:withArguments:</a>.</p></li>
-</ul>
-
+<p>If you are defining URL schemes for a new discrete class of third-party applications (such as &ldquo;web browsers&rdquo; or &ldquo;mapping applications&rdquo;, you may want to create your own <code>MWHandler</code> subclass. All custom methods you create that perform actions should ultimately return a UIActivityController created by calling <a href="#//api/name/performCommand:withArguments:">performCommand:withArguments:</a>.</p>
 					</div>
 					
 					
@@ -169,7 +159,13 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/directoryName">+&nbsp;directoryName</a></code>
+		<code><a href="#//api/name/activities">&nbsp;&nbsp;activities</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/canPerformCommand:">&ndash;&nbsp;canPerformCommand:</a></code>
 	</span>
 	
 	
@@ -193,6 +189,42 @@
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/activities" title="activities"></a>
+	<h3 class="subsubtitle method-title">activities</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An array of <a href="../Classes/MWActivity.html">MWActivity</a> objects that represent all apps, regardless of whether they are available or relevant</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (strong, readonly) NSArray *activities</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MWHandler.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/alwaysShowActivityView" title="alwaysShowActivityView"></a>
 	<h3 class="subsubtitle method-title">alwaysShowActivityView</h3>
 	
@@ -200,6 +232,8 @@
 	
 	<div class="method-subsection brief-description">
 		<p>By default, if there is only one valid application, a <code>MWHandler</code> will automatically open that app instead of showing a <code>UIActivityViewController</code>. Setting this to <code>YES</code> overrides that behavior and always shows an activity view.</p>
+
+<p>  This is mostly useful for demo purposes (e.g. running in the simulator).</p>
 	</div>		
 	
     
@@ -214,60 +248,6 @@
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>This is mostly useful for demo purposes (e.g. running in the simulator).</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">MWHandler.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
-					
-					
-					
-					<div class="section section-methods">
-						<a title="Class Methods" name="class_methods"></a>
-						<h2 class="subtitle subtitle-methods">Class Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/directoryName" title="directoryName"></a>
-	<h3 class="subsubtitle method-title">directoryName</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>This method is a no-op by default. You should override it in your custom subclass.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (NSString *)directoryName</code></div>
-
-    
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A NSString with the name of a directory inside the resource path where all of the subclass&rsquo;s resources may be found.</p>
-	</div>
-	
-	
-	
-	
-	
 	
 	
 	
@@ -283,6 +263,8 @@
 </div>
 						
 					</div>
+					
+					
 					
 					
 					
@@ -291,13 +273,66 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/canPerformCommand:" title="canPerformCommand:"></a>
+	<h3 class="subsubtitle method-title">canPerformCommand:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether or not an action can be performed at all.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)canPerformCommand:(NSString *)<em>command</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>command</em></dt>
+			<dd><p>The name of a command to perform, corresponding with the keys in each application&rsquo;s plist.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>YES if the user has at least one application installed that responds to the given command.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MWHandler.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/performCommand:withArguments:" title="performCommand:withArguments:"></a>
 	<h3 class="subsubtitle method-title">performCommand:withArguments:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Opens a third-party application to perform some task.</p>
+		<p>Opens a third-party application to perform some task.
+If there is only one application installed that can respond to that command, it will open that app with the correct URL.
+Otherwise, it will create a <code>UIActivityViewController</code> to prompt the user to pick an app.</p>
 	</div>		
 	
     
@@ -332,12 +367,6 @@
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>If there is only one application installed that can respond to that command, it will open that app with the correct URL.
-Otherwise, it will create a <code>UIActivityViewController</code> to prompt the user to pick an app.</p>
-	</div>
-	
 	
 	
 	
@@ -367,7 +396,7 @@ Otherwise, it will create a <code>UIActivityViewController</code> to prompt the 
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-07)</span><br />
+						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-08)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

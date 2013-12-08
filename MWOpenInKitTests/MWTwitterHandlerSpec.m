@@ -15,9 +15,11 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 #import "MWTwitterHandler.h"
+#import "MWApplicationList.h"
 
 @interface MWTwitterHandler (Spec)
 @property UIApplication *application;
+@property MWApplicationList *appList;
 @end
 
 @interface UIActivityViewController (Spec)
@@ -34,13 +36,14 @@ describe(@"MWTwitterHandler", ^{
     beforeEach(^{
         handler = [[MWTwitterHandler alloc] init];
         handler.application = mock([UIApplication class]);
+        handler.appList = [[MWApplicationList alloc] initWithApplication:handler.application];
     });
 
     describe(@"passing along optional variables", ^{
         context(@"callback URL", ^{
             itShouldBehaveLike(@"an optional handler property", ^{
                 return @{@"handler":  handler,
-                         @"urlStringWithoutParam": @"tweetbot:///user_profile/ev",
+                         @"rawUrlString": @"tweetbot:///user_profile/{screenName}",
                          @"urlStringWithParam": @"tweetbot:///user_profile/ev?callback_url=http%3A%2F%2Fgoogle.com",
                          @"subjectAction": [^{
                              handler.callbackURL = [NSURL URLWithString:@"http://google.com"];

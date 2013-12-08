@@ -108,22 +108,19 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWActivity/canPerformCommand:withArguments:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivity/canPerformCommand:</TokenIdentifier>
 			<Abstract type="html">Checks whether or not the third-party app can accept a custom URL corresponding to a given command</Abstract>
 			<DeclaredIn>MWActivity.h</DeclaredIn>
 			
-			<Declaration>- (BOOL)canPerformCommand:(NSString *)command withArguments:(NSDictionary *)args</Declaration>
+			<Declaration>- (BOOL)canPerformCommand:(NSString *)command</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>command</Name>
 					<Abstract type="html">A command to perform. If the third-party app knows how to perform this command, it should have a corresponding key in the activity&apos;s dict property.</Abstract>
-				</Parameter><Parameter>
-					<Name>args</Name>
-					<Abstract type="html">A dictionary of arguments whose keys correspond to templating variable names in the activity&apos;s dict value for the given command.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">YES if the third-party app responds to a custom URL scheme to perform the corresponding command.</Abstract></ReturnValue>
-			<Anchor>//api/name/canPerformCommand:withArguments:</Anchor>
+			<Anchor>//api/name/canPerformCommand:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		

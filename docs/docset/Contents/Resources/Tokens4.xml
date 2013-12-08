@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/MWHandler.html">
+	<File path="Classes/MWBrowserHandler.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/MWHandler</TokenIdentifier>
-			<Abstract type="html">MWHandler is the base class for shared groups of behavior for a class of third-party applications. You cannot use the MWHandler class directly. It instead defines the common interface and behavioral structure for all its subclasses.</Abstract>
-			<DeclaredIn>MWHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/MWBrowserHandler</TokenIdentifier>
+			<Abstract type="html">An instance of MWBrowserHandler opens http and https URLs in a third-party web browser.</Abstract>
+			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
             
 			
 			<NodeRef refid="4"/>
@@ -13,70 +13,44 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWHandler/setAlwaysShowActivityView:</TokenIdentifier>
-			<Abstract type="html">By default, if there is only one valid application, a MWHandler will automatically open that app instead of showing a UIActivityViewController. Setting this to YES overrides that behavior and always shows an activity view.</Abstract>
-			<DeclaredIn>MWHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:</TokenIdentifier>
+			<Abstract type="html">Opens a URL</Abstract>
+			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) BOOL alwaysShowActivityView</Declaration>
-			
-			
-			<Anchor>//api/name/alwaysShowActivityView</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWHandler/alwaysShowActivityView</TokenIdentifier>
-			<Abstract type="html">By default, if there is only one valid application, a MWHandler will automatically open that app instead of showing a UIActivityViewController. Setting this to YES overrides that behavior and always shows an activity view.</Abstract>
-			<DeclaredIn>MWHandler.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) BOOL alwaysShowActivityView</Declaration>
-			
-			
-			<Anchor>//api/name/alwaysShowActivityView</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/MWHandler/alwaysShowActivityView</TokenIdentifier>
-			<Abstract type="html">By default, if there is only one valid application, a MWHandler will automatically open that app instead of showing a UIActivityViewController. Setting this to YES overrides that behavior and always shows an activity view.</Abstract>
-			<DeclaredIn>MWHandler.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) BOOL alwaysShowActivityView</Declaration>
-			
-			
-			<Anchor>//api/name/alwaysShowActivityView</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/MWHandler/directoryName</TokenIdentifier>
-			<Abstract type="html">This method is a no-op by default. You should override it in your custom subclass.</Abstract>
-			<DeclaredIn>MWHandler.h</DeclaredIn>
-			
-			<Declaration>+ (NSString *)directoryName</Declaration>
-			
-			<ReturnValue><Abstract type="html">A NSString with the name of a directory inside the resource path where all of the subclass&apos;s resources may be found. </Abstract></ReturnValue>
-			<Anchor>//api/name/directoryName</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWHandler/performCommand:withArguments:</TokenIdentifier>
-			<Abstract type="html">Opens a third-party application to perform some task.</Abstract>
-			<DeclaredIn>MWHandler.h</DeclaredIn>
-			
-			<Declaration>- (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args</Declaration>
+			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>command</Name>
-					<Abstract type="html">The name of a command to perform, corresponding with keys in each application&apos;s plist.</Abstract>
-				</Parameter><Parameter>
-					<Name>args</Name>
-					<Abstract type="html">The dictionary of arguments used to construct a URL based on the templates defined for each URL scheme.</Abstract>
+					<Name>url</Name>
+					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">If the user should be prompted to select an application, returns a UIActivityViewController to present modally. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/performCommand:withArguments:</Anchor>
+			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/openURL:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:withCallback:</TokenIdentifier>
+			<Abstract type="html">Opens a URL with a callback</Abstract>
+			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url withCallback:(NSURL *)callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>url</Name>
+					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">A URL to be opened by the third-party app when the action has been completed.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/openURL:withCallback:</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
