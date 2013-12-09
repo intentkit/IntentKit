@@ -11,7 +11,7 @@
 
 @implementation MWBrowserHandler
 
-- (UIActivityViewController *)openURL:(NSURL *)url {
+- (MWActivityPresenter *)openURL:(NSURL *)url {
     NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
     NSDictionary *args = @{@"url": strippedUrl};
 
@@ -21,7 +21,7 @@
     return [self performCommand:command withArguments:args];
 }
 
-- (UIActivityViewController *)openURL:(NSURL *)url withCallback:(NSURL *)callback {
+- (MWActivityPresenter *)openURL:(NSURL *)url withCallback:(NSURL *)callback {
     NSString *command = NSStringFromSelector(_cmd);
 
     NSString *appName = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"];

@@ -26,14 +26,14 @@
     return self;
 }
 
-- (UIActivityViewController *)searchForLocation:(NSString *)query {
+- (MWActivityPresenter *)searchForLocation:(NSString *)query {
     NSString *command = NSStringFromSelector(_cmd);
     NSDictionary *args = [self argsDictionaryWithDictionary: @{@"query": urlEncode(query)}];
 
     return [self performCommand:command withArguments:args];
 }
 
-- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to mode:(MWMapsHandlerDirectionsMode)mode {
+- (MWActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to mode:(MWMapsHandlerDirectionsMode)mode {
     NSString *command = NSStringFromSelector(_cmd);
     NSString *modeString = self.class.directionModes[@(mode)];
     NSDictionary *args = [self argsDictionaryWithDictionary:
@@ -44,7 +44,7 @@
     return [self performCommand:command withArguments:args];
 }
 
-- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to {
+- (MWActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to {
     return [self directionsFrom:from to:to mode:MWMapsHandlerDirectionsModeDriving];
 }
 

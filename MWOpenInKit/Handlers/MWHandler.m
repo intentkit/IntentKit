@@ -9,6 +9,8 @@
 #import "MWHandler.h"
 #import "MWActivity.h"
 #import "MWApplicationList.h"
+#import "MWActivityViewController.h"
+#import "MWActivityPresenter.h"
 
 @interface MWHandler ()
 @property (strong, nonatomic) UIApplication *application;
@@ -45,7 +47,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     return canPerform;
 }
 
-- (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args {
+- (MWActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args {
     if (!args) { args = @{}; }
 
     NSMutableArray *availableApps = [NSMutableArray array];
@@ -62,13 +64,8 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
         [availableApps[0] performActivity];
         return nil;
     } else {
-        UIActivityViewController *activityView = [[UIActivityViewController alloc]
-                                                  initWithActivityItems:activityItems
-                                                  applicationActivities:[availableApps copy]];
-
-        activityView.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToFacebook, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToTwitter, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
-
-        return activityView;
+        MWActivityViewController *activityView = [[MWActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
+        return [[MWActivityPresenter alloc] initWithActivitySheet:activityView];
     }
 }
 @end

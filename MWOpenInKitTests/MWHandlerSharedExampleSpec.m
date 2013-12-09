@@ -17,13 +17,15 @@
 #import "MWHandler.h"
 #import "NSString+Helpers.h"
 #import "MWApplicationList.h"
+#import "MWActivityPresenter.h"
+#import "MWActivityViewController.h"
 
 @interface MWHandler (Spec)
 @property UIApplication *application;
 @property MWApplicationList *appList;
 @end
 
-@interface UIActivityViewController (Spec)
+@interface MWActivityViewController (Spec)
 @property NSArray *activityItems;
 @property NSArray *applicationActivities;
 @end
@@ -37,7 +39,7 @@ SharedExamplesBegin(MWHandler)
 sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     __block MWHandler *handler;
     __block NSString *urlString;
-    __block UIActivityViewController *(^subjectAction)(void);
+    __block MWActivityPresenter *(^subjectAction)(void);
 
     beforeEach(^{
         handler.application = mock([UIApplication class]);
@@ -64,13 +66,13 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
 
         context(@"when a default has not been set", ^{
             it(@"should prompt the user to pick", ^{
-                UIActivityViewController *result = subjectAction();
-                expect(result).will.beKindOf([UIActivityViewController class]);
+                MWActivityPresenter *result = subjectAction();
+                expect([result isKindOfClass:[MWActivityPresenter class]]).to.beTruthy;
             });
 
             it(@"should contain some activities", ^{
-                UIActivityViewController *result = subjectAction();
-                NSArray *items = [result applicationActivities];
+                MWActivityPresenter *result = subjectAction();
+                NSArray *items = result.activitySheet.applicationActivities;
                 expect(items.count).toNot.equal(0);
             });
         });

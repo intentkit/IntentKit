@@ -22,12 +22,6 @@
 @property MWApplicationList *appList;
 @end
 
-@interface UIActivityViewController (Spec)
-@property NSArray *activityItems;
-@property NSArray *applicationActivities;
-
-@end
-
 SpecBegin(MWTwitterHandler)
 
 describe(@"MWTwitterHandler", ^{

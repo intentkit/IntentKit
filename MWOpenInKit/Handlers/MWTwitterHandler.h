@@ -8,7 +8,9 @@
 
 #import "MWHandler.h"
 
-/** An instance of `MWTwitterHandler` performs Twitter-related tasks in third-party Twitte rapps. */
+@class MWActivityPresenter;
+
+/** An instance of `MWTwitterHandler` performs Twitter-related tasks in third-party Twitter apps. */
 @interface MWTwitterHandler : MWHandler
 
 /** A URL to be opened by the third-party app when the action has been completed. Not all third-party apps support callbacks. */
@@ -19,78 +21,78 @@
 
 /** Shows a specific single tweet
  @param tweetId The id of a status update
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)showTweetWithId:(NSString *)tweetId;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)showTweetWithId:(NSString *)tweetId;
 
 
 /** Shows the timeline of a given user
  @param screenName The screen name/handle of a Twitter user
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)showUserWithScreenName:(NSString *)screenName;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)showUserWithScreenName:(NSString *)screenName;
 
 /** Shows the timeline of a given user
  @param userId The user id of a Twitter user
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)showUserWithId:(NSString *)userId;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)showUserWithId:(NSString *)userId;
 
 
 /** Shows the timeline of the active user
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)showTimeline;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)showTimeline;
 
 
 /** Shows @mentions for the active user
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil.
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil.
  
  @warning The first-party Twitter app does not have a "mentions" screen any more. If this results in opening Twitter.app, the "Connect" page will be displayed, which aggregates @mentions, DMs, and favorites/retweets/etc. */
-- (UIActivityViewController *)showMentions;
+- (MWActivityPresenter *)showMentions;
 
 /** Shows DMs for the active user
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil.
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil.
 
   @warning The first-party Twitter app does not have a "Messages" screen any more. If this results in opening Twitter.app, the "Connect" page will be displayed, which aggregates @mentions, DMs, and favorites/retweets/etc. */
-- (UIActivityViewController *)showDirectMessages;
+- (MWActivityPresenter *)showDirectMessages;
 
 /** Searches for tweets or users
  @param query A string to search for
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil.*/
-- (UIActivityViewController *)searchFor:(NSString *)query;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil.*/
+- (MWActivityPresenter *)searchFor:(NSString *)query;
 
 /** Opens a window to compose a new tweet
  @param message The content to pre-populate the input box with
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)tweetMessage:(NSString *)message;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)tweetMessage:(NSString *)message;
 
 /** Opens a window to compose a new relpy
  @param message The content to pre-populate the input box with
  @param replyId The id of a tweet that the new tweet is a reply to.
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)tweetMessage:(NSString *)message inReplyTo:(NSString *)replyId;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)tweetMessage:(NSString *)message inReplyTo:(NSString *)replyId;
 
 /**---------------------------------------------------------------
  * @name Actions which may not be supported by all Twitter clients
  *--------------------------------------------------------------*/
 
-//- (UIActivityViewController *)showRetweets;
+//- (MWActivityPresenter *)showRetweets;
 //
-//- (UIActivityViewController *)showFavorites;
+//- (MWActivityPresenter *)showFavorites;
 //
-//- (UIActivityViewController *)showLists;
+//- (MWActivityPresenter *)showLists;
 //
-//- (UIActivityViewController *)showListWithId:(NSString *)listId;
+//- (MWActivityPresenter *)showListWithId:(NSString *)listId;
 //
-//- (UIActivityViewController *)showList:(NSString *)list byUser:(NSString *)screenName;
+//- (MWActivityPresenter *)showList:(NSString *)list byUser:(NSString *)screenName;
 
-//- (UIActivityViewController *)search;
+//- (MWActivityPresenter *)search;
 
 
-//- (UIActivityViewController *)followUser:(NSString *)user;
+//- (MWActivityPresenter *)followUser:(NSString *)user;
 //
-//- (UIActivityViewController *)unfollowUser:(NSString *)user;
+//- (MWActivityPresenter *)unfollowUser:(NSString *)user;
 //
-//- (UIActivityViewController *)favoriteTweetWithId:(NSString *)tweetId;
+//- (MWActivityPresenter *)favoriteTweetWithId:(NSString *)tweetId;
 //
-//- (UIActivityViewController *)unfavoriteTweetWithId:(NSString *)tweetId;
+//- (MWActivityPresenter *)unfavoriteTweetWithId:(NSString *)tweetId;
 //
-//- (UIActivityViewController *)retweetTweetWithId:(NSString *)tweetId;
+//- (MWActivityPresenter *)retweetTweetWithId:(NSString *)tweetId;
 @end

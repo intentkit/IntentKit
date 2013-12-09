@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import "MWHandler.h"
 
+@class MWActivityPresenter;
+
 /** Specifies the mode of transporation for turn-by-turn directions. */
 typedef NS_ENUM(NSInteger, MWMapsHandlerDirectionsMode) {
     /** Driving/automobile directions */
@@ -37,8 +39,8 @@ typedef NS_ENUM(NSInteger, MWMapsHandlerDirectionsMode) {
 
  @param query What to search for. May be lat/long coordinates, an address, or a business name/point of interest.
  
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)searchForLocation:(NSString *)query;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)searchForLocation:(NSString *)query;
 
 
 /** Brings up turn-by-turn directions between two locations
@@ -49,14 +51,14 @@ typedef NS_ENUM(NSInteger, MWMapsHandlerDirectionsMode) {
 
  @warning This does not currently verify that an application can support multiple modes of transportation. If you pick an application that doesn't support the mode of transporation you've asked for, that application will likely ignore that part of the request.
 
- @return A `UIActivityViewController` to present modally if the user must pick a third-party app. Otherwise nil. */
-- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to mode:(MWMapsHandlerDirectionsMode)mode;
+ @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+- (MWActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to mode:(MWMapsHandlerDirectionsMode)mode;
 
 /** Brings up turn-by-turn driving directions between two locations 
  
  The same as calling `directionsFrom:from to:to mode:MWMapsHandlerDirectionsModeDriving`.
 
  @see directionsFrom:to:mode: */
-- (UIActivityViewController *)directionsFrom:(NSString *)from to:(NSString *)to;
+- (MWActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to;
 
 @end

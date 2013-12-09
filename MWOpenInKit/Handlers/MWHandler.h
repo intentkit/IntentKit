@@ -8,6 +8,8 @@
 
 NSString *(^urlEncode)(NSString *);
 
+@class MWActivityPresenter;
+
 /** `MWHandler` is the base class for shared groups of behavior for a class of third-party applications. You cannot use the `MWHandler` class directly. It instead defines the common interface and behavioral structure for all its subclasses.
 
  ## Subclassing Notes
@@ -38,6 +40,6 @@ NSString *(^urlEncode)(NSString *);
  @param command The name of a command to perform, corresponding with keys in each application's plist.
  @param args The dictionary of arguments used to construct a URL based on the templates defined for each URL scheme.
  @return If the user should be prompted to select an application, returns a `UIActivityViewController` to present modally. Otherwise nil. */
-- (UIActivityViewController *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
+- (MWActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
 
 @end

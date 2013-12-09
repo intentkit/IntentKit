@@ -8,6 +8,7 @@
 
 #import "MWViewController.h"
 #import "MWOpenInKit.h"
+#import "MWActivityPresenter.h"
 
 @interface MWViewController ()
 
@@ -47,7 +48,7 @@
     return @[
              @{@"name": @"MWBrowserHandler",
                @"items": @[
-                       @{@"description": @"Open a HTTP URL",
+                       @{@"description": @"Open an HTTP URL",
                          @"action": (UIActivityViewController *)^{
                              MWBrowserHandler *handler = [[MWBrowserHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
@@ -143,19 +144,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIActivityViewController *(^action)() = self.content[indexPath.section][@"items"][indexPath.row][@"action"];
-    UIActivityViewController *activityView = action();
+    MWActivityPresenter *(^action)() = self.content[indexPath.section][@"items"][indexPath.row][@"action"];
+    [action() presentActivitySheetFromViewController:self];
 
-    // If activityView is nil, it has already opened a URL
-    if (activityView) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            self.popover = [[UIPopoverController alloc] initWithContentViewController:activityView];
-            CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-            [self.popover presentPopoverFromRect:cellRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        } else {
-            [self presentViewController:activityView animated:YES completion:nil];
-        }
-    }
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

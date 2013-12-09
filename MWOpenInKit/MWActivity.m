@@ -51,6 +51,10 @@
     return self.name;
 }
 
+- (UIImage *)activityImage {
+    return self._activityImage;
+}
+
 - (UIImage *)_activityImage {
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"MWOpenInKit" withExtension:@"bundle"];
     NSBundle *bundle;
