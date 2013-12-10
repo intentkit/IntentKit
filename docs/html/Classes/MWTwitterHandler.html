@@ -159,7 +159,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>An instance of <code>MWTwitterHandler</code> performs Twitter-related tasks in third-party Twitte rapps.</p>
+						<p>An instance of <code>MWTwitterHandler</code> performs Twitter-related tasks in third-party Twitter apps.</p>
 					</div>
 					
 					
@@ -348,7 +348,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)searchFor:(NSString *)<em>query</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)searchFor:(NSString *)<em>query</em></code></div>
 
     
 	
@@ -366,7 +366,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -399,7 +399,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)showDirectMessages</code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)showDirectMessages</code></div>
 
     
 	
@@ -407,7 +407,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -445,7 +445,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)showMentions</code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)showMentions</code></div>
 
     
 	
@@ -453,7 +453,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -491,7 +491,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)showTimeline</code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)showTimeline</code></div>
 
     
 	
@@ -499,7 +499,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -532,7 +532,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)showTweetWithId:(NSString *)<em>tweetId</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)showTweetWithId:(NSString *)<em>tweetId</em></code></div>
 
     
 	
@@ -550,7 +550,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -583,7 +583,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)showUserWithId:(NSString *)<em>userId</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)showUserWithId:(NSString *)<em>userId</em></code></div>
 
     
 	
@@ -601,7 +601,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -634,7 +634,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)showUserWithScreenName:(NSString *)<em>screenName</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)showUserWithScreenName:(NSString *)<em>screenName</em></code></div>
 
     
 	
@@ -652,7 +652,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -685,7 +685,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)tweetMessage:(NSString *)<em>message</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)tweetMessage:(NSString *)<em>message</em></code></div>
 
     
 	
@@ -703,7 +703,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -736,7 +736,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UIActivityViewController *)tweetMessage:(NSString *)<em>message</em> inReplyTo:(NSString *)<em>replyId</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)tweetMessage:(NSString *)<em>message</em> inReplyTo:(NSString *)<em>replyId</em></code></div>
 
     
 	
@@ -759,7 +759,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A <code>UIActivityViewController</code> to present modally if the user must pick a third-party app. Otherwise nil.</p>
+		<p>A <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> to present modally if the user must pick a third-party app. Otherwise nil.</p>
 	</div>
 	
 	
@@ -795,7 +795,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-08)</span><br />
+						<p><span class="copyright">&copy; 2013 Mike Walker. All rights reserved. (Last updated: 2013-12-10)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

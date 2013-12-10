@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/MWAppDelegate.html">
+	<File path="Classes/MWActivityCell.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/MWAppDelegate</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/MWActivityCell</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
+			<DeclaredIn>MWActivityCell.h</DeclaredIn>
             
 			
 			<NodeRef refid="2"/>
@@ -13,38 +13,38 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWAppDelegate/setWindow:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivityCell/setActivity:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
+			<DeclaredIn>MWActivityCell.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIWindow *window</Declaration>
+			<Declaration>@property (strong, nonatomic) UIActivity *activity</Declaration>
 			
 			
-			<Anchor>//api/name/window</Anchor>
+			<Anchor>//api/name/activity</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWAppDelegate/window</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivityCell/activity</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
+			<DeclaredIn>MWActivityCell.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIWindow *window</Declaration>
+			<Declaration>@property (strong, nonatomic) UIActivity *activity</Declaration>
 			
 			
-			<Anchor>//api/name/window</Anchor>
+			<Anchor>//api/name/activity</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/MWAppDelegate/window</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/MWActivityCell/activity</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>MWAppDelegate.h</DeclaredIn>
+			<DeclaredIn>MWActivityCell.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIWindow *window</Declaration>
+			<Declaration>@property (strong, nonatomic) UIActivity *activity</Declaration>
 			
 			
-			<Anchor>//api/name/window</Anchor>
+			<Anchor>//api/name/activity</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

@@ -19,6 +19,9 @@
 						<NodeRef refid="6"/>
 						<NodeRef refid="7"/>
 						<NodeRef refid="8"/>
+						<NodeRef refid="9"/>
+						<NodeRef refid="10"/>
+						<NodeRef refid="11"/>
 						
 					</Subnodes>
 				</Node>
@@ -28,7 +31,8 @@
 					<Name>Categories</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="9"/>
+						<NodeRef refid="12"/>
+						<NodeRef refid="13"/>
 						
 					</Subnodes>
 				</Node>
@@ -39,7 +43,7 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="10"/>
+						<NodeRef refid="14"/>
 						
 					</Subnodes>
 				</Node>
@@ -83,6 +87,99 @@
             
         </Node>
 		<Node id="2" type="file" documentType="reference">
+            <Name>MWActivityCell</Name>
+            <Path>Classes/MWActivityCell.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/MWActivityCell.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/MWActivityCell.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/MWActivityCell.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="3" type="file" documentType="reference">
+            <Name>MWActivityPresenter</Name>
+            <Path>Classes/MWActivityPresenter.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/MWActivityPresenter.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/MWActivityPresenter.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/MWActivityPresenter.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Classes/MWActivityPresenter.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="4" type="file" documentType="reference">
+            <Name>MWActivityViewController</Name>
+            <Path>Classes/MWActivityViewController.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/MWActivityViewController.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/MWActivityViewController.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/MWActivityViewController.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Classes/MWActivityViewController.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="5" type="file" documentType="reference">
             <Name>MWAppDelegate</Name>
             <Path>Classes/MWAppDelegate.html</Path>
             
@@ -109,7 +206,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="3" type="file" documentType="reference">
+		<Node id="6" type="file" documentType="reference">
             <Name>MWApplicationList</Name>
             <Path>Classes/MWApplicationList.html</Path>
             
@@ -142,7 +239,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="4" type="file" documentType="reference">
+		<Node id="7" type="file" documentType="reference">
             <Name>MWBrowserHandler</Name>
             <Path>Classes/MWBrowserHandler.html</Path>
             
@@ -169,7 +266,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="5" type="file" documentType="reference">
+		<Node id="8" type="file" documentType="reference">
             <Name>MWHandler</Name>
             <Path>Classes/MWHandler.html</Path>
             
@@ -202,7 +299,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="6" type="file" documentType="reference">
+		<Node id="9" type="file" documentType="reference">
             <Name>MWMapsHandler</Name>
             <Path>Classes/MWMapsHandler.html</Path>
             
@@ -235,7 +332,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="7" type="file" documentType="reference">
+		<Node id="10" type="file" documentType="reference">
             <Name>MWTwitterHandler</Name>
             <Path>Classes/MWTwitterHandler.html</Path>
             
@@ -268,13 +365,13 @@
             </Subnodes>
             
         </Node>
-		<Node id="8" type="file" documentType="reference">
+		<Node id="11" type="file" documentType="reference">
             <Name>MWViewController</Name>
             <Path>Classes/MWViewController.html</Path>
             
         </Node>
 		
-		<Node id="9" type="file" documentType="reference">
+		<Node id="12" type="file" documentType="reference">
             <Name>NSString(Helpers)</Name>
             <Path>Categories/NSString+Helpers.html</Path>
             
@@ -307,9 +404,36 @@
             </Subnodes>
             
         </Node>
+		<Node id="13" type="file" documentType="reference">
+            <Name>UIView(Helpers)</Name>
+            <Path>Categories/UIView+Helpers.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Categories/UIView+Helpers.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Categories/UIView+Helpers.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Categories/UIView+Helpers.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
 		
         
-        <Node id="10" type="file" documentType="reference">
+        <Node id="14" type="file" documentType="reference">
             <Name>MWMapsHandlerDirectionsMode</Name>
             <Path>Constants/MWMapsHandlerDirectionsMode.html</Path>
             

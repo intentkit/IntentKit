@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/MWBrowserHandler.html">
+	<File path="Classes/MWActivityViewController.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/MWBrowserHandler</TokenIdentifier>
-			<Abstract type="html">An instance of MWBrowserHandler opens http and https URLs in a third-party web browser.</Abstract>
-			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/MWActivityViewController</TokenIdentifier>
+			<Abstract type="html">A re-implementation of UIActivityViewController, designed to allow for UIActivity objects with custom full-color images.</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
             
 			
 			<NodeRef refid="4"/>
@@ -13,44 +13,94 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:</TokenIdentifier>
-			<Abstract type="html">Opens a URL</Abstract>
-			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivityViewController/setPresenter:</TokenIdentifier>
+			<Abstract type="html">A presenter object responsible for displaying and hiding the view controller</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
 			
-			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/openURL:</Anchor>
+			<Declaration>@property (strong, nonatomic) MWActivityPresenter *presenter</Declaration>
+			
+			
+			<Anchor>//api/name/presenter</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:withCallback:</TokenIdentifier>
-			<Abstract type="html">Opens a URL with a callback</Abstract>
-			<DeclaredIn>MWBrowserHandler.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivityViewController/presenter</TokenIdentifier>
+			<Abstract type="html">A presenter object responsible for displaying and hiding the view controller</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
 			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/MWBrowserHandler/openURL:</TokenIdentifier>
+			<Declaration>@property (strong, nonatomic) MWActivityPresenter *presenter</Declaration>
+			
+			
+			<Anchor>//api/name/presenter</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
 		
-	</RelatedTokens>
-	
-			<Declaration>- (UIActivityViewController *)openURL:(NSURL *)url withCallback:(NSURL *)callback</Declaration>
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MWActivityViewController/presenter</TokenIdentifier>
+			<Abstract type="html">A presenter object responsible for displaying and hiding the view controller</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) MWActivityPresenter *presenter</Declaration>
+			
+			
+			<Anchor>//api/name/presenter</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivityViewController/setContentView:</TokenIdentifier>
+			<Abstract type="html">The actual content of the action sheet</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *contentView</Declaration>
+			
+			
+			<Anchor>//api/name/contentView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivityViewController/contentView</TokenIdentifier>
+			<Abstract type="html">The actual content of the action sheet</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *contentView</Declaration>
+			
+			
+			<Anchor>//api/name/contentView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MWActivityViewController/contentView</TokenIdentifier>
+			<Abstract type="html">The actual content of the action sheet</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *contentView</Declaration>
+			
+			
+			<Anchor>//api/name/contentView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MWActivityViewController/initWithActivityItems:applicationActivities:</TokenIdentifier>
+			<Abstract type="html">The constructor has the same signature as that of UIActivityViewController.</Abstract>
+			<DeclaredIn>MWActivityViewController.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithActivityItems:(NSArray *)activityItems applicationActivities:(NSArray *)applicationActivities</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">A URL to open. Must have either http: or https: as its scheme.</Abstract>
+					<Name>activityItems</Name>
+					<Abstract type="html">An array of items to share</Abstract>
 				</Parameter><Parameter>
-					<Name>callback</Name>
-					<Abstract type="html">A URL to be opened by the third-party app when the action has been completed.</Abstract>
+					<Name>applicationActivities</Name>
+					<Abstract type="html">An array of UIActivity objects to display.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">A UIActivityViewController to present modally if the user must pick a third-party app. Otherwise nil.</Abstract></ReturnValue>
-			<Anchor>//api/name/openURL:withCallback:</Anchor>
+			
+			<Anchor>//api/name/initWithActivityItems:applicationActivities:</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		

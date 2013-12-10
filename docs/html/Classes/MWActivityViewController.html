@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>MWHandler Class Reference</title>
+		<title>MWActivityViewController Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">MWHandler Class Reference</h1>
+				<h1 class="hideInXcode">MWActivityViewController Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,9 +39,9 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/activities">&nbsp;&nbsp;&nbsp;&nbsp;activities</option>
+	<option value="//api/name/contentView">&nbsp;&nbsp;&nbsp;&nbsp;contentView</option>
 	
-	<option value="//api/name/alwaysShowActivityView">&nbsp;&nbsp;&nbsp;&nbsp;alwaysShowActivityView</option>
+	<option value="//api/name/presenter">&nbsp;&nbsp;&nbsp;&nbsp;presenter</option>
 	
 	
 	
@@ -50,9 +50,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/canPerformCommand:">&nbsp;&nbsp;&nbsp;&nbsp;- canPerformCommand:</option>
-	
-	<option value="//api/name/performCommand:withArguments:">&nbsp;&nbsp;&nbsp;&nbsp;- performCommand:withArguments:</option>
+	<option value="//api/name/initWithActivityItems:applicationActivities:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithActivityItems:applicationActivities:</option>
 	
 	
 	
@@ -78,9 +76,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activities">activities</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/contentView">contentView</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/alwaysShowActivityView">alwaysShowActivityView</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/presenter">presenter</a></span></li>
 	
 </ul></li>
 
@@ -90,9 +88,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canPerformCommand:">canPerformCommand:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performCommand:withArguments:">performCommand:withArguments:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithActivityItems:applicationActivities:">initWithActivityItems:applicationActivities:</a></span></li>
 	
 </ul></li>
 
@@ -101,7 +97,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="MWHandler Class Reference" name="top"></a>
+				<a title="MWActivityViewController Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -110,7 +106,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">MWHandler Class Reference</h1>
+						<h1 class="title title-header">MWActivityViewController Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -118,10 +114,13 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">NSObject</td>
+	<td class="specification-value">UIViewController</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UICollectionViewDataSource<br />UICollectionViewDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">MWHandler.h</td>
+	<td class="specification-value">MWActivityViewController.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -131,11 +130,9 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><code>MWHandler</code> is the base class for shared groups of behavior for a class of third-party applications. You cannot use the <code>MWHandler</code> class directly. It instead defines the common interface and behavioral structure for all its subclasses.</p>
+						<p>A re-implementation of <code>UIActivityViewController</code>, designed to allow for UIActivity objects with custom full-color images.</p>
 
-<h2>Subclassing Notes</h2>
-
-<p>If you are defining URL schemes for a new discrete class of third-party applications (such as &ldquo;web browsers&rdquo; or &ldquo;mapping applications&rdquo;, you may want to create your own <code>MWHandler</code> subclass. All custom methods you create that perform actions should ultimately return a UIActivityController created by calling <a href="#//api/name/performCommand:withArguments:">performCommand:withArguments:</a>.</p>
+<p>This is not a drop-in replacement for <code>UIActivityViewController</code>, as it requires the use of a <a href="../Classes/MWActivityPresenter.html"><code>MWActivityPresenter</code></a> helper object to coordinate getting the animation just right.</p>
 					</div>
 					
 					
@@ -153,25 +150,19 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/alwaysShowActivityView">&nbsp;&nbsp;alwaysShowActivityView</a></code>
+		<code><a href="#//api/name/presenter">&nbsp;&nbsp;presenter</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/activities">&nbsp;&nbsp;activities</a></code>
+		<code><a href="#//api/name/contentView">&nbsp;&nbsp;contentView</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/canPerformCommand:">&ndash;&nbsp;canPerformCommand:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/performCommand:withArguments:">&ndash;&nbsp;performCommand:withArguments:</a></code>
+		<code><a href="#//api/name/initWithActivityItems:applicationActivities:">&ndash;&nbsp;initWithActivityItems:applicationActivities:</a></code>
 	</span>
 	
 	
@@ -189,18 +180,18 @@
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/activities" title="activities"></a>
-	<h3 class="subsubtitle method-title">activities</h3>
+	<a name="//api/name/contentView" title="contentView"></a>
+	<h3 class="subsubtitle method-title">contentView</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>An array of <a href="../Classes/MWActivity.html">MWActivity</a> objects that represent all apps, regardless of whether they are available or relevant</p>
+		<p>The actual content of the action sheet</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (strong, readonly) NSArray *activities</code></div>
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIView *contentView</code></div>
 
     
 	
@@ -218,27 +209,25 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">MWHandler.h</code><br />
+		<code class="declared-in-ref">MWActivityViewController.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/alwaysShowActivityView" title="alwaysShowActivityView"></a>
-	<h3 class="subsubtitle method-title">alwaysShowActivityView</h3>
+	<a name="//api/name/presenter" title="presenter"></a>
+	<h3 class="subsubtitle method-title">presenter</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>By default, if there is only one valid application, a <code>MWHandler</code> will automatically open that app instead of showing a <code>UIActivityViewController</code>. Setting this to <code>YES</code> overrides that behavior and always shows an activity view.</p>
-
-<p>  This is mostly useful for demo purposes (e.g. running in the simulator).</p>
+		<p>A presenter object responsible for displaying and hiding the view controller</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL alwaysShowActivityView</code></div>
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) MWActivityPresenter *presenter</code></div>
 
     
 	
@@ -256,7 +245,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">MWHandler.h</code><br />
+		<code class="declared-in-ref">MWActivityViewController.h</code><br />
 	</div>				
 	
 	
@@ -273,18 +262,18 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/canPerformCommand:" title="canPerformCommand:"></a>
-	<h3 class="subsubtitle method-title">canPerformCommand:</h3>
+	<a name="//api/name/initWithActivityItems:applicationActivities:" title="initWithActivityItems:applicationActivities:"></a>
+	<h3 class="subsubtitle method-title">initWithActivityItems:applicationActivities:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns whether or not an action can be performed at all.</p>
+		<p>The constructor has the same signature as that of <code>UIActivityViewController</code>.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BOOL)canPerformCommand:(NSString *)<em>command</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithActivityItems:(NSArray *)<em>activityItems</em> applicationActivities:(NSArray *)<em>applicationActivities</em></code></div>
 
     
 	
@@ -292,22 +281,27 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>command</em></dt>
-			<dd><p>The name of a command to perform, corresponding with the keys in each application&rsquo;s plist.</p></dd>
+			<dt><em>activityItems</em></dt>
+			<dd><p>An array of items to share</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>applicationActivities</em></dt>
+			<dd><p>An array of UIActivity objects to display.</p></dd>
 		</dl>
 		
 	</div>
 	
 	
 	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>YES if the user has at least one application installed that responds to the given command.</p>
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> Unlike <code>UIActivityViewController</code>, <em>only</em> the UIActivity objects specified in the <code>applicationActivities</code> array will be displayed; it will not show any of the default activities.</p></div>
 	</div>
-	
-	
-	
-	
 	
 	
 	
@@ -317,65 +311,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">MWHandler.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/performCommand:withArguments:" title="performCommand:withArguments:"></a>
-	<h3 class="subsubtitle method-title">performCommand:withArguments:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Opens a third-party application to perform some task.
-If there is only one application installed that can respond to that command, it will open that app with the correct URL.
-Otherwise, it will create a <code>UIActivityViewController</code> to prompt the user to pick an app.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (MWActivityPresenter *)performCommand:(NSString *)<em>command</em> withArguments:(NSDictionary *)<em>args</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>command</em></dt>
-			<dd><p>The name of a command to perform, corresponding with keys in each application&rsquo;s plist.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>args</em></dt>
-			<dd><p>The dictionary of arguments used to construct a URL based on the templates defined for each URL scheme.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>If the user should be prompted to select an application, returns a <code>UIActivityViewController</code> to present modally. Otherwise nil.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">MWHandler.h</code><br />
+		<code class="declared-in-ref">MWActivityViewController.h</code><br />
 	</div>				
 	
 	
