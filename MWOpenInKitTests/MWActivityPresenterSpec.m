@@ -33,14 +33,14 @@ describe(@"MWActivityPresenter", ^{
 
     describe(@"presenting an activity sheet modally", ^{
         it(@"should be presented on the correct view controller ", ^{
-            [presenter presentActivitySheetFromViewController:presentingController];
+            [presenter presentModalActivitySheetFromViewController:presentingController];
             expect(presentingController.presentedViewController).to.equal(activitySheet);
         });
     });
 
     describe(@"hiding a modally-presented sheet", ^{
         it(@"should no longer be presented", ^{
-            [presenter presentActivitySheetFromViewController:presentingController];
+            [presenter presentModalActivitySheetFromViewController:presentingController];
             expect(presentingController.presentedViewController).to.equal(activitySheet);
 
             [presenter dismissActivitySheet];

@@ -9,11 +9,13 @@
 #import "MWActivityPresenter.h"
 #import "MWActivityViewController.h"
 #import "UIView+Helpers.h"
+#import "MWOpenInKit.h"
 
 @interface MWActivityPresenter ()
 
 @property (weak, nonatomic) UIViewController *presentingViewController;
 @property (strong, nonatomic) UIView *shadeView;
+@property (strong, nonatomic) UIPopoverController *popoverController;
 
 @end
 
@@ -27,7 +29,7 @@
     return self;
 }
 
-- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController {
+- (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController {
 
     self.presentingViewController = presentingViewController;
 
@@ -45,6 +47,29 @@
         self.shadeView.alpha = 0.4;
         [self.activitySheet.contentView moveToPoint:activitySheetOrigin];
     } completion:nil];
+}
+
+- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
+
+    if (MWOpenInKit.isPad) {
+        self.presentingViewController = presentingViewController;
+        self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
+        self.popoverController.popoverContentSize = self.activitySheet.view.bounds.size;
+        [self.popoverController presentPopoverFromRect:rect inView:view permittedArrowDirections:arrowDirections animated:animated];
+    } else {
+        [self presentModalActivitySheetFromViewController:presentingViewController];
+    }
+}
+
+- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
+
+    if (MWOpenInKit.isPad) {
+        self.presentingViewController = presentingViewController;
+        self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
+        [self.popoverController presentPopoverFromBarButtonItem:item  permittedArrowDirections:arrowDirections animated:animated];
+    } else {
+        [self presentModalActivitySheetFromViewController:presentingViewController];
+    }
 }
 
 - (void)dismissActivitySheet {

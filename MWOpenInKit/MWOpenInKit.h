@@ -10,3 +10,7 @@
 #import "MWBrowserHandler.h"
 #import "MWMapsHandler.h"
 #import "MWTwitterHandler.h"
+
+@interface MWOpenInKit : NSObject
++ (BOOL)isPad;
+@end

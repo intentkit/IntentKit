@@ -10,16 +10,25 @@
 #import "MWActivityCell.h"
 #import "UIView+Helpers.h"
 #import "MWActivityPresenter.h"
+#import "MWOpenInKit.h"
 
 static NSString * const CellIdentifier = @"UIActivityCell";
 
-static CGSize const MWActivityViewControllerItemSize_Pad = {64.f, 86.f};
+static CGSize const MWActivityViewControllerItemSize_Pad = {80.f, 101.f};
 static CGSize const MWActivityViewControllerItemSize_Phone = {64.f, 86.f};
 
+static CGFloat const MWActivityViewControllerRowHeight_Pad = 140.f;
 static CGFloat const MWActivityViewControllerRowHeight_Phone = 96.f;
+
 static NSInteger const MWActivityViewControllerItemsPerRow_Phone = 4;
+static CGFloat const MWActivityViewControllerWidth_Pad = 403.f;
 
 static UIEdgeInsets const MWActivityViewControllerEdgeInsets_Phone = {20.f, 10.f, 25.f, 10.f};
+static UIEdgeInsets const MWActivityViewControllerEdgeInsets_Pad = {16.f, 12.f, 22.f, 12.f};
+
+static CGFloat const MWActivityViewControllerMinimumSpacing_Phone = 5.f;
+static CGFloat const MWActivityViewControllerMinimumSpacing_Pad = 10.f;
+
 
 @interface MWActivityViewController ()
 @property (strong, nonatomic) UICollectionView *collectionView;
@@ -43,58 +52,89 @@ static UIEdgeInsets const MWActivityViewControllerEdgeInsets_Phone = {20.f, 10.f
         self.activityItems = activityItems;
         self.applicationActivities = applicationActivities;
 
-        self.contentView = [[UIView alloc] init];
-        [self.view addSubview:self.contentView];
+        if (MWOpenInKit.isPad) {
+            self.contentView = self.view;
+        } else {
+            self.contentView = [[UIView alloc] init];
+            [self.view addSubview:self.contentView];
+        }
 
         self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-        self.collectionViewLayout.itemSize = MWActivityViewControllerItemSize_Phone;
-        self.collectionViewLayout.sectionInset = MWActivityViewControllerEdgeInsets_Phone;
-        self.collectionViewLayout.minimumInteritemSpacing = 5.f;
-        self.collectionViewLayout.minimumLineSpacing = 5.f;
-
         self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
         [self.collectionView registerClass:[MWActivityCell class] forCellWithReuseIdentifier:CellIdentifier];
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self;
 
         self.collectionView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.95];
-        self.collectionView.scrollEnabled = NO;
         [self.contentView addSubview: self.collectionView];
 
+        if (MWOpenInKit.isPad) {
+            self.collectionViewLayout.itemSize = MWActivityViewControllerItemSize_Pad;
+            self.collectionViewLayout.sectionInset = MWActivityViewControllerEdgeInsets_Pad;
+            self.collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 
-        self.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        self.cancelButton.frame = CGRectMake(0, 0, self.view.width, 44.f);
-        [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-        self.cancelButton.titleLabel.font = [UIFont systemFontOfSize:24.f];
-        self.cancelButton.backgroundColor = UIColor.whiteColor;
-        [self.cancelButton addTarget:self action:@selector(didTapCancelButton) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:self.cancelButton];
+        } else {
+            self.collectionViewLayout.itemSize = MWActivityViewControllerItemSize_Phone;
+            self.collectionViewLayout.sectionInset = MWActivityViewControllerEdgeInsets_Phone;
+            self.collectionView.scrollEnabled = NO;
+            self.collectionViewLayout.minimumInteritemSpacing = MWActivityViewControllerMinimumSpacing_Phone;
+            self.collectionViewLayout.minimumLineSpacing = MWActivityViewControllerMinimumSpacing_Phone;
 
+            self.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+            self.cancelButton.frame = CGRectMake(0, 0, self.view.width, 44.f);
+            [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+            self.cancelButton.titleLabel.font = [UIFont systemFontOfSize:24.f];
+            self.cancelButton.backgroundColor = UIColor.whiteColor;
+            [self.cancelButton addTarget:self action:@selector(didTapCancelButton) forControlEvents:UIControlEventTouchUpInside];
+            [self.contentView addSubview:self.cancelButton];
+        }
+
+        [self setBounds];
     }
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     [super viewWillAppear:animated];
-
     [self setBounds];
+    self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
 }
 
-- (void)setBounds {
-    int numberOfRows = ceil((CGFloat)self.applicationActivities.count / MWActivityViewControllerItemsPerRow_Phone);
-    CGFloat viewHeight = self.cancelButton.height + self.collectionViewLayout.sectionInset.bottom + numberOfRows * MWActivityViewControllerRowHeight_Phone;
+- (void)configureForPad {
     CGRect frame = CGRectMake(0,
-               self.view.bottom - viewHeight,
-               self.view.width,
-               viewHeight);
-    self.contentView.frame = frame;
+                              0,
+                              MWActivityViewControllerWidth_Pad,
+                              MWActivityViewControllerRowHeight_Pad);
+    self.view.frame = frame;
+
+    self.collectionView.frame = self.view.bounds;
+}
+
+- (void)configureForPhone {
+    int numberOfRows = ceil((CGFloat)self.applicationActivities.count / MWActivityViewControllerItemsPerRow_Phone);
+
+    CGFloat viewHeight = self.cancelButton.height + self.collectionViewLayout.sectionInset.bottom + numberOfRows * MWActivityViewControllerRowHeight_Phone;
+
+    CGRect frame = CGRectMake(0,
+                              self.view.bottom - viewHeight,
+                              self.view.width,
+                              viewHeight);
 
     CGRect collectionFrame = self.contentView.bounds;
     collectionFrame.size.height -= self.cancelButton.height;
     self.collectionView.frame = collectionFrame;
 
+    self.contentView.frame = frame;
+
     [self.cancelButton moveToPoint:CGPointMake(0, self.contentView.height - self.cancelButton.height)];
+
+}
+- (void)setBounds {
+    if (MWOpenInKit.isPad) {
+        [self configureForPad];
+    } else {
+        [self configureForPhone];
+    }
 }
 
 - (void)didTapCancelButton {

@@ -145,7 +145,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MWActivityPresenter *(^action)() = self.content[indexPath.section][@"items"][indexPath.row][@"action"];
-    [action() presentActivitySheetFromViewController:self];
+    [action() presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -7,6 +7,8 @@
 //
 
 #import "MWActivityCell.h"
+#import "MWOpenInKit.h"
+#import "UIView+Helpers.h"
 
 CGFloat const MWActivityCellIconSize_Pad = 76.f;
 CGFloat const MWActivityCellIconSize_Phone = 60.f;
@@ -36,7 +38,7 @@ CGFloat const MWActivityCellIconSize_Phone = 60.f;
 - (void)updateConstraints {
     [super updateConstraints];
 
-    NSNumber *iconSize = @((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ?
+    NSNumber *iconSize = @(MWOpenInKit.isPad ?
     MWActivityCellIconSize_Pad : MWActivityCellIconSize_Phone);
 
     NSDictionary *metrics = NSDictionaryOfVariableBindings(iconSize);
@@ -44,14 +46,13 @@ CGFloat const MWActivityCellIconSize_Phone = 60.f;
                             @"title": self.titleLabel};
 
     NSArray *layoutStrings = @[@"|-(>=0)-[icon(iconSize)]-(>=0)-|",
-                               @"|-(>=0)-[title]-(>=0)-|",
+                               @"|-0-[title]-0-|",
                                @"V:|-0-[icon(iconSize)]-5-[title]-|"
                                ];
 
     for (NSString *layoutString in layoutStrings) {
-        NSLayoutFormatOptions options = 0; //([layoutString characterAtIndex:0] == 'V') ? NSLayoutFormatAlignAllCenterX : NSLayoutFormatAlignAllCenterY;
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:layoutString
-                                                                                 options:options
+                                                                                 options:0
                                                                                  metrics:metrics
                                                                                    views:views]];
     }
@@ -62,13 +63,6 @@ CGFloat const MWActivityCellIconSize_Phone = 60.f;
                                                                     toItem:self.iconView.superview
                                                                  attribute:NSLayoutAttributeCenterX
                                                                 multiplier:1.f constant:0.f]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLabel
-                                                     attribute:NSLayoutAttributeCenterX
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:self.titleLabel.superview
-                                                     attribute:NSLayoutAttributeCenterX
-                                                    multiplier:1.f constant:0.f]];
-
 
     self.iconView.translatesAutoresizingMaskIntoConstraints = NO;
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -80,6 +74,7 @@ CGFloat const MWActivityCellIconSize_Phone = 60.f;
     self.iconView.image = self.activity.activityImage;
     self.titleLabel.text = self.activity.activityTitle;
     [self.titleLabel sizeToFit];
+    [self.titleLabel resizeTo:CGSizeMake(self.width, self.titleLabel.height)];
 
     [self setNeedsUpdateConstraints];
 }

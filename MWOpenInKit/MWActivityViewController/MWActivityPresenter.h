@@ -23,8 +23,38 @@
 /** Removes the active `MWActivityViewController` from view. */
 - (void)dismissActivitySheet;
 
-/** Modally present the current activity sheet as a modal view on a given view controller.
- @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController. */
-- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController;
+/** Present the current activity sheet modally on a given view controller.
+ @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController.
+
+ @warning If your app is either Universal or iPad-only, you should instead use presentModalActivitySheetFromViewController:popoverFromRect:inView:permittedArrowDirections: or presentModalActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections: instead.
+*/
+- (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController;
+
+/** Present the current activity sheet on the given view controller. If the device is an iPhone, it will be presented modally; if an iPad, it will be presented in a UIPopoverController with the given options. 
+ 
+ @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController.
+ @param rect The CGRect the UIPopoverController should be originating from.
+ @param permittedArrowDirections A bitmask of permitted arrow directions.
+ @param animated Whether or not to animate the popover.
+
+ @see UIPopoverController presentPopoverFromRect:inView:permittedArrowDirections:animated: */
+- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController
+                               popoverFromRect:(CGRect)rect
+                                        inView:(UIView *)view
+                      permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections
+                                      animated:(BOOL)animated;
+
+/** Present the current activity sheet on the given view controller. If the device is an iPhone, it will be presented modally; if an iPad, it will be presented in a UIPopoverController with the given options.
+
+ @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController.
+ @param item A UIBarButtonItem to originate the UIPopoverController from
+ @param permittedArrowDirections A bitmask of permitted arrow directions.
+ @param animated Whether or not to animate the popover.
+
+ @see UIPopoverController presentPopoverFromRect:inView:permittedArrowDirections:animated: */
+- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController
+                      popoverFromBarButtonItem:(UIBarButtonItem *)item
+                      permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections
+                                      animated:(BOOL)animated;
 
 @end
