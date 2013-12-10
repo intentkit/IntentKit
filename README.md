@@ -66,7 +66,7 @@ mapsHandler.zoom = 14;
 [mapsHandler directionsFrom:@"Washington Square Park" to:@"Lincoln Center"];
 ```
 
-For an up-to-date list of available handlers and what methods and configuration options are supported by each, check the documentation in the `docs` directory.
+For an up-to-date list of available handlers and what methods and configuration options are supported by each, check the documentation in the `docs` directory by running `script/generate-docs.sh` from the root directory.
 
 
 Documentation
