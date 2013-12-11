@@ -33,10 +33,20 @@ describe(@"MWActivityPresenter", ^{
 
     describe(@"presenting an activity sheet modally", ^{
         context(@"when there are multiple apps", ^{
-            it(@"should be presented on the correct view controller ", ^{
+            beforeEach(^{
                 [given([activitySheet numberOfApplications]) willReturnInteger:2];
                 [presenter presentModalActivitySheetFromViewController:presentingController];
+            });
+
+            it(@"should be presented on the correct view controller ", ^{
                 expect(presentingController.presentedViewController).to.equal(activitySheet);
+            });
+
+            context(@"when dismissing it", ^{
+                it(@"should no longer be presented", ^{
+                    [presenter dismissActivitySheet];
+                    expect(presentingController.presentedViewController).to.beNil;
+                });
             });
         });
 
@@ -49,18 +59,33 @@ describe(@"MWActivityPresenter", ^{
         });
     });
 
-    describe(@"hiding a modally-presented sheet", ^{
-        it(@"should no longer be presented", ^{
-            [given([activitySheet numberOfApplications]) willReturnInteger:2];
+    describe(@"presenting an activity sheet in a popover", ^{
+        context(@"when positioning by bar button item", ^{
+            context(@"when there is only one app", ^{
+                it(@"should open it", ^{
+                    [given([activitySheet numberOfApplications]) willReturnInteger:1];
+                    [presenter presentActivitySheetFromViewController:presentingController popoverFromBarButtonItem:[[UIBarButtonItem alloc] init] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                    [(MWActivityViewController *)verify(activitySheet) performActivityInFirstAvailableApplication];
+                });
+            });
 
-            [presenter presentModalActivitySheetFromViewController:presentingController];
-            expect(presentingController.presentedViewController).to.equal(activitySheet);
+            xcontext(@"when there are multiple apps", ^{
+                // TODO: Refactor [MWOpenInKit isPad] so that it can be properly stubbed out for test.
+            });
+        });
 
-            [presenter dismissActivitySheet];
-            expect(presentingController.presentedViewController).to.beNil;
+        context(@"when positioning by rect in view", ^{
+            context(@"when there is only one app", ^{
+                it(@"should open it", ^{
+                    [given([activitySheet numberOfApplications]) willReturnInteger:1];
+                    [presenter presentActivitySheetFromViewController:presentingController popoverFromRect:CGRectZero inView:presentingController.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                    [(MWActivityViewController *)verify(activitySheet) performActivityInFirstAvailableApplication];
+                });
+            });
+
+            xcontext(@"when there are multiple apps", ^{});
         });
     });
-
 });
 
 SpecEnd
