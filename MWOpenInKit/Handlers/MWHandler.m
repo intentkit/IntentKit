@@ -59,13 +59,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
     NSArray *activityItems = @[command, args];
 
-    if (availableApps.count == 1 && !self.alwaysShowActivityView) {
-        [availableApps[0] prepareWithActivityItems:activityItems];
-        [availableApps[0] performActivity];
-        return nil;
-    } else {
-        MWActivityViewController *activityView = [[MWActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
-        return [[MWActivityPresenter alloc] initWithActivitySheet:activityView];
-    }
+    MWActivityViewController *activityView = [[MWActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
+    return [[MWActivityPresenter alloc] initWithActivitySheet:activityView];
 }
 @end

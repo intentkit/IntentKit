@@ -40,7 +40,7 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     __block MWHandler *handler;
     __block NSString *urlString;
     __block MWActivityPresenter *(^subjectAction)(void);
-
+    __block MWActivityPresenter *presenter;
     beforeEach(^{
         handler.application = mock([UIApplication class]);
 
@@ -50,39 +50,69 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     });
 
     context(@"when only one application is available", ^{
-        it(@"should open in that application", ^{
+        beforeEach(^{
             [given([handler.application canOpenURL:[NSURL URLWithString:urlString.urlScheme]]) willReturnBool:YES];
+            presenter = subjectAction();
+        });
 
-            subjectAction();
+        it(@"should return a valid presenter", ^{
+            expect([presenter isKindOfClass:[MWActivityPresenter class]]).to.beTruthy;
+        });
 
-            [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlString]];
+        it(@"should have one application", ^{
+            expect([presenter.activitySheet numberOfApplications]).to.equal(1);
         });
     });
 
-    context(@"when multiple apps are installed", ^{
+    context(@"when multiple applications are available", ^{
         beforeEach(^{
             [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
+            presenter = subjectAction();
         });
 
-        context(@"when a default has not been set", ^{
-            it(@"should prompt the user to pick", ^{
-                MWActivityPresenter *result = subjectAction();
-                expect([result isKindOfClass:[MWActivityPresenter class]]).to.beTruthy;
-            });
+        it(@"should return a valid presenter", ^{
+            expect([presenter isKindOfClass:[MWActivityPresenter class]]).to.beTruthy;
+        });
 
-            it(@"should contain some activities", ^{
-                MWActivityPresenter *result = subjectAction();
-                NSArray *items = result.activitySheet.applicationActivities;
-                expect(items.count).toNot.equal(0);
-            });
+        it(@"should have multiple activities", ^{
+            expect([presenter.activitySheet numberOfApplications]).to.beGreaterThan(0);
         });
     });
+
+//    context(@"when only one application is available", ^{
+//        it(@"should open in that application", ^{
+//            [given([handler.application canOpenURL:[NSURL URLWithString:urlString.urlScheme]]) willReturnBool:YES];
+//
+//            subjectAction();
+//
+//            [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlString]];
+//        });
+//    });
+//
+//    context(@"when multiple apps are installed", ^{
+//        beforeEach(^{
+//            [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
+//        });
+//
+//        context(@"when a default has not been set", ^{
+//            it(@"should prompt the user to pick", ^{
+//                MWActivityPresenter *result = subjectAction();
+//                expect([result isKindOfClass:[MWActivityPresenter class]]).to.beTruthy;
+//            });
+//
+//            it(@"should contain some activities", ^{
+//                MWActivityPresenter *result = subjectAction();
+//                NSArray *items = result.activitySheet.applicationActivities;
+//                expect(items.count).toNot.equal(0);
+//            });
+//        });
+//    });
 });
 
 sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
     __block MWHandler *handler;
     __block NSString *urlStringWithParam;
-    __block UIActivityViewController *(^subjectAction)(void);
+    __block MWActivityPresenter *(^subjectAction)(void);
 
     beforeEach(^{
         handler.application = mock([UIApplication class]);
@@ -95,7 +125,8 @@ sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
     it(@"should include the given param", ^{
         [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithParam.urlScheme]]) willReturnBool:YES];
 
-        subjectAction();
+        MWActivityPresenter *presenter = subjectAction();
+        [presenter.activitySheet performActivityInFirstAvailableApplication];
 
         [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlStringWithParam]];
     });

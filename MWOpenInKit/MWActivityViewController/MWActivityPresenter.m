@@ -29,8 +29,17 @@
     return self;
 }
 
+- (BOOL)canPerformActivity {
+    return self.activitySheet.numberOfApplications > 1;
+}
+
 - (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController {
 
+    if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
+        [self.activitySheet performActivityInFirstAvailableApplication];
+        return;
+    }
+    
     self.presentingViewController = presentingViewController;
 
     self.shadeView = [[UIView alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -50,8 +59,9 @@
 }
 
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
-
-    if (MWOpenInKit.isPad) {
+    if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
+        [self.activitySheet performActivityInFirstAvailableApplication];
+    } else if (MWOpenInKit.isPad) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
         self.popoverController.popoverContentSize = self.activitySheet.view.bounds.size;
@@ -63,7 +73,9 @@
 
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
 
-    if (MWOpenInKit.isPad) {
+    if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
+        [self.activitySheet performActivityInFirstAvailableApplication];
+    } else if (MWOpenInKit.isPad) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
         [self.popoverController presentPopoverFromBarButtonItem:item  permittedArrowDirections:arrowDirections animated:animated];

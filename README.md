@@ -43,21 +43,39 @@ This README will be updated when that changes.
 
 Usage
 -----
-In its simplest form, to use MWOpenInKit you just need to instantiate a handler object and then tell it an action to perform. Here's how you'd open a URL in an external web browser:
+In its simplest form, to use MWOpenInKit you just need to instantiate a handler object, give it an action to perform, and tell the resulting presenter object to present itself. Here's how you'd open a URL in an external web browser on an iPhone:
 
 ```obj-c
+NSURL *url = [NSURL URLWithString:@"http://google.com"]
 MWBrowserHandler *browserHandler = [[MWBrowserHandler alloc] init];
-[browserHandler openURL:[NSURL urlWithString:@"http://google.com"]];
+MWActivityPresenter *presenter = [browserHandler openURL:url];
+[presenter presentModalActivitySheetFromViewController:self];
 ```
 
-If the user only has MobileSafari installed, `[browserHandler openURL:]` will open up Safari for you, just like if you had called `[[UIApplication sharedApplication] openURL:]` directly.
+If the user only has MobileSafari installed, this will open up Safari just as if you had called `[[UIApplication sharedApplication] openURL:url]`.
 
-If the user has multiple web browsers installed, `[browserHandler openURL:]` will return a UIActivityViewController to be presented (per [Apple's documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivityViewController_Class/Reference/Reference.html), it's recommended you present it modally on iPhone and in a UIPopoverController on iPad). When the user selects an app, it will automatically be updated.
+If the user has multiple web browsers installed, this will display a modal sheet (similar to the iOS 7-style `UIActivityViewController`) listing each of the available applications.
+
+This will always display as a modal sheet, but if your app is Universal or iPad-only you probably want to display the application sheet as popover instead. The following code will automatically display itself modally on an iPhone and in a `UIPopoverController` on an iPad.
+
+```obj-c
+NSURL *url = [NSURL URLWithString:@"http://google.com"]
+MWBrowserHandler *browserHandler = [[MWBrowserHandler alloc] init];
+MWActivityPresenter *presenter = [browserHandler openURL:url];
+[presenter presentActivitySheetFromViewController:self
+                                  popoverFromRect:someRect
+                                           inView:self.view
+                         permittedArrowDirections:UIPopoverArrowDirectionAny
+                                         animated:YES];
+```
+
+All of those options will be passed directly into a `UIPopoverController`. Similarly, there exists a `presentActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections:animated:` that calls the equivalent `UIPopoverController` method if appropriate.
 
 
-There are a number of different handler objects, all grouped by the type of application. For exampe, MWBrowserHandler, MWMapsHandler, and MWTwitterHandler handle opening links in web browsers, mapping applications, and Twitter clients, respectively.
+### Different Handlers
+There are a number of different handler objects, all grouped by the type of application. For exampe, `MWBrowserHandler`, `MWMapsHandler`, and `MWTwitterHandler` handle opening links in web browsers, mapping applications, and Twitter clients, respectively.
 
-Some handlers have optional configuration parameters. For example, when linking to a map application, you can specify where the map should be centered and how zoomed-in it should be; these options will take effect whether you're searching for a location, getting turn-by-turn directions, or doing any other action supported by the handler.
+Some of these handlers have optional configuration parameters. For example, when linking to a map application, you can specify where the map should be centered and how zoomed-in it should be; these options will take effect whether you're searching for a location, getting turn-by-turn directions, or doing any other action supported by the handler.
 
 ```obj-c
 MWMapsHandler *mapsHandler = [[MWMapsHandler alloc] init];
@@ -66,12 +84,14 @@ mapsHandler.zoom = 14;
 [mapsHandler directionsFrom:@"Washington Square Park" to:@"Lincoln Center"];
 ```
 
-For an up-to-date list of available handlers and what methods and configuration options are supported by each, check the documentation in the `docs` directory by running `script/generate-docs.sh` from the root directory.
+Here's where the real power of `MWOpenInKit` shines through. This gives you a clean, semantic API to construct links rather than having to manually cobble together URLs, regardless of whether your user wants to use Apple Maps or a third-party app.
+
+An up-to-date list of available handlers and what methods and configuration options is available in the project's documentation.
 
 
 Documentation
 -------------
-Exhaustive documentation (generated using [appledoc](https://github.com/tomaz/appledoc)) can be found in the `docs` directory.
+Exhaustive documentation (generated using [appledoc](https://github.com/tomaz/appledoc)) can be found in the `docs` directory by running `script/generate-docs.sh` from the root directory.
 
 
 Example Project

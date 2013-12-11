@@ -94,6 +94,15 @@ static CGFloat const MWActivityViewControllerMinimumSpacing_Pad = 10.f;
     return self;
 }
 
+- (NSInteger)numberOfApplications {
+    return self.applicationActivities.count;
+}
+
+- (void)performActivityInFirstAvailableApplication {
+    [self.applicationActivities.firstObject prepareWithActivityItems:self.activityItems];
+    [self.applicationActivities.firstObject performActivity];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setBounds];

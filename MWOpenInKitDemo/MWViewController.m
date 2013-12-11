@@ -51,7 +51,6 @@
                        @{@"description": @"Open an HTTP URL",
                          @"action": (UIActivityViewController *)^{
                              MWBrowserHandler *handler = [[MWBrowserHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              NSURL *url = [NSURL URLWithString:@"http://google.com"];
                              return [handler openURL:url];
                          }
@@ -64,14 +63,12 @@
                        @{@"description": @"Search for a map location",
                          @"action": (UIActivityViewController *)^{
                              MWMapsHandler *handler = [[MWMapsHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              handler.center = CLLocationCoordinate2DMake(32.715, -117.1625); // New York City
                              return [handler searchForLocation:@"Ray's Pizza"];
                          }},
                        @{@"description": @"Get turn-by-turn directions",
                          @"action": (UIActivityViewController *)^{
                              MWMapsHandler *handler = [[MWMapsHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              handler.center = CLLocationCoordinate2DMake(32.715, -117.1625); // New York City
                              return [handler directionsFrom:@"Central Park" to:@"Radio City Music Hall"];
                          }}
@@ -82,55 +79,46 @@
                        @{@"description": @"Show a specific tweet",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showTweetWithId:@"28"];
                          }},
                        @{@"description": @"Show a user by screen name",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showUserWithScreenName:@"Seinfeld2000"];
                          }},
                        @{@"description": @"Show a user by ID",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showUserWithId:@"1081562149"];
                          }},
                        @{@"description": @"Show timeline",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showTimeline];
                          }},
                        @{@"description": @"Show mentions",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showMentions];
                          }},
                        @{@"description": @"Show DMs",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showDirectMessages];
                          }},
                        @{@"description": @"Search",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler searchFor:@"#yolo"];
                          }},
                        @{@"description": @"Post a tweet",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler tweetMessage:@"MWOpenInKit is blowing my mind! https://github.com/lazerwalker/MWOpenInKit"];
                          }},
                        @{@"description": @"Reply to a tweet",
                          @"action": (UIActivityViewController *)^{
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
-                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler tweetMessage:@"MWOpenInKit is blowing my mind! https://github.com/lazerwalker/MWOpenInKit" inReplyTo:@"28"];
                          }},
                        ]
@@ -145,7 +133,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MWActivityPresenter *(^action)() = self.content[indexPath.section][@"items"][indexPath.row][@"action"];
-    [action() presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    MWActivityPresenter *presenter = action();
+    presenter.alwaysShowActivityView = self.activitySwitch.on;
+
+    [presenter presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

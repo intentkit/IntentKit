@@ -16,9 +16,20 @@
 /** The `MWActivityViewController` to be displayed */
 @property (strong, nonatomic) MWActivityViewController *activitySheet;
 
+
+/** By default, if there is only one valid application, a `MWActivityViewController` will automatically open that app instead of showing a `MWActivityViewController`. Setting this to `YES` overrides that behavior and always shows an activity view.
+
+ This is mostly useful for demo purposes (e.g. running in the simulator). */
+@property (nonatomic, assign) BOOL alwaysShowActivityView;
+
+
 /** Instantiate a `MWActivityPresenter` with a given `MWActivityViewController`.
  @param activitySheet The `MWActivityViewController` that will be presentd. */
 - (instancetype)initWithActivitySheet:(MWActivityViewController *)activitySheet;
+
+/** Returns whether or not an action will be performed when you try to present the activity sheet.
+ @return NO if the user has no applications installed capable of handling the action. Otherwise YES. */
+- (BOOL)canPerformActivity;
 
 /** Removes the active `MWActivityViewController` from view. */
 - (void)dismissActivitySheet;

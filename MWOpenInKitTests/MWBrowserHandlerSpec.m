@@ -16,6 +16,8 @@
 #import <OCMockito/OCMockito.h>
 #import "MWBrowserHandler.h"
 #import "MWApplicationList.h"
+#import "MWActivityPresenter.h"
+#import "MWActivityViewController.h"
 
 @interface MWBrowserHandler (Spec)
 @property UIApplication *application;
@@ -68,7 +70,8 @@ describe(@"MWBrowserHandler", ^{
             it(@"should open the URL in Chrome via callback", ^{
                 [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
 
-                [handler openURL:url withCallback:callbackURL];
+                MWActivityPresenter *presenter = [handler openURL:url withCallback:callbackURL];
+                [presenter.activitySheet performActivityInFirstAvailableApplication];
 
                 NSString *expected = @"googlechrome-x-callback://x-callback-url/open/?x-source=MWOpenInKitDemo&x-success=testapp%3A%2F%2Ftest&url=http%3A%2F%2Fgoogle.com";
                 NSURL *expectedURL = [NSURL URLWithString:expected];

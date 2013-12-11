@@ -32,14 +32,27 @@ describe(@"MWActivityPresenter", ^{
     });
 
     describe(@"presenting an activity sheet modally", ^{
-        it(@"should be presented on the correct view controller ", ^{
-            [presenter presentModalActivitySheetFromViewController:presentingController];
-            expect(presentingController.presentedViewController).to.equal(activitySheet);
+        context(@"when there are multiple apps", ^{
+            it(@"should be presented on the correct view controller ", ^{
+                [given([activitySheet numberOfApplications]) willReturnInteger:2];
+                [presenter presentModalActivitySheetFromViewController:presentingController];
+                expect(presentingController.presentedViewController).to.equal(activitySheet);
+            });
+        });
+
+        context(@"when there is only one app", ^{
+            it(@"should open it", ^{
+                [given([activitySheet numberOfApplications]) willReturnInteger:1];
+                [presenter presentModalActivitySheetFromViewController:presentingController];
+                [(MWActivityViewController *)verify(activitySheet) performActivityInFirstAvailableApplication];
+            });
         });
     });
 
     describe(@"hiding a modally-presented sheet", ^{
         it(@"should no longer be presented", ^{
+            [given([activitySheet numberOfApplications]) willReturnInteger:2];
+
             [presenter presentModalActivitySheetFromViewController:presentingController];
             expect(presentingController.presentedViewController).to.equal(activitySheet);
 

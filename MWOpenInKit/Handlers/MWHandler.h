@@ -17,15 +17,8 @@ NSString *(^urlEncode)(NSString *);
  If you are defining URL schemes for a new discrete class of third-party applications (such as "web browsers" or "mapping applications", you may want to create your own `MWHandler` subclass. All custom methods you create that perform actions should ultimately return a UIActivityController created by calling performCommand:withArguments:. */
 @interface MWHandler : NSObject
 
-/** By default, if there is only one valid application, a `MWHandler` will automatically open that app instead of showing a `UIActivityViewController`. Setting this to `YES` overrides that behavior and always shows an activity view. 
-    
-  This is mostly useful for demo purposes (e.g. running in the simulator). */
-@property (nonatomic, assign) BOOL alwaysShowActivityView;
-
 /** An array of MWActivity objects that represent all apps, regardless of whether they are available or relevant */
 @property (strong, readonly) NSArray *activities;
-
-
 
 /** Returns whether or not an action can be performed at all.
  @param command The name of a command to perform, corresponding with the keys in each application's plist.
