@@ -15,14 +15,14 @@
 
 /** Opens a URL 
  @param url A URL to open. Must have either `http:` or `https:` as its scheme. 
- @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+ @return A `MWActivityPresenter` object to present. */
 - (MWActivityPresenter *)openURL:(NSURL *)url;
 
 /** Opens a URL with a callback
  @param url A URL to open. Must have either `http:` or `https:` as its scheme.
  @param callback A URL to be opened by the third-party app when the action has been completed.
  @see openURL:
- @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+ @return A `MWActivityPresenter` object to present. */
 - (MWActivityPresenter *)openURL:(NSURL *)url withCallback:(NSURL *)callback;
 
 @end

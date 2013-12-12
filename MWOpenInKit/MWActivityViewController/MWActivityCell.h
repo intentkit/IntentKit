@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/** A UICollectionViewCell representing a single application in a MWActivityViewController*/
 @interface MWActivityCell : UICollectionViewCell
+
+/** The underlying UIActivity */
 @property (strong, nonatomic) UIActivity *activity;
+
 @end

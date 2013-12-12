@@ -17,7 +17,8 @@ appledoc \
 --no-warn-invalid-crossref \
 --ignore "*.m" \
 --ignore "Pods" \
---ignore "OKViewController.h" \
---ignore "OKAppDelegate.h" \
+--ignore "MWViewController.h" \
+--ignore "MWAppDelegate.h" \
+--ignore "Helpers" \
 --index-desc "./README.md" \
 .

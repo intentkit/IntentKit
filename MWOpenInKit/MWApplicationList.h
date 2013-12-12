@@ -15,7 +15,7 @@
  including ones that aren't installed or aren't relevant to a given handler. */
 @property (readonly) NSArray *activities;
 
-/** Custom constructor to stub out UIApplication in test. */
+/** Custom constructor to stub out the UIApplication in test.
+ @param application A UIApplication. In production, this should probably just be [UIApplication sharedApplication]. */
 - (instancetype)initWithApplication:(UIApplication *)application;
-
 @end

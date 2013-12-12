@@ -32,7 +32,7 @@ NSString *(^urlEncode)(NSString *);
 
  @param command The name of a command to perform, corresponding with keys in each application's plist.
  @param args The dictionary of arguments used to construct a URL based on the templates defined for each URL scheme.
- @return If the user should be prompted to select an application, returns a `UIActivityViewController` to present modally. Otherwise nil. */
+ @return A `MWActivityPresenter` object to present. */
 - (MWActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
 
 @end

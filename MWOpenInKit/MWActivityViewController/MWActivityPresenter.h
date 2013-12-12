@@ -45,7 +45,8 @@
  
  @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController.
  @param rect The CGRect the UIPopoverController should be originating from.
- @param permittedArrowDirections A bitmask of permitted arrow directions.
+ @param view The UIView the UIPopoverController should be displayed in.
+ @param arrowDirections A bitmask of permitted arrow directions.
  @param animated Whether or not to animate the popover.
 
  @see UIPopoverController presentPopoverFromRect:inView:permittedArrowDirections:animated: */
@@ -59,7 +60,7 @@
 
  @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController.
  @param item A UIBarButtonItem to originate the UIPopoverController from
- @param permittedArrowDirections A bitmask of permitted arrow directions.
+ @param arrowDirections A bitmask of permitted arrow directions.
  @param animated Whether or not to animate the popover.
 
  @see UIPopoverController presentPopoverFromRect:inView:permittedArrowDirections:animated: */

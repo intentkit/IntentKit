@@ -38,8 +38,7 @@ typedef NS_ENUM(NSInteger, MWMapsHandlerDirectionsMode) {
  Like all methods in `MWMapsHandler`, this will respect the `center` and `zoom` instance variables.
 
  @param query What to search for. May be lat/long coordinates, an address, or a business name/point of interest.
- 
- @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
+ @return A `MWActivityPresenter` object to present. */
 - (MWActivityPresenter *)searchForLocation:(NSString *)query;
 
 
@@ -48,15 +47,15 @@ typedef NS_ENUM(NSInteger, MWMapsHandlerDirectionsMode) {
  @param from The starting location. May be lat/long coordinates, an address, or a business name/point of interest.
  @param to The destination. May be lat/long coordinates, an address, or a business name/point of interest.
  @param mode An MWMapsHandlerDirectionsMode indicating what mode of transporation to use.
+ @return A `MWActivityPresenter` object to present.
 
- @warning This does not currently verify that an application can support multiple modes of transportation. If you pick an application that doesn't support the mode of transporation you've asked for, that application will likely ignore that part of the request.
+ @warning This does not currently verify that an application can support multiple modes of transportation. If you pick an application that doesn't support the mode of transporation you've asked for, that application will likely ignore that part of the request. */
 
- @return A `MWActivityPresenter` to present modally if the user must pick a third-party app. Otherwise nil. */
 - (MWActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to mode:(MWMapsHandlerDirectionsMode)mode;
 
 /** Brings up turn-by-turn driving directions between two locations 
  
- The same as calling `directionsFrom:from to:to mode:MWMapsHandlerDirectionsModeDriving`.
+ The same as calling `directionsFrom:to:mode:` with `MWMapsHandlerDirectionsModeDriving` for the `mode` value.
 
  @see directionsFrom:to:mode: */
 - (MWActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to;
