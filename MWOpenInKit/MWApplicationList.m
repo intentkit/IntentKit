@@ -41,6 +41,10 @@
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
         NSString *name = [path.pathComponents.lastObject stringByDeletingPathExtension];
 
+        if ([@[@"Info", @"MWOpenInKitBundle-Info"] containsObject:name]) {
+            continue;
+        }
+
         [activities addObject:[[MWActivity alloc] initWithDictionary:dict
                                                                 name:name
                                                          application:self.application]];

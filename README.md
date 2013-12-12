@@ -126,9 +126,13 @@ Extending MWOpenInKit to include your own application's URL scheme is easy.
 
   These will all be shown as-is, so they should be prerendered. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
 
-4. Submit a pull request! There is no need to manually add any of the files to Xcode.
+4. Open the example project in Xcode and run the tests (`Cmd+U`). This runs a linter which will let you know if any of the actions defined in your plist don't correspond to actual Objective-C handler methods, helping make sure you didn't make any typos.
 
-  Make sure to try it out first using the demo app to make sure that it works. If this project becomes sufficiently popular, it is likely I'll build a linting tool.
+Note that you don't need to manually add any of the files to Xcode; they'll be picked up automatically. If you're seeing unexpected behavior and suspect your changes aren't taking effect, clean the project in Xcode, delete the derived data folder, and reset the simulator.
+
+You also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
+
+5. Submit a pull request!
 
 
 Contact

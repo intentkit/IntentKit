@@ -17,6 +17,8 @@
 		A61B5CC118579EBC00BA1F66 /* MWActivityViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC018579EBC00BA1F66 /* MWActivityViewControllerSpec.m */; };
 		A61B5CC31857C25B00BA1F66 /* MWOpenInKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC21857C25B00BA1F66 /* MWOpenInKit.m */; };
 		A61B5CC41857C25B00BA1F66 /* MWOpenInKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC21857C25B00BA1F66 /* MWOpenInKit.m */; };
+		A61B5CC71858D19D00BA1F66 /* EXPMatchers+beAValidAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC61858D19D00BA1F66 /* EXPMatchers+beAValidAction.m */; };
+		A61B5CC91858D4F800BA1F66 /* MWAppPlistLinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC81858D4F800BA1F66 /* MWAppPlistLinter.m */; };
 		A630A924184EE4DF00918F6A /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F6184EE00F002EED53 /* NSString+Helpers.m */; };
 		A6474F7A185140E400671B42 /* MWHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F1184EE00F002EED53 /* MWHandler.m */; };
 		A6474F7D1851416F00671B42 /* MWTwitterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A6474F7C1851416F00671B42 /* MWTwitterHandler.m */; };
@@ -76,6 +78,9 @@
 		A61B5CBC18579B2100BA1F66 /* MWActivityPresenterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWActivityPresenterSpec.m; sourceTree = "<group>"; };
 		A61B5CC018579EBC00BA1F66 /* MWActivityViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWActivityViewControllerSpec.m; sourceTree = "<group>"; };
 		A61B5CC21857C25B00BA1F66 /* MWOpenInKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWOpenInKit.m; sourceTree = "<group>"; };
+		A61B5CC51858D19D00BA1F66 /* EXPMatchers+beAValidAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beAValidAction.h"; path = "Matchers/EXPMatchers+beAValidAction.h"; sourceTree = "<group>"; };
+		A61B5CC61858D19D00BA1F66 /* EXPMatchers+beAValidAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beAValidAction.m"; path = "Matchers/EXPMatchers+beAValidAction.m"; sourceTree = "<group>"; };
+		A61B5CC81858D4F800BA1F66 /* MWAppPlistLinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWAppPlistLinter.m; sourceTree = "<group>"; };
 		A6474F7618513C5600671B42 /* MWOpenInKitBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MWOpenInKitBundle-Info.plist"; path = "MWOpenInKit/Apps/MWOpenInKitBundle-Info.plist"; sourceTree = "<group>"; };
 		A6474F7B1851416F00671B42 /* MWTwitterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTwitterHandler.h; sourceTree = "<group>"; };
 		A6474F7C1851416F00671B42 /* MWTwitterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTwitterHandler.m; sourceTree = "<group>"; };
@@ -163,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A61B5CCA1858D53D00BA1F66 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				A61B5CC51858D19D00BA1F66 /* EXPMatchers+beAValidAction.h */,
+				A61B5CC61858D19D00BA1F66 /* EXPMatchers+beAValidAction.m */,
+			);
+			name = Matchers;
+			sourceTree = "<group>";
+		};
 		A67F39D7184EDFE5002EED53 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +311,7 @@
 		A6B73CEF184D38650055C60D /* MWOpenInKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				A61B5CCA1858D53D00BA1F66 /* Matchers */,
 				A6B73CF0184D38650055C60D /* InfoPlist.strings */,
 				A6B73CF2184D38650055C60D /* MWOpenInKitTests-Info.plist */,
 				A6474F7E1851418500671B42 /* MWTwitterHandlerSpec.m */,
@@ -307,6 +322,7 @@
 				A6170A6818543FFA0086AC63 /* MWHandlerSpec.m */,
 				A61B5CBC18579B2100BA1F66 /* MWActivityPresenterSpec.m */,
 				A61B5CC018579EBC00BA1F66 /* MWActivityViewControllerSpec.m */,
+				A61B5CC81858D4F800BA1F66 /* MWAppPlistLinter.m */,
 			);
 			path = MWOpenInKitTests;
 			sourceTree = "<group>";
@@ -511,7 +527,9 @@
 				A6B73CFC184D38650055C60D /* MWActivitySpec.m in Sources */,
 				A6B73CFE184D38650055C60D /* MWHandlerSharedExampleSpec.m in Sources */,
 				A6B73D00184D38650055C60D /* MWMapsHandlerSpec.m in Sources */,
+				A61B5CC91858D4F800BA1F66 /* MWAppPlistLinter.m in Sources */,
 				A61B5CBE18579C3200BA1F66 /* MWActivityPresenter.m in Sources */,
+				A61B5CC71858D19D00BA1F66 /* EXPMatchers+beAValidAction.m in Sources */,
 				A61B5CC118579EBC00BA1F66 /* MWActivityViewControllerSpec.m in Sources */,
 				A61B5CBD18579B2100BA1F66 /* MWActivityPresenterSpec.m in Sources */,
 				A6B73CEC184D38450055C60D /* MWAppDelegate.m in Sources */,
