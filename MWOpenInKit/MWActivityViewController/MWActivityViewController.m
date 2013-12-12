@@ -34,6 +34,7 @@ static CGFloat const MWActivityViewControllerMinimumSpacing_Pad = 10.f;
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *collectionViewLayout;
 @property (strong, nonatomic) UIButton *cancelButton;
+@property (strong, nonatomic) UIToolbar *blurToolbar;
 
 @property (strong, nonatomic) NSArray *activityItems;
 @property (strong, nonatomic) NSArray *applicationActivities;
@@ -65,8 +66,11 @@ static CGFloat const MWActivityViewControllerMinimumSpacing_Pad = 10.f;
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self;
 
-        self.collectionView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.95];
         [self.contentView addSubview: self.collectionView];
+
+        self.collectionView.backgroundColor = UIColor.clearColor;
+        self.blurToolbar = [[UIToolbar alloc] initWithFrame:self.contentView.bounds];
+        [self.contentView insertSubview:self.blurToolbar atIndex:0];
 
         if (MWOpenInKit.isPad) {
             self.collectionViewLayout.itemSize = MWActivityViewControllerItemSize_Pad;
@@ -84,7 +88,7 @@ static CGFloat const MWActivityViewControllerMinimumSpacing_Pad = 10.f;
             self.cancelButton.frame = CGRectMake(0, 0, self.view.width, 44.f);
             [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
             self.cancelButton.titleLabel.font = [UIFont systemFontOfSize:24.f];
-            self.cancelButton.backgroundColor = UIColor.whiteColor;
+            self.cancelButton.backgroundColor = UIColor.clearColor;
             [self.cancelButton addTarget:self action:@selector(didTapCancelButton) forControlEvents:UIControlEventTouchUpInside];
             [self.contentView addSubview:self.cancelButton];
         }
@@ -115,7 +119,7 @@ static CGFloat const MWActivityViewControllerMinimumSpacing_Pad = 10.f;
                               MWActivityViewControllerWidth_Pad,
                               MWActivityViewControllerRowHeight_Pad);
     self.view.frame = frame;
-
+    self.blurToolbar.frame = self.contentView.bounds;
     self.collectionView.frame = self.view.bounds;
 }
 
@@ -134,6 +138,7 @@ static CGFloat const MWActivityViewControllerMinimumSpacing_Pad = 10.f;
     self.collectionView.frame = collectionFrame;
 
     self.contentView.frame = frame;
+    self.blurToolbar.frame = self.contentView.bounds;
 
     [self.cancelButton moveToPoint:CGPointMake(0, self.contentView.height - self.cancelButton.height)];
 
