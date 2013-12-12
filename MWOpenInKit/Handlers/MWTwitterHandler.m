@@ -66,6 +66,57 @@
                   withArguments:arguments];
 }
 
+#pragma mark - Actions not supported by all clients
+- (MWActivityPresenter *)showRetweets {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
+}
+
+- (MWActivityPresenter *)showFavorites {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
+}
+
+- (MWActivityPresenter *)showLists {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
+}
+
+- (MWActivityPresenter *)showListWithId:(NSString *)listId {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(listId)]];
+}
+
+- (MWActivityPresenter *)tweetSearchPage {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
+}
+
+- (MWActivityPresenter *)followUser:(NSString *)user {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(user)]];
+}
+
+- (MWActivityPresenter *)unfollowUser:(NSString *)user {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(user)]];
+}
+
+- (MWActivityPresenter *)favoriteTweetWithId:(NSString *)tweetId {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]];
+}
+
+- (MWActivityPresenter *)unfavoriteTweetWithId:(NSString *)tweetId {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]];
+}
+
+- (MWActivityPresenter *)retweetTweetWithId:(NSString *)tweetId {
+    return [self performCommand:NSStringFromSelector(_cmd)
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]];
+}
+
 #pragma mark - Private methods
 - (NSDictionary *)argumentsDictionaryWithArguments:(NSDictionary *)args {
     if (!args) {

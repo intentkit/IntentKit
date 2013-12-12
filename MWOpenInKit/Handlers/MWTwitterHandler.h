@@ -70,30 +70,51 @@
  @return A `MWActivityPresenter` object to present. */
 - (MWActivityPresenter *)tweetMessage:(NSString *)message inReplyTo:(NSString *)replyId;
 
-/**---------------------------------------------------------------
- * @name Actions which may not be supported by all Twitter clients
- *--------------------------------------------------------------*/
+/** @name Standard Twitter actions */
 
-//- (MWActivityPresenter *)showRetweets;
-//
-//- (MWActivityPresenter *)showFavorites;
-//
-//- (MWActivityPresenter *)showLists;
-//
-//- (MWActivityPresenter *)showListWithId:(NSString *)listId;
-//
-//- (MWActivityPresenter *)showList:(NSString *)list byUser:(NSString *)screenName;
+/** Show retweets.
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)showRetweets;
 
-//- (MWActivityPresenter *)search;
+/** Shows the tweets the current user has favorited
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)showFavorites;
 
+/** Shows the current user's lists.
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)showLists;
 
-//- (MWActivityPresenter *)followUser:(NSString *)user;
-//
-//- (MWActivityPresenter *)unfollowUser:(NSString *)user;
-//
-//- (MWActivityPresenter *)favoriteTweetWithId:(NSString *)tweetId;
-//
-//- (MWActivityPresenter *)unfavoriteTweetWithId:(NSString *)tweetId;
-//
-//- (MWActivityPresenter *)retweetTweetWithId:(NSString *)tweetId;
+/** Shows a specific list.
+ @param listId The id of a list
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)showListWithId:(NSString *)listId;
+
+/** Shows the search screen.
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)tweetSearchPage;
+
+/** Follows a given user.
+ @param user A screen name or user ID
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)followUser:(NSString *)user;
+
+/** Unfollows a given user.
+ @param user A screen name or user ID
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)unfollowUser:(NSString *)user;
+
+/** Favorites a tweet.
+ @param tweetId The ID of a tweet to favorite.
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)favoriteTweetWithId:(NSString *)tweetId;
+
+/** Unfavorites a tweet.
+ @param tweetId The ID of a tweet to unfavorite.
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)unfavoriteTweetWithId:(NSString *)tweetId;
+
+/** Retweets a tweet.
+ @param tweetId The ID of a tweet to retweet.
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)retweetTweetWithId:(NSString *)tweetId;
 @end

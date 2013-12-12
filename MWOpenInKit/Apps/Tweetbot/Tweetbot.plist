@@ -19,11 +19,31 @@
 	<string>tweetbot://{activeUser}/mentions</string>
 	<key>showDirectMessages</key>
 	<string>tweetbot://{activeUser}/direct_messages</string>
+	<key>showRetweets</key>
+	<string>tweetbot://{activeUser}/retweets</string>
+	<key>showLists</key>
+	<string>tweetbot://{activeUser}/lists</string>
+	<key>showListWithId:</key>
+	<string>tweetbot://{activeUser}/list/{listId}</string>
+	<key>showFavorites</key>
+	<string>tweetbot://{activeUser}/favorites</string>
 	<key>searchFor:</key>
 	<string>tweetbot://{activeUser}/search?query={query}</string>
+	<key>tweetSearchPage</key>
+	<string>tweetbot://{activeUser}/search</string>
 	<key>tweetMessage:</key>
 	<string>tweetbot://{activeUser}/post?text={message}</string>
 	<key>tweetMessage:inReplyTo:</key>
 	<string>tweetbot://{activeUser}/post?text={message}&amp;in_reply_to_status_id={replyId}</string>
+	<key>followUser:</key>
+	<string>tweetbot://{activeUser}/follow/{user}</string>
+	<key>unfollowUser:</key>
+	<string>tweetbot://{activeUser}/unfollow/{user}</string>
+	<key>favoriteTweetWithId:</key>
+	<string>tweetbot://{activeUser}/favorite/{tweetId}</string>
+	<key>unfavoriteTweetWithId:</key>
+	<string>tweetbot://{activeUser}/unfavorite/{tweetId}</string>
+	<key>retweetTweetWithId:</key>
+	<string>tweetbot://{activeUser}/retweet/{tweetId}</string>
 </dict>
 </plist>

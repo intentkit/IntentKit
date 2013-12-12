@@ -78,35 +78,6 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
             expect([presenter.activitySheet numberOfApplications]).to.beGreaterThan(0);
         });
     });
-
-//    context(@"when only one application is available", ^{
-//        it(@"should open in that application", ^{
-//            [given([handler.application canOpenURL:[NSURL URLWithString:urlString.urlScheme]]) willReturnBool:YES];
-//
-//            subjectAction();
-//
-//            [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlString]];
-//        });
-//    });
-//
-//    context(@"when multiple apps are installed", ^{
-//        beforeEach(^{
-//            [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
-//        });
-//
-//        context(@"when a default has not been set", ^{
-//            it(@"should prompt the user to pick", ^{
-//                MWActivityPresenter *result = subjectAction();
-//                expect([result isKindOfClass:[MWActivityPresenter class]]).to.beTruthy;
-//            });
-//
-//            it(@"should contain some activities", ^{
-//                MWActivityPresenter *result = subjectAction();
-//                NSArray *items = result.activitySheet.applicationActivities;
-//                expect(items.count).toNot.equal(0);
-//            });
-//        });
-//    });
 });
 
 sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
