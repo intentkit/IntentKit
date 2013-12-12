@@ -42,7 +42,7 @@
     
     self.presentingViewController = presentingViewController;
 
-    self.shadeView = [[UIView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    self.shadeView = [[UIView alloc] initWithFrame:self.presentingViewController.view.bounds];
     self.shadeView.backgroundColor = [UIColor blackColor];
     [self.presentingViewController.view addSubview:self.shadeView];
 
