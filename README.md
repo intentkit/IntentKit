@@ -134,6 +134,25 @@ You also probably want to run the example app on an actual iOS device to make su
 
 5. Submit a pull request!
 
+If your application supports actions not currently represented in a handler, or is part of a class of applications that doesn't currently have a handler, you'll have to write code to add support. The current handler code is easy to read; refer to an existing handler subclass as a reference for creating your own handler methods or `MWHandler` subclasses.
+
+
+Contributing
+------------
+At this point, the best way you can help out with `MWOpenInKit` is honestly to just use it in your applications and submit pull requests for your apps' URL schemes. That being said, any other contributions are welcome! Tests and documentation via appledocs are heavily encouraged for new code.
+
+
+Roadmap
+-------
+The goal of the initial version of `MWOpenInKit` was just to create a simple way to integrate third-party app linking without a lot of boilerplate code. Here's a non-exhaustive list of ways it could be extended in to the future.
+
+* Saving user app preferences, both on a per-app basis and (ideally) across all applications on a single device that use `MWOpenInKit`
+* Support for localization in app names
+* The ability to have handlers perform custom code instead of always opening a URL (e.g. showing a `MFMailComposeViewController` or an in-app web view)
+* Downloading and caching plists at runtime, allowing an app to pull in the latest URL schemes without needing an App Store update
+* A web-based CMS to add and manage URL schemes without needing to manually edit plists or submit pull requests.
+* Optional downloading of app icons from Apple at runtime rather than requiring developers to upload them
+
 
 Contact
 -------
