@@ -10,6 +10,8 @@
 #import "MWBrowserHandler.h"
 #import "MWMapsHandler.h"
 #import "MWTwitterHandler.h"
+#import "MWActivityPresenter.h"
+#import "MWActivityViewController.h"
 
 /** A mish-mosh of occasionally-useful global (uh-oh!) methods */
 @interface MWOpenInKit : NSObject
