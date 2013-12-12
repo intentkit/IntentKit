@@ -36,7 +36,7 @@ After running `pod install`, you should be able to `#import <MWOpenInKit/MWOpenI
 
 MWOpenInKit hasn't actually been published to CocoaPods yet. For now, if you want to use MWOpenInKit, clone this repo and point your Podfile to the checked-out copy using the `:path` specifier:
 
-    pod "MWOpenInKit", :path => "/some/path/to/MWOpenInKit"
+    pod "MWOpenInKit", :git => "https://github.com/lazerwalker/MWOpenInKit.git"
 
 This README will be updated when that changes.
 
