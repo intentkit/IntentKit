@@ -32,14 +32,6 @@ MWOpenInKit is easiest to install using [CocoaPods](http://cocoapods.org). Just 
 
 After running `pod install`, you should be able to `#import <MWOpenInKit/MWOpenInKit.h>` inside your application code and go to town.
 
-**IMPORTANT**
-
-MWOpenInKit hasn't actually been published to CocoaPods yet. For now, if you want to use MWOpenInKit, clone this repo and point your Podfile to the checked-out copy using the `:path` specifier:
-
-    pod "MWOpenInKit", :git => "https://github.com/lazerwalker/MWOpenInKit.git"
-
-This README will be updated when that changes.
-
 
 Usage
 -----
