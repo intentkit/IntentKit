@@ -65,7 +65,7 @@ All of those options will be passed directly into a `UIPopoverController`. Simil
 
 
 ### Different Handlers
-There are a number of different handler objects, all grouped by the type of application. For exampe, `MWBrowserHandler`, `MWMapsHandler`, and `MWTwitterHandler` handle opening links in web browsers, mapping applications, and Twitter clients, respectively.
+There are a number of different handler objects, all grouped by the type of application. For example, `MWBrowserHandler`, `MWMapsHandler`, and `MWTwitterHandler` handle opening links in web browsers, mapping applications, and Twitter clients, respectively.
 
 Some of these handlers have optional configuration parameters. For example, when linking to a map application, you can specify where the map should be centered and how zoomed-in it should be; these options will take effect whether you're searching for a location, getting turn-by-turn directions, or doing any other action supported by the handler.
 
@@ -90,9 +90,10 @@ Example Project
 ---------------
 A demo app has been provided so you can see MWOpenInKit in action.
 
-1. Clone this repo
-2. Open `MWOpenInKitDemo.xcworkspace`
-3. Build and run the app
+1. Clone this repo.
+2. Run `pod install` inside the project directory.
+2. Open `MWOpenInKitDemo.xcworkspace`.
+3. Build and run the app.
 
 The demo lets you perform any of the actions supported by MWOpenInKit.
 
@@ -107,22 +108,21 @@ Extending MWOpenInKit to include your own application's URL scheme is easy.
 
 2. Inside that directory, create a plist. Its name should be the name you want displayed, and it should contain a dictionary. Each key is the signature of a method in the appropriate `MWHandler` object, and the key is a template string used to generate a URL for that method, where variables wrapped in `{handlebars}` will be interpolated at runtime.
 
-  As much as possible, the template variable keys are named the same as the parameter names of the corresponding Objective-C methods, but there's nothing enforcin that. I'd recommend looking at other plist files in the directory to see what the correct method keys and template keys are.
+    As much as possible, the template variable keys are named the same as the parameter names of the corresponding Objective-C methods, but there's nothing enforcin that. I'd recommend looking at other plist files in the directory to see what the correct method keys and template keys are.
 
 3. Your app's icon goes in the same directory. You will need four copies of the icon, all with the same root name as your plist file:
-
-  - `AppName.png`: 60x60
-  - `AppName@2x.png`: 120x120
-  - `AppName-iPhone.png`: 76x76
-  - `AppName-iPad@2x.png`: 152x152
-
-  These will all be shown as-is, so they should be prerendered. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
+    * `AppName.png`: 60x60
+    * `AppName@2x.png`: 120x120
+    * `AppName-iPhone.png`: 76x76
+    * `AppName-iPad@2x.png`: 152x152
+    
+    These will all be shown as-is, so they should be prerendered. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
 
 4. Open the example project in Xcode and run the tests (`Cmd+U`). This runs a linter which will let you know if any of the actions defined in your plist don't correspond to actual Objective-C handler methods, helping make sure you didn't make any typos.
 
-Note that you don't need to manually add any of the files to Xcode; they'll be picked up automatically. If you're seeing unexpected behavior and suspect your changes aren't taking effect, clean the project in Xcode, delete the derived data folder, and reset the simulator.
+    Note that you don't need to manually add any of the files to Xcode; they'll be picked up automatically. If you're seeing unexpected behavior and suspect your changes aren't taking effect, clean the project in Xcode, delete the derived data folder, and reset the simulator.
 
-You also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
+    You also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
 
 5. Submit a pull request!
 
