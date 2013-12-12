@@ -38,7 +38,7 @@ describe(@"MWTwitterHandler", ^{
             itShouldBehaveLike(@"an optional handler property", ^{
                 return @{@"handler":  handler,
                          @"rawUrlString": @"tweetbot:///user_profile/{screenName}",
-                         @"urlStringWithParam": @"tweetbot:///user_profile/ev?callback_url=http%3A%2F%2Fgoogle.com",
+                         @"urlStringWithParam": @"tweetbot:///user_profile/ev?&callback_url=http%3A%2F%2Fgoogle.com",
                          @"subjectAction": [^{
                              handler.callbackURL = [NSURL URLWithString:@"http://google.com"];
                              return [handler showUserWithScreenName:@"ev"];
@@ -49,8 +49,8 @@ describe(@"MWTwitterHandler", ^{
         context(@"screen name", ^{
             itShouldBehaveLike(@"an optional handler property", ^{
                 return @{@"handler":  handler,
-                         @"urlStringWithoutParam": @"tweetbot://xxMyLittlePony42xx/timeline",
-                         @"urlStringWithParam": @"tweetbot://xxMyLittlePony42xx/timeline",
+                         @"urlStringWithoutParam": @"tweetbot://xxMyLittlePony42xx/timeline?",
+                         @"urlStringWithParam": @"tweetbot://xxMyLittlePony42xx/timeline?",
                          @"subjectAction": [^{
                              handler.activeUser = @"xxMyLittlePony42xx";
                              return [handler showTimeline];
