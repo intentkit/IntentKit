@@ -14,7 +14,7 @@ CGFloat const MWActivityCellIconSize_Pad = 76.f;
 CGFloat const MWActivityCellIconSize_Phone = 60.f;
 
 @interface MWActivityCell ()
-@property (strong, nonatomic) UIImageView *iconView;
+@property (strong, nonatomic) UIButton *iconView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @end
 
@@ -24,7 +24,7 @@ CGFloat const MWActivityCellIconSize_Phone = 60.f;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.iconView = [[UIImageView alloc] init];
+        self.iconView = [UIButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:self.iconView];
 
         self.titleLabel = [[UILabel alloc] init];
@@ -71,7 +71,7 @@ CGFloat const MWActivityCellIconSize_Phone = 60.f;
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    self.iconView.image = self.activity.activityImage;
+    [self.iconView setImage:self.activity.activityImage forState:UIControlStateNormal];
     self.titleLabel.text = self.activity.activityTitle;
     [self.titleLabel sizeToFit];
     [self.titleLabel resizeTo:CGSizeMake(self.width, self.titleLabel.height)];
