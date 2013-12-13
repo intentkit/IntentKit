@@ -154,6 +154,7 @@ Mike Walker
 - [@lazerwalker](http://twitter.com/lazerwalker)
 - http://lazerwalker.com
 
+The initial version of MWOpenInKit was built at [Hacker School](http://hackerschool.com).
 
 License
 -------
