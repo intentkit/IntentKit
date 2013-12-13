@@ -2,9 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>openHttpURL:</key>
-	<string>http://{url}</string>
-	<key>openHttpsURL:</key>
-	<string>https://{url}</string>
+	<key>actions</key>
+	<dict>
+		<key>openHttpURL:</key>
+		<string>http://{url}</string>
+		<key>openHttpsURL:</key>
+		<string>https://{url}</string>
+	</dict>
 </dict>
 </plist>

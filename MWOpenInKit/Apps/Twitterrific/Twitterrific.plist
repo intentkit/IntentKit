@@ -2,19 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>showTweetWithId:</key>
-	<string>twitterrific:///tweet?id={tweetId}</string>
-	<key>showUserWithScreenName:</key>
-	<string>twitterrific:///profile?screen_name={screenName}</string>
-	<key>showTimeline</key>
-	<string>twitterrific:///tweets</string>
-	<key>showMentions</key>
-	<string>twitterrific:///mentions</string>
-	<key>showDirectMessages</key>
-	<string>twitterrific:///messages</string>
-	<key>searchFor:</key>
-	<string>twitterrific:///search?q={query}</string>
-	<key>tweetMessage:</key>
-	<string>twitterrific:///post?message={message}</string>
+	<key>actions</key>
+	<dict>
+		<key>showTweetWithId:</key>
+		<string>twitterrific:///tweet?id={tweetId}</string>
+		<key>showUserWithScreenName:</key>
+		<string>twitterrific:///profile?screen_name={screenName}</string>
+		<key>showTimeline</key>
+		<string>twitterrific:///tweets</string>
+		<key>showMentions</key>
+		<string>twitterrific:///mentions</string>
+		<key>showDirectMessages</key>
+		<string>twitterrific:///messages</string>
+		<key>searchFor:</key>
+		<string>twitterrific:///search?q={query}</string>
+		<key>tweetMessage:</key>
+		<string>twitterrific:///post?message={message}</string>
+	</dict>
 </dict>
 </plist>

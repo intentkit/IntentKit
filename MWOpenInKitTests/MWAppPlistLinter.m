@@ -25,7 +25,7 @@ describe(@"MWAppPlistLinter", ^{
         MWApplicationList *appList = [[MWApplicationList alloc] init];
 
         for (MWActivity *app in appList.activities) {
-            for (NSString *action in app.dict) {
+            for (NSString *action in app.actions) {
                 if ([action isEqualToString:@"optional"]) { continue; }
                 expect(action).to.beAValidAction(app.name);
             }

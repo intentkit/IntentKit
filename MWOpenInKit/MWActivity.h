@@ -20,17 +20,23 @@
 /** The name of the app, to be displayed as the `UIActivity` `activityTitle` field. */
 @property (strong, nonatomic) NSString *name;
 
-/** A dictionary of URL schemes an application responds to. The keys are command names, and the arguments are handlebar-templated strings that can be used to construct a valid URL. */
-@property (strong, nonatomic) NSDictionary *dict;
+/** A dictionary of URL schemes an application responds to. The keys are command names, and the values are handlebar-templated strings that can be used to construct a valid URL. */
+@property (strong, nonatomic) NSDictionary *actions;
+
+/** A dictionary of optional properties that may be amended to a URL. The keys are variable names, and the values are handlebar-templated strings that can be safely appended to the end of the URL. */
+@property (strong, nonatomic) NSDictionary *optionalParams;
+
 
 /** Returns an intialized `MWActivity` object.
 
- @param dict The dictionary mapping commands to valid URL schemes for the third-party application.
+ @param actions The dictionary mapping commands to valid URL schemes for the third-party application.
+ @param optionalParams The dictionary listing which optional parameters are accepted.
  @param name The name of the third-party application.
  @param application The UIApplication to use when calling `[UIApplication openURL:]` and `[UIApplication canOpenURL:]`. You probably want this to be `[UIApplication sharedApplication]`, but it is injected here for test purposes.
  
  @return an initialized `MWActivity` object. */
-- (instancetype)initWithDictionary:(NSDictionary *)dict
+- (instancetype)initWithActions:(NSDictionary *)actions
+                 optionalParams:(NSDictionary *)optionalParams
                               name: (NSString *)name
                        application:(UIApplication *)application;
 

@@ -38,7 +38,8 @@ describe(@"MWActivity", ^{
         NSString *path = [bundle pathForResource:@"Chrome" ofType:@"plist"];
         dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
-        activity = [[MWActivity alloc] initWithDictionary:dict
+        activity = [[MWActivity alloc] initWithActions:dict[@"actions"]
+                                        optionalParams:dict[@"optional"]
                                                      name:@"Chrome"
                                               application:app];
     });

@@ -45,7 +45,8 @@
             continue;
         }
 
-        [activities addObject:[[MWActivity alloc] initWithDictionary:dict
+        [activities addObject:[[MWActivity alloc] initWithActions:dict[@"actions"]
+                                                   optionalParams:dict[@"optional"]
                                                                 name:name
                                                          application:self.application]];
     }

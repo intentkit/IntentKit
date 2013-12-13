@@ -2,11 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>openHttpsURL:</key>
-	<string>googlechromes://{url}</string>
-	<key>openHttpURL:</key>
-	<string>googlechrome://{url}</string>
-	<key>openURL:withCallback:</key>
-	<string>googlechrome-x-callback://x-callback-url/open/?x-source={source}&amp;x-success={callback}&amp;url={url}</string>
+	<key>actions</key>
+	<dict>
+		<key>openHttpsURL:</key>
+		<string>googlechromes://{url}</string>
+		<key>openHttpURL:</key>
+		<string>googlechrome://{url}</string>
+		<key>openURL:withCallback:</key>
+			<string>googlechrome-x-callback://x-callback-url/open/?x-source={source}&amp;x-success={callback}&amp;url={url}</string>
+		</dict>
 </dict>
 </plist>

@@ -21,20 +21,22 @@
 
 @implementation MWActivity
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict
+- (instancetype)initWithActions:(NSDictionary *)actions
+                 optionalParams:(NSDictionary *)optionalParams
                               name: (NSString *)name
                        application:(UIApplication *)application {
     if (self = [super init]) {
         self.name = name;
-        self.dict = dict;
+        self.actions = actions;
+        self.optionalParams = optionalParams;
         self.application = application;
     }
     return self;
 }
 
 - (BOOL)canPerformCommand:(NSString *)command {
-    if (!self.dict[command]) { return NO; }
-    NSURL *url = [NSURL URLWithString:[self.dict[command] urlScheme]];
+    if (!self.actions[command]) { return NO; }
+    NSURL *url = [NSURL URLWithString:[self.actions[command] urlScheme]];
     return [self.application canOpenURL:url];
 }
 
@@ -82,14 +84,14 @@
 }
 
 - (void)performActivity {
-    if (!self.dict[self.activityCommand]) { return; }
+    if (!self.actions[self.activityCommand]) { return; }
 
-    NSString *urlString = self.dict[self.activityCommand];
+    NSString *urlString = self.actions[self.activityCommand];
     NSMutableArray *optionals = [NSMutableArray array];
     for (NSString *key in self.activityArguments) {
         NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
 
-        NSString *optionalParam = self.dict[@"optional"][key];
+        NSString *optionalParam = self.optionalParams[key];
         if (optionalParam) {
             NSString *optionalString = [optionalParam stringByReplacingOccurrencesOfString:handlebarKey
                                                                                 withString:self.activityArguments[key]];

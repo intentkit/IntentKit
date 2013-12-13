@@ -9,9 +9,12 @@
 		<key>center</key>
 		<string>&amp;ll={center}</string>
 	</dict>
-	<key>directionsFrom:to:mode:</key>
-	<string>http://maps.apple.com/?saddr={from}&amp;daddr={to}</string>
-	<key>searchForLocation:</key>
-	<string>http://maps.apple.com/?q={query}</string>
+	<key>actions</key>
+	<dict>
+		<key>directionsFrom:to:mode:</key>
+		<string>http://maps.apple.com/?saddr={from}&amp;daddr={to}</string>
+		<key>searchForLocation:</key>
+		<string>http://maps.apple.com/?q={query}</string>
+	</dict>
 </dict>
 </plist>
