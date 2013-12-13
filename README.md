@@ -83,7 +83,7 @@ An up-to-date list of available handlers and what methods and configuration opti
 
 Documentation
 -------------
-Exhaustive documentation (generated using [appledoc](https://github.com/tomaz/appledoc)) can be found in the `docs` directory by running `script/generate-docs.sh` from the root directory.
+Exhaustive documentation (generated using [appledoc](https://github.com/tomaz/appledoc)) can be found in the `docs` directory by running `script/generate-docs.sh` from the root directory. Or viewed on [CocoaDocs](http://cocoadocs.org/docsets/MWOpenInKit/)
 
 
 Example Project
