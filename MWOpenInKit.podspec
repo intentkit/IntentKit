@@ -10,5 +10,44 @@ Pod::Spec.new do |s|
   s.platform  = :ios, '7.0'
 
   s.source_files = 'MWOpenInKit', 'MWOpenInKit/**/*.{h,m}'
-  s.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/**/*.{plist,png}" }
+
+  s.subspec 'Browsers' do |ss|
+    ss.subspec 'Chrome' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/Chrome/*.{plist,png}" }
+    end
+
+    ss.subspec 'Safari' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/Safari/*.{plist,png}" }
+    end
+  end
+
+  s.subspec 'Maps' do |ss|
+    ss.subspec 'Google Maps' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/Google Maps/*.{plist,png}" }
+    end
+
+    ss.subspec 'Maps' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/Maps/*.{plist,png}" }
+    end
+  end
+
+  s.subspec 'Passwords' do |ss|
+    ss.subspec '1Password' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/1Password/*.{plist,png}" }
+    end
+  end
+
+  s.subspec 'Twitter' do |ss|
+    ss.subspec 'Tweetbot' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/Tweetbot/*.{plist,png}" }
+    end
+
+    ss.subspec 'Twitter' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/Twitter/*.{plist,png}" }
+    end
+
+    ss.subspec 'Twitterrific' do |sss|
+      sss.resource_bundles = { 'MWOpenInKit' => "MWOpenInKit/Apps/Twitterrific/*.{plist,png}" }
+    end
+  end
 end
