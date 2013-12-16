@@ -29,6 +29,8 @@
 /** A dictionary of URL schemes an application responds to. The keys are command names, and the values are handlebar-templated strings that can be used to construct a valid URL. */
 @property (strong, nonatomic) NSDictionary *actions;
 
+@property (strong, nonatomic) NSDictionary *fallbackUrls;
+
 /** A dictionary of optional properties that may be amended to a URL. The keys are variable names, and the values are handlebar-templated strings that can be safely appended to the end of the URL. */
 @property (strong, nonatomic) NSDictionary *optionalParams;
 
@@ -42,6 +44,7 @@
  
  @return an initialized `INKActivity` object. */
 - (instancetype)initWithActions:(NSDictionary *)actions
+                   fallbackUrls:(NSDictionary *)fallbackUrls
                  optionalParams:(NSDictionary *)optionalParams
                               name: (NSString *)name
                        application:(UIApplication *)application;
@@ -55,8 +58,9 @@
 
  @return an initialized `INKActivity` object. */
 - (instancetype)initWithActions:(NSDictionary *)actions
+                   fallbackUrls:(NSDictionary *)fallbackUrls
                  optionalParams:(NSDictionary *)optionalParams
-                           names: (NSDictionary *)names
+                         names: (NSDictionary *)names
                     application:(UIApplication *)application;
 /** Checks whether or not the third-party app can accept a custom URL corresponding to a given command
  

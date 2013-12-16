@@ -44,11 +44,13 @@
 
         if ([dict[@"name"] isKindOfClass:[NSDictionary class]]) {
             [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                        fallbackUrls:dict[@"fallbackUrls"]
                                                         optionalParams:dict[@"optional"]
                                                                   names:dict[@"name"]
                                                            application:self.application]];
         } else {
             [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                        fallbackUrls:dict[@"fallbackUrls"]
                                                         optionalParams:dict[@"optional"]
                                                                   name:dict[@"name"]
                                                            application:self.application]];

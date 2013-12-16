@@ -9,6 +9,8 @@
 #import "INKActivity.h"
 #import "INKBrowserHandler.h"
 #import "INKMapsHandler.h"
+#import "INKFacebookHandler.h"
+#import "INKGPlusHandler.h"
 #import "INKTwitterHandler.h"
 #import "INKActivityPresenter.h"
 #import "INKActivityViewController.h"
