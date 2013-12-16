@@ -39,16 +39,20 @@
                                             inDirectory:nil];
     for (NSString *path in appPaths) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-        NSString *name = [path.pathComponents.lastObject stringByDeletingPathExtension];
 
-        if ([@[@"Info", @"IntentKitBundle-Info"] containsObject:name]) {
-            continue;
+        if (!(dict[@"actions"] && dict[@"name"])) { continue; }
+
+        if ([dict[@"name"] isKindOfClass:[NSDictionary class]]) {
+            [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                        optionalParams:dict[@"optional"]
+                                                                  names:dict[@"name"]
+                                                           application:self.application]];
+        } else {
+            [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                        optionalParams:dict[@"optional"]
+                                                                  name:dict[@"name"]
+                                                           application:self.application]];
         }
-
-        [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
-                                                   optionalParams:dict[@"optional"]
-                                                                name:name
-                                                         application:self.application]];
     }
     return [activities copy];
 }

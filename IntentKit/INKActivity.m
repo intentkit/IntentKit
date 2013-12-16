@@ -8,14 +8,19 @@
 
 #import "INKActivity.h"
 #import "NSString+Helpers.h"
+#import "IntentKit.h"
 
 @interface INKActivity ()
 
 @property (readonly) UIImage *_activityImage;
 
 @property (strong, nonatomic) UIApplication *application;
+@property (strong, nonatomic) IntentKit *intentKit;
+
 @property (strong, nonatomic) NSString *activityCommand;
 @property (strong, nonatomic) NSDictionary *activityArguments;
+@property (strong, nonatomic) NSDictionary *names;
+
 
 @end
 
@@ -25,11 +30,22 @@
                  optionalParams:(NSDictionary *)optionalParams
                               name: (NSString *)name
                        application:(UIApplication *)application {
+    return [self initWithActions:actions
+                  optionalParams:optionalParams
+                           names:@{@"en":name}
+                     application:application];
+}
+
+- (instancetype)initWithActions:(NSDictionary *)actions
+                 optionalParams:(NSDictionary *)optionalParams
+                          names: (NSDictionary *)names
+                    application:(UIApplication *)application {
     if (self = [super init]) {
-        self.name = name;
+        self.names = names;
         self.actions = actions;
         self.optionalParams = optionalParams;
         self.application = application;
+        self.intentKit = [IntentKit sharedInstance];
     }
     return self;
 }
@@ -40,13 +56,30 @@
     return [self.application canOpenURL:url];
 }
 
+- (NSString *)name {
+    if (self.names[@"en"]) {
+        return self.names[@"en"];
+    } else {
+        return self.names[self.names.allKeys.firstObject];
+    }
+}
+
+- (NSString *)localizedName {
+    for (NSString *language in [self.intentKit preferredLanguages]) {
+        if (self.names[language]) {
+            return self.names[language];
+        }
+    }
+    return self.name;
+}
+
 #pragma mark - UIActivity methods
 + (UIActivityCategory)activityCategory {
     return UIActivityCategoryAction;
 }
 
 - (NSString *)activityTitle {
-    return self.name;
+    return self.localizedName;
 }
 
 - (NSString *)activityType {

@@ -38,7 +38,7 @@ CGFloat const INKActivityCellIconSize_Phone = 60.f;
 - (void)updateConstraints {
     [super updateConstraints];
 
-    NSNumber *iconSize = @(IntentKit.isPad ?
+    NSNumber *iconSize = @(IntentKit.sharedInstance.isPad ?
     INKActivityCellIconSize_Pad : INKActivityCellIconSize_Phone);
 
     NSDictionary *metrics = NSDictionaryOfVariableBindings(iconSize);

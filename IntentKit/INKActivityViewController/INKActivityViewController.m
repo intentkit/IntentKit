@@ -53,7 +53,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
         self.activityItems = activityItems;
         self.applicationActivities = applicationActivities;
 
-        if (IntentKit.isPad) {
+        if (IntentKit.sharedInstance.isPad) {
             self.contentView = self.view;
         } else {
             self.contentView = [[UIView alloc] init];
@@ -72,7 +72,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
         self.blurToolbar = [[UIToolbar alloc] initWithFrame:self.contentView.bounds];
         [self.contentView insertSubview:self.blurToolbar atIndex:0];
 
-        if (IntentKit.isPad) {
+        if (IntentKit.sharedInstance.isPad) {
             self.collectionViewLayout.itemSize = INKActivityViewControllerItemSize_Pad;
             self.collectionViewLayout.sectionInset = INKActivityViewControllerEdgeInsets_Pad;
             self.collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -144,7 +144,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 
 }
 - (void)setBounds {
-    if (IntentKit.isPad) {
+    if (IntentKit.sharedInstance.isPad) {
         [self configureForPad];
     } else {
         [self configureForPhone];

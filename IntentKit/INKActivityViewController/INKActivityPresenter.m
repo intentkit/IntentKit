@@ -61,7 +61,7 @@
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
     if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
         [self.activitySheet performActivityInFirstAvailableApplication];
-    } else if (IntentKit.isPad) {
+    } else if (IntentKit.sharedInstance.isPad) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
         self.popoverController.popoverContentSize = self.activitySheet.view.bounds.size;
@@ -75,7 +75,7 @@
 
     if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
         [self.activitySheet performActivityInFirstAvailableApplication];
-    } else if (IntentKit.isPad) {
+    } else if (IntentKit.sharedInstance.isPad) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
         [self.popoverController presentPopoverFromBarButtonItem:item  permittedArrowDirections:arrowDirections animated:animated];

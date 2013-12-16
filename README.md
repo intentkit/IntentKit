@@ -110,9 +110,38 @@ Extending IntentKit to include your own application's URL scheme is easy.
 
 1. Inside the `/IntentKit/Apps/` directory, create a new directory with the name of your app.
 
-2. Inside that directory, create a plist. Its name should be the name you want displayed, and it should contain a dictionary. Each key is the signature of a method in the appropriate `INKHandler` object, and the key is a template string used to generate a URL for that method, where variables wrapped in `{handlebars}` will be interpolated at runtime.
+2. Inside that directory, create a plist. Its name should be the app's (English) name, and its root object should be a dictionary.
 
-    As much as possible, the template variable keys are named the same as the parameter names of the corresponding Objective-C methods, but there's nothing enforcin that. I'd recommend looking at other plist files in the directory to see what the correct method keys and template keys are.
+    Inside this dictionary, there should be a `name` key that represents the app's localized name(s). If your app's name does not change across locales, its value should be a string with that name.
+
+    ```xml
+    <key>name</key>
+    <string>Safari</string>
+    ```
+
+     If it does change, the value should be a dictionary mapping [IETF BCP 47](https://tools.ietf.org/html/bcp47) language identifiers to localized names.
+
+    ```xml
+    <key>name</key>
+    <dict>
+      <key>en</key>
+      <string>Sina Weibo</string>
+      <key>zh-Hans</key>
+      <string>新浪微博</string>
+    </dict>
+    ```
+
+    Additionally, there should be an `actions` dictionary containing all of the actions your application can perform. This dictionary should map strings representing `INKHandler` methods to template strings used to generate URLs for those method. In these template strings, variables wrapped in {handlebars} will be interpolated at runtime. For example:
+
+    ```xml
+    <key>actions</key>
+    <dict>
+        <key>searchForLocation:</key>
+        <string>comgooglemaps://?q={query}</string>
+    </dict>
+    ```
+
+    In general, the template variable keys are named the same as the argument names of the corresponding handler methods, but there is currently nothing enforcing that. It's recommended that you look at the plist files for other apps that respond to the same actions to see what the correct template keys are.
 
 3. Your app's icon goes in the same directory. You will need four copies of the icon, all with the same root name as your plist file:
     * `AppName.png`: 60x60

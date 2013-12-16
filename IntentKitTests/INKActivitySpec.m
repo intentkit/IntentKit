@@ -15,9 +15,11 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 #import "INKActivity.h"
+#import "IntentKit.h"
 
 @interface INKActivity (Spec)
 @property UIImage *_activityImage;
+@property IntentKit *intentKit;
 @end
 
 SpecBegin(INKActivity)
@@ -39,14 +41,63 @@ describe(@"INKActivity", ^{
         dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
         activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
-                                        optionalParams:dict[@"optional"]
-                                                     name:@"Chrome"
-                                              application:app];
+                                         optionalParams:dict[@"optional"]
+                                                   name:@"Chrome"
+                                            application:app];
     });
 
     describe(@"activityTitle", ^{
-        it(@"should be the dictionary title", ^{
-            expect(activity.activityTitle).to.equal(@"Chrome");
+        context(@"when the application has a single name", ^{
+            it(@"should use it", ^{
+                expect(activity.activityTitle).to.equal(@"Chrome");
+            });
+        });
+
+        context(@"when the application has localized names", ^{
+            beforeEach(^{
+                activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                 optionalParams:dict[@"optional"]
+                                                          names:@{@"en": @"English",
+                                                                  @"de": @"Deutsch",
+                                                                  @"fr": @"Français"}
+                                                    application:app];
+                activity.intentKit = mock([IntentKit class]);
+            });
+
+            context(@"when the preferred language is available", ^{
+                it(@"should use it", ^{
+                    [given([activity.intentKit preferredLanguages]) willReturn:@[@"fr"]];
+                    expect(activity.activityTitle).to.equal(@"Français");
+                });
+            });
+
+            context(@"when a less-preferred language is available", ^{
+                it(@"should use it", ^{
+                    [given([activity.intentKit preferredLanguages]) willReturn:@[@"ja", @"de"]];
+                    expect(activity.activityTitle).to.equal(@"Deutsch");
+                });
+            });
+
+            context(@"when no preferred languages are available", ^{
+                it(@"should use the English name", ^{
+                    [given([activity.intentKit preferredLanguages]) willReturn:@[@"ja"]];
+                    expect(activity.activityTitle).to.equal(@"English");
+                });
+
+                context(@"when English does not exist", ^{
+                    it(@"should use the first one it finds", ^{
+                        activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                         optionalParams:dict[@"optional"]
+                                                                  names:@{@"de": @"Deutsch",
+                                                                          @"fr": @"Français"}
+                                                            application:app];
+                        activity.intentKit = mock([IntentKit class]);
+
+                        [given([activity.intentKit preferredLanguages]) willReturn:@[@"ja"]];
+                        expect(activity.activityTitle).to.equal(@"Deutsch");
+                    });
+                });
+            });
         });
     });
 

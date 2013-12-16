@@ -13,10 +13,17 @@
 #import "INKActivityPresenter.h"
 #import "INKActivityViewController.h"
 
-/** A mish-mosh of occasionally-useful global (uh-oh!) methods */
+/** A mish-mosh of occasionally-useful methods */
 @interface IntentKit : NSObject
+
+/** A static singleton object */
++ (instancetype)sharedInstance;
 
 /** Determines whether or not the current device is an iPad.
  @return YES if being run on an iPad (UIUserInterfaceIdiomPad), otherwise no. */
-+ (BOOL)isPad;
+- (BOOL)isPad;
+
+/** An array of the current device's preferred languages. */
+- (NSArray *)preferredLanguages;
+
 @end
