@@ -73,7 +73,7 @@ describe(@"MWBrowserHandler", ^{
                 INKActivityPresenter *presenter = [handler openURL:url withCallback:callbackURL];
                 [presenter.activitySheet performActivityInFirstAvailableApplication];
 
-                NSString *expected = @"googlechrome-x-callback://x-callback-url/open/?x-source=INKOpenInKitDemo&x-success=testapp%3A%2F%2Ftest&url=http%3A%2F%2Fgoogle.com";
+                NSString *expected = @"googlechrome-x-callback://x-callback-url/open/?x-source=IntentKitDemo&x-success=testapp%3A%2F%2Ftest&url=http%3A%2F%2Fgoogle.com";
                 NSURL *expectedURL = [NSURL URLWithString:expected];
                 [(UIApplication *)verify(handler.application) openURL:expectedURL];
             });
