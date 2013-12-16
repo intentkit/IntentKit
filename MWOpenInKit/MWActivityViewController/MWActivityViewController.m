@@ -15,7 +15,7 @@
 static NSString * const CellIdentifier = @"UIActivityCell";
 
 static CGSize const MWActivityViewControllerItemSize_Pad = {80.f, 101.f};
-static CGSize const MWActivityViewControllerItemSize_Phone = {64.f, 86.f};
+static CGSize const MWActivityViewControllerItemSize_Phone = {70.f, 86.f};
 
 static CGFloat const MWActivityViewControllerRowHeight_Pad = 140.f;
 static CGFloat const MWActivityViewControllerRowHeight_Phone = 96.f;
