@@ -1,4 +1,4 @@
-IntentKit [![Build Status](https://travis-ci.org/lazerwalker/IntentKit.png)](https://travis-ci.org/intentkit/IntentKit)
+IntentKit [![Build Status](https://travis-ci.org/intentkit/IntentKit.png)](https://travis-ci.org/intentkit/IntentKit)
 =========
 
 **ANNOUNCEMENT: MWOpenKit has been renamed! It is now known simply as [IntentKit](http://intentkit.github.io).**
