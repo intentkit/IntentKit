@@ -8,7 +8,6 @@
 
 #import "MWViewController.h"
 #import "MWOpenInKit.h"
-#import "MWActivityPresenter.h"
 
 @interface MWViewController ()
 
@@ -121,6 +120,18 @@
                              MWTwitterHandler *handler = [[MWTwitterHandler alloc] init];
                              return [handler tweetMessage:@"MWOpenInKit is blowing my mind! https://github.com/lazerwalker/MWOpenInKit" inReplyTo:@"28"];
                          }},
+                       @{@"description": @"Open Facebook Profile",
+                               @"action": (UIActivityViewController *)^{
+                           MWFacebookHandler *handler = [[MWFacebookHandler alloc] init];
+                           [handler setFallback:YES];
+                           return [handler showProfileWithId:@"345800612130911"];
+                       }},
+                       @{@"description": @"Open Google+ Profile",
+                               @"action": (UIActivityViewController *)^{
+                           MWGPlusHandler *handler = [[MWGPlusHandler alloc] init];
+                           [handler setFallback:YES];
+                           return [handler showGPlusProfileWithName:@"ArvidGerstmann"];
+                       }},
                        ]
                }
              ];

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>actions</key>
+	<dict>
+		<key>showGPlusProfileWithId:</key>
+		<string>gplus://plus.google.com/{userId}</string>
+        <key>showGPlusProfileWithName:</key>
+        <string>gplus://plus.google.com/+{userName}</string>
+		<key>showGPlusEventWithId:</key>
+		<string>gplus://plus.google.com/events/{eventId}</string>
+        <key>showGPlusCommunityWithId:</key>
+        <string>gplus://plus.google.com/u/0/communities/{comunityId}</string>
+	</dict>
+	<key>fallbackUrls</key>
+	<dict>
+		<key>showGPlusProfileWithId:</key>
+		<string>https://plus.google.com/{userId}</string>
+        <key>showGPlusProfileWithName:</key>
+        <string>https://plus.google.com/+{userName}</string>
+		<key>showGPlusEventWithId:</key>
+		<string>gplus://plus.google.com/events/{eventId}</string>
+        <key>showGPlusCommunityWithId:</key>
+        <string>https://plus.google.com/u/0/communities/{comunityId}</string>
+	</dict>
+</dict>
+</plist>

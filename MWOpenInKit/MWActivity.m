@@ -22,16 +22,23 @@
 @implementation MWActivity
 
 - (instancetype)initWithActions:(NSDictionary *)actions
+                 fallbackUrls:(NSDictionary *)fallbackUrls
                  optionalParams:(NSDictionary *)optionalParams
                               name: (NSString *)name
                        application:(UIApplication *)application {
     if (self = [super init]) {
         self.name = name;
         self.actions = actions;
+        self.fallbackUrls = fallbackUrls;
         self.optionalParams = optionalParams;
         self.application = application;
     }
     return self;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"MWActivity <actions: %@, fallbackUrls: %@, optionalParams: %@, name: %@, application: %@>",
+                    self.actions, self.fallbackUrls, self.optionalParams, self.name, self.application];
 }
 
 - (BOOL)canPerformCommand:(NSString *)command {

@@ -9,6 +9,8 @@
 #import "MWActivity.h"
 #import "MWBrowserHandler.h"
 #import "MWMapsHandler.h"
+#import "MWFacebookHandler.h"
+#import "MWGPlusHandler.h"
 #import "MWTwitterHandler.h"
 #import "MWActivityPresenter.h"
 #import "MWActivityViewController.h"

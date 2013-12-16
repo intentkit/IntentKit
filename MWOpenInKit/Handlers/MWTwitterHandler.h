@@ -13,6 +13,9 @@
 /** An instance of `MWTwitterHandler` performs Twitter-related tasks in third-party Twitter apps. */
 @interface MWTwitterHandler : MWHandler
 
+/** Whether it should use a browser fallback or not */
+@property (nonatomic) BOOL fallback;
+
 /** A URL to be opened by the third-party app when the action has been completed. Not all third-party apps support callbacks. */
 @property (strong, nonatomic) NSURL *callbackURL;
 

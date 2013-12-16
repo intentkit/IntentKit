@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D97A7BF6A39C299872ABD24 /* MWGPlusHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97AB9EAAC7E4DD5CB1F3E7 /* MWGPlusHandler.m */; };
+		5D97AB2B0EF165D6D3E8D04B /* MWFacebookHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97A426A2C16C8A3201D332 /* MWFacebookHandler.m */; };
 		A60A033118503843009278EF /* MWActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* MWActivity.m */; };
 		A6170A6918543FFA0086AC63 /* MWHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6818543FFA0086AC63 /* MWHandlerSpec.m */; };
 		A6170A6C1854471D0086AC63 /* MWApplicationList.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6B1854471D0086AC63 /* MWApplicationList.m */; };
@@ -69,6 +71,10 @@
 
 /* Begin PBXFileReference section */
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D97A21D2F35DCDFDE908399 /* MWGPlusHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWGPlusHandler.h; sourceTree = "<group>"; };
+		5D97A2964B2FC6EEDAAB1261 /* MWFacebookHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFacebookHandler.h; sourceTree = "<group>"; };
+		5D97A426A2C16C8A3201D332 /* MWFacebookHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFacebookHandler.m; sourceTree = "<group>"; };
+		5D97AB9EAAC7E4DD5CB1F3E7 /* MWGPlusHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWGPlusHandler.m; sourceTree = "<group>"; };
 		7CB1A92AD90442B2ADE581B1 /* Pods-MWOpenInKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWOpenInKitTests.xcconfig"; path = "Pods/Pods-MWOpenInKitTests.xcconfig"; sourceTree = "<group>"; };
 		A6170A6818543FFA0086AC63 /* MWHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWHandlerSpec.m; sourceTree = "<group>"; };
 		A6170A6A1854471D0086AC63 /* MWApplicationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWApplicationList.h; sourceTree = "<group>"; };
@@ -226,6 +232,10 @@
 				A67F39F1184EE00F002EED53 /* MWHandler.m */,
 				A67F39F2184EE00F002EED53 /* MWMapsHandler.h */,
 				A67F39F3184EE00F002EED53 /* MWMapsHandler.m */,
+				5D97A426A2C16C8A3201D332 /* MWFacebookHandler.m */,
+				5D97A2964B2FC6EEDAAB1261 /* MWFacebookHandler.h */,
+				5D97AB9EAAC7E4DD5CB1F3E7 /* MWGPlusHandler.m */,
+				5D97A21D2F35DCDFDE908399 /* MWGPlusHandler.h */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -395,6 +405,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Mike Walker";
 				TargetAttributes = {
+					A6B73C62184D341E0055C60D = {
+						DevelopmentTeam = 4E6ZBMTQD6;
+					};
 					A6B73C7D184D341E0055C60D = {
 						TestTargetID = A6B73C62184D341E0055C60D;
 					};
@@ -511,6 +524,8 @@
 				A6B73CED184D38450055C60D /* MWViewController.m in Sources */,
 				A69DAC3E185037B40028FCD1 /* MWHandler.m in Sources */,
 				A69DAC3F185037B60028FCD1 /* MWBrowserHandler.m in Sources */,
+				5D97AB2B0EF165D6D3E8D04B /* MWFacebookHandler.m in Sources */,
+				5D97A7BF6A39C299872ABD24 /* MWGPlusHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +719,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWOpenInKitDemo/MWOpenInKitDemo-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -718,6 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MWOpenInKitDemo/MWOpenInKitDemo-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;

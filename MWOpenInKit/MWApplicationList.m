@@ -46,6 +46,7 @@
         }
 
         [activities addObject:[[MWActivity alloc] initWithActions:dict[@"actions"]
+                                                   fallbackUrls:dict[@"fallbackUrls"]
                                                    optionalParams:dict[@"optional"]
                                                                 name:name
                                                          application:self.application]];
