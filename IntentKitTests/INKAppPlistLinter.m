@@ -15,6 +15,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 #import "EXPMatchers+beAValidAction.h"
+#import "EXPMatchers+haveAValidName.h"
 #import "INKApplicationList.h"
 #import "INKActivity.h"
 
@@ -26,9 +27,28 @@ describe(@"INKAppPlistLinter", ^{
 
         for (INKActivity *app in appList.activities) {
             for (NSString *action in app.actions) {
-                if ([action isEqualToString:@"optional"]) { continue; }
                 expect(action).to.beAValidAction(app.name);
             }
+        }
+    });
+
+    it(@"should have a name that is either a string or a localized dict", ^{
+        NSArray *whitelist = @[@"Info", @"IntentKitBundle-Info"];
+
+        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+        NSBundle *bundle;
+        if (bundleURL) {
+            bundle = [NSBundle bundleWithURL:bundleURL];
+        }
+
+        NSArray *appPaths = [bundle pathsForResourcesOfType:@".plist"
+                                                inDirectory:nil];
+        for (NSString *path in appPaths) {
+            NSString *name = [path.pathComponents.lastObject stringByDeletingPathExtension];
+            if ([whitelist containsObject:name]) continue;
+
+            NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+            expect(dict).to.haveAValidName(name);
         }
     });
 });

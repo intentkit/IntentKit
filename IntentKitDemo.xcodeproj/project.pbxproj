@@ -46,6 +46,7 @@
 		A6B73D00184D38650055C60D /* INKMapsHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B73CF5184D38650055C60D /* INKMapsHandlerSpec.m */; };
 		A6B73D02184D38650055C60D /* INKBrowserHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B73CF6184D38650055C60D /* INKBrowserHandlerSpec.m */; };
 		A6B73D39184D38A90055C60D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B73D38184D38A90055C60D /* Images.xcassets */; };
+		A6E655B2185FB2B30085F906 /* EXPMatchers+haveAValidName.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E655B1185FB2B30085F906 /* EXPMatchers+haveAValidName.m */; };
 		D40E4239C6F3475CBA130DAE /* libPods-IntentKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19E678BCBB9409FBE1FDD1D /* libPods-IntentKitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,8 @@
 		A6B73CF5184D38650055C60D /* INKMapsHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKMapsHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6B73CF6184D38650055C60D /* INKBrowserHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKBrowserHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6B73D38184D38A90055C60D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A6E655B0185FB2B30085F906 /* EXPMatchers+haveAValidName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+haveAValidName.h"; path = "Matchers/EXPMatchers+haveAValidName.h"; sourceTree = "<group>"; };
+		A6E655B1185FB2B30085F906 /* EXPMatchers+haveAValidName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+haveAValidName.m"; path = "Matchers/EXPMatchers+haveAValidName.m"; sourceTree = "<group>"; };
 		E19E678BCBB9409FBE1FDD1D /* libPods-IntentKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntentKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -171,6 +174,8 @@
 			children = (
 				A61B5CC51858D19D00BA1F66 /* EXPMatchers+beAValidAction.h */,
 				A61B5CC61858D19D00BA1F66 /* EXPMatchers+beAValidAction.m */,
+				A6E655B0185FB2B30085F906 /* EXPMatchers+haveAValidName.h */,
+				A6E655B1185FB2B30085F906 /* EXPMatchers+haveAValidName.m */,
 			);
 			name = Matchers;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6E655B2185FB2B30085F906 /* EXPMatchers+haveAValidName.m in Sources */,
 				A6B73D02184D38650055C60D /* INKBrowserHandlerSpec.m in Sources */,
 				A61B5CC41857C25B00BA1F66 /* IntentKit.m in Sources */,
 				A6170A6918543FFA0086AC63 /* INKHandlerSpec.m in Sources */,
