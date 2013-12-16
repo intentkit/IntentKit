@@ -1,13 +1,13 @@
 #!/bin/sh
 appledoc \
---project-name "OpenInKit" \
+--project-name "IntentKit" \
 --project-company "Mike Walker" \
 --company-id "com.lazerwalker" \
---docset-atom-filename "OpenInKit.atom" \
+--docset-atom-filename "IntentKit.atom" \
 --output "./docs" \
---docset-feed-url "http://lazerwalker.com/OpenInKit/%DOCSETATOMFILENAME" \
---docset-package-url "http://lazerwalker.com/OpenInKit/%DOCSETPACKAGEFILENAME" \
---docset-fallback-url "http://lazerwalker.com/OpenInKit/" \
+--docset-feed-url "http://intentkit.github.io/%DOCSETATOMFILENAME" \
+--docset-package-url "http://intentkit.github.io/%DOCSETPACKAGEFILENAME" \
+--docset-fallback-url "http://intentkit.github.io" \
 --publish-docset \
 --logformat xcode \
 --keep-undocumented-objects \
