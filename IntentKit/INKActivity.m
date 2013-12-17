@@ -97,11 +97,7 @@
         bundle  = [NSBundle bundleWithURL:bundleURL];
     }
 
-    NSString *filename = self.name;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        filename = [filename stringByAppendingString:@"-iPad"];
-    }
-    filename = [bundle pathForResource:filename ofType:@"png"];
+    NSString *filename = [bundle pathForResource:self.name ofType:@"png"];
     return [UIImage imageWithContentsOfFile:filename];
 }
 
