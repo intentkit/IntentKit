@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D97A84D2BF27D7A7F49E984 /* INKMailHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97A622B2D9C414C0549095 /* INKMailHandler.m */; };
 		A60A033118503843009278EF /* INKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* INKActivity.m */; };
 		A6170A6918543FFA0086AC63 /* INKHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */; };
 		A6170A6C1854471D0086AC63 /* INKApplicationList.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6B1854471D0086AC63 /* INKApplicationList.m */; };
@@ -68,7 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CFB950D1860E110006BB1EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D97A622B2D9C414C0549095 /* INKMailHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKMailHandler.m; sourceTree = "<group>"; };
+		5D97A8507DFA811246AC3E26 /* INKMailHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKMailHandler.h; sourceTree = "<group>"; };
 		7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntentKitTests.xcconfig"; path = "Pods/Pods-IntentKitTests.xcconfig"; sourceTree = "<group>"; };
 		A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6170A6A1854471D0086AC63 /* INKApplicationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INKApplicationList.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -229,6 +233,8 @@
 				A67F39F1184EE00F002EED53 /* INKHandler.m */,
 				A67F39F2184EE00F002EED53 /* INKMapsHandler.h */,
 				A67F39F3184EE00F002EED53 /* INKMapsHandler.m */,
+				5D97A622B2D9C414C0549095 /* INKMailHandler.m */,
+				5D97A8507DFA811246AC3E26 /* INKMailHandler.h */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 		A6B73C65184D341E0055C60D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CFB950D1860E110006BB1EC /* MessageUI.framework */,
 				A6B73C66184D341E0055C60D /* Foundation.framework */,
 				A6B73C68184D341E0055C60D /* CoreGraphics.framework */,
 				A6B73C6A184D341E0055C60D /* UIKit.framework */,
@@ -514,6 +521,7 @@
 				A6B73CED184D38450055C60D /* INKViewController.m in Sources */,
 				A69DAC3E185037B40028FCD1 /* INKHandler.m in Sources */,
 				A69DAC3F185037B60028FCD1 /* INKBrowserHandler.m in Sources */,
+				5D97A84D2BF27D7A7F49E984 /* INKMailHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

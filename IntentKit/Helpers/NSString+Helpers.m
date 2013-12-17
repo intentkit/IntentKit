@@ -18,6 +18,11 @@
 }
 
 - (NSString *)urlScheme {
+    // TODO Think of a better solution for this dirty hack.
+    if ([self hasPrefix:@"mailto:"]) {
+        return @"mailto:";
+    }
+
     NSString *first = self.pathComponents.firstObject;
     if ([first characterAtIndex:first.length-1] == ':') {
         return [first stringByAppendingString:@"//"];
