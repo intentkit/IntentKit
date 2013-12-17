@@ -11,6 +11,7 @@
 #import "INKApplicationList.h"
 #import "INKActivityViewController.h"
 #import "INKActivityPresenter.h"
+#import "INKBrowserHandler.h"
 
 @interface INKHandler ()
 @property (strong, nonatomic) UIApplication *application;
@@ -80,11 +81,8 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
                 }
 
                 NSURL *url = [NSURL URLWithString:value];
-                NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
-                NSDictionary *newArgs = @{@"url": strippedUrl};
-                NSString *newCommand = ([url.scheme isEqualToString:@"https"] ? @"openHttpsURL:" : @"openHttpURL:");
-
-                return [self performCommand:newCommand withArguments:newArgs];
+                INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
+                return [browserHandler openURL:url];
             }
         }
     }

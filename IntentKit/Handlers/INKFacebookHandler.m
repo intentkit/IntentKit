@@ -13,7 +13,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        [self setFallback:NO];
+        self.fallback = YES;
     }
 
     return self;
@@ -21,12 +21,12 @@
 
 - (INKActivityPresenter *)showProfileWithId:(NSString *)userId {
     NSDictionary *args = @{ @"userId" : userId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:[self fallback]];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
 }
 
 - (INKActivityPresenter *)showEventWithId:(NSString *)eventId {
     NSDictionary *args = @{ @"eventId" : eventId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:[self fallback]];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
 }
 
 @end

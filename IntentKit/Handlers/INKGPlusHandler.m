@@ -13,7 +13,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        [self setFallback:NO];
+        self.fallback = YES;
     }
 
     return self;
@@ -21,22 +21,22 @@
 
 - (INKActivityPresenter *)showGPlusProfileWithId:(NSString *)userId {
     NSDictionary *args = @{ @"userId" : userId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:[self fallback]];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
 }
 
 - (INKActivityPresenter *)showGPlusProfileWithName:(NSString *)userName {
     NSDictionary *args = @{ @"userName" : userName };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:[self fallback]];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
 }
 
 - (INKActivityPresenter *)showGPlusEventWithId:(NSString *)eventId {
     NSDictionary *args = @{ @"eventId" : eventId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:[self fallback]];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
 }
 
 - (INKActivityPresenter *)showGPlusCommunityWithId:(NSString *)communityId {
     NSDictionary *args = @{ @"communityId" : communityId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:[self fallback]];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
 }
 
 
