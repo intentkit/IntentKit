@@ -111,10 +111,16 @@
 		A6A16CC81851375000778944 /* IntentKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntentKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AE48D51856227C00469AAE /* INKActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityViewController.h; path = INKActivityViewController/INKActivityViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A6AE48D61856227C00469AAE /* INKActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = INKActivityViewController.m; path = INKActivityViewController/INKActivityViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A6AE48D818562CD100469AAE /* INKActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityCell.h; path = INKActivityViewController/INKActivityCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A6AE48D818562CD100469AAE /* INKActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityCell.h; path = INKActivityViewController/INKActivityCell.h; sourceTree = "<group>"; };
 		A6AE48D918562CD100469AAE /* INKActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = INKActivityCell.m; path = INKActivityViewController/INKActivityCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6AE48DB18567D6300469AAE /* UIView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Helpers.h"; sourceTree = "<group>"; };
 		A6AE48DC18567D6300469AAE /* UIView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helpers.m"; sourceTree = "<group>"; };
+		A6B55ED3186101F5007EB67F /* iconBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconBorder@2x.png"; path = "Images/iconBorder@2x.png"; sourceTree = "<group>"; };
+		A6B55ED4186101F5007EB67F /* iconBorder@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconBorder@2x~ipad.png"; path = "Images/iconBorder@2x~ipad.png"; sourceTree = "<group>"; };
+		A6B55ED5186101F5007EB67F /* iconBorder~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconBorder~ipad.png"; path = "Images/iconBorder~ipad.png"; sourceTree = "<group>"; };
+		A6B55ED6186101F5007EB67F /* iconMask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconMask@2x.png"; path = "Images/iconMask@2x.png"; sourceTree = "<group>"; };
+		A6B55ED7186101F5007EB67F /* iconMask@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconMask@2x~ipad.png"; path = "Images/iconMask@2x~ipad.png"; sourceTree = "<group>"; };
+		A6B55ED8186101F5007EB67F /* iconMask~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconMask~ipad.png"; path = "Images/iconMask~ipad.png"; sourceTree = "<group>"; };
 		A6B73C63184D341E0055C60D /* IntentKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntentKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C66184D341E0055C60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6B73C68184D341E0055C60D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -197,6 +203,7 @@
 		A67F39DB184EDFE5002EED53 /* IntentKit */ = {
 			isa = PBXGroup;
 			children = (
+				A6B55EC61860EB7E007EB67F /* Images */,
 				A6AE48D41856225F00469AAE /* INKActivityViewController */,
 				A660DD2F18513A9500EFF0E6 /* Apps */,
 				A67F39ED184EE00F002EED53 /* Handlers */,
@@ -261,6 +268,19 @@
 				A61B5CBA18577CC700BA1F66 /* INKActivityPresenter.m */,
 			);
 			name = INKActivityViewController;
+			sourceTree = "<group>";
+		};
+		A6B55EC61860EB7E007EB67F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A6B55ED3186101F5007EB67F /* iconBorder@2x.png */,
+				A6B55ED4186101F5007EB67F /* iconBorder@2x~ipad.png */,
+				A6B55ED5186101F5007EB67F /* iconBorder~ipad.png */,
+				A6B55ED6186101F5007EB67F /* iconMask@2x.png */,
+				A6B55ED7186101F5007EB67F /* iconMask@2x~ipad.png */,
+				A6B55ED8186101F5007EB67F /* iconMask~ipad.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		A6B73C5A184D341E0055C60D = {
@@ -475,7 +495,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "find -L ${SRCROOT}/IntentKit/Apps \\\n-type f -not -name \".*\" \\\n| xargs -t -I {} \\\ncp {} ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/";
+			shellScript = "find -L ${SRCROOT}/IntentKit/Apps \\\n-type f -not -name \".*\" \\\n| xargs -t -I {} \\\ncp {} ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\n\nfind -L ${SRCROOT}/IntentKit/Images \\\n-type f -not -name \".*\" \\\n| xargs -t -I {} \\\ncp {} ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/";
 		};
 		BB3370C53A97476F89F3441C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
