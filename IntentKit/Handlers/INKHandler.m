@@ -64,7 +64,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
     if (fallback && [availableApps count] < 1) {
         for (INKActivity *activity in self.appList.activities) {
-            NSString *value = [[activity fallbackUrls] valueForKey:command];
+            NSString *value = [self fallbackUrl:command];
             if (value) {
                 NSMutableArray *searchStrings = [[NSMutableArray alloc] init];
                 for (NSString *str in [args allKeys]) {
@@ -91,5 +91,30 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
     INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
     return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];
+}
+
+#pragma mark - Private methods
+- (NSString *)fallbackUrl:(NSString *)command {
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle = [NSBundle bundleWithURL:bundleURL];
+    }
+
+    NSArray *appPaths = [bundle pathsForResourcesOfType:@".plist"
+                                            inDirectory:nil];
+    for (NSString *path in appPaths) {
+        if ([path.lastPathComponent hasPrefix:@"INK"]) {
+            NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path][@"fallbackUrls"];
+
+            if ([dict isKindOfClass:[NSDictionary class]]) {
+                if ([dict valueForKey:command]) {
+                    return [dict valueForKey:command];
+                }
+            }
+        }
+    }
+
+    return nil;
 }
 @end
