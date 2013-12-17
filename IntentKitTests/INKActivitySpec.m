@@ -41,7 +41,7 @@ describe(@"INKActivity", ^{
         dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
         activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
-                                         optionalParams:dict[@"optional"]
+                                           fallbackUrls:dict[@"fallbackUrls"]                                         optionalParams:dict[@"optional"]
                                                    name:@"Chrome"
                                             application:app];
     });
@@ -56,6 +56,7 @@ describe(@"INKActivity", ^{
         context(@"when the application has localized names", ^{
             beforeEach(^{
                 activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                   fallbackUrls:dict[@"fallbackUrls"]
                                                  optionalParams:dict[@"optional"]
                                                           names:@{@"en": @"English",
                                                                   @"de": @"Deutsch",
@@ -87,6 +88,7 @@ describe(@"INKActivity", ^{
                 context(@"when English does not exist", ^{
                     it(@"should use the first one it finds", ^{
                         activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                           fallbackUrls:dict[@"fallbackUrls"]
                                                          optionalParams:dict[@"optional"]
                                                                   names:@{@"de": @"Deutsch",
                                                                           @"fr": @"Français"}
