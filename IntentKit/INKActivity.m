@@ -55,7 +55,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"MWActivity <actions: %@, fallbackUrls: %@, optionalParams: %@, name: %@, application: %@>",
+    return [NSString stringWithFormat:@"INKActivity <actions: %@, fallbackUrls: %@, optionalParams: %@, name: %@, application: %@>",
                     self.actions, self.fallbackUrls, self.optionalParams, self.name, self.application];
 }
 
