@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CB3E9CB185FC89600DD0D7D /* INKFacebookHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3E9C6185FC77F00DD0D7D /* INKFacebookHandler.m */; };
+		0CB3E9CC185FC89600DD0D7D /* INKGPlusHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3E9C8185FC77F00DD0D7D /* INKGPlusHandler.m */; };
 		A60A033118503843009278EF /* INKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* INKActivity.m */; };
 		A6170A6918543FFA0086AC63 /* INKHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */; };
 		A6170A6C1854471D0086AC63 /* INKApplicationList.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6B1854471D0086AC63 /* INKApplicationList.m */; };
@@ -68,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CB3E9C5185FC77F00DD0D7D /* INKFacebookHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKFacebookHandler.h; sourceTree = "<group>"; };
+		0CB3E9C6185FC77F00DD0D7D /* INKFacebookHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKFacebookHandler.m; sourceTree = "<group>"; };
+		0CB3E9C7185FC77F00DD0D7D /* INKGPlusHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKGPlusHandler.h; sourceTree = "<group>"; };
+		0CB3E9C8185FC77F00DD0D7D /* INKGPlusHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKGPlusHandler.m; sourceTree = "<group>"; };
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntentKitTests.xcconfig"; path = "Pods/Pods-IntentKitTests.xcconfig"; sourceTree = "<group>"; };
 		A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -221,14 +227,18 @@
 		A67F39ED184EE00F002EED53 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				A6474F7B1851416F00671B42 /* INKTwitterHandler.h */,
-				A6474F7C1851416F00671B42 /* INKTwitterHandler.m */,
 				A67F39EE184EE00F002EED53 /* INKBrowserHandler.h */,
 				A67F39EF184EE00F002EED53 /* INKBrowserHandler.m */,
+				0CB3E9C5185FC77F00DD0D7D /* INKFacebookHandler.h */,
+				0CB3E9C6185FC77F00DD0D7D /* INKFacebookHandler.m */,
+				0CB3E9C7185FC77F00DD0D7D /* INKGPlusHandler.h */,
+				0CB3E9C8185FC77F00DD0D7D /* INKGPlusHandler.m */,
 				A67F39F0184EE00F002EED53 /* INKHandler.h */,
 				A67F39F1184EE00F002EED53 /* INKHandler.m */,
 				A67F39F2184EE00F002EED53 /* INKMapsHandler.h */,
 				A67F39F3184EE00F002EED53 /* INKMapsHandler.m */,
+				A6474F7B1851416F00671B42 /* INKTwitterHandler.h */,
+				A6474F7C1851416F00671B42 /* INKTwitterHandler.m */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -398,6 +408,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Mike Walker";
 				TargetAttributes = {
+					A6B73C62184D341E0055C60D = {
+						DevelopmentTeam = 4E6ZBMTQD6;
+					};
 					A6B73C7D184D341E0055C60D = {
 						TestTargetID = A6B73C62184D341E0055C60D;
 					};
@@ -499,6 +512,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CB3E9CB185FC89600DD0D7D /* INKFacebookHandler.m in Sources */,
+				0CB3E9CC185FC89600DD0D7D /* INKGPlusHandler.m in Sources */,
 				A6AE48DA18562CD100469AAE /* INKActivityCell.m in Sources */,
 				A6170A6C1854471D0086AC63 /* INKApplicationList.m in Sources */,
 				A69DAC40185037BA0028FCD1 /* INKMapsHandler.m in Sources */,
@@ -708,6 +723,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntentKitDemo/IntentKitDemo-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -722,6 +738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntentKitDemo/IntentKitDemo-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
