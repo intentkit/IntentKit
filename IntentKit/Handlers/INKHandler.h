@@ -20,6 +20,11 @@ NSString *(^urlEncode)(NSString *);
 /** An array of INKActivity objects that represent all apps, regardless of whether they are available or relevant */
 @property (strong, readonly) NSArray *activities;
 
+/** By default, if there is only one valid application, a handler will automatically open that app instead of showing a `INKActivityViewController`. Setting this to `YES` overrides that behavior and always shows an activity view.
+
+ This is mostly useful for demo purposes (e.g. running in the simulator). */
+@property (nonatomic, assign) BOOL alwaysShowActivityView;
+
 /** Returns whether or not an action can be performed at all.
  @param command The name of a command to perform, corresponding with the keys in each application's plist.
  @return YES if the user has at least one application installed that responds to the given command.

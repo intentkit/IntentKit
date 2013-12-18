@@ -19,6 +19,7 @@
 #import "INKApplicationList.h"
 #import "INKActivityPresenter.h"
 #import "INKActivityViewController.h"
+#import "INKActivity.h"
 
 @interface INKHandler (Spec)
 @property UIApplication *application;
@@ -59,8 +60,12 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
             expect([presenter isKindOfClass:[INKActivityPresenter class]]).to.beTruthy;
         });
 
-        it(@"should have one application", ^{
-            expect([presenter.activitySheet numberOfApplications]).to.equal(1);
+        it(@"should not have a view controller", ^{
+            expect(presenter.activitySheet).to.beNil();
+        });
+
+        it(@"should have an activity", ^{
+            expect(presenter.activity).to.beKindOf([INKActivity class]);
         });
     });
 
@@ -77,6 +82,11 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
         it(@"should have multiple activities", ^{
             expect([presenter.activitySheet numberOfApplications]).to.beGreaterThan(0);
         });
+
+        it(@"should not have an activity", ^{
+            expect(presenter.activity).to.beNil();
+        });
+
     });
 });
 
@@ -97,7 +107,7 @@ sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
         [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithParam.urlScheme]]) willReturnBool:YES];
 
         INKActivityPresenter *presenter = subjectAction();
-        [presenter.activitySheet performActivityInFirstAvailableApplication];
+        [presenter presentModalActivitySheetFromViewController:nil];
 
         [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlStringWithParam]];
     });

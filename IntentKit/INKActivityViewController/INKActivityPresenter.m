@@ -16,7 +16,6 @@
 @property (weak, nonatomic) UIViewController *presentingViewController;
 @property (strong, nonatomic) UIView *shadeView;
 @property (strong, nonatomic) UIPopoverController *popoverController;
-
 @end
 
 @implementation INKActivityPresenter
@@ -29,39 +28,46 @@
     return self;
 }
 
+- (instancetype)initWithActivity:(INKActivity *)activity {
+    if (self = [super init]) {
+        self.activity = activity;
+    }
+    return self;
+}
+
 - (BOOL)canPerformActivity {
-    return self.activitySheet.numberOfApplications > 1;
+    return self.activity || self.activitySheet.numberOfApplications > 1;
 }
 
 - (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController {
 
-    if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
-        [self.activitySheet performActivityInFirstAvailableApplication];
-        return;
+    if (self.activity) {
+        [self.activity performActivity];
+    } else if (self.activitySheet) {
+        self.presentingViewController = presentingViewController;
+
+        self.shadeView = [[UIView alloc] initWithFrame:self.presentingViewController.view.bounds];
+        self.shadeView.backgroundColor = [UIColor blackColor];
+        [self.presentingViewController.view addSubview:self.shadeView];
+
+        presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        [presentingViewController presentViewController:self.activitySheet animated:NO completion:nil];
+
+        self.shadeView.alpha = 0;
+        CGPoint activitySheetOrigin = self.activitySheet.contentView.frame.origin;
+        [self.activitySheet.contentView moveToPoint:CGPointMake(self.presentingViewController.view.left, self.presentingViewController.view.bottom)];
+        [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations: ^{
+            self.shadeView.alpha = 0.4;
+            [self.activitySheet.contentView moveToPoint:activitySheetOrigin];
+        } completion:nil];
     }
-    
-    self.presentingViewController = presentingViewController;
-
-    self.shadeView = [[UIView alloc] initWithFrame:self.presentingViewController.view.bounds];
-    self.shadeView.backgroundColor = [UIColor blackColor];
-    [self.presentingViewController.view addSubview:self.shadeView];
-
-    presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [presentingViewController presentViewController:self.activitySheet animated:NO completion:nil];
-
-    self.shadeView.alpha = 0;
-    CGPoint activitySheetOrigin = self.activitySheet.contentView.frame.origin;
-    [self.activitySheet.contentView moveToPoint:CGPointMake(self.presentingViewController.view.left, self.presentingViewController.view.bottom)];
-    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations: ^{
-        self.shadeView.alpha = 0.4;
-        [self.activitySheet.contentView moveToPoint:activitySheetOrigin];
-    } completion:nil];
 }
 
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
-    if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
-        [self.activitySheet performActivityInFirstAvailableApplication];
-    } else if (IntentKit.sharedInstance.isPad) {
+
+    if (self.activity) {
+        [self.activity performActivity];
+    } else if (IntentKit.sharedInstance.isPad && self.activitySheet) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
         self.popoverController.popoverContentSize = self.activitySheet.view.bounds.size;
@@ -73,9 +79,9 @@
 
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
 
-    if (self.activitySheet.numberOfApplications <= 1 && !self.alwaysShowActivityView) {
-        [self.activitySheet performActivityInFirstAvailableApplication];
-    } else if (IntentKit.sharedInstance.isPad) {
+    if (self.activity) {
+        [self.activity performActivity];
+    } else if (IntentKit.sharedInstance.isPad && self.activitySheet) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
         [self.popoverController presentPopoverFromBarButtonItem:item  permittedArrowDirections:arrowDirections animated:animated];

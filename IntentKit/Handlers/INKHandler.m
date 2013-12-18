@@ -59,7 +59,13 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
     NSArray *activityItems = @[command, args];
 
-    INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
-    return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];
+    if (availableApps.count == 1 && !self.alwaysShowActivityView) {
+        INKActivity *app = availableApps.firstObject;
+        [app prepareWithActivityItems:activityItems];
+        return [[INKActivityPresenter alloc] initWithActivity:app];
+    } else {
+        INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
+        return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];
+    }
 }
 @end

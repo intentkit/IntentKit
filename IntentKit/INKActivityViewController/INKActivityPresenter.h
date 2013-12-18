@@ -9,23 +9,28 @@
 #import <Foundation/Foundation.h>
 
 @class INKActivityViewController;
+@class INKActivity;
 
 /** `INKActivityPresenter` is a presenter object responsible for displaying a `INKActivityViewController`. It will take care of displaying it modally on an iPhone or in a UIPopover on an iPad. */
 @interface INKActivityPresenter : NSObject
 
-/** The `INKActivityViewController` to be displayed */
+/** An `INKActivityViewController` to be displayed. This will be nil iff the user
+ doesn't need to choose an application (e.g. they only have one installed, or
+ have set a preference). */
 @property (strong, nonatomic) INKActivityViewController *activitySheet;
 
-
-/** By default, if there is only one valid application, a `INKActivityViewController` will automatically open that app instead of showing a `INKActivityViewController`. Setting this to `YES` overrides that behavior and always shows an activity view.
-
- This is mostly useful for demo purposes (e.g. running in the simulator). */
-@property (nonatomic, assign) BOOL alwaysShowActivityView;
+/** An `INKActivity` to be performed iff the user doesn't need to choose an 
+ application (e.g. they only have one installed, or have set a preference). */
+@property (strong, nonatomic) INKActivity *activity;
 
 
 /** Instantiate a `INKActivityPresenter` with a given `INKActivityViewController`.
  @param activitySheet The `INKActivityViewController` that will be presentd. */
 - (instancetype)initWithActivitySheet:(INKActivityViewController *)activitySheet;
+
+/** Instantiate a `INKActivityPresenter` with a given `INKActivity`.
+ @param activity The `INKActivity` whose action will be performed. */
+- (instancetype)initWithActivity:(INKActivity *)activity;
 
 /** Returns whether or not an action will be performed when you try to present the activity sheet.
  @return NO if the user has no applications installed capable of handling the action. Otherwise YES. */

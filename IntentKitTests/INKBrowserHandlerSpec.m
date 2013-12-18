@@ -71,7 +71,7 @@ describe(@"MWBrowserHandler", ^{
                 [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
 
                 INKActivityPresenter *presenter = [handler openURL:url withCallback:callbackURL];
-                [presenter.activitySheet performActivityInFirstAvailableApplication];
+                [presenter presentModalActivitySheetFromViewController:nil];
 
                 NSString *expected = @"googlechrome-x-callback://x-callback-url/open/?x-source=IntentKitDemo&x-success=testapp%3A%2F%2Ftest&url=http%3A%2F%2Fgoogle.com";
                 NSURL *expectedURL = [NSURL URLWithString:expected];
