@@ -27,6 +27,7 @@
 @implementation INKActivity
 
 - (instancetype)initWithActions:(NSDictionary *)actions
+                 fallbackUrls:(NSDictionary *)fallbackUrls
                  optionalParams:(NSDictionary *)optionalParams
                               name: (NSString *)name
                        application:(UIApplication *)application {
@@ -43,11 +44,17 @@
     if (self = [super init]) {
         self.names = names;
         self.actions = actions;
+        self.fallbackUrls = fallbackUrls;
         self.optionalParams = optionalParams;
         self.application = application;
         self.intentKit = [IntentKit sharedInstance];
     }
     return self;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"MWActivity <actions: %@, fallbackUrls: %@, optionalParams: %@, name: %@, application: %@>",
+                    self.actions, self.fallbackUrls, self.optionalParams, self.name, self.application];
 }
 
 - (BOOL)canPerformCommand:(NSString *)command {

@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 Mike Walker. All rights reserved.
 //
 
+<<<<<<< HEAD:IntentKitDemo/INKViewController.m
 #import "INKViewController.h"
 #import "IntentKit.h"
 #import "INKActivityPresenter.h"
+=======
+#import "MWViewController.h"
+#import "MWOpenInKit.h"
+>>>>>>> 6fa0d1a... Squashed commit of the following::MWOpenInKitDemo/MWViewController.m
 
 @interface INKViewController ()
 
@@ -121,6 +126,18 @@
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/lazerwalker/IntentKit" inReplyTo:@"28"];
                          }},
+                       @{@"description": @"Open Facebook Profile",
+                               @"action": (UIActivityViewController *)^{
+                           MWFacebookHandler *handler = [[MWFacebookHandler alloc] init];
+                           [handler setFallback:YES];
+                           return [handler showProfileWithId:@"345800612130911"];
+                       }},
+                       @{@"description": @"Open Google+ Profile",
+                               @"action": (UIActivityViewController *)^{
+                           MWGPlusHandler *handler = [[MWGPlusHandler alloc] init];
+                           [handler setFallback:YES];
+                           return [handler showGPlusProfileWithName:@"ArvidGerstmann"];
+                       }},
                        ]
                }
              ];

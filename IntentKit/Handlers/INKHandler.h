@@ -35,4 +35,14 @@ NSString *(^urlEncode)(NSString *);
  @return A `INKActivityPresenter` object to present. */
 - (INKActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
 
+/** Opens a third-party application to perform some task.
+ If there is only one application installed that can respond to that command, it will open that app with the correct URL.
+ Otherwise, it will create a `UIActivityViewController` to prompt the user to pick an app.
+
+ @param command The name of a command to perform, corresponding with keys in each application's plist.
+ @param args The dictionary of arguments used to construct a URL based on the templates defined for each URL scheme.
+ @param fallback If it should fallback to Browser, if possible.
+ @return A `MWActivityPresenter` object to present. */
+- (MWActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args fallback:(BOOL)fallback;
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD:IntentKitDemo.xcodeproj/project.pbxproj
 		A60A033118503843009278EF /* INKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* INKActivity.m */; };
 		A6170A6918543FFA0086AC63 /* INKHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */; };
 		A6170A6C1854471D0086AC63 /* INKApplicationList.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6B1854471D0086AC63 /* INKApplicationList.m */; };
@@ -17,6 +18,20 @@
 		A61B5CC118579EBC00BA1F66 /* INKActivityViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC018579EBC00BA1F66 /* INKActivityViewControllerSpec.m */; };
 		A61B5CC31857C25B00BA1F66 /* IntentKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC21857C25B00BA1F66 /* IntentKit.m */; };
 		A61B5CC41857C25B00BA1F66 /* IntentKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC21857C25B00BA1F66 /* IntentKit.m */; };
+=======
+		5D97A7BF6A39C299872ABD24 /* MWGPlusHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97AB9EAAC7E4DD5CB1F3E7 /* MWGPlusHandler.m */; };
+		5D97AB2B0EF165D6D3E8D04B /* MWFacebookHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97A426A2C16C8A3201D332 /* MWFacebookHandler.m */; };
+		A60A033118503843009278EF /* MWActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* MWActivity.m */; };
+		A6170A6918543FFA0086AC63 /* MWHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6818543FFA0086AC63 /* MWHandlerSpec.m */; };
+		A6170A6C1854471D0086AC63 /* MWApplicationList.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6B1854471D0086AC63 /* MWApplicationList.m */; };
+		A61B5CBB18577CC700BA1F66 /* MWActivityPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CBA18577CC700BA1F66 /* MWActivityPresenter.m */; };
+		A61B5CBD18579B2100BA1F66 /* MWActivityPresenterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CBC18579B2100BA1F66 /* MWActivityPresenterSpec.m */; };
+		A61B5CBE18579C3200BA1F66 /* MWActivityPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CBA18577CC700BA1F66 /* MWActivityPresenter.m */; };
+		A61B5CBF18579C3700BA1F66 /* MWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B73CE4184D38450055C60D /* MWViewController.m */; };
+		A61B5CC118579EBC00BA1F66 /* MWActivityViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC018579EBC00BA1F66 /* MWActivityViewControllerSpec.m */; };
+		A61B5CC31857C25B00BA1F66 /* MWOpenInKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC21857C25B00BA1F66 /* MWOpenInKit.m */; };
+		A61B5CC41857C25B00BA1F66 /* MWOpenInKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC21857C25B00BA1F66 /* MWOpenInKit.m */; };
+>>>>>>> 6fa0d1a... Squashed commit of the following::MWOpenInKitDemo.xcodeproj/project.pbxproj
 		A61B5CC71858D19D00BA1F66 /* EXPMatchers+beAValidAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC61858D19D00BA1F66 /* EXPMatchers+beAValidAction.m */; };
 		A61B5CC91858D4F800BA1F66 /* INKAppPlistLinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B5CC81858D4F800BA1F66 /* INKAppPlistLinter.m */; };
 		A630A924184EE4DF00918F6A /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F6184EE00F002EED53 /* NSString+Helpers.m */; };
@@ -69,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+<<<<<<< HEAD:IntentKitDemo.xcodeproj/project.pbxproj
 		7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntentKitTests.xcconfig"; path = "Pods/Pods-IntentKitTests.xcconfig"; sourceTree = "<group>"; };
 		A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6170A6A1854471D0086AC63 /* INKApplicationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INKApplicationList.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -85,6 +101,28 @@
 		A6474F7B1851416F00671B42 /* INKTwitterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INKTwitterHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A6474F7C1851416F00671B42 /* INKTwitterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKTwitterHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6474F7E1851418500671B42 /* INKTwitterHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKTwitterHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+=======
+		5D97A21D2F35DCDFDE908399 /* MWGPlusHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWGPlusHandler.h; sourceTree = "<group>"; };
+		5D97A2964B2FC6EEDAAB1261 /* MWFacebookHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFacebookHandler.h; sourceTree = "<group>"; };
+		5D97A426A2C16C8A3201D332 /* MWFacebookHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFacebookHandler.m; sourceTree = "<group>"; };
+		5D97AB9EAAC7E4DD5CB1F3E7 /* MWGPlusHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWGPlusHandler.m; sourceTree = "<group>"; };
+		7CB1A92AD90442B2ADE581B1 /* Pods-MWOpenInKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWOpenInKitTests.xcconfig"; path = "Pods/Pods-MWOpenInKitTests.xcconfig"; sourceTree = "<group>"; };
+		A6170A6818543FFA0086AC63 /* MWHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWHandlerSpec.m; sourceTree = "<group>"; };
+		A6170A6A1854471D0086AC63 /* MWApplicationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWApplicationList.h; sourceTree = "<group>"; };
+		A6170A6B1854471D0086AC63 /* MWApplicationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWApplicationList.m; sourceTree = "<group>"; };
+		A61B5CB918577CC700BA1F66 /* MWActivityPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWActivityPresenter.h; path = MWActivityViewController/MWActivityPresenter.h; sourceTree = "<group>"; };
+		A61B5CBA18577CC700BA1F66 /* MWActivityPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWActivityPresenter.m; path = MWActivityViewController/MWActivityPresenter.m; sourceTree = "<group>"; };
+		A61B5CBC18579B2100BA1F66 /* MWActivityPresenterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWActivityPresenterSpec.m; sourceTree = "<group>"; };
+		A61B5CC018579EBC00BA1F66 /* MWActivityViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWActivityViewControllerSpec.m; sourceTree = "<group>"; };
+		A61B5CC21857C25B00BA1F66 /* MWOpenInKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWOpenInKit.m; sourceTree = "<group>"; };
+		A61B5CC51858D19D00BA1F66 /* EXPMatchers+beAValidAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beAValidAction.h"; path = "Matchers/EXPMatchers+beAValidAction.h"; sourceTree = "<group>"; };
+		A61B5CC61858D19D00BA1F66 /* EXPMatchers+beAValidAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beAValidAction.m"; path = "Matchers/EXPMatchers+beAValidAction.m"; sourceTree = "<group>"; };
+		A61B5CC81858D4F800BA1F66 /* MWAppPlistLinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWAppPlistLinter.m; sourceTree = "<group>"; };
+		A6474F7618513C5600671B42 /* MWOpenInKitBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MWOpenInKitBundle-Info.plist"; path = "MWOpenInKit/Apps/MWOpenInKitBundle-Info.plist"; sourceTree = "<group>"; };
+		A6474F7B1851416F00671B42 /* MWTwitterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTwitterHandler.h; sourceTree = "<group>"; };
+		A6474F7C1851416F00671B42 /* MWTwitterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTwitterHandler.m; sourceTree = "<group>"; };
+		A6474F7E1851418500671B42 /* MWTwitterHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTwitterHandlerSpec.m; sourceTree = "<group>"; };
+>>>>>>> 6fa0d1a... Squashed commit of the following::MWOpenInKitDemo.xcodeproj/project.pbxproj
 		A660DD2F18513A9500EFF0E6 /* Apps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Apps; sourceTree = "<group>"; };
 		A67F39D5184EDFE5002EED53 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		A67F39D8184EDFE5002EED53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -221,6 +259,7 @@
 		A67F39ED184EE00F002EED53 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD:IntentKitDemo.xcodeproj/project.pbxproj
 				A6474F7B1851416F00671B42 /* INKTwitterHandler.h */,
 				A6474F7C1851416F00671B42 /* INKTwitterHandler.m */,
 				A67F39EE184EE00F002EED53 /* INKBrowserHandler.h */,
@@ -229,6 +268,20 @@
 				A67F39F1184EE00F002EED53 /* INKHandler.m */,
 				A67F39F2184EE00F002EED53 /* INKMapsHandler.h */,
 				A67F39F3184EE00F002EED53 /* INKMapsHandler.m */,
+=======
+				A6474F7B1851416F00671B42 /* MWTwitterHandler.h */,
+				A6474F7C1851416F00671B42 /* MWTwitterHandler.m */,
+				A67F39EE184EE00F002EED53 /* MWBrowserHandler.h */,
+				A67F39EF184EE00F002EED53 /* MWBrowserHandler.m */,
+				A67F39F0184EE00F002EED53 /* MWHandler.h */,
+				A67F39F1184EE00F002EED53 /* MWHandler.m */,
+				A67F39F2184EE00F002EED53 /* MWMapsHandler.h */,
+				A67F39F3184EE00F002EED53 /* MWMapsHandler.m */,
+				5D97A426A2C16C8A3201D332 /* MWFacebookHandler.m */,
+				5D97A2964B2FC6EEDAAB1261 /* MWFacebookHandler.h */,
+				5D97AB9EAAC7E4DD5CB1F3E7 /* MWGPlusHandler.m */,
+				5D97A21D2F35DCDFDE908399 /* MWGPlusHandler.h */,
+>>>>>>> 6fa0d1a... Squashed commit of the following::MWOpenInKitDemo.xcodeproj/project.pbxproj
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -398,6 +451,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Mike Walker";
 				TargetAttributes = {
+					A6B73C62184D341E0055C60D = {
+						DevelopmentTeam = 4E6ZBMTQD6;
+					};
 					A6B73C7D184D341E0055C60D = {
 						TestTargetID = A6B73C62184D341E0055C60D;
 					};
@@ -511,9 +567,17 @@
 				A6AE48DD18567D6300469AAE /* UIView+Helpers.m in Sources */,
 				A61B5CC31857C25B00BA1F66 /* IntentKit.m in Sources */,
 				A6B73CE7184D38450055C60D /* main.m in Sources */,
+<<<<<<< HEAD:IntentKitDemo.xcodeproj/project.pbxproj
 				A6B73CED184D38450055C60D /* INKViewController.m in Sources */,
 				A69DAC3E185037B40028FCD1 /* INKHandler.m in Sources */,
 				A69DAC3F185037B60028FCD1 /* INKBrowserHandler.m in Sources */,
+=======
+				A6B73CED184D38450055C60D /* MWViewController.m in Sources */,
+				A69DAC3E185037B40028FCD1 /* MWHandler.m in Sources */,
+				A69DAC3F185037B60028FCD1 /* MWBrowserHandler.m in Sources */,
+				5D97AB2B0EF165D6D3E8D04B /* MWFacebookHandler.m in Sources */,
+				5D97A7BF6A39C299872ABD24 /* MWGPlusHandler.m in Sources */,
+>>>>>>> 6fa0d1a... Squashed commit of the following::MWOpenInKitDemo.xcodeproj/project.pbxproj
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntentKitDemo/IntentKitDemo-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -722,6 +787,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntentKitDemo/IntentKitDemo-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
