@@ -108,7 +108,7 @@ Adding new URL Schemes
 ----------------------
 Extending IntentKit to include your own application's URL scheme is easy.
 
-1. Inside the `/IntentKit/Apps/` directory, create a new directory with the name of your app.
+1. Inside the `IntentKit/Apps/` directory, create a new directory with the name of your app.
 
 2. Inside that directory, create a plist. Its name should be the app's (English) name, and its root object should be a dictionary.
 
@@ -145,11 +145,11 @@ Extending IntentKit to include your own application's URL scheme is easy.
 
 3. Your app's icon goes in the same directory. You will need four copies of the icon, all with the same root name as your plist file:
     * `AppName.png`: 60x60
+    * `AppName~ipad.png`: 76x76
     * `AppName@2x.png`: 120x120
-    * `AppName-iPhone.png`: 76x76
-    * `AppName-iPad@2x.png`: 152x152
+    * `AppName@2x~ipad.png`: 152x152
 
-    These will all be shown as-is, so they should be prerendered. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
+    Use the same square icons you're using in your app's Xcode project; IntentKit will take care of masking them so they appear as iOS-style rounded rectangles/superellipses. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
 
 4. Open the example project in Xcode and run the tests (`Cmd+U`). This runs a linter which will let you know if any of the actions defined in your plist don't correspond to actual Objective-C handler methods, helping make sure you didn't make any typos.
 
@@ -164,7 +164,9 @@ If your application supports actions not currently represented in a handler, or 
 
 Contributing
 ------------
-At this point, the best way you can help out with `IntentKit` is honestly to just use it in your applications and submit pull requests for your apps' URL schemes. That being said, any other contributions are welcome! Tests and documentation via appledocs are heavily encouraged for new code.
+All contributions are welcome! If you want to help but don't know where to begin, adding in support for a new third-party application can be a great way to get started (it typically doesn't require writing any code).
+
+Tests and documentation are heavily encouraged for new code. We use [appledoc](http://gentlebytes.com/appledoc/) for documentation and [Specta](https://github.com/specta/specta)) for tests.
 
 
 Roadmap
@@ -172,7 +174,6 @@ Roadmap
 The goal of the initial version of `IntentKit` was just to create a simple way to integrate third-party app linking without a lot of boilerplate code. Here's a non-exhaustive list of ways it could be extended in to the future.
 
 * Saving user app preferences, both on a per-app basis and (ideally) across all applications on a single device that use `IntentKit`
-* Support for localization in app names
 * The ability to have handlers perform custom code instead of always opening a URL (e.g. showing a `MFMailComposeViewController` or an in-app web view)
 * Downloading and caching plists at runtime, allowing an app to pull in the latest URL schemes without needing an App Store update
 * A web-based CMS to add and manage URL schemes without needing to manually edit plists or submit pull requests.
