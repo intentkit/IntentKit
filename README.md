@@ -188,10 +188,10 @@ Roadmap
 -------
 The goal of the initial version of `IntentKit` was just to create a simple way to integrate third-party app linking without a lot of boilerplate code. Here's a non-exhaustive list of ways it could be extended in to the future.
 
-* Saving user app preferences, both on a per-app basis and (ideally) across all applications on a single device that use `IntentKit`
 * The ability to have handlers perform custom code instead of always opening a URL (e.g. showing a `MFMailComposeViewController` or an in-app web view)
 * Downloading and caching plists at runtime, allowing an app to pull in the latest URL schemes without needing an App Store update
 * A web-based CMS to add and manage URL schemes without needing to manually edit plists or submit pull requests.
+* Saving user app preferences across all applications on a single device that use IntentKit
 * Optional downloading of app icons from Apple at runtime rather than requiring developers to upload them
 
 

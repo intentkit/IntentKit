@@ -1,3 +1,20 @@
+## master
+
+###### Enhancements
+
+* User preferences can now be saved on a per-handler basis
+* Square app icons are masked at run-time, instead of requiring that apps be pre-masked
+* Application names may be localized
+
+###### New Handlers / Applications
+* INKMailHandler, to send email (Mail.app, Gmail)
+[Arvid Gerstmann
+](https://github.com/Leandros) [#16](https://github.com/intentkit/IntentKit/pull/16)
+
+###### Refactors
+* Icons now use the `~icon` naming convention, simplifying image displaying code
+
+
 ## 0.2
 
 **BREAKING CHANGE** MWOpenInKit is now called IntentKit!
