@@ -125,13 +125,13 @@
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
-                             return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/lazerwalker/IntentKit"];
+                             return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/intentkit/IntentKit"];
                          }},
                        @{@"description": @"Reply to a tweet",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
-                             return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/lazerwalker/IntentKit" inReplyTo:@"28"];
+                             return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/intentkit/IntentKit" inReplyTo:@"28"];
                          }},
                        ]
                },
