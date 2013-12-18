@@ -122,6 +122,17 @@
                              return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/lazerwalker/IntentKit" inReplyTo:@"28"];
                          }},
                        ]
+               },
+             @{@"name": @"INKMailHandler",
+               @"items": @[
+                       @{@"description": @"Send a mail",
+                         @"action": (UIActivityViewController *)^{
+                            INKMailHandler *handler = [[INKMailHandler alloc] init];
+                            handler.subject = @"IntentKit is blowing my mind!";
+                            handler.messageBody = @"Check it out on GitHub! https://github.com/intentkit/IntentKit";
+                            return [handler sendMailTo:@"appleseed@apple.com"];
+                         }},
+                       ]
                }
              ];
 };

@@ -133,6 +133,18 @@
             urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:self.activityArguments[key]];
         }
     }
+
+    // Fix for mailto: links.
+    if (optionals.count > 0 && [urlString rangeOfString:@"?"].location == NSNotFound) {
+        NSString *firstOptional = [optionals objectAtIndex:0];
+        NSRange firstAmpersand = [firstOptional rangeOfString:@"&"];
+
+        if (firstAmpersand.location != NSNotFound) {
+            firstOptional = [firstOptional stringByReplacingCharactersInRange:firstAmpersand withString:@"?"];
+        }
+
+        [optionals replaceObjectAtIndex:0 withObject:firstOptional];
+    }
     urlString = [urlString stringByAppendingString:[optionals componentsJoinedByString:@""]];
     
     NSURL *url = [NSURL URLWithString:urlString];

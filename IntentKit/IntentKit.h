@@ -8,6 +8,7 @@
 
 #import "INKActivity.h"
 #import "INKBrowserHandler.h"
+#import "INKMailHandler.h"
 #import "INKMapsHandler.h"
 #import "INKTwitterHandler.h"
 #import "INKActivityPresenter.h"
