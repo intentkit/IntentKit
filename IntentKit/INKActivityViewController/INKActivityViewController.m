@@ -11,6 +11,7 @@
 #import "UIView+Helpers.h"
 #import "INKActivityPresenter.h"
 #import "IntentKit.h"
+#import "INKDefaultToggleView.h"
 
 static NSString * const CellIdentifier = @"UIActivityCell";
 
@@ -35,6 +36,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 @property (strong, nonatomic) UICollectionViewFlowLayout *collectionViewLayout;
 @property (strong, nonatomic) UIButton *cancelButton;
 @property (strong, nonatomic) UIToolbar *blurToolbar;
+@property (strong, nonatomic) INKDefaultToggleView *defaultToggleView;
 
 @property (strong, nonatomic) NSArray *activityItems;
 @property (strong, nonatomic) NSArray *applicationActivities;
@@ -60,37 +62,14 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
             [self.view addSubview:self.contentView];
         }
 
-        self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
-        [self.collectionView registerClass:[INKActivityCell class] forCellWithReuseIdentifier:CellIdentifier];
-        self.collectionView.dataSource = self;
-        self.collectionView.delegate = self;
-
-        [self.contentView addSubview: self.collectionView];
-
-        self.collectionView.backgroundColor = UIColor.clearColor;
-        self.blurToolbar = [[UIToolbar alloc] initWithFrame:self.contentView.bounds];
-        [self.contentView insertSubview:self.blurToolbar atIndex:0];
+        [self addDefaultsToggle];
+        [self addBlurBackground];
 
         if (IntentKit.sharedInstance.isPad) {
-            self.collectionViewLayout.itemSize = INKActivityViewControllerItemSize_Pad;
-            self.collectionViewLayout.sectionInset = INKActivityViewControllerEdgeInsets_Pad;
-            self.collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-
+            [self setUpCollectionViewForPad];
         } else {
-            self.collectionViewLayout.itemSize = INKActivityViewControllerItemSize_Phone;
-            self.collectionViewLayout.sectionInset = INKActivityViewControllerEdgeInsets_Phone;
-            self.collectionView.scrollEnabled = NO;
-            self.collectionViewLayout.minimumInteritemSpacing = INKActivityViewControllerMinimumSpacing_Phone;
-            self.collectionViewLayout.minimumLineSpacing = INKActivityViewControllerMinimumSpacing_Phone;
-
-            self.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
-            self.cancelButton.frame = CGRectMake(0, 0, self.view.width, 44.f);
-            [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-            self.cancelButton.titleLabel.font = [UIFont systemFontOfSize:24.f];
-            self.cancelButton.backgroundColor = UIColor.clearColor;
-            [self.cancelButton addTarget:self action:@selector(didTapCancelButton) forControlEvents:UIControlEventTouchUpInside];
-            [self.contentView addSubview:self.cancelButton];
+            [self setUpCollectionViewForPhone];
+            [self addCancelButton];
         }
 
         [self setBounds];
@@ -102,31 +81,32 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
     return self.applicationActivities.count;
 }
 
-- (void)performActivityInFirstAvailableApplication {
-    [self.applicationActivities.firstObject prepareWithActivityItems:self.activityItems];
-    [self.applicationActivities.firstObject performActivity];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.defaultToggleView.enabled = self.delegate.canSetDefault;
     [self setBounds];
     self.presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
 }
 
 - (void)configureForPad {
+    self.defaultToggleView.frame = CGRectMake(0, 0, self.view.width, self.defaultToggleView.height);
     CGRect frame = CGRectMake(0,
                               0,
                               INKActivityViewControllerWidth_Pad,
-                              INKActivityViewControllerRowHeight_Pad);
+                              INKActivityViewControllerRowHeight_Pad + self.defaultToggleView.height);
     self.view.frame = frame;
     self.blurToolbar.frame = self.contentView.bounds;
     self.collectionView.frame = self.view.bounds;
+    [self.collectionView moveBy:CGPointMake(0, self.defaultToggleView.height)];
+    [self.collectionView resizeTo:CGSizeMake(self.collectionView.width, self.collectionView.height - self.defaultToggleView.height)];
 }
 
 - (void)configureForPhone {
     int numberOfRows = ceil((CGFloat)self.applicationActivities.count / INKActivityViewControllerItemsPerRow_Phone);
 
-    CGFloat viewHeight = self.cancelButton.height + self.collectionViewLayout.sectionInset.bottom + numberOfRows * INKActivityViewControllerRowHeight_Phone;
+    self.defaultToggleView.frame = CGRectMake(0, 0, self.view.width, self.defaultToggleView.height);
+
+    CGFloat viewHeight = self.cancelButton.height + self.defaultToggleView.height + self.collectionViewLayout.sectionInset.bottom + numberOfRows * INKActivityViewControllerRowHeight_Phone;
 
     CGRect frame = CGRectMake(0,
                               self.view.bottom - viewHeight,
@@ -134,6 +114,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
                               viewHeight);
 
     CGRect collectionFrame = self.contentView.bounds;
+    collectionFrame.origin.y += self.defaultToggleView.height;
     collectionFrame.size.height -= self.cancelButton.height;
     self.collectionView.frame = collectionFrame;
 
@@ -173,10 +154,65 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UIActivity *activity = self.applicationActivities[indexPath.row];
+    INKActivity *activity = self.applicationActivities[indexPath.row];
+
+    if (self.defaultToggleView.isOn) {
+        [self.delegate addDefault:activity];
+    }
+
     [activity prepareWithActivityItems:self.activityItems];
     [activity performActivity];
 
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark - Rendering methods
+- (void)addDefaultsToggle {
+    self.defaultToggleView = [[INKDefaultToggleView alloc] init];
+    [self.contentView addSubview:self.defaultToggleView];
+}
+
+- (void)addBlurBackground {
+    self.blurToolbar = [[UIToolbar alloc] initWithFrame:self.contentView.bounds];
+    [self.contentView insertSubview:self.blurToolbar atIndex:0];
+}
+
+- (void)setUpCollectionViewForPhone {
+    [self setUpCollectionView];
+    self.collectionViewLayout.itemSize = INKActivityViewControllerItemSize_Phone;
+    self.collectionViewLayout.sectionInset = INKActivityViewControllerEdgeInsets_Phone;
+    self.collectionView.scrollEnabled = NO;
+    self.collectionViewLayout.minimumInteritemSpacing = INKActivityViewControllerMinimumSpacing_Phone;
+    self.collectionViewLayout.minimumLineSpacing = INKActivityViewControllerMinimumSpacing_Phone;
+}
+
+- (void)setUpCollectionViewForPad {
+    [self setUpCollectionView];
+    self.collectionViewLayout.itemSize = INKActivityViewControllerItemSize_Pad;
+    self.collectionViewLayout.sectionInset = INKActivityViewControllerEdgeInsets_Pad;
+    self.collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+}
+
+- (void)setUpCollectionView {
+    self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
+    [self.collectionView registerClass:[INKActivityCell class] forCellWithReuseIdentifier:CellIdentifier];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+
+    [self.contentView addSubview: self.collectionView];
+
+    self.collectionView.backgroundColor = UIColor.clearColor;
+}
+
+- (void)addCancelButton {
+    self.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.cancelButton.frame = CGRectMake(0, 0, self.view.width, 44.f);
+    [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    self.cancelButton.titleLabel.font = [UIFont systemFontOfSize:24.f];
+    self.cancelButton.backgroundColor = UIColor.clearColor;
+    [self.cancelButton addTarget:self action:@selector(didTapCancelButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.cancelButton];
+}
+
 @end

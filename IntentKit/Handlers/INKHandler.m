@@ -11,10 +11,12 @@
 #import "INKApplicationList.h"
 #import "INKActivityViewController.h"
 #import "INKActivityPresenter.h"
+#import "INKDefaultsManager.h"
 
 @interface INKHandler ()
 @property (strong, nonatomic) UIApplication *application;
 @property (strong, nonatomic) INKApplicationList *appList;
+@property (strong, nonatomic) INKDefaultsManager *defaultsManager;
 @end
 
 NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
@@ -33,6 +35,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     if (self = [super init]) {
         self.application = [UIApplication sharedApplication];
         self.appList = [[INKApplicationList alloc] initWithApplication:self.application];
+        self.defaultsManager = [[INKDefaultsManager alloc] init];
     }
 
     return self;
@@ -59,13 +62,43 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
     NSArray *activityItems = @[command, args];
 
-    if (availableApps.count == 1 && !self.alwaysShowActivityView) {
-        INKActivity *app = availableApps.firstObject;
-        [app prepareWithActivityItems:activityItems];
-        return [[INKActivityPresenter alloc] initWithActivity:app];
-    } else {
-        INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
-        return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];
+    if (!self.alwaysShowActivityView) {
+        INKActivity *app;
+
+        if (availableApps.count == 1) {
+            app = availableApps.firstObject;
+        } else if (self.defaultAppName) {
+            NSString *appName = self.defaultAppName;
+            for (INKActivity *theApp in availableApps) {
+                if ([theApp.name isEqualToString:appName]) {
+                    app = theApp;
+                    break;
+                }
+            }
+        }
+
+        if (app) {
+            [app prepareWithActivityItems:activityItems];
+            return [[INKActivityPresenter alloc] initWithActivity:app];
+        }
     }
+
+    INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:[availableApps copy]];
+    activityView.delegate = self;
+    return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];
+}
+
+#pragma mark - INKActivityViewControllerDefaultsDelegate methods
+- (void)addDefault:(INKActivity *)activity {
+    [self.defaultsManager addDefault:activity.name forHandler:self.class];
+}
+
+- (BOOL)canSetDefault {
+    return !(BOOL)self.defaultAppName;
+}
+
+#pragma mark - Private methods
+- (NSString *)defaultAppName {
+    return [self.defaultsManager defaultApplicationForHandler:self.class];
 }
 @end

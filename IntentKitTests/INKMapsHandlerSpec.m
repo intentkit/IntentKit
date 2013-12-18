@@ -23,7 +23,7 @@
 @property INKApplicationList *appList;
 @end
 
-SpecBegin(INKhandler)
+SpecBegin(INKMapsHandler)
 
 describe(@"INKMapsHandler", ^{
     __block INKMapsHandler *handler;
@@ -60,7 +60,8 @@ describe(@"INKMapsHandler", ^{
 
     describe(@"Search query", ^{
         itShouldBehaveLike(@"a handler action", ^{
-            return @{@"handler":  handler,
+            return @{@"handler": handler,
+                     @"appName": @"Maps",
                      @"urlString": @"http://maps.apple.com/?q=Roberto%27s",
                      @"subjectAction": [^{
                          return [handler searchForLocation:@"Roberto's"];
@@ -72,6 +73,7 @@ describe(@"INKMapsHandler", ^{
         context(@"without a mode", ^{
             itShouldBehaveLike(@"a handler action", ^{
                 return @{@"handler":  handler,
+                         @"appName": @"Maps",
                          @"urlString": @"http://maps.apple.com/?saddr=New%20Jersey&daddr=California",
                          @"subjectAction": [^{
                              return [handler directionsFrom:@"New Jersey" to:@"California"];
@@ -82,6 +84,7 @@ describe(@"INKMapsHandler", ^{
         context(@"with a directions mode", ^{
             itShouldBehaveLike(@"a handler action", ^{
                 return @{@"handler":  handler,
+                         @"appName": @"Maps",
                          @"urlString": @"comgooglemaps://?saddr=New%20Jersey&daddr=California&directionsmode=walking",
                          @"subjectAction": [^{
                              return [handler directionsFrom:@"New Jersey" to:@"California" mode:INKMapsHandlerDirectionsModeWalking];

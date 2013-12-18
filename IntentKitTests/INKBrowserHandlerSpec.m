@@ -26,7 +26,7 @@
 
 SpecBegin(INKBrowserHandler)
 
-describe(@"MWBrowserHandler", ^{
+describe(@"INKBrowserHandler", ^{
     __block INKBrowserHandler *handler;
 
     beforeEach(^{
@@ -39,6 +39,7 @@ describe(@"MWBrowserHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             NSString *urlString = @"http://google.com";
             return @{@"handler":  handler,
+                     @"appName": @"Safari",
                      @"urlString": urlString,
                      @"subjectAction": [^{
                          return [handler openURL:[NSURL URLWithString:urlString]];
@@ -50,6 +51,7 @@ describe(@"MWBrowserHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             NSString *urlString = @"http://google.com";
             return @{@"handler":  handler,
+                     @"appName": @"Safari",
                      @"urlString": urlString,
                      @"subjectAction": [^{
                          return [handler openURL:[NSURL URLWithString:urlString]];

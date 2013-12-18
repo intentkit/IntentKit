@@ -61,7 +61,8 @@ describe(@"INKTwitterHandler", ^{
 
     describe(@"Tweet by id", ^{
         itShouldBehaveLike(@"a handler action", ^{
-            return @{@"handler":  handler,
+            return @{@"handler": handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"twitter://status?id=658273",
                      @"subjectAction": [^{
                          return [handler showTweetWithId:@"658273"];
@@ -72,6 +73,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"User by handle", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"twitter://user?screen_name=lazerwalker",
                      @"subjectAction": [^{
                          return [handler showUserWithScreenName:@"lazerwalker"];
@@ -82,6 +84,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"User by id", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"twitter://user?id=12345",
                      @"subjectAction": [^{
                          return [handler showUserWithId:@"12345"];
@@ -92,6 +95,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"Timeline", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"twitter://timeline",
                      @"subjectAction": [^{
                          return [handler showTimeline];
@@ -102,6 +106,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"Mentions", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"tweetbot:///mentions",
                      @"subjectAction": [^{
                          return [handler showMentions];
@@ -112,6 +117,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"DMs", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"tweetbot:///direct_messages",
                      @"subjectAction": [^{
                          return [handler showDirectMessages];
@@ -122,6 +128,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"Search", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"twitter://search?query=%23yoloswag%20for%20life",
                      @"subjectAction": [^{
                          return [handler searchFor:@"#yoloswag for life"];
@@ -132,6 +139,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"Write a new tweet", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"twitter://post?message=HI%20MOM",
                      @"subjectAction": [^{
                          return [handler tweetMessage:@"HI MOM"];
@@ -142,6 +150,7 @@ describe(@"INKTwitterHandler", ^{
     describe(@"Write a reply", ^{
         itShouldBehaveLike(@"a handler action", ^{
             return @{@"handler":  handler,
+                     @"appName": @"Twitter",
                      @"urlString": @"twitter://post?message=HI%20MOM&in_reply_to_status_id=12345",
                      @"subjectAction": [^{
                          return [handler tweetMessage:@"HI MOM" inReplyTo:@"12345"];

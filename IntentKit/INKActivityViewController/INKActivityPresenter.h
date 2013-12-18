@@ -14,15 +14,15 @@
 /** `INKActivityPresenter` is a presenter object responsible for displaying a `INKActivityViewController`. It will take care of displaying it modally on an iPhone or in a UIPopover on an iPad. */
 @interface INKActivityPresenter : NSObject
 
-/** An `INKActivityViewController` to be displayed. This will be nil iff the user
+/** An `INKActivityViewController` to be displayed. This will be nil if the user
  doesn't need to choose an application (e.g. they only have one installed, or
  have set a preference). */
 @property (strong, nonatomic) INKActivityViewController *activitySheet;
 
-/** An `INKActivity` to be performed iff the user doesn't need to choose an 
- application (e.g. they only have one installed, or have set a preference). */
+/** An `INKActivity` to be performed if the user doesn't need to choose an
+ application (e.g. they only have one installed, or have set a preference). Nil
+ if there is a view controller to be presented instead. */
 @property (strong, nonatomic) INKActivity *activity;
-
 
 /** Instantiate a `INKActivityPresenter` with a given `INKActivityViewController`.
  @param activitySheet The `INKActivityViewController` that will be presentd. */

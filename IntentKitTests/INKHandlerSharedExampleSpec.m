@@ -19,11 +19,13 @@
 #import "INKApplicationList.h"
 #import "INKActivityPresenter.h"
 #import "INKActivityViewController.h"
+#import "INKDefaultsManager.h"
 #import "INKActivity.h"
 
 @interface INKHandler (Spec)
 @property UIApplication *application;
 @property INKApplicationList *appList;
+@property INKDefaultsManager *defaultsManager;
 @end
 
 @interface INKActivityViewController (Spec)
@@ -40,14 +42,16 @@ SharedExamplesBegin(INKHandler)
 sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     __block INKHandler *handler;
     __block NSString *urlString;
+    __block NSString *appName;
     __block INKActivityPresenter *(^subjectAction)(void);
     __block INKActivityPresenter *presenter;
     beforeEach(^{
-        handler.application = mock([UIApplication class]);
-
         handler = data[@"handler"];
         urlString = data[@"urlString"];
+        appName = data[@"appName"];
         subjectAction = data[@"subjectAction"];
+
+        handler.defaultsManager = mock([INKDefaultsManager class]);
     });
 
     context(@"when only one application is available", ^{
@@ -69,6 +73,27 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
         });
     });
 
+    context(@"when a default has been set", ^{
+        beforeEach(^{
+            [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
+            [given([handler.defaultsManager defaultApplicationForHandler:anything()]) willReturn:appName];
+            presenter = subjectAction();
+        });
+
+        it(@"should return a valid presenter", ^{
+            expect([presenter isKindOfClass:[INKActivityPresenter class]]).to.beTruthy;
+        });
+
+        it(@"should not have a view controller", ^{
+            expect(presenter.activitySheet).to.beNil();
+        });
+
+        it(@"should have the correct activity", ^{
+            expect(presenter.activity).to.beKindOf([INKActivity class]);
+            expect(presenter.activity.name).to.equal(appName);
+        });
+    });
+
     context(@"when multiple applications are available", ^{
         beforeEach(^{
             [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
@@ -81,6 +106,10 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
 
         it(@"should have multiple activities", ^{
             expect([presenter.activitySheet numberOfApplications]).to.beGreaterThan(0);
+        });
+
+        it(@"should have a delegate", ^{
+            expect(presenter.activitySheet.delegate).to.equal(handler);
         });
 
         it(@"should not have an activity", ^{

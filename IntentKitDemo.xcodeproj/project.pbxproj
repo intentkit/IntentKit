@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5D97A84D2BF27D7A7F49E984 /* INKMailHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97A622B2D9C414C0549095 /* INKMailHandler.m */; };
+		A605C3161862351D007E6AFE /* INKDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A605C3151862351D007E6AFE /* INKDefaultsManager.m */; };
+		A605C31818623D0F007E6AFE /* INKDefaultsManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A605C31718623D0F007E6AFE /* INKDefaultsManagerSpec.m */; };
 		A60A033118503843009278EF /* INKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* INKActivity.m */; };
 		A6170A6918543FFA0086AC63 /* INKHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */; };
 		A6170A6C1854471D0086AC63 /* INKApplicationList.m in Sources */ = {isa = PBXBuildFile; fileRef = A6170A6B1854471D0086AC63 /* INKApplicationList.m */; };
@@ -28,6 +30,8 @@
 		A69DAC3E185037B40028FCD1 /* INKHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F1184EE00F002EED53 /* INKHandler.m */; };
 		A69DAC3F185037B60028FCD1 /* INKBrowserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39EF184EE00F002EED53 /* INKBrowserHandler.m */; };
 		A69DAC40185037BA0028FCD1 /* INKMapsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39F3184EE00F002EED53 /* INKMapsHandler.m */; };
+		A6A7C8A718624678002A1F59 /* INKDefaultToggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A7C8A618624678002A1F59 /* INKDefaultToggleView.m */; };
+		A6A7C8AA1862497C002A1F59 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6A7C8A81862497C002A1F59 /* IntentKit-Localizable.strings */; };
 		A6AE48D71856227C00469AAE /* INKActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AE48D61856227C00469AAE /* INKActivityViewController.m */; };
 		A6AE48DA18562CD100469AAE /* INKActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AE48D918562CD100469AAE /* INKActivityCell.m */; };
 		A6AE48DD18567D6300469AAE /* UIView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AE48DC18567D6300469AAE /* UIView+Helpers.m */; };
@@ -74,6 +78,9 @@
 		5D97A622B2D9C414C0549095 /* INKMailHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKMailHandler.m; sourceTree = "<group>"; };
 		5D97A8507DFA811246AC3E26 /* INKMailHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKMailHandler.h; sourceTree = "<group>"; };
 		7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntentKitTests.xcconfig"; path = "Pods/Pods-IntentKitTests.xcconfig"; sourceTree = "<group>"; };
+		A605C3141862351D007E6AFE /* INKDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKDefaultsManager.h; sourceTree = "<group>"; };
+		A605C3151862351D007E6AFE /* INKDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKDefaultsManager.m; sourceTree = "<group>"; };
+		A605C31718623D0F007E6AFE /* INKDefaultsManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKDefaultsManagerSpec.m; sourceTree = "<group>"; };
 		A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6170A6A1854471D0086AC63 /* INKApplicationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INKApplicationList.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A6170A6B1854471D0086AC63 /* INKApplicationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKApplicationList.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -109,6 +116,9 @@
 		A67F39F5184EE00F002EED53 /* NSString+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSString+Helpers.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A67F39F6184EE00F002EED53 /* NSString+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSString+Helpers.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6A16CC81851375000778944 /* IntentKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntentKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A7C8A518624678002A1F59 /* INKDefaultToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKDefaultToggleView.h; sourceTree = "<group>"; };
+		A6A7C8A618624678002A1F59 /* INKDefaultToggleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKDefaultToggleView.m; sourceTree = "<group>"; };
+		A6A7C8A91862497C002A1F59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/IntentKit-Localizable.strings"; sourceTree = "<group>"; };
 		A6AE48D51856227C00469AAE /* INKActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityViewController.h; path = INKActivityViewController/INKActivityViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A6AE48D61856227C00469AAE /* INKActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = INKActivityViewController.m; path = INKActivityViewController/INKActivityViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6AE48D818562CD100469AAE /* INKActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityCell.h; path = INKActivityViewController/INKActivityCell.h; sourceTree = "<group>"; };
@@ -215,6 +225,8 @@
 				A6170A6A1854471D0086AC63 /* INKApplicationList.h */,
 				A6170A6B1854471D0086AC63 /* INKApplicationList.m */,
 				A61B5CC21857C25B00BA1F66 /* IntentKit.m */,
+				A605C3141862351D007E6AFE /* INKDefaultsManager.h */,
+				A605C3151862351D007E6AFE /* INKDefaultsManager.m */,
 			);
 			path = IntentKit;
 			sourceTree = "<group>";
@@ -222,6 +234,7 @@
 		A67F39DC184EDFE5002EED53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6A7C8A81862497C002A1F59 /* IntentKit-Localizable.strings */,
 				A67F39DD184EDFE5002EED53 /* IntentKit-Info.plist */,
 				A67F39DE184EDFE5002EED53 /* InfoPlist.strings */,
 				A67F39E1184EDFE5002EED53 /* IntentKit-Prefix.pch */,
@@ -266,6 +279,8 @@
 				A6AE48D918562CD100469AAE /* INKActivityCell.m */,
 				A61B5CB918577CC700BA1F66 /* INKActivityPresenter.h */,
 				A61B5CBA18577CC700BA1F66 /* INKActivityPresenter.m */,
+				A6A7C8A518624678002A1F59 /* INKDefaultToggleView.h */,
+				A6A7C8A618624678002A1F59 /* INKDefaultToggleView.m */,
 			);
 			name = INKActivityViewController;
 			sourceTree = "<group>";
@@ -353,6 +368,7 @@
 				A61B5CBC18579B2100BA1F66 /* INKActivityPresenterSpec.m */,
 				A61B5CC018579EBC00BA1F66 /* INKActivityViewControllerSpec.m */,
 				A61B5CC81858D4F800BA1F66 /* INKAppPlistLinter.m */,
+				A605C31718623D0F007E6AFE /* INKDefaultsManagerSpec.m */,
 			);
 			path = IntentKitTests;
 			sourceTree = "<group>";
@@ -455,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A660DD3118513B7F00EFF0E6 /* IntentKit.bundle in Resources */,
+				A6A7C8AA1862497C002A1F59 /* IntentKit-Localizable.strings in Resources */,
 				A6B73D39184D38A90055C60D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +552,7 @@
 				A60A033118503843009278EF /* INKActivity.m in Sources */,
 				A61B5CBB18577CC700BA1F66 /* INKActivityPresenter.m in Sources */,
 				A6B73CEB184D38450055C60D /* INKAppDelegate.m in Sources */,
+				A605C3161862351D007E6AFE /* INKDefaultsManager.m in Sources */,
 				A6AE48DD18567D6300469AAE /* UIView+Helpers.m in Sources */,
 				A61B5CC31857C25B00BA1F66 /* IntentKit.m in Sources */,
 				A6B73CE7184D38450055C60D /* main.m in Sources */,
@@ -542,6 +560,7 @@
 				A69DAC3E185037B40028FCD1 /* INKHandler.m in Sources */,
 				A69DAC3F185037B60028FCD1 /* INKBrowserHandler.m in Sources */,
 				5D97A84D2BF27D7A7F49E984 /* INKMailHandler.m in Sources */,
+				A6A7C8A718624678002A1F59 /* INKDefaultToggleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6E655B2185FB2B30085F906 /* EXPMatchers+haveAValidName.m in Sources */,
+				A605C31818623D0F007E6AFE /* INKDefaultsManagerSpec.m in Sources */,
 				A6B73D02184D38650055C60D /* INKBrowserHandlerSpec.m in Sources */,
 				A61B5CC41857C25B00BA1F66 /* IntentKit.m in Sources */,
 				A6170A6918543FFA0086AC63 /* INKHandlerSpec.m in Sources */,
@@ -591,6 +611,14 @@
 				A67F39DF184EDFE5002EED53 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A6A7C8A81862497C002A1F59 /* IntentKit-Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6A7C8A91862497C002A1F59 /* en */,
+			);
+			name = "IntentKit-Localizable.strings";
 			sourceTree = "<group>";
 		};
 		A6B73CDC184D38450055C60D /* InfoPlist.strings */ = {

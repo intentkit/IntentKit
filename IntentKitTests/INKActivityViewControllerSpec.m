@@ -16,10 +16,13 @@
 #import <OCMockito/OCMockito.h>
 #import "INKActivityPresenter.h"
 #import "INKActivityViewController.h"
+#import "INKDefaultToggleView.h"
+#import "INKHandler.h"
 
 @interface INKActivityViewController ()
 @property UIButton *cancelButton;
 @property UICollectionView *collectionView;
+@property INKDefaultToggleView *defaultToggleView;
 @end
 
 SpecBegin(INKActivityViewControllerSpec)
@@ -35,12 +38,32 @@ describe(@"INKActivityViewController", ^{
         activitySheet = [[INKActivityViewController alloc] initWithActivityItems:activityItems
                                                           applicationActivities:applicationActivities];
         activitySheet.presenter = mock([INKActivityPresenter class]);
+        activitySheet.delegate = mock([INKHandler class]);
     });
 
     describe(@"when the cancel button is tapped", ^{
         it(@"should inform the presenter", ^{
             [activitySheet.cancelButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+            // If this test is failing, make sure you're running tests on iPhone instead of iPad
             [verify(activitySheet.presenter) dismissActivitySheet];
+        });
+    });
+
+    fdescribe(@"enabling and disabling the toggle", ^{
+        context(@"when the user can toggle", ^{
+            it(@"should enable the toggle", ^{
+                [given([activitySheet.delegate canSetDefault]) willReturnBool:YES];
+                [activitySheet viewWillAppear:YES];
+                expect(activitySheet.defaultToggleView.enabled).to.beTruthy();
+            });
+        });
+
+        context(@"when the user can't toggle", ^{
+            it(@"should disable the toggle", ^{
+                [given([activitySheet.delegate canSetDefault]) willReturnBool:NO];
+                [activitySheet viewWillAppear:YES];
+                expect(activitySheet.defaultToggleView.enabled).toNot.beTruthy();
+            });
         });
     });
 
@@ -60,6 +83,25 @@ describe(@"INKActivityViewController", ^{
                 [verify(applicationActivities[1]) prepareWithActivityItems:activityItems];
                 [verify(applicationActivities[1]) performActivity];
             });
+
+            context(@"when the default toggle is on", ^{
+                it(@"should save the defaults", ^{
+                    activitySheet.defaultToggleView.isOn = YES;
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    [activitySheet collectionView:activitySheet.collectionView didSelectItemAtIndexPath:indexPath];
+                    [verify(activitySheet.delegate) addDefault:applicationActivities[1]];
+                });
+            });
+
+            context(@"when the default toggle is off", ^{
+                it(@"should NOT save the defaults", ^{
+                    activitySheet.defaultToggleView.isOn = NO;
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    [activitySheet collectionView:activitySheet.collectionView didSelectItemAtIndexPath:indexPath];
+                    [verifyCount(activitySheet.delegate, times(0)) addDefault:applicationActivities[1]];
+                });
+            });
+
         });
     });
 

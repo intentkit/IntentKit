@@ -83,6 +83,21 @@ Here's where the real power of `IntentKit` shines through. This gives you a clea
 An up-to-date list of available handlers and what methods and configuration options is available in the project's documentation.
 
 
+### Dealing With Defaults
+When picking an app to use, IntentKit gives users the option to save that app as the default. That application will then be opened automatically every time that handler is presented. If a default app doesn't support a given action (for example, if a user has picked Twitter.app as their default Twitter client, but then tries to do something that only Tweetbot can do), the share sheet will be displayed as normal. In this case, the "Remember" toggle will be disabled.
+
+It's good practice to let your users reset or change their preferences. IntentKit does not provide a user-facing way to do this, but it does expose two API methods you can use to integrate this into your app's own UI (e.g. in your app's settings page).
+
+```obj-c
+INKDefaultsManager *defaultsManager = [[INKDefaultsManager alloc] init];
+
+// Forget the user's preferred Twitter client, but leave all other preferences intact
+[defaultsManager removeDefaultForHandler:[INKTwitterHandler class]];
+
+// Forget all user preferences
+[defaultsManager removeAllDefaults];
+```
+
 Documentation
 -------------
 Documentation can be viewed online on [CocoaDocs](http://cocoadocs.org/docsets/IntentKit/).
