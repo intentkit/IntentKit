@@ -42,12 +42,13 @@
 }
 
 - (BOOL)canPerformActivity {
-    return self.activity || self.activitySheet.numberOfApplications > 1;
+    return self.activity || self.activitySheet.numberOfApplications > 0;
 }
 
 - (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController {
     self.originalRootModalPresentationStyle = UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle;
     UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    if (!self.canPerformActivity) return;
 
     if (self.activity) {
         [self.activity performActivity];
@@ -73,6 +74,7 @@
 }
 
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
+    if (!self.canPerformActivity) return;
 
     if (self.activity) {
         [self.activity performActivity];
@@ -87,6 +89,7 @@
 }
 
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
+    if (!self.canPerformActivity) return;
 
     if (self.activity) {
         [self.activity performActivity];

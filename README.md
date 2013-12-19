@@ -121,7 +121,7 @@ A demo app has been provided so you can see IntentKit in action.
 
 The demo lets you perform any of the actions supported by IntentKit.
 
-If you only have one app installed capable of performing a task, IntentKit will by default open up that app directly rather than prompt the user to pick. In the demo app, there is a toggle to always show the selection UI. It's recommended that you run the demo on an actual iOS device that has third-party apps installed, but if you must run it in the simulator that toggle will let you see what the selection UI looks like.
+If you only have one app installed capable of performing a task, IntentKit will by default open up that app directly rather than prompt the user to pick. In the demo app, there is a toggle to always show the selection UI if there is at least one application available. It's recommended that you run the demo on an actual iOS device that has third-party apps installed, but if you must run it in the simulator that toggle will let you see what the selection UI looks like.
 
 
 Adding new URL Schemes
