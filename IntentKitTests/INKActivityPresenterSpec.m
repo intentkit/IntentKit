@@ -82,7 +82,7 @@ describe(@"INKActivityPresenter", ^{
 
                 context(@"when dismissing it", ^{
                     it(@"should no longer be presented", ^{
-                        [presenter dismissActivitySheet];
+                        [presenter dismissActivitySheetAnimated:YES];
                         expect(presentingController.presentedViewController).to.beNil;
                     });
                 });

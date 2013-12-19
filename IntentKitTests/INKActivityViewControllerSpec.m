@@ -45,11 +45,11 @@ describe(@"INKActivityViewController", ^{
         it(@"should inform the presenter", ^{
             [activitySheet.cancelButton sendActionsForControlEvents:UIControlEventTouchUpInside];
             // If this test is failing, make sure you're running tests on iPhone instead of iPad
-            [verify(activitySheet.presenter) dismissActivitySheet];
+            [verify(activitySheet.presenter) dismissActivitySheetAnimated:YES];
         });
     });
 
-    fdescribe(@"enabling and disabling the toggle", ^{
+    describe(@"enabling and disabling the toggle", ^{
         context(@"when the user can toggle", ^{
             it(@"should enable the toggle", ^{
                 [given([activitySheet.delegate canSetDefault]) willReturnBool:YES];
@@ -84,6 +84,12 @@ describe(@"INKActivityViewController", ^{
                 [verify(applicationActivities[1]) performActivity];
             });
 
+            it(@"should hide the sheet", ^{
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                [activitySheet collectionView:activitySheet.collectionView didSelectItemAtIndexPath:indexPath];
+                [verify(activitySheet.presenter) dismissActivitySheetAnimated:NO];
+            });
+
             context(@"when the default toggle is on", ^{
                 it(@"should save the defaults", ^{
                     activitySheet.defaultToggleView.isOn = YES;
@@ -101,7 +107,6 @@ describe(@"INKActivityViewController", ^{
                     [verifyCount(activitySheet.delegate, times(0)) addDefault:applicationActivities[1]];
                 });
             });
-
         });
     });
 
