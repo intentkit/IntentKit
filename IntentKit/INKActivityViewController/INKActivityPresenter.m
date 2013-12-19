@@ -28,6 +28,8 @@
     if (self = [super init]) {
         self.activitySheet = activitySheet;
         self.activitySheet.presenter = self;
+        self.originalRootModalPresentationStyle = -1;
+        self.originalPresentingModalPresentationStyle = -1;
     }
     return self;
 }
