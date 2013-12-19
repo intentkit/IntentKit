@@ -36,8 +36,9 @@
  @return NO if the user has no applications installed capable of handling the action. Otherwise YES. */
 - (BOOL)canPerformActivity;
 
-/** Removes the active `INKActivityViewController` from view. */
-- (void)dismissActivitySheet;
+/** Removes the active `INKActivityViewController` from view.
+ @param animaed Whether or not to animate the transition */
+- (void)dismissActivitySheetAnimated:(BOOL)animated;
 
 /** Present the current activity sheet modally on a given view controller.
  @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController.

@@ -50,8 +50,6 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 
 - (instancetype)initWithActivityItems:(NSArray *)activityItems applicationActivities:(NSArray *)applicationActivities {
     if (self = [super init]) {
-        UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-
         self.activityItems = activityItems;
         self.applicationActivities = applicationActivities;
 
@@ -133,7 +131,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 }
 
 - (void)didTapCancelButton {
-    [self.presenter dismissActivitySheet];
+    [self.presenter dismissActivitySheetAnimated:YES];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -159,6 +157,8 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
     if (self.defaultToggleView.isOn) {
         [self.delegate addDefault:activity];
     }
+
+    [self.presenter dismissActivitySheetAnimated:NO];
 
     [activity prepareWithActivityItems:self.activityItems];
     [activity performActivity];

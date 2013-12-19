@@ -16,6 +16,10 @@
 @property (weak, nonatomic) UIViewController *presentingViewController;
 @property (strong, nonatomic) UIView *shadeView;
 @property (strong, nonatomic) UIPopoverController *popoverController;
+
+@property (assign, nonatomic) UIModalPresentationStyle originalPresentingModalPresentationStyle;
+@property (assign, nonatomic) UIModalPresentationStyle originalRootModalPresentationStyle;
+
 @end
 
 @implementation INKActivityPresenter
@@ -31,6 +35,8 @@
 - (instancetype)initWithActivity:(INKActivity *)activity {
     if (self = [super init]) {
         self.activity = activity;
+        self.originalRootModalPresentationStyle = -1;
+        self.originalPresentingModalPresentationStyle = -1;
     }
     return self;
 }
@@ -40,6 +46,8 @@
 }
 
 - (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController {
+    self.originalRootModalPresentationStyle = UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle;
+    UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
 
     if (self.activity) {
         [self.activity performActivity];
@@ -50,6 +58,7 @@
         self.shadeView.backgroundColor = [UIColor blackColor];
         [self.presentingViewController.view addSubview:self.shadeView];
 
+        self.originalPresentingModalPresentationStyle = presentingViewController.modalPresentationStyle;
         presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
         [presentingViewController presentViewController:self.activitySheet animated:NO completion:nil];
 
@@ -90,12 +99,31 @@
     }
 }
 
-- (void)dismissActivitySheet {
-    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations: ^{
+- (void)dismissActivitySheetAnimated:(BOOL)animated {
+    void (^animatedActions)() = ^{
         self.shadeView.alpha = 0;
         [self.activitySheet.view moveToPoint:CGPointMake(self.presentingViewController.view.left, self.presentingViewController.view.bottom)];
-    } completion:^(BOOL finished){
+    };
+
+    void (^completionActions)(BOOL finished) = ^(BOOL finished){
+        [self.shadeView removeFromSuperview];
+
+        if (self.originalPresentingModalPresentationStyle != -1) {
+            self.presentingViewController.modalPresentationStyle = self.originalPresentingModalPresentationStyle;
+        }
+
+        if (self.originalRootModalPresentationStyle != -1) {
+            UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = self.originalRootModalPresentationStyle;
+        }
+
         [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
-    }];
+    };
+
+    if (animated) {
+        [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations: animatedActions completion:completionActions];
+    } else {
+        animatedActions();
+        completionActions(YES);
+    }
 }
 @end
