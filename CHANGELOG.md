@@ -3,17 +3,26 @@
 ###### Enhancements
 
 * User preferences can now be saved on a per-handler basis
-* Square app icons are masked at run-time, instead of requiring that apps be pre-masked
+* Square app icons are masked at run-time, instead of requiring pre-masked icons
 * Application names may be localized
+* For actions where a user may not have an appropriate app installed, fallback
+  URLs exist to perform the action in a web browser
 
 ###### New Handlers / Applications
 * INKMailHandler, to send email (Mail.app, Gmail)
-[Arvid Gerstmann
-](https://github.com/Leandros) [#16](https://github.com/intentkit/IntentKit/pull/16)
+  [Arvid Gerstmann](https://github.com/Leandros) [#16](https://github.com/intentkit/IntentKit/pull/16)
+* INKFacebookHandler and INKGPlusHandler, for Facebook and Google+
+  [Arvid Gerstmann](https://github.com/Leandros) [#12](https://github.com/intentkit/IntentKit/pull/12)
 
 ###### Refactors
 * Icons now use the `~icon` naming convention, simplifying image displaying code
+* Handlebar templating has been abstracted out in the NSString+Helpers category
+* Responsibility for auto-opening an app or showing an activity sheet has been
+  moved from INKActivityPresenter to INKHandler
 
+###### Bugfixes
+* The activity sheet no longer affects other in-app modal dialogs
+  [#18](https://github.com/intentkit/IntentKit/issues/18)
 
 ## 0.2
 
