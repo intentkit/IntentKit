@@ -38,7 +38,7 @@
 
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
-                          names: (NSDictionary *)names
+                         names: (NSDictionary *)names
                     application:(UIApplication *)application {
     if (self = [super init]) {
         self.names = names;
@@ -48,6 +48,11 @@
         self.intentKit = [IntentKit sharedInstance];
     }
     return self;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"INKActivity <actions: %@, optionalParams: %@, name: %@, application: %@>",
+                    self.actions, self.optionalParams, self.name, self.application];
 }
 
 - (BOOL)canPerformCommand:(NSString *)command {

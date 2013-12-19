@@ -56,7 +56,7 @@
  @return an initialized `INKActivity` object. */
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
-                           names: (NSDictionary *)names
+                         names: (NSDictionary *)names
                     application:(UIApplication *)application;
 /** Checks whether or not the third-party app can accept a custom URL corresponding to a given command
  

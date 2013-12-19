@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Facebook</string>
+	<key>actions</key>
+	<dict>
+		<key>showProfileWithId:</key>
+		<string>fb://profile/{userId}</string>
+		<key>showEventWithId:</key>
+		<string>fb://event/{eventId}</string>
+	</dict>
+	<key>fallbackUrls</key>
+	<dict>
+		<key>showProfileWithId:</key>
+		<string>https://facebook.com/{userId}</string>
+		<key>showEventWithId:</key>
+		<string>https://facebook.com/events/{eventId}</string>
+	</dict>
+</dict>
+</plist>

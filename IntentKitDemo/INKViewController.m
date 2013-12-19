@@ -146,6 +146,26 @@
                             return [handler sendMailTo:@"appleseed@apple.com"];
                          }},
                        ]
+               },
+             @{@"name": @"INKFacebookHandler",
+               @"items": @[
+                       @{@"description": @"Open Facebook Profile",
+                         @"action": (UIActivityViewController *)^{
+                             INKFacebookHandler *handler = [[INKFacebookHandler alloc] init];
+                             [handler setFallback:YES];
+                             return [handler showProfileWithId:@"345800612130911"];
+                         }},
+                       ]
+               },
+             @{@"name": @"INKGPlusHandler",
+               @"items": @[
+                     @{@"description": @"Open Google+ Profile",
+                       @"action": (UIActivityViewController *)^{
+                             INKGPlusHandler *handler = [[INKGPlusHandler alloc] init];
+                             [handler setFallback:YES];
+                             return [handler showGPlusProfileWithName:@"ArvidGerstmann"];
+                       }},
+                     ]
                }
              ];
 };

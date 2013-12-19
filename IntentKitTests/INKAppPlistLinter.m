@@ -47,8 +47,10 @@ describe(@"INKAppPlistLinter", ^{
             NSString *name = [path.pathComponents.lastObject stringByDeletingPathExtension];
             if ([whitelist containsObject:name]) continue;
 
-            NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-            expect(dict).to.haveAValidName(name);
+            if (![path.lastPathComponent hasPrefix:@"INK"]) {
+                NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+                expect(dict).to.haveAValidName(name);
+            }
         }
     });
 });
