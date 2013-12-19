@@ -152,20 +152,20 @@
                        @{@"description": @"Open Facebook Profile",
                          @"action": (UIActivityViewController *)^{
                              INKFacebookHandler *handler = [[INKFacebookHandler alloc] init];
-                             [handler setFallback:YES];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showProfileWithId:@"345800612130911"];
                          }},
                        ]
                },
              @{@"name": @"INKGPlusHandler",
                @"items": @[
-                     @{@"description": @"Open Google+ Profile",
-                       @"action": (UIActivityViewController *)^{
+                       @{@"description": @"Open Google+ Profile",
+                         @"action": (UIActivityViewController *)^{
                              INKGPlusHandler *handler = [[INKGPlusHandler alloc] init];
-                             [handler setFallback:YES];
+                             handler.alwaysShowActivityView = self.activitySwitch.on;
                              return [handler showGPlusProfileWithName:@"ArvidGerstmann"];
-                       }},
-                     ]
+                         }},
+                       ]
                }
              ];
 };

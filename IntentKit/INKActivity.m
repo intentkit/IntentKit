@@ -121,33 +121,10 @@
     if (!self.actions[self.activityCommand]) { return; }
 
     NSString *urlString = self.actions[self.activityCommand];
-    NSMutableArray *optionals = [NSMutableArray array];
-    for (NSString *key in self.activityArguments) {
-        NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
+    urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];
+    urlString = [urlString stringWithTemplatedQueryParams:self.optionalParams
+                                                     data:self.activityArguments];
 
-        NSString *optionalParam = self.optionalParams[key];
-        if (optionalParam) {
-            NSString *optionalString = [optionalParam stringByReplacingOccurrencesOfString:handlebarKey
-                                                                                withString:self.activityArguments[key]];
-            [optionals addObject:optionalString];
-        } else {
-            urlString = [urlString stringByReplacingOccurrencesOfString:handlebarKey withString:self.activityArguments[key]];
-        }
-    }
-
-    // Fix for mailto: links.
-    if (optionals.count > 0 && [urlString rangeOfString:@"?"].location == NSNotFound) {
-        NSString *firstOptional = [optionals objectAtIndex:0];
-        NSRange firstAmpersand = [firstOptional rangeOfString:@"&"];
-
-        if (firstAmpersand.location != NSNotFound) {
-            firstOptional = [firstOptional stringByReplacingCharactersInRange:firstAmpersand withString:@"?"];
-        }
-
-        [optionals replaceObjectAtIndex:0 withObject:firstOptional];
-    }
-    urlString = [urlString stringByAppendingString:[optionals componentsJoinedByString:@""]];
-    
     NSURL *url = [NSURL URLWithString:urlString];
     [self.application openURL:url];
 }

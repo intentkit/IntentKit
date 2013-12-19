@@ -83,6 +83,11 @@ Here's where the real power of `IntentKit` shines through. This gives you a clea
 An up-to-date list of available handlers and what methods and configuration options is available in the project's documentation.
 
 
+### Fallback URLs
+If a user doesn't have any appropriate apps installed that can perform an action, IntentKit will try to use a web browser as a fallback. For example, if a user tries to do something involving Twitter but doesn't have any Twitter clients installed, IntentKit will try to load the appropriate `twitter.com` URL. It does this by presenting an `INKBrowserHandler` so the user can still pick their preferred web browser.
+
+If you don't want this behavior, you can disable it by setting a handler's `useFallback` property to `NO` before invoking an action.
+
 ### Dealing With Defaults
 When picking an app to use, IntentKit gives users the option to save that app as the default. That application will then be opened automatically every time that handler is presented. If a default app doesn't support a given action (for example, if a user has picked Twitter.app as their default Twitter client, but then tries to do something that only Tweetbot can do), the share sheet will be displayed as normal. In this case, the "Remember" toggle will be disabled.
 

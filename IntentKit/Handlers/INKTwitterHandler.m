@@ -9,54 +9,38 @@
 #import "INKTwitterHandler.h"
 
 @implementation INKTwitterHandler
-@synthesize fallback;
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.fallback = YES;
-    }
-
-    return self;
-}
 
 - (INKActivityPresenter *)showTweetWithId:(NSString *)tweetId {
     NSDictionary *args = [self argumentsDictionaryWithArguments:@{@"tweetId": tweetId}];
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:args
-                  fallback:self.fallback];
+                  withArguments:args];
 }
 
 - (INKActivityPresenter *)showUserWithScreenName:(NSString *)screenName {
     NSDictionary *args = [self argumentsDictionaryWithArguments:@{@"screenName": screenName}];
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:args
-                  fallback:self.fallback];
+                  withArguments:args];
 }
 
 - (INKActivityPresenter *)showUserWithId:(NSString *)userId {
     NSDictionary *args = [self argumentsDictionaryWithArguments:@{@"userId": userId}];
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:args
-                  fallback:self.fallback];
+                  withArguments:args];
 }
 
 - (INKActivityPresenter *)showTimeline {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:nil]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
 }
 
 - (INKActivityPresenter *)showMentions {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:nil]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
 }
 
 - (INKActivityPresenter *)showDirectMessages {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:nil]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
 }
 
 - (INKActivityPresenter *)searchFor:(NSString *)query {
@@ -64,16 +48,14 @@
                                @{@"query": urlEncode(query)}];
 
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:arguments
-                  fallback:self.fallback];
+                  withArguments:arguments];
 }
 
 - (INKActivityPresenter *)tweetMessage:(NSString *)message {
     NSDictionary *arguments = [self argumentsDictionaryWithArguments:
                                @{@"message": urlEncode(message)}];
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:arguments
-                  fallback:self.fallback];
+                  withArguments:arguments];
 }
 
 - (INKActivityPresenter *)tweetMessage:(NSString *)message inReplyTo:(NSString *)replyId {
@@ -81,69 +63,58 @@
                                @{@"message": urlEncode(message),
                                  @"replyId": replyId}];
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:arguments
-                  fallback:self.fallback];
+                  withArguments:arguments];
 }
 
 #pragma mark - Actions not supported by all clients
 - (INKActivityPresenter *)showRetweets {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:nil]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
 }
 
 - (INKActivityPresenter *)showFavorites {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:nil]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
 }
 
 - (INKActivityPresenter *)showLists {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:nil]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
 }
 
 - (INKActivityPresenter *)showListWithId:(NSString *)listId {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(listId)]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(listId)]];
 }
 
 - (INKActivityPresenter *)tweetSearchPage {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:nil]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:nil]];
 }
 
 - (INKActivityPresenter *)followUser:(NSString *)user {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(user)]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(user)]];
 }
 
 - (INKActivityPresenter *)unfollowUser:(NSString *)user {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(user)]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(user)]];
 }
 
 - (INKActivityPresenter *)favoriteTweetWithId:(NSString *)tweetId {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]];
 }
 
 - (INKActivityPresenter *)unfavoriteTweetWithId:(NSString *)tweetId {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]];
 }
 
 - (INKActivityPresenter *)retweetTweetWithId:(NSString *)tweetId {
     return [self performCommand:NSStringFromSelector(_cmd)
-                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]
-                  fallback:self.fallback];
+                  withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]];
 }
 
 #pragma mark - Private methods

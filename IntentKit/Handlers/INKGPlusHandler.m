@@ -8,35 +8,25 @@
 
 
 @implementation INKGPlusHandler
-@synthesize fallback;
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.fallback = YES;
-    }
-
-    return self;
-}
 
 - (INKActivityPresenter *)showGPlusProfileWithId:(NSString *)userId {
     NSDictionary *args = @{ @"userId" : userId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];
 }
 
 - (INKActivityPresenter *)showGPlusProfileWithName:(NSString *)userName {
     NSDictionary *args = @{ @"userName" : userName };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];
 }
 
 - (INKActivityPresenter *)showGPlusEventWithId:(NSString *)eventId {
     NSDictionary *args = @{ @"eventId" : eventId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];
 }
 
 - (INKActivityPresenter *)showGPlusCommunityWithId:(NSString *)communityId {
     NSDictionary *args = @{ @"communityId" : communityId };
-    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args fallback:self.fallback];
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];
 }
 
 

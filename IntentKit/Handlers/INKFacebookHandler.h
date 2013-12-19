@@ -10,9 +10,6 @@
 /** An instance of `INKFacebookHandler` performs Facebook-related tasks in third-party Facebook apps with browser fallback. */
 @interface INKFacebookHandler : INKHandler
 
-/** Whether it should use a browser fallback or not */
-@property (nonatomic) BOOL fallback;
-
 /**
 * Shows a specific profile / page
 * @param userId The id of the profile / page

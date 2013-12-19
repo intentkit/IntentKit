@@ -18,6 +18,7 @@
 #import "INKActivity.h"
 #import "INKApplicationList.h"
 #import "INKDefaultsManager.h"
+#import "INKActivityPresenter.h"
 
 @interface INKHandler (Spec)
 @property UIApplication *application;
