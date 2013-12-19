@@ -1,4 +1,4 @@
-## master
+## 0.3.0
 
 ###### Enhancements
 
@@ -24,7 +24,7 @@
 * The activity sheet no longer affects other in-app modal dialogs
   [#18](https://github.com/intentkit/IntentKit/issues/18)
 
-## 0.2
+## 0.2.0
 
 **BREAKING CHANGE** MWOpenInKit is now called IntentKit!
 
