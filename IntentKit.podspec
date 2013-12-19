@@ -10,6 +10,5 @@ Pod::Spec.new do |s|
   s.platform  = :ios, '7.0'
 
   s.source_files = 'IntentKit', 'IntentKit/**/*.{h,m}'
-  s.resources = 'IntentKit/en.lproj/*'
-  s.resource_bundles = { 'IntentKit' => "IntentKit/Apps/*.{plist,png}" }
+  s.resource_bundles = { 'IntentKit' => "IntentKit/**/*.{plist,png}" }
 end
