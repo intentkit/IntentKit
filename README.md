@@ -34,6 +34,13 @@ IntentKit is easiest to install using [CocoaPods](http://cocoapods.org). Just ad
 
 After running `pod install`, you should be able to `#import <IntentKit/IntentKit.h>` inside your application code and go to town.
 
+If you're concerned about the increase in your app bundle's size, you can choose to only include a subset of IntentKit's supported applications. Subspecs exist for each handler class. This isn't yet in the version that's been published to Cocoapods, so if you wish to use this subspec functionality you'll have to point it directly at this git repo.
+
+    # Only includes web browsers
+    pod "IntentKit/Browsers", :git => "https://github.com/intentkit/IntentKit.git"
+
+For more information on what subspecs are available, refer to the project's [Podspec](https://github.com/intentkit/IntentKit/blob/master/IntentKit.podspec).
+
 
 Usage
 -----
@@ -177,7 +184,9 @@ Extending IntentKit to include your own application's URL scheme is easy.
 
     You also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
 
-5. Submit a pull request!
+5. In `IntentKit.podspec`, add your app to the subspec that corresponds to the handler your application responds to. Just add your app's folder name to the list of other application folder names in the appropriate resource bundle file glob.
+
+6. Submit a pull request!
 
 If your application supports actions not currently represented in a handler, or is part of a class of applications that doesn't currently have a handler, you'll have to write code to add support. The current handler code is easy to read; refer to an existing handler subclass as a reference for creating your own handler methods or `INKHandler` subclasses.
 
