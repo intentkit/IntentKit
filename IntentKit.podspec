@@ -9,6 +9,40 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.platform  = :ios, '7.0'
 
-  s.source_files = 'IntentKit', 'IntentKit/**/*.{h,m}'
-  s.resource_bundles = { 'IntentKit' => "IntentKit/**/*.{plist,png}" }
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'IntentKit', 'IntentKit/**/*.{h,m}'
+  end
+
+  s.subspec 'Browsers' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Chrome,Safari,1Password,Fallback}/*.{plist,png}" }
+  end
+
+  s.subspec 'Twitter' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.dependency 'IntentKit/Browsers'
+    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Twitter,Twitterrific,Tweetbot}/*.{plist,png}" }
+  end
+
+  s.subspec 'Maps' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Maps,GoogleMaps}/*.{plist,png}" }
+  end
+
+  s.subspec 'Mail' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Mail,Gmail}/*.{plist,png}" }
+  end
+
+  s.subspec 'Facebook' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.dependency 'IntentKit/Browsers'
+    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/Facebook/*.{plist,png}" }
+  end
+
+  s.subspec 'GPlus' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.dependency 'IntentKit/Browsers'
+    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/GPlus/*.{plist,png}" }
+  end
 end
