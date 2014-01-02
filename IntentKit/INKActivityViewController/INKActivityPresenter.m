@@ -48,13 +48,14 @@
 }
 
 - (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController {
-    self.originalRootModalPresentationStyle = UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle;
-    UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     if (!self.canPerformActivity) return;
 
     if (self.activity) {
         [self.activity performActivity];
     } else if (self.activitySheet) {
+        self.originalRootModalPresentationStyle = UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle;
+        UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+
         self.presentingViewController = presentingViewController;
 
         self.shadeView = [[UIView alloc] initWithFrame:self.presentingViewController.view.bounds];
