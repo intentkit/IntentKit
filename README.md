@@ -1,8 +1,6 @@
 IntentKit [![Build Status](https://travis-ci.org/intentkit/IntentKit.png)](https://travis-ci.org/intentkit/IntentKit)
 =========
 
-**ANNOUNCEMENT: MWOpenKit has been renamed! It is now known simply as [IntentKit](http://intentkit.github.io).**
-
 IntentKit is an easier way to handle third-party URL schemes in iOS apps.
 
 ![Example animation](https://raw.github.com/intentkit/IntentKit/master/example.gif)
