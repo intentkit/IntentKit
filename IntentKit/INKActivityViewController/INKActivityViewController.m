@@ -30,7 +30,6 @@ static UIEdgeInsets const INKActivityViewControllerEdgeInsets_Pad = {16.f, 12.f,
 static CGFloat const INKActivityViewControllerMinimumSpacing_Phone = 5.f;
 static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 
-
 @interface INKActivityViewController ()
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *collectionViewLayout;

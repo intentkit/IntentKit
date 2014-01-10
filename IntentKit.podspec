@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'IntentKit', 'IntentKit/**/*.{h,m}'
+    ss.resource_bundles = { 'IntentKit' => 'IntentKit/**/*.strings' }
   end
 
   s.subspec 'Browsers' do |ss|
