@@ -1,3 +1,15 @@
+## 0.4.0
+
+###### Enhancements
+* CocoaPods subspecs now exist to let you include just the handlers you need
+
+###### Bugfixes
+* A handful of subtle bugs were fixed related to IntentKit unintentionally
+  damaging the view hierarchy when presenting an activity sheet
+* String localization (for the "remember my choice" toggle) now works properly
+  when loaded as a CocoaPod
+
+
 ## 0.3.0
 
 ###### Enhancements
