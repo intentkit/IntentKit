@@ -34,7 +34,7 @@ describe(@"INKHandler", ^{
     beforeEach(^{
         handler = [[INKHandler alloc] init];
         handler.application = mock([UIApplication class]);
-        handler.appList = [[INKApplicationList alloc] initWithApplication:handler.application];
+        handler.appList = [[INKApplicationList alloc] initWithApplication:handler.application forHandler:INKHandler.class];
         handler.defaultsManager = mock([INKDefaultsManager class]);
     });
 

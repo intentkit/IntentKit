@@ -34,6 +34,7 @@
 
     NSArray *appPaths = [bundle pathsForResourcesOfType:@".plist"
                                             inDirectory:nil];
+
     for (NSString *path in appPaths) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
@@ -75,6 +76,17 @@
         bundle = [NSBundle bundleWithURL:bundleURL];
     }
 
+    if (!bundle) {
+        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+        if (bundleURL) {
+            bundle = [NSBundle bundleWithURL:bundleURL];
+        }
+    }
+
+    if (!bundle) {
+        bundle = [NSBundle mainBundle];
+    }
+    
     return bundle;
 }
 @end

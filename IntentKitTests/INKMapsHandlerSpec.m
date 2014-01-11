@@ -31,7 +31,7 @@ describe(@"INKMapsHandler", ^{
     beforeEach(^{
         handler = [[INKMapsHandler alloc] init];
         handler.application = mock([UIApplication class]);
-        handler.appList = [[INKApplicationList alloc] initWithApplication:handler.application];
+        handler.appList = [[INKApplicationList alloc] initWithApplication:handler.application forHandler:INKMapsHandler.class];
     });
 
     describe(@"passing along optional variables", ^{

@@ -30,7 +30,7 @@ describe(@"INKTwitterHandler", ^{
     beforeEach(^{
         handler = [[INKTwitterHandler alloc] init];
         handler.application = mock([UIApplication class]);
-        handler.appList = [[INKApplicationList alloc] initWithApplication:handler.application];
+        handler.appList = [[INKApplicationList alloc] initWithApplication:handler.application forHandler:INKTwitterHandler.class];
     });
 
     describe(@"passing along optional variables", ^{

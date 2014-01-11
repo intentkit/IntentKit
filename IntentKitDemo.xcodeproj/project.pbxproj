@@ -126,7 +126,6 @@
 		A6A16CC81851375000778944 /* IntentKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntentKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A7C8A518624678002A1F59 /* INKDefaultToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKDefaultToggleView.h; sourceTree = "<group>"; };
 		A6A7C8A618624678002A1F59 /* INKDefaultToggleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKDefaultToggleView.m; sourceTree = "<group>"; };
-		A6A7C8A91862497C002A1F59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/IntentKit-Localizable.strings"; sourceTree = "<group>"; };
 		A6AE48D51856227C00469AAE /* INKActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityViewController.h; path = INKActivityViewController/INKActivityViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A6AE48D61856227C00469AAE /* INKActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = INKActivityViewController.m; path = INKActivityViewController/INKActivityViewController.m; sourceTree = "<group>"; };
 		A6AE48D818562CD100469AAE /* INKActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityCell.h; path = INKActivityViewController/INKActivityCell.h; sourceTree = "<group>"; };
@@ -244,7 +243,6 @@
 		A67F39DC184EDFE5002EED53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A6A7C8A81862497C002A1F59 /* IntentKit-Localizable.strings */,
 				A67F39DD184EDFE5002EED53 /* IntentKit-Info.plist */,
 				A67F39DE184EDFE5002EED53 /* InfoPlist.strings */,
 				A67F39E1184EDFE5002EED53 /* IntentKit-Prefix.pch */,
@@ -630,14 +628,6 @@
 				A67F39DF184EDFE5002EED53 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A6A7C8A81862497C002A1F59 /* IntentKit-Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6A7C8A91862497C002A1F59 /* en */,
-			);
-			name = "IntentKit-Localizable.strings";
 			sourceTree = "<group>";
 		};
 		A6B73CDC184D38450055C60D /* InfoPlist.strings */ = {
