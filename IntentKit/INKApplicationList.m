@@ -15,25 +15,22 @@
 
 @implementation INKApplicationList
 
-- (instancetype)initWithApplication:(UIApplication *)application {
+- (id)initWithApplication:(UIApplication *)application forHandler:(Class)handlerClass {
     if (self = [super init]) {
         self.application = application;
+        self.handlerClass = handlerClass;
     }
     return self;
 }
 
-- (instancetype)init {
-    return [self initWithApplication:[UIApplication sharedApplication]];
+- (instancetype)initWithHandler:(Class)handlerClass {
+    return [self initWithApplication:[UIApplication sharedApplication] forHandler:handlerClass];
 }
 
 - (NSArray *)activities {
     NSMutableArray *activities = [[NSMutableArray alloc] init];
 
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
-    NSBundle *bundle;
-    if (bundleURL) {
-        bundle = [NSBundle bundleWithURL:bundleURL];
-    }
+    NSBundle *bundle = [self bundleForCurrentHandler];
 
     NSArray *appPaths = [bundle pathsForResourcesOfType:@".plist"
                                             inDirectory:nil];
@@ -57,16 +54,27 @@
     return [activities copy];
 }
 
-- (NSString *)fallbackUrlForHandler:(Class)handlerClass command:(NSString *)command {
+- (NSString *)fallbackUrlForCommand:(NSString *)command {
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
     NSBundle *bundle;
     if (bundleURL) {
         bundle = [NSBundle bundleWithURL:bundleURL];
     }
 
-    NSString *path = [bundle pathForResource:NSStringFromClass(handlerClass) ofType:@"plist"];
+    NSString *path = [bundle pathForResource:NSStringFromClass(self.handlerClass) ofType:@"plist"];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
     return dict[@"fallbackUrls"][command];
+}
+
+- (NSBundle *)bundleForCurrentHandler {
+    NSString *resourceName = [NSString stringWithFormat:@"IntentKit-%@", NSStringFromClass(self.handlerClass)];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:resourceName withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle = [NSBundle bundleWithURL:bundleURL];
+    }
+
+    return bundle;
 }
 @end

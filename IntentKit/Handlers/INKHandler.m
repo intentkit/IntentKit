@@ -36,7 +36,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 - (instancetype)init {
     if (self = [super init]) {
         self.application = [UIApplication sharedApplication];
-        self.appList = [[INKApplicationList alloc] initWithApplication:self.application];
+        self.appList = [[INKApplicationList alloc] initWithApplication:self.application forHandler:self.class];
         self.defaultsManager = [[INKDefaultsManager alloc] init];
         self.useFallback = YES;
     }
@@ -64,7 +64,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     }
 
     if (self.useFallback && [availableApps count] < 1) {
-        NSString *fallbackUrl = [self.appList fallbackUrlForHandler:self.class command:command];
+        NSString *fallbackUrl = [self.appList fallbackUrlForCommand:command];
         if (fallbackUrl) {
             fallbackUrl = [fallbackUrl stringByEvaluatingTemplateWithData:args];
             NSURL *url = [NSURL URLWithString:fallbackUrl];

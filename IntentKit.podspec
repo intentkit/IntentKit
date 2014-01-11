@@ -16,34 +16,34 @@ Pod::Spec.new do |s|
 
   s.subspec 'Browsers' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Chrome,Safari,1Password,Fallback}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,Fallback}/*.{plist,png}" }
   end
 
   s.subspec 'Twitter' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.dependency 'IntentKit/Browsers'
-    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Twitter,Twitterrific,Tweetbot}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKTwitterHandler' => "IntentKit/Apps/{Twitter,Twitterrific,Tweetbot}/*.{plist,png}" }
   end
 
   s.subspec 'Maps' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Maps,GoogleMaps}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKMapsHandler' => "IntentKit/Apps/{Maps,GoogleMaps}/*.{plist,png}" }
   end
 
   s.subspec 'Mail' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/{Mail,Gmail}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKMailHandler' => "IntentKit/Apps/{Mail,Gmail}/*.{plist,png}" }
   end
 
   s.subspec 'Facebook' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.dependency 'IntentKit/Browsers'
-    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/Facebook/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKFacebookHandler' => "IntentKit/Apps/Facebook/*.{plist,png}" }
   end
 
   s.subspec 'GPlus' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.dependency 'IntentKit/Browsers'
-    ss.resource_bundles = { 'IntentKit' => "IntentKit/Apps/GPlus/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKGPlusHandler' => "IntentKit/Apps/GPlus/*.{plist,png}" }
   end
 end
