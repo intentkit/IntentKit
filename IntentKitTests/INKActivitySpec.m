@@ -111,7 +111,7 @@ describe(@"INKActivity", ^{
     });
 
     describe(@"activityImage", ^{
-        it(@"should be the correct image", ^{
+        xit(@"should be the correct image", ^{
             expect(activity._activityImage).notTo.beNil();
         });
     });
