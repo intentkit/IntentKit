@@ -56,11 +56,7 @@ describe(@"INKActivity", ^{
 
         context(@"when the application has localized names", ^{
             beforeEach(^{
-                NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-Browser" withExtension:@"bundle"];
-                NSBundle *bundle;
-                if (bundleURL) {
-                    bundle = [NSBundle bundleWithURL:bundleURL];
-                }
+                NSBundle *bundle = [NSBundle mainBundle];
 
                 activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
                                                  optionalParams:dict[@"optional"]
