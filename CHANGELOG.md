@@ -1,3 +1,8 @@
+## 0.4.1
+
+###### Bugfixes
+* Fixed a critical regression from 0.4.0 that caused icons to not show up.
+
 ## 0.4.0
 
 ###### Enhancements
