@@ -44,12 +44,14 @@
             [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
                                                         optionalParams:dict[@"optional"]
                                                                   names:dict[@"name"]
-                                                           application:self.application]];
+                                                           application:self.application
+                                                                bundle: bundle]];
         } else {
             [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
                                                         optionalParams:dict[@"optional"]
                                                                   name:dict[@"name"]
-                                                           application:self.application]];
+                                                           application:self.application
+                                                                bundle: bundle]];
         }
     }
     return [activities copy];

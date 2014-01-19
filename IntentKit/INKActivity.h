@@ -32,6 +32,8 @@
 /** A dictionary of optional properties that may be amended to a URL. The keys are variable names, and the values are handlebar-templated strings that can be safely appended to the end of the URL. */
 @property (strong, nonatomic) NSDictionary *optionalParams;
 
+/** The NSBundle to load the app icon from */
+@property (strong, nonatomic) NSBundle *bundle;
 
 /** Returns an initialized `INKActivity` object.
 
@@ -39,12 +41,14 @@
  @param optionalParams The dictionary listing which optional parameters are accepted.
  @param name The name of the third-party application.
  @param application The UIApplication to use when calling `[UIApplication openURL:]` and `[UIApplication canOpenURL:]`. You probably want this to be `[UIApplication sharedApplication]`, but it is injected here for test purposes.
- 
+ @param bundle the NSBundle to fetch the app icon from.
+
  @return an initialized `INKActivity` object. */
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
                               name: (NSString *)name
-                       application:(UIApplication *)application;
+                    application:(UIApplication *)application
+                         bundle:(NSBundle *)bundle;
 
 /** Returns an intialized `INKActivity` object.
 
@@ -52,12 +56,15 @@
  @param optionalParams The dictionary listing which optional parameters are accepted.
  @param names A dictionary of localized app names. The keys are short locale names (e.g. `en`, `fr`), the values are strings representing the name for the given locale.
  @param application The UIApplication to use when calling `[UIApplication openURL:]` and `[UIApplication canOpenURL:]`. You probably want this to be `[UIApplication sharedApplication]`, but it is injected here for test purposes.
+ @param bundle the NSBundle to fetch the app icon from.
 
  @return an initialized `INKActivity` object. */
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
                          names: (NSDictionary *)names
-                    application:(UIApplication *)application;
+                    application:(UIApplication *)application
+                         bundle:(NSBundle *)bundle;
+
 /** Checks whether or not the third-party app can accept a custom URL corresponding to a given command
  
  @param command A command to perform. If the third-party app knows how to perform this command, it should have a corresponding key in the activity's `dict` property.

@@ -28,24 +28,28 @@
 
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
-                              name: (NSString *)name
-                       application:(UIApplication *)application {
+                              name:(NSString *)name
+                       application:(UIApplication *)application
+                         bundle:(NSBundle *)bundle {
     return [self initWithActions:actions
                   optionalParams:optionalParams
                            names:@{@"en":name}
-                     application:application];
+                     application:application
+                          bundle:bundle];
 }
 
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
-                         names: (NSDictionary *)names
-                    application:(UIApplication *)application {
+                         names:(NSDictionary *)names
+                    application:(UIApplication *)application
+                         bundle:(NSBundle *)bundle {
     if (self = [super init]) {
         self.names = names;
         self.actions = actions;
         self.optionalParams = optionalParams;
         self.application = application;
         self.intentKit = [IntentKit sharedInstance];
+        self.bundle = bundle;
     }
     return self;
 }
@@ -96,13 +100,7 @@
 }
 
 - (UIImage *)_activityImage {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
-    NSBundle *bundle;
-    if (bundleURL) {
-        bundle  = [NSBundle bundleWithURL:bundleURL];
-    }
-
-    NSString *filename = [bundle pathForResource:self.name ofType:@"png"];
+    NSString *filename = [self.bundle pathForResource:self.name ofType:@"png"];
     return [UIImage imageWithContentsOfFile:filename];
 }
 
