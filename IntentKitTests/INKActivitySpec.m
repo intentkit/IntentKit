@@ -43,7 +43,8 @@ describe(@"INKActivity", ^{
         activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
                                          optionalParams:dict[@"optional"]
                                                    name:@"Chrome"
-                                            application:app];
+                                            application:app
+                                                 bundle:nil];
     });
 
     describe(@"activityTitle", ^{
@@ -60,7 +61,7 @@ describe(@"INKActivity", ^{
                                                           names:@{@"en": @"English",
                                                                   @"de": @"Deutsch",
                                                                   @"fr": @"Français"}
-                                                    application:app];
+                                                    application:app bundle:nil];
                 activity.intentKit = mock([IntentKit class]);
             });
 
@@ -90,7 +91,7 @@ describe(@"INKActivity", ^{
                                                          optionalParams:dict[@"optional"]
                                                                   names:@{@"de": @"Deutsch",
                                                                           @"fr": @"Français"}
-                                                            application:app];
+                                                            application:app bundle:nil];
                         activity.intentKit = mock([IntentKit class]);
 
                         [given([activity.intentKit preferredLanguages]) willReturn:@[@"ja"]];
