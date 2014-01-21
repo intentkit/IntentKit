@@ -32,7 +32,7 @@ IntentKit is easiest to install using [CocoaPods](http://cocoapods.org). Just ad
 
 After running `pod install`, you should be able to `#import <IntentKit/IntentKit.h>` inside your application code and go to town.
 
-If you're concerned about the increase in your app bundle's size, you can choose to only include a subset of IntentKit's supported applications. Subspecs exist for each handler class. This isn't yet in the version that's been published to Cocoapods, so if you wish to use this subspec functionality you'll have to point it directly at this git repo.
+If you're concerned about the increase in your app bundle's size, you can choose to only include a subset of IntentKit's supported applications. Subspecs exist for each handler class.
 
     # Only includes web browsers
     pod "IntentKit/Browsers", :git => "https://github.com/intentkit/IntentKit.git"
