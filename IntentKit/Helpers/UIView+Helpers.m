@@ -53,14 +53,16 @@
 
 - (void)moveBy:(CGPoint)pointDelta {
     CGRect frame = self.frame;
-    frame.origin = CGPointMake(frame.origin.x + pointDelta.x,
-                               frame.origin.y + pointDelta.y);
+    frame.origin = CGPointMake(self.left + pointDelta.x,
+                               self.top + pointDelta.y);
     self.frame = frame;
 }
 
 - (void)resizeTo:(CGSize)size {
-    CGRect frame = self.frame;
-    self.frame = CGRectMake(frame.origin.x, frame.origin.y, size.width, size.height);
+    self.frame = CGRectMake(self.left,
+                            self.top,
+                            size.width,
+                            size.height);
 }
 
 # pragma mark - Other
