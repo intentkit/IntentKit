@@ -10,6 +10,7 @@
 		0CB3E9CB185FC89600DD0D7D /* INKFacebookHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3E9C6185FC77F00DD0D7D /* INKFacebookHandler.m */; };
 		0CB3E9CC185FC89600DD0D7D /* INKGPlusHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3E9C8185FC77F00DD0D7D /* INKGPlusHandler.m */; };
 		5D97A84D2BF27D7A7F49E984 /* INKMailHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D97A622B2D9C414C0549095 /* INKMailHandler.m */; };
+		5F08A354D18647089245CDC6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D175A3D31E9461F80754612 /* libPods.a */; };
 		A605C3161862351D007E6AFE /* INKDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A605C3151862351D007E6AFE /* INKDefaultsManager.m */; };
 		A605C31818623D0F007E6AFE /* INKDefaultsManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A605C31718623D0F007E6AFE /* INKDefaultsManagerSpec.m */; };
 		A60A033118503843009278EF /* INKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A67F39E8184EDFFF002EED53 /* INKActivity.m */; };
@@ -36,7 +37,6 @@
 		A6A7C8A718624678002A1F59 /* INKDefaultToggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A7C8A618624678002A1F59 /* INKDefaultToggleView.m */; };
 		A6AE48D71856227C00469AAE /* INKActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AE48D61856227C00469AAE /* INKActivityViewController.m */; };
 		A6AE48DA18562CD100469AAE /* INKActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AE48D918562CD100469AAE /* INKActivityCell.m */; };
-		A6AE48DD18567D6300469AAE /* UIView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AE48DC18567D6300469AAE /* UIView+Helpers.m */; };
 		A6B73C67184D341E0055C60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C66184D341E0055C60D /* Foundation.framework */; };
 		A6B73C69184D341E0055C60D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C68184D341E0055C60D /* CoreGraphics.framework */; };
 		A6B73C6B184D341E0055C60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C6A184D341E0055C60D /* UIKit.framework */; };
@@ -80,6 +80,7 @@
 		0CB3E9C7185FC77F00DD0D7D /* INKGPlusHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKGPlusHandler.h; sourceTree = "<group>"; };
 		0CB3E9C8185FC77F00DD0D7D /* INKGPlusHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKGPlusHandler.m; sourceTree = "<group>"; };
 		0CFB950D1860E110006BB1EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D97A622B2D9C414C0549095 /* INKMailHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKMailHandler.m; sourceTree = "<group>"; };
 		5D97A8507DFA811246AC3E26 /* INKMailHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INKMailHandler.h; sourceTree = "<group>"; };
@@ -130,8 +131,6 @@
 		A6AE48D61856227C00469AAE /* INKActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = INKActivityViewController.m; path = INKActivityViewController/INKActivityViewController.m; sourceTree = "<group>"; };
 		A6AE48D818562CD100469AAE /* INKActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = INKActivityCell.h; path = INKActivityViewController/INKActivityCell.h; sourceTree = "<group>"; };
 		A6AE48D918562CD100469AAE /* INKActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = INKActivityCell.m; path = INKActivityViewController/INKActivityCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A6AE48DB18567D6300469AAE /* UIView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Helpers.h"; sourceTree = "<group>"; };
-		A6AE48DC18567D6300469AAE /* UIView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helpers.m"; sourceTree = "<group>"; };
 		A6B55ED3186101F5007EB67F /* iconBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconBorder@2x.png"; path = "Images/iconBorder@2x.png"; sourceTree = "<group>"; };
 		A6B55ED4186101F5007EB67F /* iconBorder@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconBorder@2x~ipad.png"; path = "Images/iconBorder@2x~ipad.png"; sourceTree = "<group>"; };
 		A6B55ED5186101F5007EB67F /* iconBorder~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconBorder~ipad.png"; path = "Images/iconBorder~ipad.png"; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 				A6B73C69184D341E0055C60D /* CoreGraphics.framework in Frameworks */,
 				A6B73C6B184D341E0055C60D /* UIKit.framework in Frameworks */,
 				A6B73C67184D341E0055C60D /* Foundation.framework in Frameworks */,
+				5F08A354D18647089245CDC6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +274,6 @@
 		A67F39F4184EE00F002EED53 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A6AE48DB18567D6300469AAE /* UIView+Helpers.h */,
-				A6AE48DC18567D6300469AAE /* UIView+Helpers.m */,
 				A67F39F5184EE00F002EED53 /* NSString+Helpers.h */,
 				A67F39F6184EE00F002EED53 /* NSString+Helpers.m */,
 			);
@@ -320,6 +318,7 @@
 				A6B73C65184D341E0055C60D /* Frameworks */,
 				A6B73C64184D341E0055C60D /* Products */,
 				7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */,
+				17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,9 +408,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6B73C8F184D341E0055C60D /* Build configuration list for PBXNativeTarget "IntentKitDemo" */;
 			buildPhases = (
+				8B19D2BFC4234EA5B2770355 /* Check Pods Manifest.lock */,
 				A6B73C5F184D341E0055C60D /* Sources */,
 				A6B73C61184D341E0055C60D /* Resources */,
 				A6B73C60184D341E0055C60D /* Frameworks */,
+				464BAE7D844E4BB7B84CAACE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -500,6 +501,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		464BAE7D844E4BB7B84CAACE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		51B52ECD75E547B2B61EFA91 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,6 +529,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-IntentKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B19D2BFC4234EA5B2770355 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A660DD2C185138E800EFF0E6 /* ShellScript */ = {
@@ -570,7 +601,6 @@
 				A61B5CBB18577CC700BA1F66 /* INKActivityPresenter.m in Sources */,
 				A6B73CEB184D38450055C60D /* INKAppDelegate.m in Sources */,
 				A605C3161862351D007E6AFE /* INKDefaultsManager.m in Sources */,
-				A6AE48DD18567D6300469AAE /* UIView+Helpers.m in Sources */,
 				A61B5CC31857C25B00BA1F66 /* IntentKit.m in Sources */,
 				A6B73CE7184D38450055C60D /* main.m in Sources */,
 				A6B73CED184D38450055C60D /* INKViewController.m in Sources */,
@@ -770,6 +800,7 @@
 		};
 		A6B73C90184D341E0055C60D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -787,6 +818,7 @@
 		};
 		A6B73C91184D341E0055C60D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

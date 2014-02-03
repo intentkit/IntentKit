@@ -7,8 +7,8 @@
 //
 
 #import "INKDefaultToggleView.h"
-#import "UIView+Helpers.h"
 #import "INKLocalizedString.h"
+#import <MWLayoutHelpers/UIView+MWLayoutHelpers.h>
 
 @interface INKDefaultToggleView ()
 

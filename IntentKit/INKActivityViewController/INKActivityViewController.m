@@ -8,10 +8,10 @@
 
 #import "INKActivityViewController.h"
 #import "INKActivityCell.h"
-#import "UIView+Helpers.h"
 #import "INKActivityPresenter.h"
 #import "IntentKit.h"
 #import "INKDefaultToggleView.h"
+#import <MWLayoutHelpers/UIView+MWLayoutHelpers.h>
 
 static NSString * const CellIdentifier = @"UIActivityCell";
 
