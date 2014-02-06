@@ -25,24 +25,5 @@
 		<key>tweetMessage:inReplyTo:</key>
 		<string>twitter://post?message={message}&amp;in_reply_to_status_id={replyId}</string>
 	</dict>
-    <key>fallbackUrls</key>
-    <dict>
-        <key>showUserWithScreenName:</key>
-        <string>https://twitter.com/intent/user?screen_name={screenName}</string>
-        <key>showUserWithId:</key>
-        <string>https://twitter.com/intent/user?user_id={userId}</string>
-        <key>showTimeline</key>
-        <string>http://twitter.com</string>
-        <key>showMentions</key>
-        <string>https://twitter.com/i/connect</string>
-        <key>showDirectMessages</key>
-        <string>https://twitter.com/i/connect</string>
-        <key>searchFor:</key>
-        <string>https://twitter.com/search?q={query}</string>
-        <key>tweetMessage:</key>
-        <string>https://twitter.com/intent/tweet?text={message}</string>
-        <key>tweetMessage:inReplyTo:</key>
-        <string>https://twitter.com/intent/tweet?text={message}&amp;in_reply_to={replyId}</string>
-    </dict>
 </dict>
 </plist>

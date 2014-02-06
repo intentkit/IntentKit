@@ -11,12 +11,5 @@
 		<key>showEventWithId:</key>
 		<string>fb://event/{eventId}</string>
 	</dict>
-	<key>fallbackUrls</key>
-	<dict>
-		<key>showProfileWithId:</key>
-		<string>https://facebook.com/{userId}</string>
-		<key>showEventWithId:</key>
-		<string>https://facebook.com/events/{eventId}</string>
-	</dict>
 </dict>
 </plist>
