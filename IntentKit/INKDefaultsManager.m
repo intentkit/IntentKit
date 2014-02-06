@@ -14,7 +14,22 @@ static NSString * const INKDefaultsManagerUserDefaultsKey = @"IntentKitDefaults"
 
 - (NSString *)defaultApplicationForHandler:(Class)handlerClass {
     NSDictionary *dict = [NSUserDefaults.standardUserDefaults objectForKey:INKDefaultsManagerUserDefaultsKey];
-    return dict[NSStringFromClass(handlerClass)];
+
+    NSString *name = dict[NSStringFromClass(handlerClass)];
+    if (name) {
+        return name;
+    } else {
+        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+        NSBundle *bundle;
+        if (bundleURL) {
+            bundle = [NSBundle bundleWithURL:bundleURL];
+        }
+
+        NSString *path = [bundle pathForResource:NSStringFromClass(handlerClass) ofType:@"plist"];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+
+        return dict[@"default"];
+    }
 }
 
 - (void)addDefault:(NSString *)appName forHandler:(Class)handlerClass {

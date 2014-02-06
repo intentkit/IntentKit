@@ -25,10 +25,18 @@ describe(@"INKDefaultsManager", ^{
 
     beforeEach(^{
         manager = [[INKDefaultsManager alloc] init];
-        [NSUserDefaults resetStandardUserDefaults];
+
+        NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
     });
 
-    describe(@"setting and retrieving defaults", ^{
+    describe(@"when nothing has been set", ^{
+        it(@"should return a handler's default application", ^{
+            expect([manager defaultApplicationForHandler:[INKBrowserHandler class]]).to.equal(@"Safari");
+        });
+    });
+
+    describe(@"setting defaults", ^{
         context(@"when there is no default for an application", ^{
             beforeEach(^{
                 [manager addDefault:@"FooBar" forHandler:[INKHandler class]];
@@ -70,7 +78,7 @@ describe(@"INKDefaultsManager", ^{
         it(@"should remove all of them", ^{
             [manager removeAllDefaults];
             expect([manager defaultApplicationForHandler:[INKHandler class]]).to.beNil();
-            expect([manager defaultApplicationForHandler:[INKBrowserHandler class]]).to.beNil();
+            expect([manager defaultApplicationForHandler:[INKBrowserHandler class]]).to.equal(@"Safari");
         });
     });
     
