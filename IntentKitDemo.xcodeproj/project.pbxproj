@@ -53,6 +53,8 @@
 		A6B73D00184D38650055C60D /* INKMapsHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B73CF5184D38650055C60D /* INKMapsHandlerSpec.m */; };
 		A6B73D02184D38650055C60D /* INKBrowserHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B73CF6184D38650055C60D /* INKBrowserHandlerSpec.m */; };
 		A6B73D39184D38A90055C60D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B73D38184D38A90055C60D /* Images.xcassets */; };
+		A6E4173918A4181C008389DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6E4173518A4181C008389DD /* InfoPlist.strings */; };
+		A6E4173A18A4181C008389DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6E4173718A4181C008389DD /* Localizable.strings */; };
 		A6E655B2185FB2B30085F906 /* EXPMatchers+haveAValidName.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E655B1185FB2B30085F906 /* EXPMatchers+haveAValidName.m */; };
 		D40E4239C6F3475CBA130DAE /* libPods-IntentKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19E678BCBB9409FBE1FDD1D /* libPods-IntentKitTests.a */; };
 /* End PBXBuildFile section */
@@ -109,7 +111,6 @@
 		A67F39D9184EDFE5002EED53 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A67F39DA184EDFE5002EED53 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A67F39DD184EDFE5002EED53 /* IntentKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IntentKit-Info.plist"; sourceTree = "<group>"; };
-		A67F39DF184EDFE5002EED53 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A67F39E1184EDFE5002EED53 /* IntentKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IntentKit-Prefix.pch"; sourceTree = "<group>"; };
 		A67F39E7184EDFFF002EED53 /* INKActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INKActivity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A67F39E8184EDFFF002EED53 /* INKActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKActivity.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -158,6 +159,8 @@
 		A6B73CF5184D38650055C60D /* INKMapsHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKMapsHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6B73CF6184D38650055C60D /* INKBrowserHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKBrowserHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6B73D38184D38A90055C60D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A6E4173618A4181C008389DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		A6E4173818A4181C008389DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		A6E655B0185FB2B30085F906 /* EXPMatchers+haveAValidName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+haveAValidName.h"; path = "Matchers/EXPMatchers+haveAValidName.h"; sourceTree = "<group>"; };
 		A6E655B1185FB2B30085F906 /* EXPMatchers+haveAValidName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+haveAValidName.m"; path = "Matchers/EXPMatchers+haveAValidName.m"; sourceTree = "<group>"; };
 		E19E678BCBB9409FBE1FDD1D /* libPods-IntentKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntentKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,8 +246,8 @@
 		A67F39DC184EDFE5002EED53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6E4173418A4181C008389DD /* en.lproj */,
 				A67F39DD184EDFE5002EED53 /* IntentKit-Info.plist */,
-				A67F39DE184EDFE5002EED53 /* InfoPlist.strings */,
 				A67F39E1184EDFE5002EED53 /* IntentKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -384,6 +387,15 @@
 			path = IntentKitTests;
 			sourceTree = "<group>";
 		};
+		A6E4173418A4181C008389DD /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A6E4173518A4181C008389DD /* InfoPlist.strings */,
+				A6E4173718A4181C008389DD /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -487,6 +499,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A660DD3118513B7F00EFF0E6 /* IntentKit.bundle in Resources */,
+				A6E4173A18A4181C008389DD /* Localizable.strings in Resources */,
+				A6E4173918A4181C008389DD /* InfoPlist.strings in Resources */,
 				A6B73D39184D38A90055C60D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,14 +666,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A67F39DE184EDFE5002EED53 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A67F39DF184EDFE5002EED53 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		A6B73CDC184D38450055C60D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -674,6 +680,22 @@
 				A6B73CF1184D38650055C60D /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A6E4173518A4181C008389DD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6E4173618A4181C008389DD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A6E4173718A4181C008389DD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6E4173818A4181C008389DD /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
