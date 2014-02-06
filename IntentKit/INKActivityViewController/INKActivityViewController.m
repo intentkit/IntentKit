@@ -11,6 +11,8 @@
 #import "INKActivityPresenter.h"
 #import "IntentKit.h"
 #import "INKDefaultToggleView.h"
+#import "INKLocalizedString.h"
+
 #import <MWLayoutHelpers/UIView+MWLayoutHelpers.h>
 
 static NSString * const CellIdentifier = @"UIActivityCell";
@@ -207,7 +209,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 - (void)addCancelButton {
     self.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
     self.cancelButton.frame = CGRectMake(0, 0, self.view.width, 44.f);
-    [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [self.cancelButton setTitle:INKLocalizedString(@"CancelButtonText", nil) forState:UIControlStateNormal];
     self.cancelButton.titleLabel.font = [UIFont systemFontOfSize:24.f];
     self.cancelButton.backgroundColor = UIColor.clearColor;
     [self.cancelButton addTarget:self action:@selector(didTapCancelButton) forControlEvents:UIControlEventTouchUpInside];
