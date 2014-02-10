@@ -189,6 +189,11 @@ Extending IntentKit to include your own application's URL scheme is easy.
 If your application supports actions not currently represented in a handler, or is part of a class of applications that doesn't currently have a handler, you'll have to write code to add support. The current handler code is easy to read; refer to an existing handler subclass as a reference for creating your own handler methods or `INKHandler` subclasses.
 
 
+Requirements
+------------
+IntentKit requires Xcode 5, targeting iOS 7.0 and above.
+
+
 Contributing
 ------------
 All contributions are welcome! If you want to help but don't know where to begin, adding in support for a new third-party application can be a great way to get started (it typically doesn't require writing any code).
