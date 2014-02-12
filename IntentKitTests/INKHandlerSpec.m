@@ -72,6 +72,13 @@ describe(@"INKHandler", ^{
         });
     });
 
+    describe(@"defaultApp", ^{
+        it(@"should return the current default", ^{
+            [given([handler.defaultsManager defaultApplicationForHandler:handler.class]) willReturn:@"Flappy Bird"];
+            expect([handler defaultApp]).to.equal(@"Flappy Bird");
+        });
+    });
+
     describe(@"INKActivityViewControllerDefaultsDelegate", ^{
         describe(@"canSetDefault", ^{
             context(@"when there is no default app set", ^{

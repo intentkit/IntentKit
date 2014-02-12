@@ -44,6 +44,10 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     return self;
 }
 
+- (NSString *)defaultApp {
+    return [self.defaultsManager defaultApplicationForHandler:self.class];
+}
+
 - (BOOL)canPerformCommand:(NSString *)command {
     BOOL canPerform = NO;
     for (INKActivity *activity in self.appList.activities) {
@@ -80,8 +84,8 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
         if (availableApps.count == 1) {
             app = availableApps.firstObject;
-        } else if (self.defaultAppName) {
-            NSString *appName = self.defaultAppName;
+        } else if (self.defaultApp) {
+            NSString *appName = self.defaultApp;
             for (INKActivity *theApp in availableApps) {
                 if ([theApp.name isEqualToString:appName]) {
                     app = theApp;
@@ -107,11 +111,6 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 }
 
 - (BOOL)canSetDefault {
-    return (self.defaultAppName == nil);
-}
-
-#pragma mark - Private methods
-- (NSString *)defaultAppName {
-    return [self.defaultsManager defaultApplicationForHandler:self.class];
+    return (self.defaultApp == nil);
 }
 @end
