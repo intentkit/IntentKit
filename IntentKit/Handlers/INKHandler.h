@@ -19,8 +19,6 @@ NSString *(^urlEncode)(NSString *);
  If you are defining URL schemes for a new discrete class of third-party applications (such as "web browsers" or "mapping applications", you may want to create your own `INKHandler` subclass. All custom methods you create that perform actions should ultimately return a UIActivityController created by calling performCommand:withArguments:. */
 @interface INKHandler : NSObject<INKActivityViewControllerDefaultsDelegate>
 
-/** An array of INKActivity objects that represent all apps, regardless of whether they are available or relevant */
-@property (strong, readonly) NSArray *activities;
 
 /** If no apps are available to perform a given task, if `fallback` is set to YES then the handler will attempt to perform the task in a web browser instead. YES by default. */
 @property (nonatomic) BOOL useFallback;
