@@ -9,6 +9,10 @@
 
 @implementation INKFacebookHandler
 
+- (NSString *)name {
+    return @"Facebook Client";
+}
+
 - (INKActivityPresenter *)showProfileWithId:(NSString *)userId {
     NSDictionary *args = @{ @"userId" : userId };
     return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];

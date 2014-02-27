@@ -18,6 +18,10 @@
     @(INKMapsHandlerDirectionsModeWalking): @"walking"};
 }
 
+- (NSString *)name {
+    return @"Mapping App";
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.zoom = -1;

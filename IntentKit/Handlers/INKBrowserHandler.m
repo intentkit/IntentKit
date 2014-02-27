@@ -11,6 +11,10 @@
 
 @implementation INKBrowserHandler
 
+- (NSString *)name {
+    return @"Web Browser";
+}
+
 - (INKActivityPresenter *)openURL:(NSURL *)url {
     NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
     NSDictionary *args = @{@"url": strippedUrl};

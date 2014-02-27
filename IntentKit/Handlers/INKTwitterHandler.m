@@ -10,6 +10,10 @@
 
 @implementation INKTwitterHandler
 
+- (NSString *)name {
+    return @"Twitter Client";
+}
+
 - (INKActivityPresenter *)showTweetWithId:(NSString *)tweetId {
     NSDictionary *args = [self argumentsDictionaryWithArguments:@{@"tweetId": tweetId}];
     return [self performCommand:NSStringFromSelector(_cmd)

@@ -9,6 +9,10 @@
 
 @implementation INKGPlusHandler
 
+- (NSString *)name {
+    return @"Google+ Client";
+}
+
 - (INKActivityPresenter *)showGPlusProfileWithId:(NSString *)userId {
     NSDictionary *args = @{ @"userId" : userId };
     return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];

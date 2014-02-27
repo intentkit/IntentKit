@@ -44,6 +44,10 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     return self;
 }
 
+- (NSString *)name {
+    @throw @"Method not implemented";
+}
+
 - (NSString *)defaultApp {
     return [self.defaultsManager defaultApplicationForHandler:self.class];
 }
