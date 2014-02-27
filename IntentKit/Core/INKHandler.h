@@ -48,4 +48,8 @@ NSString *(^urlEncode)(NSString *);
  @param args The dictionary of arguments used to construct a URL based on the templates defined for each URL scheme.
  @return A `INKActivityPresenter` object to present. */
 - (INKActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
+
+/** Prompts the user to pick a default application for the handler
+ @return An `INKActivityPresenter` object to present. */
+- (INKActivityPresenter *)promptToSetDefault;
 @end

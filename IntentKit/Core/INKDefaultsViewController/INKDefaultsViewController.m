@@ -30,10 +30,6 @@ static NSString * const CellIdentifier = @"cell";
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [INKApplicationList availableHandlers].count;
 }
 
@@ -41,14 +37,16 @@ static NSString * const CellIdentifier = @"cell";
     return [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    INKHandler *handler = [[[INKApplicationList availableHandlers][section] alloc] init];
-    return handler.name;
-}
-
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(INKDefaultsCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.handlerClass = [INKApplicationList availableHandlers][indexPath.section];
+    cell.handlerClass = [INKApplicationList availableHandlers][indexPath.row];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Class handlerClass = [INKApplicationList availableHandlers][indexPath.row];
+    INKHandler *handler = [[handlerClass alloc] init];
+    [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 @end
