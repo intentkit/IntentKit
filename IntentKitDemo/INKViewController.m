@@ -191,7 +191,7 @@
     INKActivityPresenter *(^action)() = self.content[indexPath.section][@"items"][indexPath.row][@"action"];
     INKActivityPresenter *presenter = action();
 
-    [presenter presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [presenter presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -78,6 +78,12 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 
 - (void)setIsDefaultSelector:(BOOL)isDefaultSelector {
     _isDefaultSelector = isDefaultSelector;
+    if (isDefaultSelector) {
+        self.defaultToggleView.frame = CGRectZero;
+        self.defaultToggleView.hidden = YES;
+    }
+
+    [self setBounds];
 }
 
 - (NSInteger)numberOfApplications {
