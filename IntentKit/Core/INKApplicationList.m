@@ -8,6 +8,9 @@
 
 #import "INKApplicationList.h"
 #import "INKActivity.h"
+#import "INKHandler.h"
+
+#import <objc/runtime.h>
 
 @interface INKApplicationList ()
 @property (strong, nonatomic) UIApplication *application;

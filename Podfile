@@ -1,4 +1,4 @@
-pod "MWLayoutHelpers", git: "https://github.com/lazerwalker/MWLayoutHelpers.git"
+pod "MWLayoutHelpers"
 
 target :IntentKitTests do
     pod "Specta", "~> 0.2.1"

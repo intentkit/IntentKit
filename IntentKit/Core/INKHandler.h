@@ -7,6 +7,7 @@
 //
 
 #import "INKActivityViewController.h"
+#import "INKActivityPresenter.h"
 
 NSString *(^urlEncode)(NSString *);
 

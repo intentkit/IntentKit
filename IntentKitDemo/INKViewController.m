@@ -10,6 +10,13 @@
 #import "IntentKit.h"
 #import "INKActivityPresenter.h"
 
+#import "INKBrowserHandler.h"
+#import "INKMapsHandler.h"
+#import "INKMailHandler.h"
+#import "INKTwitterHandler.h"
+#import "INKFacebookHandler.h"
+#import "INKGPlusHandler.h"
+
 @interface INKViewController ()
 
 @property (strong, nonatomic) UIPopoverController *popover;
