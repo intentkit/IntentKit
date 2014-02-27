@@ -9,6 +9,7 @@
 #import "INKViewController.h"
 #import "IntentKit.h"
 #import "INKActivityPresenter.h"
+#import "INKDefaultsViewController.h"
 
 #import "INKBrowserHandler.h"
 #import "INKMapsHandler.h"
@@ -29,6 +30,10 @@
     if (self = [super init]) {
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 44, 0);
+
+        self.title = @"IntentKit";
+        UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapSettingsButton)];
+        self.navigationItem.leftBarButtonItem = settings;
     }
     return self;
 }
@@ -206,5 +211,11 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return self.content[section][@"name"];
+}
+
+#pragma mark - Event Handlers
+- (void)didTapSettingsButton {
+    INKDefaultsViewController *defaultsController = [[INKDefaultsViewController alloc] init];
+    [self.navigationController pushViewController:defaultsController animated:YES];
 }
 @end

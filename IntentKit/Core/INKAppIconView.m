@@ -70,23 +70,12 @@ static NSString *INKActivityCellIconBorder = @"iconBorder";
     [super layoutSubviews];
 
     __weak UIImageView *imageView = self.imageView;
-    [self maskImage:self.image completion:^(UIImage *maskedImage) {
+    [self maskImageWithCompletion:^(UIImage *maskedImage) {
         imageView.image = maskedImage;
     }];
 }
 
-#pragma mark - Private methods
-- (UIImage *)imageNamed:(NSString *)name {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
-    NSBundle *bundle;
-    if (bundleURL) {
-        bundle  = [NSBundle bundleWithURL:bundleURL];
-    }
-    NSString *filename = [bundle pathForResource:name ofType:@"png"];
-    return [UIImage imageWithContentsOfFile:filename];
-}
-
-- (void)maskImage:(UIImage *)image completion:(void(^)(UIImage *maskedImage))completion {
+- (void)maskImageWithCompletion:(void(^)(UIImage *maskedImage))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         CGImageRef maskRef = [[self imageNamed:INKActivityCellIconMask]CGImage];
@@ -97,7 +86,7 @@ static NSString *INKActivityCellIconBorder = @"iconBorder";
                                             CGImageGetBitsPerPixel(maskRef),
                                             CGImageGetBytesPerRow(maskRef),
                                             CGImageGetDataProvider(maskRef), NULL, false);
-        CGImageRef maskedImageRef = CGImageCreateWithMask(image.CGImage, mask);
+        CGImageRef maskedImageRef = CGImageCreateWithMask(self.image.CGImage, mask);
         CGFloat scale = UIScreen.mainScreen.scale;
         UIImage *maskedImage = [UIImage imageWithCGImage:maskedImageRef scale:scale orientation:UIImageOrientationUp];
         CGImageRelease(mask);
@@ -110,4 +99,17 @@ static NSString *INKActivityCellIconBorder = @"iconBorder";
         });
     });
 }
+
+
+#pragma mark - Private methods
+- (UIImage *)imageNamed:(NSString *)name {
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle  = [NSBundle bundleWithURL:bundleURL];
+    }
+    NSString *filename = [bundle pathForResource:name ofType:@"png"];
+    return [UIImage imageWithContentsOfFile:filename];
+}
+
 @end

@@ -263,6 +263,7 @@
 		A62553E618BF9D7500766DC6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A67693F218BFAC9200D531C2 /* INKDefaultsViewController */,
 				A62553E718BF9D7500766DC6 /* Helpers */,
 				A62553EA18BF9D7500766DC6 /* INKActivity.h */,
 				A67693ED18BFA54100D531C2 /* INKHandler.h */,
@@ -279,6 +280,8 @@
 				A62553FA18BF9D7500766DC6 /* INKLocalizedString.m */,
 				A62553FB18BF9D7500766DC6 /* IntentKit.h */,
 				A62553FC18BF9D7500766DC6 /* IntentKit.m */,
+				A676940918BFDA3500D531C2 /* INKAppIconView.h */,
+				A676940A18BFDA3500D531C2 /* INKAppIconView.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -303,6 +306,17 @@
 				A62553F218BF9D7500766DC6 /* INKActivityViewController.m */,
 			);
 			path = INKActivityViewController;
+			sourceTree = "<group>";
+		};
+		A67693F218BFAC9200D531C2 /* INKDefaultsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A67693F318BFACC400D531C2 /* INKDefaultsViewController.h */,
+				A67693F418BFACC400D531C2 /* INKDefaultsViewController.m */,
+				A676940418BFB31100D531C2 /* INKDefaultsCell.h */,
+				A676940518BFB31100D531C2 /* INKDefaultsCell.m */,
+			);
+			name = INKDefaultsViewController;
 			sourceTree = "<group>";
 		};
 		A67F39D7184EDFE5002EED53 /* Other Frameworks */ = {
@@ -451,6 +465,7 @@
 				A61B5CC018579EBC00BA1F66 /* INKActivityViewControllerSpec.m */,
 				A61B5CC81858D4F800BA1F66 /* INKAppPlistLinter.m */,
 				A605C31718623D0F007E6AFE /* INKDefaultsManagerSpec.m */,
+				A67693F818BFB10F00D531C2 /* INKDefaultsViewControllerSpec.m */,
 			);
 			path = IntentKitTests;
 			sourceTree = "<group>";
@@ -664,15 +679,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A625540818BF9D7500766DC6 /* INKActivityPresenter.m in Sources */,
+				A676940618BFB31100D531C2 /* INKDefaultsCell.m in Sources */,
 				A625540E18BF9D7500766DC6 /* INKApplicationList.m in Sources */,
 				A67693EB18BFA1CF00D531C2 /* INKBrowserHandler.m in Sources */,
+				A67693FB18BFB27100D531C2 /* INKFacebookHandler.m in Sources */,
 				A625541A18BF9D7500766DC6 /* IntentKit.m in Sources */,
 				A62553FF18BF9D7500766DC6 /* NSString+Helpers.m in Sources */,
 				A625541718BF9D7500766DC6 /* INKLocalizedString.m in Sources */,
 				A625540B18BF9D7500766DC6 /* INKActivityViewController.m in Sources */,
 				A625540218BF9D7500766DC6 /* INKActivity.m in Sources */,
+				A676940218BFB28400D531C2 /* INKTwitterHandler.m in Sources */,
+				A676940118BFB28100D531C2 /* INKMailHandler.m in Sources */,
+				A67693FD18BFB27500D531C2 /* INKGPlusHandler.m in Sources */,
 				A625541418BF9D7500766DC6 /* INKDefaultToggleView.m in Sources */,
+				A676940B18BFDA3500D531C2 /* INKAppIconView.m in Sources */,
 				A625541118BF9D7500766DC6 /* INKDefaultsManager.m in Sources */,
+				A67693FF18BFB27800D531C2 /* INKMapsHandler.m in Sources */,
+				A67693F518BFACC400D531C2 /* INKDefaultsViewController.m in Sources */,
 				A625540518BF9D7500766DC6 /* INKActivityCell.m in Sources */,
 				A67693F118BFA54100D531C2 /* INKHandler.m in Sources */,
 			);
@@ -684,6 +707,7 @@
 			files = (
 				A625540C18BF9D7500766DC6 /* INKApplicationList.m in Sources */,
 				0CB3E9CB185FC89600DD0D7D /* INKFacebookHandler.m in Sources */,
+				A67693F718BFAD2100D531C2 /* INKDefaultsViewController.m in Sources */,
 				A625540318BF9D7500766DC6 /* INKActivityCell.m in Sources */,
 				0CB3E9CC185FC89600DD0D7D /* INKGPlusHandler.m in Sources */,
 				A69DAC40185037BA0028FCD1 /* INKMapsHandler.m in Sources */,
@@ -691,11 +715,13 @@
 				A625541818BF9D7500766DC6 /* IntentKit.m in Sources */,
 				A625541518BF9D7500766DC6 /* INKLocalizedString.m in Sources */,
 				A6474F7D1851416F00671B42 /* INKTwitterHandler.m in Sources */,
+				A676940818BFB45F00D531C2 /* INKDefaultsCell.m in Sources */,
 				A6B73CEB184D38450055C60D /* INKAppDelegate.m in Sources */,
 				A6B73CE7184D38450055C60D /* main.m in Sources */,
 				A625540018BF9D7500766DC6 /* INKActivity.m in Sources */,
 				A6B73CED184D38450055C60D /* INKViewController.m in Sources */,
 				A625541218BF9D7500766DC6 /* INKDefaultToggleView.m in Sources */,
+				A676940C18BFDC4500D531C2 /* INKAppIconView.m in Sources */,
 				A625540F18BF9D7500766DC6 /* INKDefaultsManager.m in Sources */,
 				A67693EF18BFA54100D531C2 /* INKHandler.m in Sources */,
 				A69DAC3F185037B60028FCD1 /* INKBrowserHandler.m in Sources */,
@@ -711,16 +737,21 @@
 			files = (
 				A6E655B2185FB2B30085F906 /* EXPMatchers+haveAValidName.m in Sources */,
 				A605C31818623D0F007E6AFE /* INKDefaultsManagerSpec.m in Sources */,
+				A676940718BFB45E00D531C2 /* INKDefaultsCell.m in Sources */,
 				A6B73D02184D38650055C60D /* INKBrowserHandlerSpec.m in Sources */,
+				A67693FA18BFB27000D531C2 /* INKFacebookHandler.m in Sources */,
 				A6170A6918543FFA0086AC63 /* INKHandlerSpec.m in Sources */,
 				A6474F7F1851418500671B42 /* INKTwitterHandlerSpec.m in Sources */,
 				A67693F018BFA54100D531C2 /* INKHandler.m in Sources */,
+				A676940018BFB28000D531C2 /* INKMailHandler.m in Sources */,
 				A625541318BF9D7500766DC6 /* INKDefaultToggleView.m in Sources */,
+				A676940318BFB28400D531C2 /* INKTwitterHandler.m in Sources */,
 				A6B73CE8184D38450055C60D /* main.m in Sources */,
 				A625541618BF9D7500766DC6 /* INKLocalizedString.m in Sources */,
 				A61B5CBF18579C3700BA1F66 /* INKViewController.m in Sources */,
 				A62553FE18BF9D7500766DC6 /* NSString+Helpers.m in Sources */,
 				A625541018BF9D7500766DC6 /* INKDefaultsManager.m in Sources */,
+				A67693F918BFB10F00D531C2 /* INKDefaultsViewControllerSpec.m in Sources */,
 				A67693EC18BFA1D100D531C2 /* INKBrowserHandler.m in Sources */,
 				A6B73CFC184D38650055C60D /* INKActivitySpec.m in Sources */,
 				A625540A18BF9D7500766DC6 /* INKActivityViewController.m in Sources */,
@@ -732,7 +763,11 @@
 				A61B5CC91858D4F800BA1F66 /* INKAppPlistLinter.m in Sources */,
 				A61B5CC71858D19D00BA1F66 /* EXPMatchers+beAValidAction.m in Sources */,
 				A61B5CC118579EBC00BA1F66 /* INKActivityViewControllerSpec.m in Sources */,
+				A67693F618BFAD2100D531C2 /* INKDefaultsViewController.m in Sources */,
 				A625540D18BF9D7500766DC6 /* INKApplicationList.m in Sources */,
+				A676940D18BFDC4500D531C2 /* INKAppIconView.m in Sources */,
+				A67693FC18BFB27400D531C2 /* INKGPlusHandler.m in Sources */,
+				A67693FE18BFB27700D531C2 /* INKMapsHandler.m in Sources */,
 				A61B5CBD18579B2100BA1F66 /* INKActivityPresenterSpec.m in Sources */,
 				A625540118BF9D7500766DC6 /* INKActivity.m in Sources */,
 				A6B73CEC184D38450055C60D /* INKAppDelegate.m in Sources */,
