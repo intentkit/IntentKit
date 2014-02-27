@@ -61,7 +61,7 @@
 }
 
 - (NSString *)fallbackUrlForCommand:(NSString *)command {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-INKBrowserHandler" withExtension:@"bundle"];
     NSBundle *bundle;
     if (bundleURL) {
         bundle = [NSBundle bundleWithURL:bundleURL];

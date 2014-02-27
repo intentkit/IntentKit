@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.subspec 'Browsers' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.source_files = 'IntentKit/Handlers/INKBrowserHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,Fallback}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,Defaults}/*.{plist,png}" }
   end
 
   s.subspec 'Twitter' do |ss|
