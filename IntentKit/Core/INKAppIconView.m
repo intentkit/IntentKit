@@ -75,6 +75,11 @@ static NSString *INKActivityCellIconBorder = @"iconBorder";
     }];
 }
 
+- (void)setImage:(UIImage *)image {
+    _image = image;
+    [self setNeedsLayout];
+}
+
 - (void)maskImageWithCompletion:(void(^)(UIImage *maskedImage))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 

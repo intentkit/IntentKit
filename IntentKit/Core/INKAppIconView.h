@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /** A view that shows a single image presented as an app icon (i.e. it is masked to an iOS 7-style superellipse and has a border */
-@interface INKAppIconView : UIImageView
+@interface INKAppIconView : UIView
 
 /** The UIImage to be displayed. */
 @property (strong, nonatomic) UIImage *image;
