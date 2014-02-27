@@ -82,6 +82,15 @@
     return [activities copy];
 }
 
+- (INKActivity *)activityWithName:(NSString *)name {
+    for (INKActivity *activity in self.activities) {
+        if ([activity.name isEqualToString:name]) {
+            return activity;
+        }
+    }
+    return nil;
+}
+
 - (NSString *)fallbackUrlForCommand:(NSString *)command {
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-INKBrowserHandler" withExtension:@"bundle"];
     NSBundle *bundle;

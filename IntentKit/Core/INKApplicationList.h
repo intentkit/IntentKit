@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mike Walker. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@class INKActivity;
 
 /** A `INKApplicationList` is a data source that provides a list of third-party applications. */
 @interface INKApplicationList : NSObject
@@ -31,6 +31,11 @@
  third-party app for a given handler, including ones that the user doesn't have
  installed. */
 @property (readonly) NSArray *activities;
+
+/** Returns the activity for a given app name
+ @param name A string containing the English name of an app belonging to the current handler class
+ @return An INKActivity object representing that application */
+- (INKActivity *)activityWithName:(NSString *)name;
 
 /** Return the fallback URL, if applicable, for a given command
  @param command A command to return the fallback for
