@@ -45,7 +45,9 @@ static NSString * const CellIdentifier = @"cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Class handlerClass = [INKApplicationList availableHandlers][indexPath.row];
     INKHandler *handler = [[handlerClass alloc] init];
-    [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:^{
+            [self.tableView reloadData];
+    }];
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

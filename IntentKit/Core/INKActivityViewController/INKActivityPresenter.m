@@ -20,6 +20,8 @@
 @property (assign, nonatomic) UIModalPresentationStyle originalPresentingModalPresentationStyle;
 @property (assign, nonatomic) UIModalPresentationStyle originalRootModalPresentationStyle;
 
+@property (copy, nonatomic) void (^completionBlock)();
+
 @end
 
 @implementation INKActivityPresenter
@@ -47,8 +49,10 @@
     return self.activity || self.activitySheet.numberOfApplications > 0;
 }
 
-- (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController {
+- (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController completion:(void (^)())completion {
     if (!self.canPerformActivity) return;
+
+    self.completionBlock = completion;
 
     if (self.activity) {
         [self.activity performActivity];
@@ -76,8 +80,10 @@
     }
 }
 
-- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
+- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated completion:(void (^)())completion {
     if (!self.canPerformActivity) return;
+
+    self.completionBlock = completion;
 
     if (self.activity) {
         [self.activity performActivity];
@@ -87,12 +93,14 @@
         self.popoverController.popoverContentSize = self.activitySheet.view.bounds.size;
         [self.popoverController presentPopoverFromRect:rect inView:view permittedArrowDirections:arrowDirections animated:animated];
     } else {
-        [self presentModalActivitySheetFromViewController:presentingViewController];
+        [self presentModalActivitySheetFromViewController:presentingViewController completion:self.completionBlock];
     }
 }
 
-- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
+- (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated completion:(void (^)())completion {
     if (!self.canPerformActivity) return;
+
+    self.completionBlock = completion;
 
     if (self.activity) {
         [self.activity performActivity];
@@ -101,7 +109,7 @@
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
         [self.popoverController presentPopoverFromBarButtonItem:item  permittedArrowDirections:arrowDirections animated:animated];
     } else {
-        [self presentModalActivitySheetFromViewController:presentingViewController];
+        [self presentModalActivitySheetFromViewController:presentingViewController completion:completion];
     }
 }
 
@@ -123,6 +131,11 @@
         }
 
         [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+
+        if (self.completionBlock) {
+            self.completionBlock();
+            self.completionBlock = nil;
+        }
     };
 
     if (animated) {

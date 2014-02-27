@@ -21,7 +21,7 @@
 }
 
 - (void)setHandlerClass:(Class)handlerClass {
-    if (handlerClass == _handlerClass || ![handlerClass isSubclassOfClass:[INKHandler class]]) return;
+    if (![handlerClass isSubclassOfClass:[INKHandler class]]) return;
 
     _handlerClass = handlerClass;
 

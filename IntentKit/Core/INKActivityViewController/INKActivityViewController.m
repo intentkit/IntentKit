@@ -76,6 +76,10 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
     return self;
 }
 
+- (void)setIsDefaultSelector:(BOOL)isDefaultSelector {
+    _isDefaultSelector = isDefaultSelector;
+}
+
 - (NSInteger)numberOfApplications {
     return self.applicationActivities.count;
 }
@@ -89,6 +93,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 
 - (void)configureForPad {
     self.defaultToggleView.frame = CGRectMake(0, 0, self.view.width, self.defaultToggleView.height);
+
     CGRect frame = CGRectMake(0,
                               0,
                               INKActivityViewControllerWidth_Pad,
@@ -155,14 +160,16 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     INKActivity *activity = self.applicationActivities[indexPath.row];
 
-    if (self.defaultToggleView.isOn) {
+    if (self.defaultToggleView.isOn || self.isDefaultSelector) {
         [self.delegate addDefault:activity];
     }
 
     [self.presenter dismissActivitySheetAnimated:NO];
 
-    [activity prepareWithActivityItems:self.activityItems];
-    [activity performActivity];
+    if (!self.isDefaultSelector) {
+        [activity prepareWithActivityItems:self.activityItems];
+        [activity performActivity];
+    }
 
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }

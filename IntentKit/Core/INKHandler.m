@@ -112,6 +112,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 - (INKActivityPresenter *)promptToSetDefault {
     INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:@[] applicationActivities:self.appList.activities];
     activityView.delegate = self;
+    activityView.isDefaultSelector = YES;
     return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];
 }
 
