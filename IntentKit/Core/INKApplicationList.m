@@ -18,6 +18,28 @@
 
 @implementation INKApplicationList
 
++ (NSArray *)availableHandlers {
+    NSMutableArray *results = [NSMutableArray new];
+
+    int numClasses;
+    Class *classes = NULL;
+    numClasses = objc_getClassList(NULL, 0);
+    if (numClasses > 0 ) {
+        classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
+        numClasses = objc_getClassList(classes, numClasses);
+    }
+
+    for (int i = 0; i < numClasses; i++) {
+        Class c = classes[i];
+        if (class_getSuperclass(c) == [INKHandler class]) {
+            [results addObject:c];
+        }
+    }
+
+    free(classes);
+    return [results copy];
+}
+
 - (id)initWithApplication:(UIApplication *)application forHandler:(Class)handlerClass {
     if (self = [super init]) {
         self.application = application;

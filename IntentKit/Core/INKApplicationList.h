@@ -11,6 +11,10 @@
 /** A `INKApplicationList` is a data source that provides a list of third-party applications. */
 @interface INKApplicationList : NSObject
 
+/** Lists all handler objects currently available
+ @return An NSArray of Class objects representing INKHandler subclasses. */
++ (NSArray *)availableHandlers;
+
 /** Create a new `INKApplicationList` object for a given handler class.
  @param handlerClass An INKHandler subclass to load applications for. */
 - (id)initWithHandler:(Class)handlerClass;
