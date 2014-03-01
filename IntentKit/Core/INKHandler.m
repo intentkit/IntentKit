@@ -110,7 +110,14 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 }
 
 - (INKActivityPresenter *)promptToSetDefault {
-    INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:@[] applicationActivities:self.appList.activities];
+    NSMutableArray *activities = [NSMutableArray new];
+    for (INKActivity *activity in self.appList.activities) {
+        if (activity.isAvailableOnDevice) {
+            [activities addObject:activity];
+        }
+    }
+
+    INKActivityViewController *activityView = [[INKActivityViewController alloc] initWithActivityItems:@[] applicationActivities:activities];
     activityView.delegate = self;
     activityView.isDefaultSelector = YES;
     return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];

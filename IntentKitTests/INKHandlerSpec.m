@@ -79,6 +79,36 @@ describe(@"INKHandler", ^{
         });
     });
 
+    describe(@"promptToSetDefault", ^{
+        __block INKActivityViewController *controller;
+        __block INKActivityPresenter *presenter;
+
+        beforeEach(^{
+            presenter = [handler promptToSetDefault];
+            controller = presenter.activitySheet;
+        });
+
+        it(@"should return a presenter", ^{
+            expect(presenter).to.beKindOf([INKActivityPresenter class]);
+        });
+
+        it(@"should set an activity view controller on the presenter", ^{
+            expect(controller).to.beKindOf([INKActivityViewController class]);
+        });
+
+        it(@"should set the delegate", ^{
+            expect(controller.delegate).to.equal(handler);
+        });
+
+        it(@"should have the appropriate default flag", ^{
+            expect(controller.isDefaultSelector).to.beTruthy();
+        });
+
+        it(@"should only include available applications", ^{
+            expect(controller.numberOfApplications).to.beLessThan(handler.appList.activities.count);
+        });
+    });
+
     describe(@"INKActivityViewControllerDefaultsDelegate", ^{
         describe(@"canSetDefault", ^{
             context(@"when there is no default app set", ^{
