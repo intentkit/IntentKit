@@ -30,6 +30,32 @@
 
     INKActivity *activity = [appList activityWithName:handler.defaultApp];
 
+    if (activity.isAvailableOnDevice) {
+        [self renderActivity:activity];
+    } else {
+        if (appList.canUseFallback) {
+            Class browserClass = NSClassFromString(@"INKBrowserHandler");
+            INKHandler *browserHandler = [[browserClass alloc] init];
+            appList = [[INKApplicationList alloc] initWithApplication:[UIApplication sharedApplication] forHandler:browserClass];
+            activity = [appList activityWithName:browserHandler.defaultApp];
+
+            [self renderActivity:activity];
+        } else {
+            self.textLabel.text = @"No apps installed";
+        }
+    }
+
+    self.detailTextLabel.text = handler.name;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self.imageView resizeTo:CGSizeMake(32, 32)];
+    [self.imageView moveToPoint:CGPointMake(10, 6)];
+    [self.textLabel moveToPoint:CGPointMake(55, self.textLabel.top)];
+}
+
+- (void)renderActivity:(INKActivity *)activity {
     INKAppIconView *iconView = [[INKAppIconView alloc] initWithImage:activity.activityImage];
     [iconView layoutSubviews];
 
@@ -39,15 +65,6 @@
     }];
 
     self.textLabel.text = activity.localizedName;
-    self.detailTextLabel.text = handler.name;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    [self.imageView resizeTo:CGSizeMake(32, 32)];
-    [self.imageView moveToPoint:CGPointMake(10, 6)];
-    [self.textLabel moveToPoint:CGPointMake(55, self.textLabel.top)];
-
 }
 
 @end
