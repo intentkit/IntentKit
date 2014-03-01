@@ -51,6 +51,6 @@ Pod::Spec.new do |s|
     ss.dependency 'IntentKit/Core'
     ss.dependency 'IntentKit/Browsers'
     ss.source_files = 'IntentKit/Handlers/INKGPlusHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKGPlusHandler' => "IntentKit/Apps/GPlus/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKGPlusHandler' => "IntentKit/Apps/Google+/*.{plist,png}" }
   end
 end
