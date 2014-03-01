@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.subspec 'Maps' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.source_files = 'IntentKit/Handlers/INKMapsHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKMapsHandler' => "IntentKit/Apps/{Maps,GoogleMaps}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKMapsHandler' => "IntentKit/Apps/{Maps,Google Maps}/*.{plist,png}" }
   end
 
   s.subspec 'Mail' do |ss|
