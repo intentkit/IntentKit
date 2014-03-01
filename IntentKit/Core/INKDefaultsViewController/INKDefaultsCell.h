@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/** A cell detailing the default application of a given INKHandler subclass */
 @interface INKDefaultsCell : UITableViewCell
 
+/** The INKHandler subclass being represented by the cell. */
 @property (strong, nonatomic) Class handlerClass;
 
 @end
