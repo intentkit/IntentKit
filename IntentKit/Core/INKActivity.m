@@ -82,6 +82,10 @@
     return self.name;
 }
 
+- (BOOL)isAvailableOnDevice {
+    return [self canPerformCommand:self.actions.allKeys.firstObject];
+}
+
 #pragma mark - UIActivity methods
 + (UIActivityCategory)activityCategory {
     return UIActivityCategoryAction;

@@ -123,6 +123,22 @@ describe(@"INKActivity", ^{
             [(UIApplication *)verify(app) openURL:[NSURL URLWithString:@"googlechrome://google.com"]];
         });
     });
+
+    describe(@"isAvailableOnDevice", ^{
+        context(@"when the app is installed", ^{
+            it(@"should be true", ^{
+                [given([app canOpenURL:anything()]) willReturnBool:YES];
+                expect(activity.isAvailableOnDevice).to.beTruthy();
+            });
+        });
+
+        context(@"when the app is not installed", ^{
+            it(@"should not be true", ^{
+                [given([app canOpenURL:anything()]) willReturnBool:NO];
+                expect(activity.isAvailableOnDevice).notTo.beTruthy();
+            });
+        });
+    });
 });
 
 SpecEnd

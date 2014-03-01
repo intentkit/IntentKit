@@ -25,6 +25,8 @@
  as `name`. */
 @property (readonly) NSString *localizedName;
 
+/** True if the device currently has this application available to use */
+@property (readonly) BOOL isAvailableOnDevice;
 
 /** A dictionary of URL schemes an application responds to. The keys are command names, and the values are handlebar-templated strings that can be used to construct a valid URL. */
 @property (strong, nonatomic) NSDictionary *actions;
