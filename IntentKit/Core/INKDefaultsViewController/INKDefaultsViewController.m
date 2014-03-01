@@ -26,6 +26,8 @@ static NSString * const CellIdentifier = @"cell";
 
     [self.tableView registerClass:[INKDefaultsCell class] forCellReuseIdentifier:CellIdentifier];
 
+    self.title = @"App Defaults";
+
     return self;
 }
 
