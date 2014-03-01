@@ -14,4 +14,7 @@
 /** The INKHandler subclass being represented by the cell. */
 @property (strong, nonatomic) Class handlerClass;
 
+/** If true, the data being shown represents a web browser fallback */
+@property (readonly) BOOL isUsingFallback;
+
 @end

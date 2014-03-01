@@ -10,6 +10,7 @@
 #import "INKApplicationList.h"
 #import "INKDefaultsCell.h"
 #import "INKHandler.h"
+#import "INKBrowserHandler.h"
 
 static NSString * const CellIdentifier = @"cell";
 
@@ -52,7 +53,8 @@ static NSString * const CellIdentifier = @"cell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Class handlerClass = self.handlers[indexPath.row];
+    INKDefaultsCell *cell = (INKDefaultsCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    Class handlerClass = (cell.isUsingFallback ? INKBrowserHandler.class : self.handlers[indexPath.row]);
     INKHandler *handler = [[handlerClass alloc] init];
     [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:^{
             [self.tableView reloadData];

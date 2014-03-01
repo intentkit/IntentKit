@@ -14,6 +14,10 @@
 
 #import <UIView+MWLayoutHelpers.h>
 
+@interface INKDefaultsCell ()
+@property (readwrite, assign, nonatomic) BOOL isUsingFallback;
+@end
+
 @implementation INKDefaultsCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -22,6 +26,8 @@
 
 - (void)setHandlerClass:(Class)handlerClass {
     if (![handlerClass isSubclassOfClass:[INKHandler class]]) return;
+
+    self.isUsingFallback = NO;
 
     _handlerClass = handlerClass;
 
@@ -34,6 +40,7 @@
         [self renderActivity:activity];
     } else {
         if (appList.canUseFallback) {
+            self.isUsingFallback = YES;
             Class browserClass = NSClassFromString(@"INKBrowserHandler");
             INKHandler *browserHandler = [[browserClass alloc] init];
             appList = [[INKApplicationList alloc] initWithApplication:[UIApplication sharedApplication] forHandler:browserClass];
