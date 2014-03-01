@@ -38,14 +38,14 @@ describe(@"INKActivityPresenter", ^{
 
         describe(@"#presentModalActivitySheetFromViewController:", ^{
             it(@"should perform the action", ^{
-                [presenter presentModalActivitySheetFromViewController:nil];
+                [presenter presentModalActivitySheetFromViewController:nil completion:nil];
                 [(INKActivity *)verify(activity) performActivity];
             });
         });
 
         describe(@"presentActivitySheetFromViewController:popoverFromRect:inView:", ^{
             it(@"should perform the action", ^{
-                [presenter presentActivitySheetFromViewController:nil popoverFromRect:CGRectZero inView:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                [presenter presentActivitySheetFromViewController:nil popoverFromRect:CGRectZero inView:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
                 [(INKActivity *)verify(activity) performActivity];
             });
 
@@ -53,7 +53,7 @@ describe(@"INKActivityPresenter", ^{
 
         describe(@"presentActivitySheetFromViewController:barButtonItem:", ^{
             it(@"should perform the action", ^{
-                [presenter presentActivitySheetFromViewController:nil popoverFromBarButtonItem:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                [presenter presentActivitySheetFromViewController:nil popoverFromBarButtonItem:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
                 [(INKActivity *)verify(activity) performActivity];
             });
 
@@ -73,7 +73,7 @@ describe(@"INKActivityPresenter", ^{
             context(@"when there are multiple apps", ^{
                 beforeEach(^{
                     [given([activitySheet numberOfApplications]) willReturnInteger:2];
-                    [presenter presentModalActivitySheetFromViewController:presentingController];
+                    [presenter presentModalActivitySheetFromViewController:presentingController completion:nil];
                 });
 
                 it(@"should be presented on the correct view controller ", ^{

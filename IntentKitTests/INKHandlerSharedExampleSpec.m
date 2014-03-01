@@ -136,7 +136,7 @@ sharedExamplesFor(@"an optional handler property", ^(NSDictionary *data) {
         [given([handler.application canOpenURL:[NSURL URLWithString:urlStringWithParam.urlScheme]]) willReturnBool:YES];
 
         INKActivityPresenter *presenter = subjectAction();
-        [presenter presentModalActivitySheetFromViewController:nil];
+        [presenter presentModalActivitySheetFromViewController:nil completion:nil];
 
         [(UIApplication *)verify(handler.application) openURL:[NSURL URLWithString:urlStringWithParam]];
     });
