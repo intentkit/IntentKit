@@ -63,6 +63,7 @@ describe(@"INKDefaultsViewController", ^{
         });
     });
 
+    // TODO: INKActivityPresenter doesn't actually use the default presenting mechanism; it just sort of injects it into a subview. There should be a way to test this that doesn't test implementation; this would be a good candidate for a KIF/Frank test.
     xdescribe(@"selecting a cell", ^{
         it(@"should show an activity view controller", ^{
             [controller tableView:controller.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
