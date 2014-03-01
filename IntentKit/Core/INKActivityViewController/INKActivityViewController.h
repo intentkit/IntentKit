@@ -33,7 +33,7 @@
 /** If true, tapping an app will not perform its action, but only set the default. It will also hide the 'set default' toggle bar. */
 @property (assign, nonatomic) BOOL isDefaultSelector;
 
-/** The number of applications on the current device capable of hadling the action */
+/** The number of applications on the current device capable of handling the action */
 @property (readonly) NSInteger numberOfApplications;
 
 /** A presenter object responsible for displaying and hiding the view controller */
