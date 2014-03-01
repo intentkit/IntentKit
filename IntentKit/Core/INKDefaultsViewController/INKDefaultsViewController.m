@@ -28,9 +28,18 @@ static NSString * const CellIdentifier = @"cell";
     return self;
 }
 
+- (id)initWithAllowedHandlers:(NSArray *)allowedHandlers {
+    self = [self init];
+    if (!self) return nil;
+
+    self.allowedHandlers = allowedHandlers;
+
+    return self;
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [INKApplicationList availableHandlers].count;
+    return self.handlers.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -39,16 +48,32 @@ static NSString * const CellIdentifier = @"cell";
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(INKDefaultsCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.handlerClass = [INKApplicationList availableHandlers][indexPath.row];
+    cell.handlerClass = self.handlers[indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Class handlerClass = [INKApplicationList availableHandlers][indexPath.row];
+    Class handlerClass = self.handlers[indexPath.row];
     INKHandler *handler = [[handlerClass alloc] init];
     [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:^{
             [self.tableView reloadData];
     }];
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Private
+- (NSArray *)handlers {
+    NSArray *installedHandlers = [INKApplicationList availableHandlers];
+    if (self.allowedHandlers && self.allowedHandlers.count > 0) {
+        NSMutableArray *availableHandlers = [NSMutableArray new];
+        for (Class handlerClass in self.allowedHandlers) {
+            if ([installedHandlers containsObject:handlerClass]) {
+                [availableHandlers addObject:installedHandlers];
+            }
+        }
+        return [availableHandlers copy];
+    } else {
+        return installedHandlers;
+    }
 }
 @end
