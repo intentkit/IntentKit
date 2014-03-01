@@ -91,6 +91,19 @@
     return nil;
 }
 
+- (BOOL)canUseFallback {
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-INKBrowserHandler" withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle = [NSBundle bundleWithURL:bundleURL];
+    }
+
+    NSString *path = [bundle pathForResource:NSStringFromClass(self.handlerClass) ofType:@"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+
+    return !!dict[@"fallbackUrls"];
+}
+
 - (NSString *)fallbackUrlForCommand:(NSString *)command {
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-INKBrowserHandler" withExtension:@"bundle"];
     NSBundle *bundle;

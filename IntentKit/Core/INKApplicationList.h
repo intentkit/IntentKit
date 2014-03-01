@@ -32,6 +32,9 @@
  installed. */
 @property (readonly) NSArray *activities;
 
+/** True if the handler class enables falling back onto a web browser */
+@property (readonly) BOOL canUseFallback;
+
 /** Returns the activity for a given app name
  @param name A string containing the English name of an app belonging to the current handler class
  @return An INKActivity object representing that application */
