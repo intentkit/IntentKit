@@ -92,7 +92,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
         if (availableApps.count == 1) {
             app = availableApps.firstObject;
-        } else if (self.defaultApp) {
+        } else if (self.useSystemDefault && self.defaultApp) {
             NSString *appName = self.defaultApp;
             for (INKActivity *theApp in availableApps) {
                 if ([theApp.name isEqualToString:appName]) {

@@ -38,6 +38,12 @@ to handle all actions; in that case, a fallback activity view will be shown. */
  This is mostly useful for demo purposes (e.g. running in the simulator). */
 @property (nonatomic, assign) BOOL alwaysShowActivityView;
 
+/** If true, this handler object will use a system-provided default if the
+user has not provided one.
+ 
+ To be clear: this means that performing an action with this handler will NEVER prompt the user to set a preference. In order to allow user preferences if this option is set, you will need to give users a way to explicitly set preferences, either by using an `INKDefaultsViewController` or creating your own interface. */
+@property (nonatomic, assign) BOOL useSystemDefault;
+
 /** Returns whether or not an action can be performed at all.
  @param command The name of a command to perform, corresponding with the keys in each application's plist.
  @return YES if the user has at least one application installed that responds to the given command.
