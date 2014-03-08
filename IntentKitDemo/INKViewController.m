@@ -18,10 +18,13 @@
 #import "INKFacebookHandler.h"
 #import "INKGPlusHandler.h"
 
+#import <UIView+MWLayoutHelpers.h>
+
 @interface INKViewController ()
 
 @property (strong, nonatomic) UIPopoverController *popover;
 @property (strong, nonatomic) UISwitch *activitySwitch;
+@property (strong, nonatomic) UISwitch *useSystemDefaultSwitch;
 @end
 
 @implementation INKViewController
@@ -40,18 +43,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 88)];
 
     self.activitySwitch = [[UISwitch alloc] init];
-    self.activitySwitch.on = YES;
+    self.activitySwitch.on = NO;
     [headerView addSubview:self.activitySwitch];
 
-    CGFloat rightEdgeOfSwitch = self.activitySwitch.frame.origin.x + self.activitySwitch.frame.size.width + 5;
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.activitySwitch.frame.origin.x + self.activitySwitch.frame.size.width + 5, 0,
+    CGFloat rightEdgeOfSwitch = self.activitySwitch.right + 5;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(rightEdgeOfSwitch, 0,
                                                                headerView.frame.size.width - rightEdgeOfSwitch, 44)];
     label.text = @"Always show activity view";
     label.minimumScaleFactor = 0.1f;
     [headerView addSubview:label];
+
+
+    self.useSystemDefaultSwitch = [[UISwitch alloc] init];
+    [self.useSystemDefaultSwitch moveToPoint:CGPointMake(0, 44)];
+    self.useSystemDefaultSwitch.on = YES;
+    [headerView addSubview:self.useSystemDefaultSwitch];
+
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(rightEdgeOfSwitch, 44,
+                                                               headerView.frame.size.width - rightEdgeOfSwitch, 44)];
+    label2.text = @"Use system default app";
+    label2.minimumScaleFactor = 0.1f;
+    [headerView addSubview:label2];
+
+
 
     self.tableView.tableHeaderView = headerView;
 }
@@ -64,6 +81,7 @@
                          @"action": (UIActivityViewController *)^{
                              INKBrowserHandler *handler = [[INKBrowserHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              NSURL *url = [NSURL URLWithString:@"http://google.com"];
                              return [handler openURL:url];
                          }
@@ -77,6 +95,7 @@
                          @"action": (UIActivityViewController *)^{
                              INKMapsHandler *handler = [[INKMapsHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              handler.center = CLLocationCoordinate2DMake(32.715, -117.1625); // New York City
                              return [handler searchForLocation:@"Ray's Pizza"];
                          }},
@@ -84,6 +103,7 @@
                          @"action": (UIActivityViewController *)^{
                              INKMapsHandler *handler = [[INKMapsHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              handler.center = CLLocationCoordinate2DMake(32.715, -117.1625); // New York City
                              return [handler directionsFrom:@"Central Park" to:@"Radio City Music Hall"];
                          }}
@@ -95,54 +115,63 @@
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showTweetWithId:@"28"];
                          }},
                        @{@"description": @"Show a user by screen name",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showUserWithScreenName:@"Seinfeld2000"];
                          }},
                        @{@"description": @"Show a user by ID",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showUserWithId:@"1081562149"];
                          }},
                        @{@"description": @"Show timeline",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showTimeline];
                          }},
                        @{@"description": @"Show mentions",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showMentions];
                          }},
                        @{@"description": @"Show DMs",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showDirectMessages];
                          }},
                        @{@"description": @"Search",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler searchFor:@"#yolo"];
                          }},
                        @{@"description": @"Post a tweet",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/intentkit/IntentKit"];
                          }},
                        @{@"description": @"Reply to a tweet",
                          @"action": (UIActivityViewController *)^{
                              INKTwitterHandler *handler = [[INKTwitterHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler tweetMessage:@"IntentKit is blowing my mind! https://github.com/intentkit/IntentKit" inReplyTo:@"28"];
                          }},
                        ]
@@ -153,6 +182,7 @@
                          @"action": (UIActivityViewController *)^{
                             INKMailHandler *handler = [[INKMailHandler alloc] init];
                             handler.alwaysShowActivityView = self.activitySwitch.on;
+                            handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                             handler.subject = @"IntentKit is blowing my mind!";
                             handler.messageBody = @"Check it out on GitHub! https://github.com/intentkit/IntentKit";
                             return [handler sendMailTo:@"appleseed@apple.com"];
@@ -165,6 +195,7 @@
                          @"action": (UIActivityViewController *)^{
                              INKFacebookHandler *handler = [[INKFacebookHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showProfileWithId:@"345800612130911"];
                          }},
                        ]
@@ -175,6 +206,7 @@
                          @"action": (UIActivityViewController *)^{
                              INKGPlusHandler *handler = [[INKGPlusHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
+                             handler.useSystemDefault = self.useSystemDefaultSwitch.on;
                              return [handler showGPlusProfileWithName:@"ArvidGerstmann"];
                          }},
                        ]
