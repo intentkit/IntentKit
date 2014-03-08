@@ -1,3 +1,2 @@
 language: objective-c
-rvm: 2.0.0
 script: xcodebuild test -workspace IntentKitDemo.xcworkspace -scheme IntentKitDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
