@@ -94,19 +94,23 @@ If a user doesn't have any appropriate apps installed that can perform an action
 If you don't want this behavior, you can disable it by setting a handler's `useFallback` property to `NO` before invoking an action.
 
 ### Dealing With Defaults
-When picking an app to use, IntentKit gives users the option to save that app as the default. That application will then be opened automatically every time that handler is presented. If a default app doesn't support a given action (for example, if a user has picked Twitter.app as their default Twitter client, but then tries to do something that only Tweetbot can do), the share sheet will be displayed as normal. In this case, the "Remember" toggle will be disabled.
+There are two main ways IntentKit can present its interface to the user. You can switch between them by setting the `useSystemDefault` property of an `INKHandler` object.
 
-It's good practice to let your users reset or change their preferences. IntentKit does not provide a user-facing way to do this, but it does expose two API methods you can use to integrate this into your app's own UI (e.g. in your app's settings page).
+#### Convention over configuration (recommended)
+If `useSystemDefault` is set to `YES`, performing an INKHandler action will not result in a custom UI being shown; the system will silently pick an application to handle the request. Sensible defaults are picked for each handler type: all handlers that have an Apple-provided application will use that one, and handlers that are based on a third-party service (e.g. Twitter) will default to using the first-party application.
 
-```obj-c
-INKDefaultsManager *defaultsManager = [[INKDefaultsManager alloc] init];
+If you use this method of presenting IntentKit, it's recommended that you give users a way to set their own defaults. There are two ways you can go about doing this.
 
-// Forget the user's preferred Twitter client, but leave all other preferences intact
-[defaultsManager removeDefaultForHandler:[INKTwitterHandler class]];
+* If you want an easy, drop-in solution, IntentKit provides a view controller called `INKDefaultsViewController` that will take care of presenting an interface to the user. You just need to create a new `INKDefaultsViewController` object (`[[INKDefaultsViewController alloc] init]`) and present it on-screen using whatever mechanism you'd like.
 
-// Forget all user preferences
-[defaultsManager removeAllDefaults];
-```
+* If you want more control over the UI experience, IntentKit offers lots of hooks into the data to set your own defaults. At a high level, every INKHandler object has a `promptToSetDefault` method that will return an `INKActivityPresenter` object that handles prompting the user to select an application. If you want even lower-level control, your custom interface can fetch which applications are available for a given handler using an `INKApplicationList` and manually adjust preferences using the `INKDefaultsManager` class.
+
+
+#### Explicit choice
+When `useSystemDefault` is set to `NO`, the first time you perform an action for a given INKHandler the user will be presented with a  selection interface not unlike a UIActivityViewController. It also gives users the option to save that app as the default; if they do so, then that application will be opened automatically every time that handler is presented, skipping the UI. If the default app doesn't support a given action (for example, if a user has picked Twitter.app as their default Twitter client, but then tries to do something that only Tweetbot can do), the share sheet will be displayed as normal. In this case, the "Remember" toggle will be disabled.
+
+Currently, `useSystemDefault` defaults to `NO`. Setting it to `YES` is *highly* recommended, but since it requires additional integration work (finding a place in your UI to allow users to set preferences), it's not currently the default. This will likely change in the future.
+
 
 Documentation
 -------------
