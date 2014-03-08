@@ -14,6 +14,10 @@
     return @"Twitter Client";
 }
 
++ (INKHandlerCategory)category {
+    return INKHandlerCategorySocialNetwork;
+}
+
 - (INKActivityPresenter *)showTweetWithId:(NSString *)tweetId {
     NSDictionary *args = [self argumentsDictionaryWithArguments:@{@"tweetId": tweetId}];
     return [self performCommand:NSStringFromSelector(_cmd)

@@ -13,6 +13,10 @@
     return @"Facebook Client";
 }
 
++ (INKHandlerCategory)category {
+    return INKHandlerCategorySocialNetwork;
+}
+
 - (INKActivityPresenter *)showProfileWithId:(NSString *)userId {
     NSDictionary *args = @{ @"userId" : userId };
     return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];

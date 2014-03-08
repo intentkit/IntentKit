@@ -46,8 +46,12 @@ describe(@"INKDefaultsViewController", ^{
             });
 
             context(@"when the list of allowed handlers has not been set", ^{
-                it(@"should have one section for each installed handler", ^{
-                    expect([controller tableView:controller.tableView numberOfRowsInSection:0]).to.equal(INKApplicationList.availableHandlers.count);
+                it(@"should have multiple sections", ^{
+                    expect([controller numberOfSectionsInTableView:controller.tableView]).to.equal(2);
+                });
+
+                it(@"should have all handlers in both sections", ^{
+                    expect([controller tableView:controller.tableView numberOfRowsInSection:0] + [controller tableView:controller.tableView numberOfRowsInSection:1]).to.equal(INKApplicationList.availableHandlers.count);
                 });
             });
         });
@@ -59,7 +63,7 @@ describe(@"INKDefaultsViewController", ^{
 
         it(@"should have the correct object", ^{
             INKDefaultsCell *cell = controller.tableView.visibleCells[0];
-            expect(cell.handlerClass).to.equal(INKApplicationList.availableHandlers[0]);
+            expect([cell.handlerClass category]).to.equal(INKHandlerCategoryUtility);
         });
     });
 

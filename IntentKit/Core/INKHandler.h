@@ -11,6 +11,12 @@
 
 NSString *(^urlEncode)(NSString *);
 
+typedef NS_ENUM(NSInteger, INKHandlerCategory) {
+    INKHandlerCategoryUtility,
+    INKHandlerCategorySocialNetwork,
+    INKHandlerCategoryUnknown
+};
+
 @class INKActivityPresenter;
 
 /** `INKHandler` is the base class for shared groups of behavior for a class of third-party applications. You cannot use the `INKHandler` class directly. It instead defines the common interface and behavioral structure for all its subclasses.
@@ -23,7 +29,8 @@ NSString *(^urlEncode)(NSString *);
 /** The name of the class of applications represented by the handler. */
 @property (readonly) NSString *name;
 
-/** The name of the currently-registered default app. This app might not be able to handle all actions; in that case, a fallback activity view will be shown. */
+/** The name of the currently-registered default app. This app might not be able
+to handle all actions; in that case, a fallback activity view will be shown. */
 @property (readonly) NSString *defaultApp;
 
 /** If no apps are available to perform a given task, if `fallback` is set to YES then the handler will attempt to perform the task in a web browser instead. YES by default. */
@@ -48,6 +55,10 @@ NSString *(^urlEncode)(NSString *);
  @param args The dictionary of arguments used to construct a URL based on the templates defined for each URL scheme.
  @return A `INKActivityPresenter` object to present. */
 - (INKActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
+
+/** The category of activity handled by the handler.
+ This is used to group handlers in INKDefaultsViewController */
++ (INKHandlerCategory) category;
 
 /** Prompts the user to pick a default application for the handler
  @return An `INKActivityPresenter` object to present. */

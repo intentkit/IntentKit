@@ -13,6 +13,10 @@
     return @"Mail Client";
 }
 
++ (INKHandlerCategory)category {
+    return INKHandlerCategoryUtility;
+}
+
 - (INKActivityPresenter *)sendMailTo:(NSString *)recipient {
     NSString *command = NSStringFromSelector(_cmd);
     NSDictionary *args = [self argsDictionaryWithDictionary:@{ @"recipient" : recipient }];

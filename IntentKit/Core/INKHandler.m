@@ -44,6 +44,10 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     return self;
 }
 
++ (INKHandlerCategory)category {
+    return INKHandlerCategoryUnknown;
+}
+
 - (NSString *)name {
     @throw @"Method not implemented";
 }

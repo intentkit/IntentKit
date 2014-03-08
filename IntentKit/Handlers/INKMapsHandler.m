@@ -22,6 +22,10 @@
     return @"Mapping App";
 }
 
++ (INKHandlerCategory)category {
+    return INKHandlerCategoryUtility;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.zoom = -1;

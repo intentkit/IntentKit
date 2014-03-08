@@ -12,6 +12,8 @@
 #import "INKHandler.h"
 #import "INKBrowserHandler.h"
 
+#import "INKLocalizedString.h"
+
 static NSString * const CellIdentifier = @"cell";
 
 @interface INKDefaultsViewController ()
@@ -41,22 +43,32 @@ static NSString * const CellIdentifier = @"cell";
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.groupedHandlers.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.handlers.count;
+    return [self.groupedHandlers[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    Class handlerClass = [self handlerClassForIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    INKHandlerCategory category = [handlerClass category];
+    return self.sectionHeaders[@(category)];
+}
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(INKDefaultsCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.handlerClass = self.handlers[indexPath.row];
+    cell.handlerClass = [self handlerClassForIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     INKDefaultsCell *cell = (INKDefaultsCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    Class handlerClass = (cell.isUsingFallback ? INKBrowserHandler.class : self.handlers[indexPath.row]);
+    Class handlerClass = (cell.isUsingFallback ? INKBrowserHandler.class : [self handlerClassForIndexPath:indexPath]);
     INKHandler *handler = [[handlerClass alloc] init];
     [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:^{
             [self.tableView reloadData];
@@ -66,6 +78,29 @@ static NSString * const CellIdentifier = @"cell";
 }
 
 #pragma mark - Private
+- (Class)handlerClassForIndexPath:(NSIndexPath *)indexPath {
+    return self.groupedHandlers[indexPath.section][indexPath.row];
+}
+
+- (NSArray *)groupedHandlers {
+    NSMutableDictionary *categories = [NSMutableDictionary new];
+    for (Class handlerClass in self.handlers) {
+        NSNumber *category = @([handlerClass category]);
+        if (!categories[category]) {
+            categories[category] = [NSMutableArray new];
+        }
+
+        [categories[category] addObject:handlerClass];
+    }
+
+    NSMutableArray *handlersAsArray = [NSMutableArray new];
+    for (NSNumber *category in [categories.allKeys sortedArrayUsingSelector:@selector(compare:)]) {
+        [handlersAsArray addObject:categories[category]];
+    }
+
+    return [handlersAsArray copy];
+}
+
 - (NSArray *)handlers {
     NSArray *installedHandlers = [INKApplicationList availableHandlers];
     if (self.allowedHandlers && self.allowedHandlers.count > 0) {
@@ -79,5 +114,10 @@ static NSString * const CellIdentifier = @"cell";
     } else {
         return installedHandlers;
     }
+}
+
+- (NSDictionary *)sectionHeaders {
+    return @{@(INKHandlerCategorySocialNetwork): INKLocalizedString(@"INKHandlerCategorySocialNetwork", nil),
+             @(INKHandlerCategoryUtility): INKLocalizedString(@"INKHandlerCategoryUtility", nil)};
 }
 @end

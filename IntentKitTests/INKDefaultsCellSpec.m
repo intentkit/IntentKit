@@ -7,15 +7,19 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
+#import "INKDefaultsManager.h"
 #import "INKDefaultsCell.h"
 #import "INKBrowserHandler.h"
 
 SpecBegin(INKDefaultsCell)
 
-fdescribe(@"INKDefaultsCell", ^{
+describe(@"INKDefaultsCell", ^{
     __block INKDefaultsCell *cell;
 
     beforeEach(^{
+        INKDefaultsManager *manager = [[INKDefaultsManager alloc] init];
+        [manager removeAllDefaults];
+
         cell = [[INKDefaultsCell alloc] init];
         cell.handlerClass = [INKBrowserHandler class];
     });

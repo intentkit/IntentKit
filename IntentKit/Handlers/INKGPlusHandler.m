@@ -13,6 +13,10 @@
     return @"Google+ Client";
 }
 
++ (INKHandlerCategory)category {
+    return INKHandlerCategorySocialNetwork;
+}
+
 - (INKActivityPresenter *)showGPlusProfileWithId:(NSString *)userId {
     NSDictionary *args = @{ @"userId" : userId };
     return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];
