@@ -9,7 +9,7 @@
 
 @implementation INKMailHandler
 
-- (NSString *)name {
++ (NSString *)name {
     return @"Mail Client";
 }
 

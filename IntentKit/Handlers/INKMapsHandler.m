@@ -18,7 +18,7 @@
     @(INKMapsHandlerDirectionsModeWalking): @"walking"};
 }
 
-- (NSString *)name {
++ (NSString *)name {
     return @"Mapping App";
 }
 

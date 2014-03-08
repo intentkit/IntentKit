@@ -9,7 +9,7 @@
 
 @implementation INKFacebookHandler
 
-- (NSString *)name {
++ (NSString *)name {
     return @"Facebook Client";
 }
 

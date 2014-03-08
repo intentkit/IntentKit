@@ -10,7 +10,7 @@
 
 @implementation INKTwitterHandler
 
-- (NSString *)name {
++ (NSString *)name {
     return @"Twitter Client";
 }
 

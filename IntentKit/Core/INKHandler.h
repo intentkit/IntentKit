@@ -26,9 +26,6 @@ typedef NS_ENUM(NSInteger, INKHandlerCategory) {
  If you are defining URL schemes for a new discrete class of third-party applications (such as "web browsers" or "mapping applications", you may want to create your own `INKHandler` subclass. All custom methods you create that perform actions should ultimately return a UIActivityController created by calling performCommand:withArguments:. */
 @interface INKHandler : NSObject<INKActivityViewControllerDefaultsDelegate>
 
-/** The name of the class of applications represented by the handler. */
-@property (readonly) NSString *name;
-
 /** The name of the currently-registered default app. This app might not be able
 to handle all actions; in that case, a fallback activity view will be shown. */
 @property (readonly) NSString *defaultApp;
@@ -59,6 +56,9 @@ to handle all actions; in that case, a fallback activity view will be shown. */
 /** The category of activity handled by the handler.
  This is used to group handlers in INKDefaultsViewController */
 + (INKHandlerCategory) category;
+
+/** The name of the class of applications represented by the handler. */
++ (NSString *)name;
 
 /** Prompts the user to pick a default application for the handler
  @return An `INKActivityPresenter` object to present. */

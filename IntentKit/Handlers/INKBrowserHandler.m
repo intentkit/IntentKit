@@ -11,7 +11,7 @@
 
 @implementation INKBrowserHandler
 
-- (NSString *)name {
++ (NSString *)name {
     return @"Web Browser";
 }
 

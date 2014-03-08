@@ -52,7 +52,7 @@
         }
     }
 
-    self.detailTextLabel.text = handler.name;
+    self.detailTextLabel.text = [handlerClass name];
 }
 
 - (void)layoutSubviews {

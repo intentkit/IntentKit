@@ -9,7 +9,7 @@
 
 @implementation INKGPlusHandler
 
-- (NSString *)name {
++ (NSString *)name {
     return @"Google+ Client";
 }
 
