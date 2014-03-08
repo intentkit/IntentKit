@@ -19,7 +19,7 @@ static NSString * const INKDefaultsManagerUserDefaultsKey = @"IntentKitDefaults"
     if (name) {
         return name;
     } else {
-        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-Defaults" withExtension:@"bundle"];
         NSBundle *bundle;
         if (bundleURL) {
             bundle = [NSBundle bundleWithURL:bundleURL];

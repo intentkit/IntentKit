@@ -12,13 +12,14 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |ss|
     ss.source_files = 'IntentKit', 'IntentKit/Core/**/*.{h,m}'
     ss.dependency "MWLayoutHelpers"
-    ss.resource_bundles = { 'IntentKit' => 'IntentKit/{**/*.strings,Images/*.png}' }
+    ss.resource_bundles = { 'IntentKit' => 'IntentKit/{**/*.strings,Images/*.png}',
+                            'IntentKit-Defaults' => "IntentKit/Apps/Defaults/*.{plist,png}"}
   end
 
   s.subspec 'Browsers' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.source_files = 'IntentKit/Handlers/INKBrowserHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,Defaults}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password}/*.{plist,png}" }
   end
 
   s.subspec 'Twitter' do |ss|
