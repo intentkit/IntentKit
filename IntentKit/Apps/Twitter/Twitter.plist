@@ -15,7 +15,7 @@
 		<key>showTimeline</key>
 		<string>twitter://timeline</string>
 		<key>showMentions</key>
-		<string>twitter://connect</string>
+		<string>twitter://mentions</string>
 		<key>showDirectMessages</key>
 		<string>twitter://connect</string>
 		<key>searchFor:</key>
