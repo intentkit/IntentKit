@@ -16,6 +16,8 @@
 		<string>https://twitter.com/i/connect</string>
 		<key>showDirectMessages</key>
 		<string>https://twitter.com/i/connect</string>
+		<key>sendDirectMessageToScreenName:</key>
+		<string>https://mobile.twitter.com/{screenName}/messages</string>
 		<key>searchFor:</key>
 		<string>https://twitter.com/search?q={query}</string>
 		<key>tweetMessage:</key>
