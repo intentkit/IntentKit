@@ -43,9 +43,8 @@
 
 
 /** Shows @mentions for the active user
- @return A `INKActivityPresenter` object to present.
+ @return A `INKActivityPresenter` object to present. */
 
- @warning The first-party Twitter app does not have a "mentions" screen any more. If this results in opening Twitter.app, the "Connect" page will be displayed, which aggregates @mentions, DMs, and favorites/retweets/etc. */
 - (INKActivityPresenter *)showMentions;
 
 /** Shows DMs for the active user
@@ -53,6 +52,11 @@
  
  @warning The first-party Twitter app does not have a "Messages" screen any more. If this results in opening Twitter.app, the "Connect" page will be displayed, which aggregates @mentions, DMs, and favorites/retweets/etc. */
 - (INKActivityPresenter *)showDirectMessages;
+
+/** Opens a window to compose a new DM / view DMs for a given user.
+ @param screenName A screen name to search for
+ @return A `INKActivityPresenter` object to present. */
+-(INKActivityPresenter *)sendDirectMessageToScreenName:(NSString *)screenName;
 
 /** Searches for tweets or users
  @param query A string to search for

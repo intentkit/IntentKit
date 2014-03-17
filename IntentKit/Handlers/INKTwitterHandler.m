@@ -125,6 +125,10 @@
                   withArguments:[self argumentsDictionaryWithArguments:NSDictionaryOfVariableBindings(tweetId)]];
 }
 
+- (INKActivityPresenter *)sendDirectMessageToScreenName:(NSString *)screenName {
+    return [self performCommand:NSStringFromSelector(_cmd) withArguments:NSDictionaryOfVariableBindings(screenName)];
+}
+
 #pragma mark - Private methods
 - (NSDictionary *)argumentsDictionaryWithArguments:(NSDictionary *)args {
     if (!args) {
