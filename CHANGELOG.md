@@ -1,3 +1,30 @@
+## HEAD
+
+###### Enhancements
+* Each INKHandler now has a `useSystemDefault` option, which uses a default
+application instead of displaying the selection sheet.
+* In tandem with the `useSystemDefault` option, there is now an
+`INKDefaultsViewController` class that displays a selection interface for
+users to set preferences for each application type.
+* The Twitter handler now supports a `sendDirectMessageToScreenName:` action
+  [Jeff Blagdon](https://github.com/jefflovejapan) [#31](https://github.com/intentkit/IntentKit/pull/31)
+
+###### Refactors
+* In order to make the `useSystemDefault` option viable, a lot of new properties
+have been exposed on `INKHandler` and `INKApplicationList`.
+* The demo/development Xcode project now loads in the library as a local CocoaPod,
+making development easier as the dev environment now more closely resembles
+production usage.
+* Manual view layout is now done using the [MWLayoutHelpers](http://github.com/lazerwalker/mwlayouthelpers) CocoaPod (it
+  was formerly using a copy of it manually copy/pasted into the project)
+
+###### Bugfixes
+* The new Twitter URL scheme for "mentions" now works.
+[Jeff Blagdon](https://github.com/jefflovejapan) [#29](https://github.com/intentkit/IntentKit/pull/29)
+* Fix a number of regressions related to icons and application plists not being properly included in subspecs
+* The README now specifies that iOS 7 is required
+[Brady Archambo](https://github.com/bradya) [#29](https://github.com/intentkit/IntentKit/pull/28)
+
 ## 0.4.1
 
 ###### Bugfixes
