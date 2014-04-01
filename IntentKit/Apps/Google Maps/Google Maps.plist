@@ -7,7 +7,7 @@
 	<key>optional</key>
 	<dict>
 		<key>zoom</key>
-		<string>&amp;z={zoom}</string>
+		<string>&amp;zoom={zoom}</string>
 		<key>center</key>
 		<string>&amp;center={center}</string>
 	</dict>
