@@ -53,7 +53,8 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 }
 
 - (NSString *)defaultApp {
-    return [self.defaultsManager defaultApplicationForHandler:self.class];
+    return [self.defaultsManager defaultApplicationForHandler:self.class
+                                           allowSystemDefault:self.useSystemDefault];
 }
 
 - (BOOL)canPerformCommand:(NSString *)command {
@@ -92,7 +93,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
         if (availableApps.count == 1) {
             app = availableApps.firstObject;
-        } else if (self.useSystemDefault && self.defaultApp) {
+        } else if (self.defaultApp) {
             NSString *appName = self.defaultApp;
             for (INKActivity *theApp in availableApps) {
                 if ([theApp.name isEqualToString:appName]) {

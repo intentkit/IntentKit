@@ -12,13 +12,14 @@ static NSString * const INKDefaultsManagerUserDefaultsKey = @"IntentKitDefaults"
 
 @implementation INKDefaultsManager
 
-- (NSString *)defaultApplicationForHandler:(Class)handlerClass {
+- (NSString *)defaultApplicationForHandler:(Class)handlerClass
+                        allowSystemDefault:(BOOL)allowSystemDefault {
     NSDictionary *dict = [NSUserDefaults.standardUserDefaults objectForKey:INKDefaultsManagerUserDefaultsKey];
 
     NSString *name = dict[NSStringFromClass(handlerClass)];
     if (name) {
         return name;
-    } else {
+    } else if (allowSystemDefault) {
         NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-Defaults" withExtension:@"bundle"];
         NSBundle *bundle;
         if (bundleURL) {
@@ -30,6 +31,8 @@ static NSString * const INKDefaultsManagerUserDefaultsKey = @"IntentKitDefaults"
 
         return dict[@"default"];
     }
+
+    return nil;
 }
 
 - (void)addDefault:(NSString *)appName forHandler:(Class)handlerClass {

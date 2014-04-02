@@ -13,9 +13,12 @@
 @interface INKDefaultsManager : NSObject
 
 /** Returns the stored default application for a given handler class.
- @param handlerClass a subclass of INKHandler 
+ @param handlerClass a subclass of INKHandler
+ @param allowSystemDefault True if the system default should be returned in the
+ case of no user preference.
  @return A string with the name of the application the user prefers */
-- (NSString *)defaultApplicationForHandler:(Class)handlerClass;
+- (NSString *)defaultApplicationForHandler:(Class)handlerClass
+                        allowSystemDefault:(BOOL)allowSystemDefault;
 
 /** Stores a default for a handler.
  @param appName The name (plist/folder name) of an application to be set as the default
