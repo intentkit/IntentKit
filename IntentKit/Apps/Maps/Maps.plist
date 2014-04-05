@@ -10,6 +10,8 @@
 		<string>Karten</string>
 		<key>fr</key>
 		<string>Plans</string>
+		<key>nl</key>
+		<string>Kaarten</string>
 	</dict>
 	<key>optional</key>
 	<dict>
