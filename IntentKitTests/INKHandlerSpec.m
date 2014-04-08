@@ -74,7 +74,7 @@ describe(@"INKHandler", ^{
 
     describe(@"defaultApp", ^{
         it(@"should return the current default", ^{
-            [given([handler.defaultsManager defaultApplicationForHandler:handler.class]) willReturn:@"Flappy Bird"];
+            [given([handler.defaultsManager defaultApplicationForHandler:handler.class allowSystemDefault:NO]) willReturn:@"Flappy Bird"];
             expect([handler defaultApp]).to.equal(@"Flappy Bird");
         });
     });
@@ -113,14 +113,14 @@ describe(@"INKHandler", ^{
         describe(@"canSetDefault", ^{
             context(@"when there is no default app set", ^{
                 it(@"should allow setting", ^{
-                    [given([handler.defaultsManager defaultApplicationForHandler:handler.class]) willReturn:nil];
+                    [given([handler.defaultsManager defaultApplicationForHandler:handler.class allowSystemDefault:NO]) willReturn:nil];
                     expect([handler canSetDefault]).to.beTruthy();
                 });
             });
 
             context(@"when there is a default set", ^{
                 it(@"should not allow setting", ^{
-                    [given([handler.defaultsManager defaultApplicationForHandler:handler.class]) willReturn:@"SomeApp"];
+                    [given([handler.defaultsManager defaultApplicationForHandler:handler.class allowSystemDefault:NO]) willReturn:@"SomeApp"];
                     expect([handler canSetDefault]).toNot.beTruthy();
                 });
             });

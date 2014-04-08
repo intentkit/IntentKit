@@ -32,7 +32,7 @@ describe(@"INKDefaultsManager", ^{
 
     describe(@"when nothing has been set", ^{
         it(@"should return a handler's default application", ^{
-            expect([manager defaultApplicationForHandler:[INKBrowserHandler class]]).to.equal(@"Safari");
+            expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:YES]).to.equal(@"Safari");
         });
     });
 
@@ -43,11 +43,11 @@ describe(@"INKDefaultsManager", ^{
             });
 
             it(@"should be able to retrieve it", ^{
-                expect([manager defaultApplicationForHandler:[INKHandler class]]).to.equal(@"FooBar");
+                expect([manager defaultApplicationForHandler:INKHandler.class allowSystemDefault:YES]).to.equal(@"FooBar");
             });
 
             it(@"should not affect other classes", ^{
-                expect([manager defaultApplicationForHandler:[INKBrowserHandler class]]).toNot.equal(@"FooBar");
+                expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:YES]).toNot.equal(@"FooBar");
             });
         });
     });
@@ -60,12 +60,12 @@ describe(@"INKDefaultsManager", ^{
 
         it(@"should remove it", ^{
             [manager removeDefaultForHandler:[INKHandler class]];
-            expect([manager defaultApplicationForHandler:[INKHandler class]]).to.beNil();
+            expect([manager defaultApplicationForHandler:INKHandler.class allowSystemDefault:NO]).to.beNil();
         });
 
         it(@"should not remove others", ^{
             [manager removeDefaultForHandler:[INKHandler class]];
-            expect([manager defaultApplicationForHandler:[INKBrowserHandler class]]).to.equal(@"Bar");
+            expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:NO]).to.equal(@"Bar");
         });
     });
 
@@ -77,8 +77,8 @@ describe(@"INKDefaultsManager", ^{
 
         it(@"should remove all of them", ^{
             [manager removeAllDefaults];
-            expect([manager defaultApplicationForHandler:[INKHandler class]]).to.beNil();
-            expect([manager defaultApplicationForHandler:[INKBrowserHandler class]]).to.equal(@"Safari");
+            expect([manager defaultApplicationForHandler:INKHandler.class allowSystemDefault:NO]).to.beNil();
+            expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:YES]).to.equal(@"Safari");
         });
     });
     
