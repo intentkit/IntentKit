@@ -32,6 +32,8 @@
     _handlerClass = handlerClass;
 
     INKHandler *handler = [[handlerClass alloc] init];
+    handler.useSystemDefault = YES;
+    
     INKApplicationList *appList = [[INKApplicationList alloc] initWithApplication:[UIApplication sharedApplication] forHandler:handlerClass];
 
     INKActivity *activity = [appList activityWithName:handler.defaultApp];

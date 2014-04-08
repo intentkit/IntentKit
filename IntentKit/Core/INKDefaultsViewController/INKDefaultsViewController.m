@@ -107,7 +107,7 @@ static NSString * const CellIdentifier = @"cell";
         NSMutableArray *availableHandlers = [NSMutableArray new];
         for (Class handlerClass in self.allowedHandlers) {
             if ([installedHandlers containsObject:handlerClass]) {
-                [availableHandlers addObject:installedHandlers];
+                [availableHandlers addObject:handlerClass];
             }
         }
         return [availableHandlers copy];
