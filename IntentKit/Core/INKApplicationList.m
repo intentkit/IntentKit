@@ -92,7 +92,7 @@
 }
 
 - (BOOL)canUseFallback {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-INKBrowserHandler" withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-Defaults" withExtension:@"bundle"];
     NSBundle *bundle;
     if (bundleURL) {
         bundle = [NSBundle bundleWithURL:bundleURL];
