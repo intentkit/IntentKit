@@ -1,4 +1,4 @@
-## HEAD
+## 0.5
 
 ###### Enhancements
 * Each INKHandler now has a `useSystemDefault` option, which uses a default
@@ -8,6 +8,8 @@ application instead of displaying the selection sheet.
 users to set preferences for each application type.
 * The Twitter handler now supports a `sendDirectMessageToScreenName:` action
   [Jeff Blagdon](https://github.com/jefflovejapan) [#31](https://github.com/intentkit/IntentKit/pull/31)
+* Dutch localizations are now present
+  [Arno Moonen](https://github.com/itavero) [#33](https://github.com/intentkit/IntentKit/pull/33)
 
 ###### Refactors
 * In order to make the `useSystemDefault` option viable, a lot of new properties
@@ -17,6 +19,7 @@ making development easier as the dev environment now more closely resembles
 production usage.
 * Manual view layout is now done using the [MWLayoutHelpers](http://github.com/lazerwalker/mwlayouthelpers) CocoaPod (it
   was formerly using a copy of it manually copy/pasted into the project)
+* The "IntentKit/Browsers" subspec no longer exists; it's now included by default into the core.
 
 ###### Bugfixes
 * The new Twitter URL scheme for "mentions" now works.
