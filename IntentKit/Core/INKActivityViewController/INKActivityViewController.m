@@ -205,6 +205,8 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
     self.collectionViewLayout.itemSize = INKActivityViewControllerItemSize_Pad;
     self.collectionViewLayout.sectionInset = INKActivityViewControllerEdgeInsets_Pad;
     self.collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.collectionViewLayout.minimumInteritemSpacing = INKActivityViewControllerMinimumSpacing_Pad;
+    self.collectionViewLayout.minimumInteritemSpacing = INKActivityViewControllerMinimumSpacing_Pad;
 }
 
 - (void)setUpCollectionView {
