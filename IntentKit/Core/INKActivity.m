@@ -9,6 +9,7 @@
 #import "INKActivity.h"
 #import "NSString+Helpers.h"
 #import "IntentKit.h"
+#import "INKMailSheet.h"
 
 @interface INKActivity ()
 
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) UIApplication *application;
 @property (strong, nonatomic) IntentKit *intentKit;
 
+@property (strong, nonatomic) Class className;
 @property (strong, nonatomic) NSString *activityCommand;
 @property (strong, nonatomic) NSDictionary *activityArguments;
 @property (strong, nonatomic) NSDictionary *names;
@@ -26,16 +28,22 @@
 
 @implementation INKActivity
 
-- (instancetype)initWithActions:(NSDictionary *)actions
-                 optionalParams:(NSDictionary *)optionalParams
-                              name:(NSString *)name
-                       application:(UIApplication *)application
-                         bundle:(NSBundle *)bundle {
-    return [self initWithActions:actions
-                  optionalParams:optionalParams
-                           names:@{@"en":name}
-                     application:application
-                          bundle:bundle];
+- (instancetype)initWithClass:(Class)className
+                      actions:(NSArray *)actions
+                        names: (NSDictionary *)names
+                  application:(UIApplication *)application
+                       bundle:(NSBundle *)bundle {
+    self = [super init];
+    if (!self) return nil;
+
+    self.className = className;
+    self.names = names;
+    self.actions = [[NSDictionary alloc] initWithObjects:actions forKeys:actions];
+    self.application = application;
+    self.intentKit = [IntentKit sharedInstance];
+    self.bundle = bundle;
+
+    return self;
 }
 
 - (instancetype)initWithActions:(NSDictionary *)actions
@@ -43,14 +51,16 @@
                          names:(NSDictionary *)names
                     application:(UIApplication *)application
                          bundle:(NSBundle *)bundle {
-    if (self = [super init]) {
-        self.names = names;
-        self.actions = actions;
-        self.optionalParams = optionalParams;
-        self.application = application;
-        self.intentKit = [IntentKit sharedInstance];
-        self.bundle = bundle;
-    }
+    self = [super init];
+    if (!self) return nil;
+
+    self.names = names;
+    self.actions = actions;
+    self.optionalParams = optionalParams;
+    self.application = application;
+    self.intentKit = [IntentKit sharedInstance];
+    self.bundle = bundle;
+
     return self;
 }
 
@@ -61,8 +71,13 @@
 
 - (BOOL)canPerformCommand:(NSString *)command {
     if (!self.actions[command]) { return NO; }
-    NSURL *url = [NSURL URLWithString:[self.actions[command] urlScheme]];
-    return [self.application canOpenURL:url];
+
+    if (self.className) {
+        return YES;
+    } else {
+        NSURL *url = [NSURL URLWithString:[self.actions[command] urlScheme]];
+        return [self.application canOpenURL:url];
+    }
 }
 
 - (NSString *)name {
@@ -122,6 +137,10 @@
 - (void)performActivity {
     if (!self.actions[self.activityCommand]) { return; }
 
+    if (self.className) {
+        INKMailSheet *presentable = [[self.className alloc] initWithAction:self.activityCommand params:self.activityArguments];
+        [presentable presentInViewController:UIApplication.sharedApplication.delegate.window.rootViewController];
+    } else {
         NSString *urlString = self.actions[self.activityCommand];
         urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];
         urlString = [urlString stringWithTemplatedQueryParams:self.optionalParams
@@ -129,6 +148,7 @@
 
         NSURL *url = [NSURL URLWithString:urlString];
         [self.application openURL:url];
+    }
 }
 
 @end

@@ -35,8 +35,9 @@ Pod::Spec.new do |s|
 
   s.subspec 'Mail' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.source_files = 'IntentKit/Handlers/INKMailHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKMailHandler' => "IntentKit/Apps/{Mail,Gmail}/*.{plist,png}" }
+    ss.source_files = 'IntentKit/Handlers/INKMailHandler.{h,m}', "IntentKit/Apps/MFMailComposeViewController/*.{h,m}"
+    ss.resource_bundles = { 'IntentKit-INKMailHandler' => "IntentKit/Apps/{Mail,Gmail,MFMailComposeViewController}/*.{plist,png}" }
+    ss.framework = "MessageUI"
     ss.requires_arc = true
   end
 

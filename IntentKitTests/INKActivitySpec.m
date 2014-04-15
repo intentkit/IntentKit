@@ -10,8 +10,8 @@
 #define HC_SHORTHAND
 #define MOCKITO_SHORTHAND
 
-#import "Specta.h"
-#import "Expecta.h"
+#import <Specta.h>
+#import <Expecta.h>
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 #import "INKActivity.h"
@@ -42,7 +42,7 @@ describe(@"INKActivity", ^{
 
         activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
                                          optionalParams:dict[@"optional"]
-                                                   name:@"Chrome"
+                                                   names:@{@"en":@"Chrome"}
                                             application:app
                                                  bundle:nil];
     });
@@ -117,10 +117,30 @@ describe(@"INKActivity", ^{
     });
 
     describe(@"performActivity", ^{
-        it(@"should open the correct URL", ^{
-            [activity prepareWithActivityItems:@[@"openHttpURL:", @{@"url": @"google.com"}]];
-            [activity performActivity];
-            [(UIApplication *)verify(app) openURL:[NSURL URLWithString:@"googlechrome://google.com"]];
+        context(@"when the activity is a URL", ^{
+            it(@"should open the correct URL", ^{
+                [activity prepareWithActivityItems:@[@"openHttpURL:", @{@"url": @"google.com"}]];
+                [activity performActivity];
+                [(UIApplication *)verify(app) openURL:[NSURL URLWithString:@"googlechrome://google.com"]];
+            });
+        });
+
+        context(@"when the activity is a view controller", ^{
+            it(@"should present the view controller", ^{
+                NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+                NSBundle *bundle;
+                if (bundleURL) {
+                    bundle = [NSBundle bundleWithURL:bundleURL];
+                }
+                NSString *path = [bundle pathForResource:@"MFMailComposeViewController" ofType:@"plist"];
+                dict = [NSDictionary dictionaryWithContentsOfFile:path];
+
+                activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
+                                                 optionalParams:dict[@"optional"]
+                                                           name:@"Mail"
+                                                    application:app
+                                                         bundle:nil];
+            });
         });
     });
 

@@ -25,6 +25,10 @@
  as `name`. */
 @property (readonly) NSString *localizedName;
 
+/** If the handler shows a view controller rather than opening a URL, this is 
+ the <INKPresentable> class to perform actions on. */
+@property (readonly) Class className;
+
 /** True if the device currently has this application available to use */
 @property (readonly) BOOL isAvailableOnDevice;
 
@@ -39,18 +43,18 @@
 
 /** Returns an initialized `INKActivity` object.
 
+ @param className An class conforming to the `INKPresentable` protocol to perform actions on
  @param actions The dictionary mapping commands to valid URL schemes for the third-party application.
- @param optionalParams The dictionary listing which optional parameters are accepted.
- @param name The name of the third-party application.
+ @param names A dictionary of localized app names. The keys are short locale names (e.g. `en`, `fr`), the values are strings representing the name for the given locale.
  @param application The UIApplication to use when calling `[UIApplication openURL:]` and `[UIApplication canOpenURL:]`. You probably want this to be `[UIApplication sharedApplication]`, but it is injected here for test purposes.
  @param bundle the NSBundle to fetch the app icon from.
 
  @return an initialized `INKActivity` object. */
-- (instancetype)initWithActions:(NSDictionary *)actions
-                 optionalParams:(NSDictionary *)optionalParams
-                              name: (NSString *)name
-                    application:(UIApplication *)application
-                         bundle:(NSBundle *)bundle;
+- (instancetype)initWithClass:(Class)className
+                       actions:(NSArray *)actions
+                        names: (NSDictionary *)names
+                  application:(UIApplication *)application
+                       bundle:(NSBundle *)bundle;
 
 /** Returns an intialized `INKActivity` object.
 

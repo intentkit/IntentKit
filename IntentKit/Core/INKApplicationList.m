@@ -65,19 +65,29 @@
 
         if (!(dict[@"actions"] && dict[@"name"])) { continue; }
 
-        if ([dict[@"name"] isKindOfClass:[NSDictionary class]]) {
-            [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
-                                                        optionalParams:dict[@"optional"]
-                                                                  names:dict[@"name"]
-                                                           application:self.application
-                                                                bundle: bundle]];
+        NSDictionary *names;
+        if ([dict[@"name"] isKindOfClass:[NSString class]]) {
+            names = @{@"en": dict[@"name"]};
         } else {
-            [activities addObject:[[INKActivity alloc] initWithActions:dict[@"actions"]
-                                                        optionalParams:dict[@"optional"]
-                                                                  name:dict[@"name"]
-                                                           application:self.application
-                                                                bundle: bundle]];
+            names = dict[@"name"];
         }
+
+        INKActivity *activity;
+        if (dict[@"className"]) {
+            activity = [[INKActivity alloc] initWithClass:NSClassFromString(dict[@"className"])
+                                                  actions:dict[@"actions"]
+                                                    names:names
+                                              application:self.application
+                                                   bundle:bundle];
+        } else {
+            activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
+                                             optionalParams:dict[@"optional"]
+                                                      names:names
+                                                application:self.application
+                                                     bundle: bundle];
+        }
+
+        [activities addObject:activity];
     }
     return [activities copy];
 }
