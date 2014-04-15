@@ -14,7 +14,7 @@ NSString *INKLocalizedString(NSString *key, NSString *comment) {
     static NSBundle *bundle = nil;
     if (bundle == nil)
     {
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"IntentKit" ofType:@"bundle"];
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"IntentKit-Localizations" ofType:@"bundle"];
         bundle = [NSBundle bundleWithPath:bundlePath];
         
         NSString *language = [[NSLocale preferredLanguages] count]? [NSLocale preferredLanguages][0]: @"en";
