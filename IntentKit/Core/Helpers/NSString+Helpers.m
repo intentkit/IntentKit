@@ -7,6 +7,16 @@
 //
 #import "NSString+Helpers.h"
 
+NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
+    CFStringRef urlString = CFURLCreateStringByAddingPercentEscapes(
+                                                                    kCFAllocatorDefault,
+                                                                    (CFStringRef)input,
+                                                                    NULL,
+                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                    kCFStringEncodingUTF8);
+    return (__bridge NSString *)urlString;
+};
+
 @implementation NSString (Helpers)
 
 + (id)stringWithFormat:(NSString *)format array:(NSArray*)arguments; {
@@ -21,7 +31,7 @@
     NSString *tempString = [self copy];
     for (NSString *key in data) {
         NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
-        tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:data[key]];
+        tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:urlEncode(data[key])];
     }
     return tempString;
 }
@@ -35,7 +45,7 @@
         NSString *optionalParam = params[key];
         if (optionalParam) {
             NSString *optionalString = [optionalParam stringByReplacingOccurrencesOfString:handlebarKey
-                                                                                withString:data[key]];
+                                                                                withString:urlEncode(data[key])];
             [evaluatedParams addObject:optionalString];
         }
     }

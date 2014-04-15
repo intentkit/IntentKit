@@ -28,11 +28,11 @@
 - (NSDictionary *)argsDictionaryWithDictionary:(NSDictionary *)args {
     NSMutableDictionary *newArgs = [args mutableCopy];
     if (self.subject) {
-        newArgs[@"subject"] = urlEncode(self.subject);
+        newArgs[@"subject"] = self.subject;
     }
 
     if (self.messageBody) {
-        newArgs[@"messageBody"] = urlEncode(self.messageBody);
+        newArgs[@"messageBody"] = self.messageBody;
     }
 
     return [newArgs copy];

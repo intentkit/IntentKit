@@ -53,7 +53,7 @@
 
 - (INKActivityPresenter *)searchFor:(NSString *)query {
     NSDictionary *arguments = [self argumentsDictionaryWithArguments:
-                               @{@"query": urlEncode(query)}];
+                               @{@"query": query}];
 
     return [self performCommand:NSStringFromSelector(_cmd)
                   withArguments:arguments];
@@ -61,14 +61,14 @@
 
 - (INKActivityPresenter *)tweetMessage:(NSString *)message {
     NSDictionary *arguments = [self argumentsDictionaryWithArguments:
-                               @{@"message": urlEncode(message)}];
+                               @{@"message": message}];
     return [self performCommand:NSStringFromSelector(_cmd)
                   withArguments:arguments];
 }
 
 - (INKActivityPresenter *)tweetMessage:(NSString *)message inReplyTo:(NSString *)replyId {
     NSDictionary *arguments = [self argumentsDictionaryWithArguments:
-                               @{@"message": urlEncode(message),
+                               @{@"message": message,
                                  @"replyId": replyId}];
     return [self performCommand:NSStringFromSelector(_cmd)
                   withArguments:arguments];
@@ -138,7 +138,7 @@
     NSMutableDictionary *newArgs = [args mutableCopy];
 
     if (self.callbackURL) {
-        newArgs[@"callbackURL"] = urlEncode(self.callbackURL.absoluteString);
+        newArgs[@"callbackURL"] = self.callbackURL.absoluteString;
     }
 
     if (self.activeUser) {

@@ -36,7 +36,7 @@
 
 - (INKActivityPresenter *)searchForLocation:(NSString *)query {
     NSString *command = NSStringFromSelector(_cmd);
-    NSDictionary *args = [self argsDictionaryWithDictionary: @{@"query": urlEncode(query)}];
+    NSDictionary *args = [self argsDictionaryWithDictionary: @{@"query": query}];
 
     return [self performCommand:command withArguments:args];
 }
@@ -45,8 +45,8 @@
     NSString *command = NSStringFromSelector(_cmd);
     NSString *modeString = self.class.directionModes[@(mode)];
     NSDictionary *args = [self argsDictionaryWithDictionary:
-                          @{@"from": urlEncode(from),
-                           @"to": urlEncode(to),
+                          @{@"from": from,
+                           @"to": to,
                            @"mode": modeString}];
 
     return [self performCommand:command withArguments:args];

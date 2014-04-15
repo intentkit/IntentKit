@@ -21,16 +21,6 @@
 @property (strong, nonatomic) INKDefaultsManager *defaultsManager;
 @end
 
-NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
-    CFStringRef urlString = CFURLCreateStringByAddingPercentEscapes(
-                                                                    kCFAllocatorDefault,
-                                                                    (CFStringRef)input,
-                                                                    NULL,
-                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                    kCFStringEncodingUTF8);
-    return (__bridge NSString *)urlString;
-};
-
 @implementation INKHandler
 
 - (instancetype)init {

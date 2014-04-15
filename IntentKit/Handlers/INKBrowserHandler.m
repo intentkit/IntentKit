@@ -33,8 +33,8 @@
     NSString *command = NSStringFromSelector(_cmd);
 
     NSString *appName = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-    NSString *targetURL = urlEncode(url.absoluteString);
-    NSString *callbackURL = urlEncode(callback.absoluteString);
+    NSString *targetURL = url.absoluteString;
+    NSString *callbackURL = callback.absoluteString;
     NSDictionary *args = @{@"url": targetURL,
                            @"callback": callbackURL,
                            @"source": appName};

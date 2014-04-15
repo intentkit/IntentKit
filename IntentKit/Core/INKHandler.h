@@ -9,8 +9,6 @@
 #import "INKActivityViewController.h"
 #import "INKActivityPresenter.h"
 
-NSString *(^urlEncode)(NSString *);
-
 typedef NS_ENUM(NSInteger, INKHandlerCategory) {
     INKHandlerCategoryUtility,
     INKHandlerCategorySocialNetwork,

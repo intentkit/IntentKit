@@ -122,13 +122,13 @@
 - (void)performActivity {
     if (!self.actions[self.activityCommand]) { return; }
 
-    NSString *urlString = self.actions[self.activityCommand];
-    urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];
-    urlString = [urlString stringWithTemplatedQueryParams:self.optionalParams
-                                                     data:self.activityArguments];
+        NSString *urlString = self.actions[self.activityCommand];
+        urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];
+        urlString = [urlString stringWithTemplatedQueryParams:self.optionalParams
+                                                         data:self.activityArguments];
 
-    NSURL *url = [NSURL URLWithString:urlString];
-    [self.application openURL:url];
+        NSURL *url = [NSURL URLWithString:urlString];
+        [self.application openURL:url];
 }
 
 @end
