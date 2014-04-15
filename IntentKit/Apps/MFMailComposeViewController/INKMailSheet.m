@@ -19,15 +19,20 @@ static char AssociatedObjectKey;
 
 @implementation INKMailSheet
 
-- (id)initWithAction:(NSString *)action params:(NSDictionary *)params {
-    self = [super init];
-    if (!self) return nil;
-    if (![action isEqualToString:@"sendMailTo:"]) return nil;
+- (void)performAction:(NSString *)action
+               params:(NSDictionary *)params
+     inViewController:(UIViewController *)presentingViewController {
+
+    if (![action isEqualToString:@"sendMailTo:"]) return;
+
+    self.presentingViewController = presentingViewController;
 
     self.controller = [[MFMailComposeViewController alloc] init];
     self.controller.mailComposeDelegate = self;
 
-    [self.controller setToRecipients:@[params[@"recipient"]]];
+    if (params[@"recipient"]) {
+        [self.controller setToRecipients:@[params[@"recipient"]]];
+    }
 
     if (params[@"subject"]) {
         [self.controller setSubject:params[@"subject"]];
@@ -37,11 +42,6 @@ static char AssociatedObjectKey;
         [self.controller setMessageBody:params[@"messageBody"] isHTML:NO];
     }
 
-    return self;
-}
-
-- (void)presentInViewController:(UIViewController *)presentingViewController {
-    self.presentingViewController = presentingViewController;
     [presentingViewController presentViewController:self.controller animated:YES completion:nil];
 
     // The mail controller only holds a weak reference to this object, and it

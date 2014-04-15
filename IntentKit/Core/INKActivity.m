@@ -23,12 +23,13 @@
 @property (strong, nonatomic) NSDictionary *activityArguments;
 @property (strong, nonatomic) NSDictionary *names;
 
+@property (strong, nonatomic) id<INKPresentable>presenter;
 
 @end
 
 @implementation INKActivity
 
-- (instancetype)initWithClass:(Class)className
+- (instancetype)initWithPresenter:(id<INKPresentable>)presenter
                       actions:(NSArray *)actions
                         names: (NSDictionary *)names
                   application:(UIApplication *)application
@@ -36,7 +37,7 @@
     self = [super init];
     if (!self) return nil;
 
-    self.className = className;
+    self.presenter = presenter;
     self.names = names;
     self.actions = [[NSDictionary alloc] initWithObjects:actions forKeys:actions];
     self.application = application;
@@ -72,7 +73,7 @@
 - (BOOL)canPerformCommand:(NSString *)command {
     if (!self.actions[command]) { return NO; }
 
-    if (self.className) {
+    if (self.presenter) {
         return YES;
     } else {
         NSURL *url = [NSURL URLWithString:[self.actions[command] urlScheme]];
@@ -141,9 +142,10 @@
 - (void)performActivityInViewController:(UIViewController *)presentingViewController {
     if (!self.actions[self.activityCommand]) { return; }
 
-    if (self.className) {
-        id<INKPresentable> presenter = [[self.className alloc] initWithAction:self.activityCommand params:self.activityArguments];
-        [presenter presentInViewController:presentingViewController];
+    if (self.presenter) {
+        [self.presenter performAction:self.activityCommand
+                               params:self.activityArguments
+                     inViewController:presentingViewController];
     } else {
         NSString *urlString = self.actions[self.activityCommand];
         urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];

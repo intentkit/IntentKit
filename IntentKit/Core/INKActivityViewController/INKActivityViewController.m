@@ -170,11 +170,13 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
         [self.delegate addDefault:activity];
     }
 
+    UIViewController *presentingViewController = self.presentingViewController;
+
     [self.presenter dismissActivitySheetAnimated:NO];
 
     if (!self.isDefaultSelector) {
         [activity prepareWithActivityItems:self.activityItems];
-        [activity performActivityInViewController:self.presentingViewController];
+        [activity performActivityInViewController:presentingViewController];
     }
 
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];

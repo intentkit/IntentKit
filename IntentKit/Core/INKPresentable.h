@@ -8,7 +8,8 @@
 
 @protocol INKPresentable <NSObject>
 
-- (id)initWithAction:(NSString *)action params:(NSDictionary *)params;
-- (void)presentInViewController:(UIViewController *)presentingViewController;
+- (void)performAction:(NSString *)action
+               params:(NSDictionary *)params
+     inViewController:(UIViewController *)presentingViewController;
 
 @end

@@ -74,11 +74,14 @@
 
         INKActivity *activity;
         if (dict[@"className"]) {
-            activity = [[INKActivity alloc] initWithClass:NSClassFromString(dict[@"className"])
-                                                  actions:dict[@"actions"]
-                                                    names:names
-                                              application:self.application
-                                                   bundle:bundle];
+            Class presenterClass = NSClassFromString(dict[@"className"]);
+            if ([presenterClass conformsToProtocol:@protocol(INKPresentable)]) {
+                activity = [[INKActivity alloc] initWithPresenter:[presenterClass new]
+                                                          actions:dict[@"actions"]
+                                                            names:names
+                                                      application:self.application
+                                                           bundle:bundle];
+            }
         } else {
             activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
                                              optionalParams:dict[@"optional"]
@@ -87,7 +90,7 @@
                                                      bundle: bundle];
         }
 
-        [activities addObject:activity];
+        if (activity) [activities addObject:activity];
     }
     return [activities copy];
 }

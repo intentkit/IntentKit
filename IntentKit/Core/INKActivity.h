@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mike Walker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "INKPresentable.h"
 
 /** A subclass of `UIActivity` that presents a single third-party application capable of opening a given URL scheme or set of URL schemes.
  
@@ -26,8 +26,8 @@
 @property (readonly) NSString *localizedName;
 
 /** If the handler shows a view controller rather than opening a URL, this is 
- the <INKPresentable> class to perform actions on. */
-@property (readonly) Class className;
+ an INKPresentable object to perform actions on. */
+@property (readonly) id<INKPresentable> presenter;
 
 /** True if the device currently has this application available to use */
 @property (readonly) BOOL isAvailableOnDevice;
@@ -50,11 +50,11 @@
  @param bundle the NSBundle to fetch the app icon from.
 
  @return an initialized `INKActivity` object. */
-- (instancetype)initWithClass:(Class)className
-                       actions:(NSArray *)actions
-                        names: (NSDictionary *)names
-                  application:(UIApplication *)application
-                       bundle:(NSBundle *)bundle;
+- (instancetype)initWithPresenter:(id<INKPresentable>)presenter
+                          actions:(NSArray *)actions
+                            names: (NSDictionary *)names
+                      application:(UIApplication *)application
+                           bundle:(NSBundle *)bundle;
 
 /** Returns an intialized `INKActivity` object.
 

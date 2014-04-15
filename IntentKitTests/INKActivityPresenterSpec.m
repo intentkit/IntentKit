@@ -39,14 +39,14 @@ describe(@"INKActivityPresenter", ^{
         describe(@"#presentModalActivitySheetFromViewController:", ^{
             it(@"should perform the action", ^{
                 [presenter presentModalActivitySheetFromViewController:nil completion:nil];
-                [(INKActivity *)verify(activity) performActivity];
+                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
             });
         });
 
         describe(@"presentActivitySheetFromViewController:popoverFromRect:inView:", ^{
             it(@"should perform the action", ^{
                 [presenter presentActivitySheetFromViewController:nil popoverFromRect:CGRectZero inView:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
-                [(INKActivity *)verify(activity) performActivity];
+                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
             });
 
         });
@@ -54,7 +54,7 @@ describe(@"INKActivityPresenter", ^{
         describe(@"presentActivitySheetFromViewController:barButtonItem:", ^{
             it(@"should perform the action", ^{
                 [presenter presentActivitySheetFromViewController:nil popoverFromBarButtonItem:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
-                [(INKActivity *)verify(activity) performActivity];
+                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
             });
 
         });

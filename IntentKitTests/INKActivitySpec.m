@@ -16,6 +16,8 @@
 #import <OCMockito/OCMockito.h>
 #import "INKActivity.h"
 #import "IntentKit.h"
+#import "INKPresentable.h"
+#import "INKMailSheet.h"
 
 @interface INKActivity (Spec)
 @property UIImage *_activityImage;
@@ -127,19 +129,18 @@ describe(@"INKActivity", ^{
 
         context(@"when the activity is a view controller", ^{
             it(@"should present the view controller", ^{
-                NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
-                NSBundle *bundle;
-                if (bundleURL) {
-                    bundle = [NSBundle bundleWithURL:bundleURL];
-                }
-                NSString *path = [bundle pathForResource:@"MFMailComposeViewController" ofType:@"plist"];
-                dict = [NSDictionary dictionaryWithContentsOfFile:path];
+                id<INKPresentable> presenter = mockProtocol(@protocol(INKPresentable));
+                UIViewController *controller = mockClass(UIViewController.class);
 
-                activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
-                                                 optionalParams:dict[@"optional"]
-                                                           name:@"Mail"
-                                                    application:app
-                                                         bundle:nil];
+                activity = [[INKActivity alloc] initWithPresenter:presenter
+                                                      actions:@[@"anAction"]
+                                                        names:@{@"en":@"A name"}
+                                                  application:app
+                                                       bundle:nil];
+                [activity prepareWithActivityItems:@[@"anAction", @{@"foo":@"bar"}]];
+                [activity performActivityInViewController:controller];
+
+                [(id<INKPresentable>)verify(presenter) performAction:@"anAction" params:@{@"foo":@"bar"} inViewController:controller];
             });
         });
     });
