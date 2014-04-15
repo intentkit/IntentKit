@@ -6,11 +6,8 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "INKPresentable.h"
 
-@interface INKMailSheet : NSObject
-
-- (id)initWithAction:(NSString *)action params:(NSDictionary *)params;
-- (void)presentInViewController:(UIViewController *)presentingViewController;
+@interface INKMailSheet : NSObject<INKPresentable>
 
 @end

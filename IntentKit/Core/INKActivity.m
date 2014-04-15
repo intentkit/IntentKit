@@ -138,8 +138,8 @@
     if (!self.actions[self.activityCommand]) { return; }
 
     if (self.className) {
-        INKMailSheet *presentable = [[self.className alloc] initWithAction:self.activityCommand params:self.activityArguments];
-        [presentable presentInViewController:UIApplication.sharedApplication.delegate.window.rootViewController];
+        id<INKPresentable> presenter = [[self.className alloc] initWithAction:self.activityCommand params:self.activityArguments];
+        [presenter presentInViewController:UIApplication.sharedApplication.delegate.window.rootViewController];
     } else {
         NSString *urlString = self.actions[self.activityCommand];
         urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];
