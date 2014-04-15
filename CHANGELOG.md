@@ -1,3 +1,16 @@
+## 0.5.1
+
+###### Enhancements
+
+* The README now indicates the new behavior for importing header files into your
+  project (namely, that you need to manually import headers for each used INKHandler
+  subclass rather than the generic `<IntentKit/IntentKit.h>`.
+
+###### Bugfixes
+* Localizations are now included in their own pregenerated bundle, fixing a bug
+causing a random localization to be selected regardless of user language preferences.
+
+
 ## 0.5
 
 ###### Enhancements
