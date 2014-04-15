@@ -8,6 +8,7 @@
 
 #import "INKPresentable.h"
 
+/** An INKPresentable presenter object that wraps MFMailComposeViewController, allowing INKMailHandler to display an inline mail compose screen. */
 @interface INKMailSheet : NSObject<INKPresentable>
 
 @end

@@ -8,7 +8,7 @@
 
 #import "INKPresentable.h"
 
-/** A subclass of `UIActivity` that presents a single third-party application capable of opening a given URL scheme or set of URL schemes.
+/** A subclass of `UIActivity` that presents either (1) a single third-party application capable of opening a given URL scheme or set of URL schemes, or (2) a modal view controller capable of handling one or more actions.
  
  Typically, the dictionary of accepted URL schemes and the name of the application should come from the contents of a plist file and its filename, respetively. In practice, you shouldn't need to manually initialize an `INKActivity` outside of the `INKHandler` class.
  
@@ -43,7 +43,7 @@
 
 /** Returns an initialized `INKActivity` object.
 
- @param className An class conforming to the `INKPresentable` protocol to perform actions on
+ @param presenter An INKPresentable object that will have `performAction:params:inViewController:` called on it when it is time to perform an action.
  @param actions The dictionary mapping commands to valid URL schemes for the third-party application.
  @param names A dictionary of localized app names. The keys are short locale names (e.g. `en`, `fr`), the values are strings representing the name for the given locale.
  @param application The UIApplication to use when calling `[UIApplication openURL:]` and `[UIApplication canOpenURL:]`. You probably want this to be `[UIApplication sharedApplication]`, but it is injected here for test purposes.
@@ -78,6 +78,10 @@
  @return YES if the third-party app responds to a custom URL scheme to perform the corresponding command.*/
 - (BOOL)canPerformCommand:(NSString *)command;
 
+
+/** Performs an activity.
+
+ @param presentingViewController The view controller that the activity should presented modally on. This is only used if the activity triggers a modal view controller, rather than an external URL. */
 - (void)performActivityInViewController:(UIViewController *)presentingViewController;
 
 @end
