@@ -30,7 +30,7 @@ IntentKit is easiest to install using [CocoaPods](http://cocoapods.org). Just ad
     pod "IntentKit"
 
 
-After running `pod install`, you should be able to `#import <IntentKit/IntentKit.h>` inside your application code and go to town.
+After running `pod install`, you should be able to #import any INKHandler header file (e.g. `#import <INKMailHandler.h>`) and go to town.
 
 If you're concerned about the increase in your app bundle's size, you can choose to only include a subset of IntentKit's supported applications. Subspecs exist for each handler class.
 
