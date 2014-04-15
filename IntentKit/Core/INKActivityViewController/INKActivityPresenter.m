@@ -55,7 +55,7 @@
     self.completionBlock = completion;
 
     if (self.activity) {
-        [self.activity performActivity];
+        [self.activity performActivityInViewController:presentingViewController];
     } else if (self.activitySheet) {
         self.originalRootModalPresentationStyle = UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle;
         UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
@@ -86,7 +86,7 @@
     self.completionBlock = completion;
 
     if (self.activity) {
-        [self.activity performActivity];
+        [self.activity performActivityInViewController:presentingViewController];
     } else if (IntentKit.sharedInstance.isPad && self.activitySheet) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];
@@ -103,7 +103,7 @@
     self.completionBlock = completion;
 
     if (self.activity) {
-        [self.activity performActivity];
+        [self.activity performActivityInViewController:presentingViewController];
     } else if (IntentKit.sharedInstance.isPad && self.activitySheet) {
         self.presentingViewController = presentingViewController;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.activitySheet];

@@ -135,11 +135,15 @@
 }
 
 - (void)performActivity {
+    [self performActivityInViewController:UIApplication.sharedApplication.delegate.window.rootViewController];
+}
+
+- (void)performActivityInViewController:(UIViewController *)presentingViewController {
     if (!self.actions[self.activityCommand]) { return; }
 
     if (self.className) {
         id<INKPresentable> presenter = [[self.className alloc] initWithAction:self.activityCommand params:self.activityArguments];
-        [presenter presentInViewController:UIApplication.sharedApplication.delegate.window.rootViewController];
+        [presenter presentInViewController:presentingViewController];
     } else {
         NSString *urlString = self.actions[self.activityCommand];
         urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];

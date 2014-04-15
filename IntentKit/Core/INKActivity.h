@@ -78,4 +78,6 @@
  @return YES if the third-party app responds to a custom URL scheme to perform the corresponding command.*/
 - (BOOL)canPerformCommand:(NSString *)command;
 
+- (void)performActivityInViewController:(UIViewController *)presentingViewController;
+
 @end
