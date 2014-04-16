@@ -12,7 +12,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
                                                                     kCFAllocatorDefault,
                                                                     (CFStringRef)input,
                                                                     NULL,
-                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                    (CFStringRef)@"!*'();:@&=+$/?%#[]",
                                                                     kCFStringEncodingUTF8);
     return (__bridge NSString *)urlString;
 };
