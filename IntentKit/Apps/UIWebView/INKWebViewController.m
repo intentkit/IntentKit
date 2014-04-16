@@ -7,8 +7,9 @@
 //
 
 #import "INKWebViewController.h"
+#import "IntentKit.h"
 
-@interface INKWebViewController ()<UIWebViewDelegate>
+@interface INKWebViewController ()<UIWebViewDelegate, UIPopoverControllerDelegate>
 @property (strong, nonatomic) UIWebView *webView;
 @property (assign, nonatomic) BOOL networkIndicatorWasVisible;
 
@@ -16,6 +17,8 @@
 @property (strong, nonatomic) UIBarButtonItem *forwardButton;
 @property (strong, nonatomic) UIBarButtonItem *refreshButton;
 @property (strong, nonatomic) UIBarButtonItem *shareButton;
+
+@property (strong, nonatomic) UIPopoverController *popover;
 @end
 
 @implementation INKWebViewController
@@ -106,7 +109,14 @@
 
 - (void)didTapShareButton {
     UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:@[self.webView.request.URL] applicationActivities:nil];
-    [self presentViewController:shareSheet animated:YES completion:nil];
+
+    if (IntentKit.sharedInstance.isPad) {
+        self.popover = [[UIPopoverController alloc] initWithContentViewController:shareSheet];
+        [self.popover presentPopoverFromBarButtonItem:self.shareButton permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        self.popover.delegate = self;
+    } else {
+        [self presentViewController:shareSheet animated:YES completion:nil];
+    }
 }
 
 #pragma mark - UIWebViewDelegate
@@ -125,6 +135,11 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     self.networkIndicatorWasVisible = UIApplication.sharedApplication.networkActivityIndicatorVisible;
     UIApplication.sharedApplication.networkActivityIndicatorVisible = YES;
+}
+
+#pragma mark - UIPopoverControllerDelegate
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    self.popover = nil;
 }
 
 @end
