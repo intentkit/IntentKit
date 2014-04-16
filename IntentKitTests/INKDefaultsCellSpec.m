@@ -30,7 +30,7 @@ describe(@"INKDefaultsCell", ^{
 
     context(@"when the default application is available", ^{
         it(@"should set the app's name", ^{
-            expect(cell.textLabel.text).to.equal(@"Safari");
+            expect(cell.textLabel.text).to.equal(@"In App");
         });
 
         // TODO: This is failing because async.
