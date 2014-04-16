@@ -15,13 +15,13 @@ Pod::Spec.new do |s|
     ss.resources = 'IntentKit/IntentKit-Localizations.bundle'
     ss.resource_bundles = { 'IntentKit' => 'IntentKit/{**/*.strings,Images/*.png}',
                             'IntentKit-Defaults' => "IntentKit/Apps/Defaults/*.{plist,png}",
-                            'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password}/*.{plist,png}" }
+                            'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,UIWebView}/*.{plist,png}" }
     ss.requires_arc = true
   end
 
   s.subspec 'Twitter' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.source_files = 'IntentKit/Handlers/INKTwitterHandler.{h,m}'
+    ss.source_files = 'IntentKit/Handlers/INKTwitterHandler.{h,m}', 'IntentKit/Apps/UIWebView/*.{h,m}'
     ss.resource_bundles = { 'IntentKit-INKTwitterHandler' => "IntentKit/Apps/{Twitter,Twitterrific,Tweetbot}/*.{plist,png}" }
     ss.requires_arc = true
   end
