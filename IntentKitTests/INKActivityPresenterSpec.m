@@ -33,28 +33,29 @@ describe(@"INKActivityPresenter", ^{
     context(@"when there is an activity", ^{
         beforeEach(^{
             activity = mock([INKActivity class]);
+            presentingController = [UIViewController new];
             presenter = [[INKActivityPresenter alloc] initWithActivity:activity];
         });
 
         describe(@"#presentModalActivitySheetFromViewController:", ^{
             it(@"should perform the action", ^{
-                [presenter presentModalActivitySheetFromViewController:nil completion:nil];
-                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
+                [presenter presentModalActivitySheetFromViewController:presentingController completion:nil];
+                [(INKActivity *)verify(activity) performActivityInViewController:presentingController];
             });
         });
 
         describe(@"presentActivitySheetFromViewController:popoverFromRect:inView:", ^{
             it(@"should perform the action", ^{
-                [presenter presentActivitySheetFromViewController:nil popoverFromRect:CGRectZero inView:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
-                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
+                [presenter presentActivitySheetFromViewController:presentingController popoverFromRect:CGRectZero inView:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
+                [(INKActivity *)verify(activity) performActivityInViewController:presentingController];
             });
 
         });
 
         describe(@"presentActivitySheetFromViewController:barButtonItem:", ^{
             it(@"should perform the action", ^{
-                [presenter presentActivitySheetFromViewController:nil popoverFromBarButtonItem:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
-                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
+                [presenter presentActivitySheetFromViewController:presentingController popoverFromBarButtonItem:nil permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:nil];
+                [(INKActivity *)verify(activity) performActivityInViewController:presentingController];
             });
 
         });
@@ -100,7 +101,7 @@ describe(@"INKActivityPresenter", ^{
                 xcontext(@"when there are multiple apps", ^{});
             });
         });
-
+        
     });
 });
 

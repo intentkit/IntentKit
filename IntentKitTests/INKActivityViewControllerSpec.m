@@ -18,6 +18,7 @@
 #import "INKActivityViewController.h"
 #import "INKDefaultToggleView.h"
 #import "INKHandler.h"
+#import "INKActivity.h"
 
 @interface INKActivityViewController ()
 @property UIButton *cancelButton;
@@ -34,7 +35,7 @@ describe(@"INKActivityViewController", ^{
 
     beforeEach(^{
         activityItems = @[];
-        applicationActivities = @[mock([UIActivity class]), mock([UIActivity class]), mock([UIActivity class])];
+        applicationActivities = @[mock([INKActivity class]), mock([INKActivity class]), mock([INKActivity class])];
         activitySheet = [[INKActivityViewController alloc] initWithActivityItems:activityItems
                                                           applicationActivities:applicationActivities];
         activitySheet.presenter = mock([INKActivityPresenter class]);
@@ -81,7 +82,7 @@ describe(@"INKActivityViewController", ^{
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
                 [activitySheet collectionView:activitySheet.collectionView didSelectItemAtIndexPath:indexPath];
                 [verify(applicationActivities[1]) prepareWithActivityItems:activityItems];
-                [verify(applicationActivities[1]) performActivity];
+                [verify(applicationActivities[1]) performActivityInViewController:anything()];
             });
 
             it(@"should hide the sheet", ^{
