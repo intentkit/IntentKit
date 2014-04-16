@@ -27,7 +27,11 @@
 /** The INKHandler subclass to load applications for. */
 @property (copy, nonatomic) Class handlerClass;
 
-/** An array containing every possible app for a given handler, 
+/** If true, will not include the first-party external application registered
+ for the handler in its list of available activities.*/
+@property (assign, nonatomic) BOOL hideFirstPartyApp;
+
+/** An array containing every possible app for a given handler,
  including ones that the user doesn't have installed. */
 @property (readonly) NSArray *activities;
 

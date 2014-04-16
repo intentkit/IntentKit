@@ -28,6 +28,12 @@ typedef NS_ENUM(NSInteger, INKHandlerCategory) {
 to handle all actions; in that case, a fallback activity view will be shown. */
 @property (readonly) NSString *defaultApp;
 
+/** By default, if a handler has both a first-party app and an in-app modal view
+ (e.g. Safari and an in-app UIWebView), the first-party app won't be displayed.
+
+ Setting this to YES will show the first-party app as an option. */
+@property (nonatomic, assign) BOOL showFirstPartyApp;
+
 /** If no apps are available to perform a given task, if `fallback` is set to YES then the handler will attempt to perform the task in a web browser instead. YES by default. */
 @property (nonatomic) BOOL useFallback;
 

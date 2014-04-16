@@ -118,6 +118,10 @@
     return [[INKActivityPresenter alloc] initWithActivitySheet:activityView];
 }
 
+- (void)setShowFirstPartyApp:(BOOL)showFirstPartyApp {
+    self.appList.hideFirstPartyApp = !showFirstPartyApp;
+}
+
 #pragma mark - INKActivityViewControllerDefaultsDelegate methods
 - (void)addDefault:(INKActivity *)activity {
     [self.defaultsManager addDefault:activity.name forHandler:self.class];

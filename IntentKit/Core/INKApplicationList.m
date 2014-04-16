@@ -12,6 +12,8 @@
 
 #import <objc/runtime.h>
 
+static NSString * const FirstPartyAppNameKey = @"firstPartyAppName";
+
 @interface INKApplicationList ()
 @property (strong, nonatomic) UIApplication *application;
 @end
@@ -44,6 +46,7 @@
     if (self = [super init]) {
         self.application = application;
         self.handlerClass = handlerClass;
+        self.hideFirstPartyApp = !!self.handlerDefaults[FirstPartyAppNameKey];
     }
     return self;
 }
@@ -82,7 +85,7 @@
                                                       application:self.application
                                                            bundle:bundle];
             }
-        } else {
+        } else if (!(self.hideFirstPartyApp && [names[@"en"] isEqualToString:self.handlerDefaults[FirstPartyAppNameKey]])) {
             activity = [[INKActivity alloc] initWithActions:dict[@"actions"]
                                              optionalParams:dict[@"optional"]
                                                       names:names
@@ -115,20 +118,11 @@
 }
 
 - (BOOL)canUseFallback {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-Defaults" withExtension:@"bundle"];
-    NSBundle *bundle;
-    if (bundleURL) {
-        bundle = [NSBundle bundleWithURL:bundleURL];
-    }
-
-    NSString *path = [bundle pathForResource:NSStringFromClass(self.handlerClass) ofType:@"plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-
-    return !!dict[@"fallbackUrls"];
+    return !!self.handlerDefaults[@"fallbackUrls"];
 }
 
 - (NSString *)fallbackUrlForCommand:(NSString *)command {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-INKBrowserHandler" withExtension:@"bundle"];
     NSBundle *bundle;
     if (bundleURL) {
         bundle = [NSBundle bundleWithURL:bundleURL];
@@ -138,6 +132,17 @@
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
 
     return dict[@"fallbackUrls"][command];
+}
+
+- (NSDictionary *)handlerDefaults {
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-Defaults" withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle = [NSBundle bundleWithURL:bundleURL];
+    }
+
+    NSString *path = [bundle pathForResource:NSStringFromClass(self.handlerClass) ofType:@"plist"];
+    return [NSDictionary dictionaryWithContentsOfFile:path];
 }
 
 - (NSBundle *)bundleForCurrentHandler {
