@@ -178,7 +178,7 @@
                },
              @{@"name": @"INKMailHandler",
                @"items": @[
-                       @{@"description": @"Send a mail",
+                       @{@"description": @"Compose an email",
                          @"action": (UIActivityViewController *)^{
                             INKMailHandler *handler = [[INKMailHandler alloc] init];
                             handler.alwaysShowActivityView = self.activitySwitch.on;
