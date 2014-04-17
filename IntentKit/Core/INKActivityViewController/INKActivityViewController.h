@@ -18,7 +18,7 @@
  @warning It is assumed the delegate (typically an `INKHandler`) is responsible for maintaining the stateful knowledge of which handler this is for. */
 - (void)addDefault:(INKActivity *)activity;
 
-/** If NO, the toggle view will be disabled/grayed-out. 
+/** If NO, the toggle view will be hidden.
  
  This is used when the user's preferred app for a handler cannot perform the task they're trying to do; we don't want them to try to register a secondary default. */
 - (BOOL)canSetDefault;

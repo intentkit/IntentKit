@@ -8,6 +8,7 @@
 
 #import "INKWebViewController.h"
 #import "IntentKit.h"
+#import "INKOpenInActivity.h"
 
 @interface INKWebViewController ()<UIWebViewDelegate, UIPopoverControllerDelegate>
 @property (strong, nonatomic) UIWebView *webView;
