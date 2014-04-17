@@ -49,6 +49,16 @@
     return self.activity || self.activitySheet.numberOfApplications > 0;
 }
 
+- (void)presentModally {
+    UIViewController *top = IntentKit.sharedInstance.visibleViewController;
+    [self presentModalActivitySheetFromViewController:top completion:nil];
+}
+
+- (void)presentModallyWithCompletion:(void(^)())completion {
+    UIViewController *top = IntentKit.sharedInstance.visibleViewController;
+    [self presentModalActivitySheetFromViewController:top completion:completion];
+}
+
 - (void)presentModalActivitySheetFromViewController:(UIViewController *)presentingViewController completion:(void (^)())completion {
     if (!self.canPerformActivity) return;
 

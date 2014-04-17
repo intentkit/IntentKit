@@ -37,6 +37,20 @@ describe(@"INKActivityPresenter", ^{
             presenter = [[INKActivityPresenter alloc] initWithActivity:activity];
         });
 
+        describe(@"#presentModally", ^{
+            it(@"should perform the action", ^{
+                [presenter presentModally];
+                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
+            });
+        });
+
+        describe(@"#presentModallyWithCompletion", ^{
+            it(@"should perform the action", ^{
+                [presenter presentModallyWithCompletion:nil];
+                [(INKActivity *)verify(activity) performActivityInViewController:anything()];
+            });
+        });
+
         describe(@"#presentModalActivitySheetFromViewController:", ^{
             it(@"should perform the action", ^{
                 [presenter presentModalActivitySheetFromViewController:presentingController completion:nil];

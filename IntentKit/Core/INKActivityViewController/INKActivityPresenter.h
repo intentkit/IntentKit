@@ -40,6 +40,22 @@
  @param animaed Whether or not to animate the transition */
 - (void)dismissActivitySheetAnimated:(BOOL)animated;
 
+/** Present the current activity sheet modally. 
+ 
+ @warning This attempts to programmatically determine the topmost view 
+ controller and present on that; if that does not work in your app, you probably
+ want to manually pass in a view controller using `presentModalActivitySheetFromViewController:completion.*/
+- (void)presentModally;
+
+/** Present the current activity sheet modally.
+ @param completion A completion block to be called after the user has dismissed
+ the activity sheet.
+
+ @warning This attempts to programmatically determine the topmost view
+ controller and present on that; if that does not work in your app, you probably
+ want to manually pass in a view controller using `presentModalActivitySheetFromViewController:completion.*/
+- (void)presentModallyWithCompletion:(void(^)())completion;
+
 /** Present the current activity sheet modally on a given view controller.
  @param presentingViewController A UIViewController to serve as the activity sheet's presentingViewController.
  @param completion A completion block to be called after the user has dismissed the activity sheet
