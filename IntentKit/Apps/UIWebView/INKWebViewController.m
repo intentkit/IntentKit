@@ -99,7 +99,9 @@
 }
 
 - (void)didTapShareButton {
-    UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:@[self.webView.request.URL] applicationActivities:nil];
+    INKOpenInActivity *openIn = [INKOpenInActivity new];
+
+    UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:@[self.webView.request.URL] applicationActivities:@[openIn]];
 
     if (IntentKit.sharedInstance.isPad) {
         self.popover = [[UIPopoverController alloc] initWithContentViewController:shareSheet];
