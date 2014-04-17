@@ -38,6 +38,10 @@ to handle all actions; in that case, a fallback activity view will be shown. */
  Setting this to YES will show the first-party app as an option. */
 @property (nonatomic, assign) BOOL showFirstPartyApp;
 
+/** If a handler has an "In App" option (e.g. an in-app UIWebView for 
+ INKBrowserHandler), setting this to YES will disable it */
+@property (nonatomic, assign) BOOL disableInAppOption;
+
 /** If no apps are available to perform a given task, if `fallback` is set to YES then the handler will attempt to perform the task in a web browser instead. YES by default. */
 @property (nonatomic) BOOL useFallback;
 

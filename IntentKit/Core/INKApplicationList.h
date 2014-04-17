@@ -31,6 +31,10 @@
  for the handler in its list of available activities.*/
 @property (assign, nonatomic) BOOL hideFirstPartyApp;
 
+/** If true, will not include a modal in-app activity registered
+ for the handler in its list of available activities.*/
+@property (assign, nonatomic) BOOL hideInApp;
+
 /** An array containing every possible app for a given handler,
  including ones that the user doesn't have installed. */
 @property (readonly) NSArray *activities;

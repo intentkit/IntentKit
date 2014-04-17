@@ -42,6 +42,8 @@
     handler.alwaysShowActivityView = YES;
     handler.showFirstPartyApp = YES;
     handler.disableSettingDefault = YES;
+    handler.disableInAppOption = YES;
+    handler.showFirstPartyApp = YES;
 
     [[handler openURL:self.url] presentModally];
 }

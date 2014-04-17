@@ -119,7 +119,13 @@
 }
 
 - (void)setShowFirstPartyApp:(BOOL)showFirstPartyApp {
+    _showFirstPartyApp = showFirstPartyApp;
     self.appList.hideFirstPartyApp = !showFirstPartyApp;
+}
+
+- (void)setDisableInAppOption:(BOOL)disableInAppOption {
+    _disableInAppOption = disableInAppOption;
+    self.appList.hideInApp = disableInAppOption;
 }
 
 #pragma mark - INKActivityViewControllerDefaultsDelegate methods

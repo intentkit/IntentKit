@@ -78,7 +78,7 @@ static NSString * const FirstPartyAppNameKey = @"firstPartyAppName";
         INKActivity *activity;
         if (dict[@"className"]) {
             Class presenterClass = NSClassFromString(dict[@"className"]);
-            if ([presenterClass conformsToProtocol:@protocol(INKPresentable)]) {
+            if (!self.hideInApp && [presenterClass conformsToProtocol:@protocol(INKPresentable)]) {
                 activity = [[INKActivity alloc] initWithPresenter:[presenterClass new]
                                                           actions:dict[@"actions"]
                                                             names:names
