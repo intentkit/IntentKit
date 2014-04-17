@@ -48,4 +48,14 @@
 
     return parent;
 }
+
+- (UIImage *)imageNamed:(NSString *)name {
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+    NSBundle *bundle;
+    if (bundleURL) {
+        bundle  = [NSBundle bundleWithURL:bundleURL];
+    }
+    NSString *filename = [bundle pathForResource:name ofType:@"png"];
+    return [UIImage imageWithContentsOfFile:filename];
+}
 @end

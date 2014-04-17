@@ -61,8 +61,8 @@
     UIToolbar *toolbar = [UIToolbar new];
     toolbar.translatesAutoresizingMaskIntoConstraints = NO;
 
-    self.backButton = [[UIBarButtonItem alloc] initWithImage:[self imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapBackButton)];
-    self.forwardButton = [[UIBarButtonItem alloc] initWithImage:[self imageNamed:@"forward"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapForwardButton)];
+    self.backButton = [[UIBarButtonItem alloc] initWithImage:[IntentKit.sharedInstance imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapBackButton)];
+    self.forwardButton = [[UIBarButtonItem alloc] initWithImage:[IntentKit.sharedInstance imageNamed:@"forward"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapForwardButton)];
     self.refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(didTapRefreshButton)];
     self.shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(didTapShareButton)];
 
@@ -72,16 +72,6 @@
     toolbar.items = @[fixed, self.backButton, flexible, self.forwardButton, flexible, self.refreshButton, flexible, self.shareButton, fixed];
 
     return toolbar;
-}
-
-- (UIImage *)imageNamed:(NSString *)name {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
-    NSBundle *bundle;
-    if (bundleURL) {
-        bundle  = [NSBundle bundleWithURL:bundleURL];
-    }
-    NSString *filename = [bundle pathForResource:name ofType:@"png"];
-    return [UIImage imageWithContentsOfFile:filename];
 }
 
 #pragma mark -

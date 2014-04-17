@@ -61,7 +61,7 @@ static NSString *INKActivityCellIconBorder = @"iconBorder";
     [self addSubview:self.imageView];
 
     self.iconBorder = [[UIImageView alloc] initWithFrame:self.bounds];
-    self.iconBorder.image = [[self imageNamed:INKActivityCellIconBorder]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.iconBorder.image = [[IntentKit.sharedInstance imageNamed:INKActivityCellIconBorder]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.iconBorder.tintColor = [UIColor blackColor];
     [self addSubview:self.iconBorder];
 }
@@ -83,7 +83,7 @@ static NSString *INKActivityCellIconBorder = @"iconBorder";
 - (void)maskImageWithCompletion:(void(^)(UIImage *maskedImage))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-        CGImageRef maskRef = [[self imageNamed:INKActivityCellIconMask]CGImage];
+        CGImageRef maskRef = [[IntentKit.sharedInstance imageNamed:INKActivityCellIconMask]CGImage];
 
         CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
                                             CGImageGetHeight(maskRef),
@@ -103,18 +103,6 @@ static NSString *INKActivityCellIconBorder = @"iconBorder";
             }
         });
     });
-}
-
-
-#pragma mark - Private methods
-- (UIImage *)imageNamed:(NSString *)name {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
-    NSBundle *bundle;
-    if (bundleURL) {
-        bundle  = [NSBundle bundleWithURL:bundleURL];
-    }
-    NSString *filename = [bundle pathForResource:name ofType:@"png"];
-    return [UIImage imageWithContentsOfFile:filename];
 }
 
 @end

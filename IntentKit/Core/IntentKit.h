@@ -32,4 +32,10 @@
  @return The currently-frontmost UIViewController with parent as a parent node.*/
 - (UIViewController *)topViewController:(UIViewController *)parent;
 
+/** Returns an image with a given name.
+ Acts like [UImage imageNamed:], but fetches from the main IntentKit bundle.
+ @param name The filename of a PNG image, no extension
+ @return a valid UIImage, or `nil` if no such image exists in the bundle */
+- (UIImage *)imageNamed:(NSString *)name;
+
 @end
