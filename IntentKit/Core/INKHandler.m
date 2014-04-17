@@ -128,6 +128,6 @@
 }
 
 - (BOOL)canSetDefault {
-    return (self.defaultApp == nil);
+    return (self.defaultApp == nil) && !self.disableSettingDefault;
 }
 @end

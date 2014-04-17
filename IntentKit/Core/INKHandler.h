@@ -28,6 +28,10 @@ typedef NS_ENUM(NSInteger, INKHandlerCategory) {
 to handle all actions; in that case, a fallback activity view will be shown. */
 @property (readonly) NSString *defaultApp;
 
+/** If YES, when this handler is presented as an activity sheet, it will never
+ show the "Remember My Choice" toggle. */
+@property (assign, nonatomic) BOOL disableSettingDefault;
+
 /** By default, if a handler has both a first-party app and an in-app modal view
  (e.g. Safari and an in-app UIWebView), the first-party app won't be displayed.
 
