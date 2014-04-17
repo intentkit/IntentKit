@@ -25,7 +25,7 @@
  as `name`. */
 @property (readonly) NSString *localizedName;
 
-/** If the handler shows a view controller rather than opening a URL, this is 
+/** If the handler shows a view controller rather than opening a URL, this is
  an INKPresentable object to perform actions on. */
 @property (readonly) id<INKPresentable> presenter;
 
@@ -40,6 +40,10 @@
 
 /** The NSBundle to load the app icon from */
 @property (strong, nonatomic) NSBundle *bundle;
+
+/** If YES, all parameters passed in to URL-based activities will be URL-escaped
+ before template interpolation. The default is YES. */
+@property (assign, nonatomic) BOOL escapeParameters;
 
 /** Returns an initialized `INKActivity` object.
 
@@ -63,13 +67,14 @@
  @param names A dictionary of localized app names. The keys are short locale names (e.g. `en`, `fr`), the values are strings representing the name for the given locale.
  @param application The UIApplication to use when calling `[UIApplication openURL:]` and `[UIApplication canOpenURL:]`. You probably want this to be `[UIApplication sharedApplication]`, but it is injected here for test purposes.
  @param bundle the NSBundle to fetch the app icon from.
-
+ @param escapeParams If YES, will URL-escape all params when doing template interpolation
  @return an initialized `INKActivity` object. */
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
                          names: (NSDictionary *)names
                     application:(UIApplication *)application
-                         bundle:(NSBundle *)bundle;
+                         bundle:(NSBundle *)bundle
+                   escapeParams:(BOOL)escapeParams;
 
 /** Checks whether or not the third-party app can accept a custom URL corresponding to a given command
  

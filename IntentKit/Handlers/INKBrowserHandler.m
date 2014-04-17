@@ -8,6 +8,7 @@
 
 #import "INKBrowserHandler.h"
 #import "INKActivity.h"
+#import "NSString+Helpers.h"
 
 @implementation INKBrowserHandler
 
@@ -17,6 +18,10 @@
 
 + (INKHandlerCategory)category {
     return INKHandlerCategoryUtility;
+}
+
++ (BOOL)escapeParameters {
+    return NO;
 }
 
 - (INKActivityPresenter *)openURL:(NSURL *)url {
@@ -35,8 +40,8 @@
     NSString *appName = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     NSString *targetURL = url.absoluteString;
     NSString *callbackURL = callback.absoluteString;
-    NSDictionary *args = @{@"url": targetURL,
-                           @"callback": callbackURL,
+    NSDictionary *args = @{@"url": urlEncode(targetURL),
+                           @"callback": urlEncode(callbackURL),
                            @"source": appName};
 
     return [self performCommand:command withArguments:args];

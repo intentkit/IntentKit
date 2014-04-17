@@ -71,6 +71,10 @@ user has not provided one.
  @return A `INKActivityPresenter` object to present. */
 - (INKActivityPresenter *)performCommand:(NSString *)command withArguments:(NSDictionary *)args;
 
+/** If YES, all parameters passed in to URL-based activities will be URL-escaped
+ before template interpolation. The default is YES. */
++ (BOOL)escapeParameters;
+
 /** The category of activity handled by the handler.
  This is used to group handlers in INKDefaultsViewController */
 + (INKHandlerCategory) category;

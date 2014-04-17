@@ -51,7 +51,8 @@
                  optionalParams:(NSDictionary *)optionalParams
                          names:(NSDictionary *)names
                     application:(UIApplication *)application
-                         bundle:(NSBundle *)bundle {
+                         bundle:(NSBundle *)bundle
+                   escapeParams:(BOOL)escapeParams {
     self = [super init];
     if (!self) return nil;
 
@@ -61,6 +62,7 @@
     self.application = application;
     self.intentKit = [IntentKit sharedInstance];
     self.bundle = bundle;
+    self.escapeParameters = escapeParams;
 
     return self;
 }
@@ -148,9 +150,11 @@
                      inViewController:presentingViewController];
     } else {
         NSString *urlString = self.actions[self.activityCommand];
-        urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments];
+        urlString = [urlString stringByEvaluatingTemplateWithData:self.activityArguments
+                                                           escape:self.escapeParameters];
         urlString = [urlString stringWithTemplatedQueryParams:self.optionalParams
-                                                         data:self.activityArguments];
+                                                         data:self.activityArguments
+                                                       escape:self.escapeParameters];
 
         NSURL *url = [NSURL URLWithString:urlString];
         [self.application openURL:url];

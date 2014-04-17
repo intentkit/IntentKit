@@ -12,7 +12,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
                                                                     kCFAllocatorDefault,
                                                                     (CFStringRef)input,
                                                                     NULL,
-                                                                    (CFStringRef)@"!*'();:@&=+$?%#[]",
+                                                                    (CFStringRef)@"!*'();:@&=+$?%#/[]",
                                                                     kCFStringEncodingUTF8);
     return (__bridge NSString *)urlString;
 };
@@ -27,16 +27,17 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     return result;
 }
 
-- (NSString *)stringByEvaluatingTemplateWithData:(NSDictionary *)data {
+- (NSString *)stringByEvaluatingTemplateWithData:(NSDictionary *)data escape:(BOOL)escape {
     NSString *tempString = [self copy];
     for (NSString *key in data) {
         NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
-        tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:urlEncode(data[key])];
+        NSString *value = (escape? urlEncode(data[key]) : data[key]);
+        tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:value];
     }
     return tempString;
 }
 
-- (NSString *)stringWithTemplatedQueryParams:(NSDictionary *)params data:(NSDictionary *)data {
+- (NSString *)stringWithTemplatedQueryParams:(NSDictionary *)params data:(NSDictionary *)data escape:(BOOL)escape {
     NSMutableArray *evaluatedParams = [NSMutableArray array];
 
     for (NSString *key in data) {
@@ -44,8 +45,9 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
         NSString *optionalParam = params[key];
         if (optionalParam) {
+            NSString *value = (escape? urlEncode(data[key]) : data[key]);
             NSString *optionalString = [optionalParam stringByReplacingOccurrencesOfString:handlebarKey
-                                                                                withString:urlEncode(data[key])];
+                                                                                withString:value];
             [evaluatedParams addObject:optionalString];
         }
     }

@@ -90,7 +90,8 @@ static NSString * const FirstPartyAppNameKey = @"firstPartyAppName";
                                              optionalParams:dict[@"optional"]
                                                       names:names
                                                 application:self.application
-                                                     bundle: bundle];
+                                                     bundle: bundle
+                                               escapeParams:[self.handlerClass escapeParameters]];
         }
 
         if (activity) [activities addObject:activity];
