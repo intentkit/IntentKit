@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform  = :ios, '7.0'
 
   s.subspec 'Core' do |ss|
-    ss.source_files = 'IntentKit', 'IntentKit/Core/**/*.{h,m}', "IntentKit/Handlers/INKBrowserHandler.{h,m}"
+    ss.source_files = 'IntentKit', 'IntentKit/Core/**/*.{h,m}', "IntentKit/Handlers/INKBrowserHandler.{h,m}", 'IntentKit/Apps/UIWebView/*.{h,m}'
     ss.dependency "MWLayoutHelpers"
     ss.resources = 'IntentKit/IntentKit-Localizations.bundle'
     ss.resource_bundles = { 'IntentKit' => 'IntentKit/{**/*.strings,Images/*.png}',
@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Twitter' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.source_files = 'IntentKit/Handlers/INKTwitterHandler.{h,m}', 'IntentKit/Apps/UIWebView/*.{h,m}'
     ss.resource_bundles = { 'IntentKit-INKTwitterHandler' => "IntentKit/Apps/{Twitter,Twitterrific,Tweetbot}/*.{plist,png}" }
+    ss.source_files = 'IntentKit/Handlers/INKTwitterHandler.{h,m}'
     ss.requires_arc = true
   end
 
