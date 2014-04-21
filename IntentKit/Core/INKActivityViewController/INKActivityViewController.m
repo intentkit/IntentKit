@@ -92,7 +92,7 @@ static CGFloat const INKActivityViewControllerMinimumSpacing_Pad = 10.f;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    BOOL canSetDefault = self.delegate.canSetDefault;
+    BOOL canSetDefault = self.delegate.canSetDefault && !self.isDefaultSelector;
     self.defaultToggleView.enabled = canSetDefault;
     self.defaultToggleView.hidden = !canSetDefault;
     if (!canSetDefault) {
