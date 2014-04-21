@@ -45,6 +45,7 @@
             self.isUsingFallback = YES;
             Class browserClass = NSClassFromString(@"INKBrowserHandler");
             INKHandler *browserHandler = [[browserClass alloc] init];
+            browserHandler.useSystemDefault = YES;
             appList = [[INKApplicationList alloc] initWithApplication:[UIApplication sharedApplication] forHandler:browserClass];
             activity = [appList activityWithName:browserHandler.defaultApp];
 

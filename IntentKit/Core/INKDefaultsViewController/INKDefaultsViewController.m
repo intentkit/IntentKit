@@ -68,11 +68,13 @@ static NSString * const CellIdentifier = @"cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     INKDefaultsCell *cell = (INKDefaultsCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    Class handlerClass = (cell.isUsingFallback ? INKBrowserHandler.class : [self handlerClassForIndexPath:indexPath]);
-    INKHandler *handler = [[handlerClass alloc] init];
-    [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:^{
-            [self.tableView reloadData];
-    }];
+    if (!cell.isUsingFallback) {
+        Class handlerClass = [self handlerClassForIndexPath:indexPath];
+        INKHandler *handler = [[handlerClass alloc] init];
+        [[handler promptToSetDefault] presentActivitySheetFromViewController:self popoverFromRect:[tableView rectForRowAtIndexPath:indexPath] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES completion:^{
+                [self.tableView reloadData];
+        }];
+    }
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
