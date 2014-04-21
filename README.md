@@ -44,17 +44,17 @@ Usage
 -----
 In its simplest form, to use IntentKit you just need to instantiate a handler object, give it an action to perform, and tell the resulting presenter object to present itself. Here's how you'd open a URL in an external web browser on an iPhone:
 
-```obj-c
+[```obj-c
 NSURL *url = [NSURL URLWithString:@"http://google.com"]
 INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
-INKActivityPresenter *presenter = [browserHandler openURL:url];
-[presenter presentModalActivitySheetFromViewController:self];
-```
+NKActivityPresenter *present presentModallytivitySheetFromViewController:self];
+```]
 
 If the user only has MobileSafari installed, this will open up Safari just as if you had called `[[UIApplication sharedApplication] openURL:url]`.
 
 If the user has multiple web browsers installed, this will display a modal sheet (similar to the iOS 7-style `UIActivityViewController`) listing each of the available applications.
 
+#### iPad
 This will always display as a modal sheet, but if your app is Universal or iPad-only you probably want to display the application sheet as popover instead. The following code will automatically display itself modally on an iPhone and in a `UIPopoverController` on an iPad.
 
 ```obj-c
@@ -68,7 +68,18 @@ INKActivityPresenter *presenter = [browserHandler openURL:url];
                                          animated:YES];
 ```
 
-All of those options will be passed directly into a `UIPopoverController`. Similarly, there exists a `presentActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections:animated:` that calls the equivalent `UIPopoverController` method if appropriate.
+All of those options will be passed directly into a `UIPopoverController`. Similarly, there exists a `presentActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections:animated:` that calls the equivalent `UIPopove
+
+
+#### Explicitly specifying the view controller
+If you're using `presentModally`, it will attempt to intelligently figure out which view controller to present itself on. It's possible it won't pick the correct one automatically; if that's the case, you probably want to explicitly specify the correct view controller.
+
+```obj-c
+NSURL *url = [NSURL URLWithString:@"http://google.com"]
+INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
+INKActivityPresenter *presenter = ][browserHandler openURL:url];
+[presenter presentModalActivitySheetFromViewController:self];
+```
 
 
 ### Different Handlers
