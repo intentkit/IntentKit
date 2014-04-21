@@ -3,7 +3,7 @@ IntentKit [![Build Status](https://travis-ci.org/intentkit/IntentKit.png)](https
 
 IntentKit is an easier way to handle third-party URL schemes in iOS apps.
 
-![Example animation](https://raw.github.com/intentkit/IntentKit/master/example.gif)
+![Example of activity view](https://raw.github.com/intentkit/IntentKit/master/example.gif)
 
 
 Linking to third-party apps is essentially broken on iOS. Let's say that, as a developer, you want to allow users to open map links in Google Maps instead of the built-in Maps.app. You now need to write a whole bunch of custom code that determines whether Google Maps is installed, ask the user which they would prefer, and ideally remember that preference.
@@ -105,6 +105,9 @@ If you use this method of presenting IntentKit, it's recommended that you give u
 
 * If you want more control over the UI experience, IntentKit offers lots of hooks into the data to set your own defaults. At a high level, every INKHandler object has a `promptToSetDefault` method that will return an `INKActivityPresenter` object that handles prompting the user to select an application. If you want even lower-level control, your custom interface can fetch which applications are available for a given handler using an `INKApplicationList` and manually adjust preferences using the `INKDefaultsManager` class.
 
+
+The built-in `INKDefaultsViewController` class looks something like this:
+ ![Example of defaults selector](https://raw.github.com/intentkit/IntentKit/master/example-defaults.gif)
 
 #### Explicit choice
 When `useSystemDefault` is set to `NO`, the first time you perform an action for a given INKHandler the user will be presented with a  selection interface not unlike a UIActivityViewController. It also gives users the option to save that app as the default; if they do so, then that application will be opened automatically every time that handler is presented, skipping the UI. If the default app doesn't support a given action (for example, if a user has picked Twitter.app as their default Twitter client, but then tries to do something that only Tweetbot can do), the share sheet will be displayed as normal. In this case, the "Remember" toggle will be disabled.
