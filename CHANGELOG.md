@@ -1,5 +1,11 @@
 ## 0.5.2
 
+###### Enhancements
+* The INKDefaultsViewController view for an app using a fallback URL is more robust:
+  it is no longer tappable, and always shows the current browser.
+
+* The README now includes an example image for INKDefaultsViewController.
+
 ###### Bugfixes
 * Fixes a regression causing Fallback URLs to not work as expected.
 
