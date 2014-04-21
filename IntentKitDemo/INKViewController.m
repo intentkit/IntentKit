@@ -82,7 +82,7 @@
                              INKBrowserHandler *handler = [[INKBrowserHandler alloc] init];
                              handler.alwaysShowActivityView = self.activitySwitch.on;
                              handler.useSystemDefault = self.useSystemDefaultSwitch.on;
-                             NSURL *url = [NSURL URLWithString:@"http://babycastles.com/website"];
+                             NSURL *url = [NSURL URLWithString:@"http://google.com"];
                              return [handler openURL:url];
                          }
                         },
