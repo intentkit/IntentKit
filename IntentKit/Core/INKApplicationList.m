@@ -82,6 +82,16 @@
     return [activities copy];
 }
 
+- (NSArray *)availableActivities {
+    NSMutableArray *availableActivities = [NSMutableArray new];
+    for (INKActivity *activity in self.activities) {
+        if (activity.isAvailableOnDevice) {
+            [availableActivities addObject:activity];
+        }
+    }
+    return [availableActivities copy];
+}
+
 - (INKActivity *)activityWithName:(NSString *)name {
     for (INKActivity *activity in self.activities) {
         if ([activity.name isEqualToString:name]) {

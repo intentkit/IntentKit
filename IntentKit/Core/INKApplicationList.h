@@ -27,10 +27,13 @@
 /** The INKHandler subclass to load applications for. */
 @property (copy, nonatomic) Class handlerClass;
 
-/** An array containing every possible
- third-party app for a given handler, including ones that the user doesn't have
- installed. */
+/** An array containing every possible app for a given handler, 
+ including ones that the user doesn't have installed. */
 @property (readonly) NSArray *activities;
+
+/** An array containing only the applications the user currently has installed
+ for the given handler. */
+@property (readonly) NSArray *availableActivities;
 
 /** True if the handler class enables falling back onto a web browser */
 @property (readonly) BOOL canUseFallback;
