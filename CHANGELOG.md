@@ -1,3 +1,8 @@
+## 0.5.2
+
+###### Bugfixes
+* Fixes a regression causing Fallback URLs to not work as expected.
+
 ## 0.5.1
 
 ###### Enhancements
