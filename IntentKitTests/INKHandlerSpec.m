@@ -128,7 +128,7 @@ describe(@"INKHandler", ^{
 
         describe(@"addDefault:", ^{
             it(@"should add a default", ^{
-                INKActivity *activity = [[INKActivity alloc] initWithActions:nil optionalParams:nil names:@{@"en":@"Fart.app"} application:nil bundle:nil escapeParams:YES];
+                INKActivity *activity = [[INKActivity alloc] initWithActions:nil optionalParams:nil names:@{@"en":@"Fart.app"} application:nil bundle:nil];
                 [handler addDefault:activity];
                 [verify(handler.defaultsManager) addDefault:@"Fart.app" forHandler:[INKHandler class]];
             });

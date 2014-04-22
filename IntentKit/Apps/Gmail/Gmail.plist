@@ -7,14 +7,14 @@
 	<key>optional</key>
 	<dict>
 		<key>subject</key>
-		<string>&amp;subject={subject}</string>
+		<string>&amp;subject={{subject}}</string>
 		<key>messageBody</key>
-		<string>&amp;body={messageBody}</string>
+		<string>&amp;body={{messageBody}}</string>
 	</dict>
 	<key>actions</key>
 	<dict>
 		<key>sendMailTo:</key>
-		<string>googlegmail:///co?to={recipient}</string>
+		<string>googlegmail:///co?to={{recipient}}</string>
 	</dict>
 </dict>
 </plist>

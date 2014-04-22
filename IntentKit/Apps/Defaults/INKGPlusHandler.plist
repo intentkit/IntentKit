@@ -7,13 +7,13 @@
 	<key>fallbackUrls</key>
 	<dict>
 		<key>showGPlusProfileWithId:</key>
-		<string>https://plus.google.com/{userId}</string>
+		<string>https://plus.google.com/{{userId}}</string>
 		<key>showGPlusProfileWithName:</key>
-		<string>https://plus.google.com/+{userName}</string>
+		<string>https://plus.google.com/+{{userName}}</string>
 		<key>showGPlusEventWithId:</key>
-		<string>gplus://plus.google.com/events/{eventId}</string>
+		<string>gplus://plus.google.com/events/{{eventId}}</string>
 		<key>showGPlusCommunityWithId:</key>
-		<string>https://plus.google.com/u/0/communities/{communityId}</string>
+		<string>https://plus.google.com/u/0/communities/{{communityId}}</string>
 	</dict>
 </dict>
 </plist>

@@ -7,9 +7,9 @@
 	<key>actions</key>
 	<dict>
 		<key>showProfileWithId:</key>
-		<string>fb://profile/{userId}</string>
+		<string>fb://profile/{{userId}}</string>
 		<key>showEventWithId:</key>
-		<string>fb://event/{eventId}</string>
+		<string>fb://event/{{eventId}}</string>
 	</dict>
 </dict>
 </plist>

@@ -174,13 +174,13 @@ Extending IntentKit to include your own application's URL scheme is easy.
     </dict>
     ```
 
-    Additionally, there should be an `actions` dictionary containing all of the actions your application can perform. This dictionary should map strings representing `INKHandler` methods to template strings used to generate URLs for those method. In these template strings, variables wrapped in {handlebars} will be interpolated at runtime. For example:
+    Additionally, there should be an `actions` dictionary containing all of the actions your application can perform. This dictionary should map strings representing `INKHandler` methods to template strings used to generate URLs for those method. In these template strings, variables wrapped in [Mustache](http://mustache.github.io)-style curly braces will be interpolated at runtime. Just like Mustache, variables wrapped in double-braces (`{{name}}`) will be URL-escaped, whereas ones wrapped in triple-braces (`{{{url}}}`) will not be. For example:
 
     ```xml
     <key>actions</key>
     <dict>
         <key>searchForLocation:</key>
-        <string>comgooglemaps://?q={query}</string>
+        <string>comgooglemaps://?q={{query}}</string>
     </dict>
     ```
 

@@ -7,9 +7,9 @@
 	<key>actions</key>
 	<dict>
 		<key>showTweetWithId:</key>
-		<string>twitterrific:///tweet?id={tweetId}</string>
+		<string>twitterrific:///tweet?id={{tweetId}}</string>
 		<key>showUserWithScreenName:</key>
-		<string>twitterrific:///profile?screen_name={screenName}</string>
+		<string>twitterrific:///profile?screen_name={{screenName}}</string>
 		<key>showTimeline</key>
 		<string>twitterrific:///tweets</string>
 		<key>showMentions</key>
@@ -17,9 +17,9 @@
 		<key>showDirectMessages</key>
 		<string>twitterrific:///messages</string>
 		<key>searchFor:</key>
-		<string>twitterrific:///search?q={query}</string>
+		<string>twitterrific:///search?q={{query}}</string>
 		<key>tweetMessage:</key>
-		<string>twitterrific:///post?message={message}</string>
+		<string>twitterrific:///post?message={{message}}</string>
 	</dict>
 </dict>
 </plist>

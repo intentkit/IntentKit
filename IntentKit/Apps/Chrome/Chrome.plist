@@ -7,11 +7,11 @@
 	<key>actions</key>
 	<dict>
 		<key>openHttpsURL:</key>
-		<string>googlechromes://{url}</string>
+		<string>googlechromes://{{{url}}}</string>
 		<key>openHttpURL:</key>
-		<string>googlechrome://{url}</string>
+		<string>googlechrome://{{{url}}}</string>
 		<key>openURL:withCallback:</key>
-		<string>googlechrome-x-callback://x-callback-url/open/?x-source={source}&amp;x-success={callback}&amp;url={url}</string>
+		<string>googlechrome-x-callback://x-callback-url/open/?x-source={{source}}&amp;x-success={{callback}}&amp;url={{url}}</string>
 	</dict>
 </dict>
 </plist>

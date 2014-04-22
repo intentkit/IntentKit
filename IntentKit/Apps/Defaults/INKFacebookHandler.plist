@@ -7,9 +7,9 @@
 	<key>fallbackUrls</key>
 	<dict>
 		<key>showProfileWithId:</key>
-		<string>https://facebook.com/{userId}</string>
+		<string>https://facebook.com/{{userId}}</string>
 		<key>showEventWithId:</key>
-		<string>https://facebook.com/events/{eventId}</string>
+		<string>https://facebook.com/events/{{eventId}}</string>
 	</dict>
 </dict>
 </plist>

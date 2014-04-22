@@ -27,27 +27,36 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
     return result;
 }
 
-- (NSString *)stringByEvaluatingTemplateWithData:(NSDictionary *)data escape:(BOOL)escape {
+- (NSString *)stringByEvaluatingTemplateWithData:(NSDictionary *)data {
     NSString *tempString = [self copy];
     for (NSString *key in data) {
-        NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
-        NSString *value = (escape? urlEncode(data[key]) : data[key]);
+        NSString *value = data[key];
+
+        NSString *handlebarKey = [NSString stringWithFormat:@"{{{%@}}}", key];
         tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:value];
+
+        handlebarKey = [NSString stringWithFormat:@"{{%@}}", key];
+        tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:urlEncode(value)];
     }
     return tempString;
 }
 
-- (NSString *)stringWithTemplatedQueryParams:(NSDictionary *)params data:(NSDictionary *)data escape:(BOOL)escape {
+- (NSString *)stringWithTemplatedQueryParams:(NSDictionary *)params data:(NSDictionary *)data {
     NSMutableArray *evaluatedParams = [NSMutableArray array];
 
     for (NSString *key in data) {
-        NSString *handlebarKey = [NSString stringWithFormat:@"{%@}", key];
-
         NSString *optionalParam = params[key];
         if (optionalParam) {
-            NSString *value = (escape? urlEncode(data[key]) : data[key]);
+            NSString *value = data[key];
+
+            NSString *handlebarKey = [NSString stringWithFormat:@"{{{%@}}}", key];
             NSString *optionalString = [optionalParam stringByReplacingOccurrencesOfString:handlebarKey
                                                                                 withString:value];
+
+            handlebarKey = [NSString stringWithFormat:@"{{%@}}", key];
+            optionalString = [optionalString stringByReplacingOccurrencesOfString:handlebarKey
+                                                                                withString:urlEncode(value)];
+
             [evaluatedParams addObject:optionalString];
         }
     }

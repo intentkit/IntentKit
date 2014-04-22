@@ -20,10 +20,6 @@
     return INKHandlerCategoryUtility;
 }
 
-+ (BOOL)escapeParameters {
-    return NO;
-}
-
 - (INKActivityPresenter *)openURL:(NSURL *)url {
     NSString *strippedUrl = [url.resourceSpecifier stringByReplacingOccurrencesOfString:@"//" withString:@"" options:0 range:NSMakeRange(0, 2)];
     NSDictionary *args = @{@"url": strippedUrl};
@@ -40,8 +36,8 @@
     NSString *appName = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     NSString *targetURL = url.absoluteString;
     NSString *callbackURL = callback.absoluteString;
-    NSDictionary *args = @{@"url": urlEncode(targetURL),
-                           @"callback": urlEncode(callbackURL),
+    NSDictionary *args = @{@"url": targetURL,
+                           @"callback": callbackURL,
                            @"source": appName};
 
     return [self performCommand:command withArguments:args];

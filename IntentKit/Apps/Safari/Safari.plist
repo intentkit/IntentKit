@@ -7,9 +7,9 @@
 	<key>actions</key>
 	<dict>
 		<key>openHttpURL:</key>
-		<string>http://{url}</string>
+		<string>http://{{{url}}}</string>
 		<key>openHttpsURL:</key>
-		<string>https://{url}</string>
+		<string>https://{{{url}}}</string>
 	</dict>
 </dict>
 </plist>

@@ -7,11 +7,11 @@
 	<key>actions</key>
 	<dict>
 		<key>showTweetWithId:</key>
-		<string>twitter://status?id={tweetId}</string>
+		<string>twitter://status?id={{tweetId}}</string>
 		<key>showUserWithScreenName:</key>
-		<string>twitter://user?screen_name={screenName}</string>
+		<string>twitter://user?screen_name={{screenName}}</string>
 		<key>showUserWithId:</key>
-		<string>twitter://user?id={userId}</string>
+		<string>twitter://user?id={{userId}}</string>
 		<key>showTimeline</key>
 		<string>twitter://timeline</string>
 		<key>showMentions</key>
@@ -19,13 +19,13 @@
 		<key>showDirectMessages</key>
 		<string>twitter://connect</string>
 		<key>sendDirectMessageToScreenName:</key>
-		<string>twitter://messages?screen_name={screenName}</string>
+		<string>twitter://messages?screen_name={{screenName}}</string>
 		<key>searchFor:</key>
-		<string>twitter://search?query={query}</string>
+		<string>twitter://search?query={{query}}</string>
 		<key>tweetMessage:</key>
-		<string>twitter://post?message={message}</string>
+		<string>twitter://post?message={{message}}</string>
 		<key>tweetMessage:inReplyTo:</key>
-		<string>twitter://post?message={message}&amp;in_reply_to_status_id={replyId}</string>
+		<string>twitter://post?message={{message}}&amp;in_reply_to_status_id={{replyId}}</string>
 	</dict>
 </dict>
 </plist>

@@ -42,10 +42,6 @@
     @throw @"Method not implemented";
 }
 
-+ (BOOL)escapeParameters {
-    return YES;
-}
-
 - (NSString *)defaultApp {
     return [self.defaultsManager defaultApplicationForHandler:self.class
                                            allowSystemDefault:self.useSystemDefault];
@@ -73,8 +69,7 @@
     if (self.useFallback && [availableApps count] < 1) {
         NSString *fallbackUrl = [self.appList fallbackUrlForCommand:command];
         if (fallbackUrl) {
-            fallbackUrl = [fallbackUrl stringByEvaluatingTemplateWithData:args
-                           escape:INKBrowserHandler.class.escapeParameters];
+            fallbackUrl = [fallbackUrl stringByEvaluatingTemplateWithData:args];
             NSURL *url = [NSURL URLWithString:fallbackUrl];
             INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
             return [browserHandler openURL:url];
