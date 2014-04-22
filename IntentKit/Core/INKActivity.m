@@ -77,7 +77,7 @@
     if (!self.actions[command]) { return NO; }
 
     if (self.presenter) {
-        return YES;
+        return [self.presenter canPerformAction:command];
     } else {
         NSURL *url = [NSURL URLWithString:[self.actions[command] urlScheme]];
         return [self.application canOpenURL:url];

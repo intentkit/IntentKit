@@ -17,12 +17,13 @@
 
 @implementation INKTweetSheet
 
+- (BOOL)canPerformAction:(NSString *)action {
+    return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
+}
+
 - (void)performAction:(NSString *)action
                params:(NSDictionary *)params
      inViewController:(UIViewController *)presentingViewController {
-
-    if (![action isEqualToString:@"tweetMessage:"]) return;
-    if (![SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) return;
 
     self.presentingViewController = presentingViewController;
 

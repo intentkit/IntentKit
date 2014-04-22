@@ -9,6 +9,11 @@
 /** A protocol that indicates a class represents a presenter object that can render a modal view controller to perform an action. */
 @protocol INKPresentable <NSObject>
 
+/** Check whether or not the presenter is available to perform a given action
+ @param action The action to perform
+ @return BOOL Whether or not the presenter is capable of performing the given action.   */
+- (BOOL)canPerformAction:(NSString *)action;
+
 /** Present a modal view controller to perform some action. 
  @param action A string representing an action to perform
  @param params A dictionary of parameters the action takes

@@ -11,6 +11,10 @@
 
 @implementation INKWebView
 
+- (BOOL)canPerformAction:(NSString *)action {
+    return YES;
+}
+
 - (void)performAction:(NSString *)action
                params:(NSDictionary *)params
      inViewController:(UIViewController *)presentingViewController {

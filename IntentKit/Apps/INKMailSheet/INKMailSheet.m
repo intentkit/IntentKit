@@ -19,11 +19,13 @@ static char AssociatedObjectKey;
 
 @implementation INKMailSheet
 
+- (BOOL)canPerformAction:(NSString *)action {
+    return [MFMailComposeViewController canSendMail];
+}
+
 - (void)performAction:(NSString *)action
                params:(NSDictionary *)params
      inViewController:(UIViewController *)presentingViewController {
-
-    if (![action isEqualToString:@"sendMailTo:"]) return;
 
     self.presentingViewController = presentingViewController;
 
