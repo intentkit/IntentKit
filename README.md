@@ -58,9 +58,17 @@ If the user doesn't have any third-party mail apps installed (such as Mailbox or
 ### "Convention Over Configuration" mode
 Depending on your application and userbase, that user experience might not be ideal. If 99% of your users want to use the Apple default, why should they have to go through an extra tap?
 
-Each `INKHandler` object has an `useSystemDefault` property. If you set it to `YES`, performing an INKHandler action will not result in a custom UI being shown. Instead, the system will silently pick an application to handle the request. Sensible defaults are picked for each handler type: all handlers that have an Apple-provided application will use that one, and handlers that are based on a third-party service (e.g. Twitter) will default to using the first-party application.
+Each `INKHandler` object has an `useSystemDefault` property. If you set it to `YES`, performing an INKHandler action will not result in a custom UI being shown). Instead, the system will silently pick an application to handle the request. Sensible defaults are picked for each handler type: all handlers that have an Apple-provided application will use that one, and handlers that are based on a third-party service (e.g. Twitter) will default to using the first-party application.
 
-If you use this method of presenting IntentKit, it's recommended that you give users a way to set their own defaults. IntentKit provides a view controller called `INKDefaultsViewController` that lets users set preferences. Just create a new `INKDefaultsViewController` object (`[[INKDefaultsViewController alloc] init]`), optionally limit which handler types should be displayed, and present it on-screen. It looks something like this:
+If you use this method of presenting IntentKit, it's recommended that you give users a way to set their own defaults. IntentKit provides a view controller called `INKDefaultsViewController` that lets users set preferences. Just create a new `INKDefaultsViewController` object, optionally limit which handler types should be displayed, and present it on-screen:
+
+```obj-c
+INKDefaultsViewController *defaultsController = [[INKDefaultsViewController alloc] init];
+defaultsController.allowedHandlers = @[[INKBrowserHandler class], [INKMailHandler class]];
+[self pushViewController:defaultsController animated:YES];
+```	
+
+When you don't manually limit the handler types, it looks something like this:
 
 ![Example of defaults selector](https://raw.github.com/intentkit/IntentKit/master/example-defaults.gif)
  
