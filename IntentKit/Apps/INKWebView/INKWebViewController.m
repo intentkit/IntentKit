@@ -71,6 +71,9 @@
 
     toolbar.items = @[fixed, self.backButton, flexible, self.forwardButton, flexible, self.refreshButton, flexible, self.shareButton, fixed];
 
+    self.forwardButton.enabled = NO;
+    self.backButton.enabled = NO;
+
     return toolbar;
 }
 
