@@ -18,7 +18,7 @@ IntentKit attempts to solve this problem.
 
 **For developers**, it provides:
 
-- An elegant, cohesive API based on semantic actions. Instead of manually constructing URLs, just tell it what you're trying to do. Instead of manually checking which applications a user has installed, let IntentKit automatically query the device for you to figure out what applications are available to perform a given action.
+- An elegant, cohesive API based on semantic actions. Instead of manually constructing URLs or creating modal view controllers to display, just tell it what you're trying to do. Instead of manually checking which applications a user has installed, let IntentKit automatically query the device for you to figure out what applications are available to perform a given action.
 
 - A unified, human-readable repository of third-party URL schemes. Every application's URL scheme is just a plaintext plist. You can add support for your application to IntentKit without writing a single line of code.
 
@@ -42,20 +42,59 @@ For more information on what subspecs are available, refer to the project's [Pod
 
 Usage
 -----
-In its simplest form, to use IntentKit you just need to instantiate a handler object, give it an action to perform, and tell the resulting presenter object to present itself. Here's how you'd open a URL in an external web browser on an iPhone:
 
-[```obj-c
+To use IntentKit, you start by instantiating a handler object. There are a handful of handler objects that come with IntentKit, each with domain knowledge of a specific type of application. For example, `INKBrowserHandler`, `INKMapsHandler`, and `INKTwitterHandler` handle opening links in web browsers, mapping applications, and Twitter clients, respectively.
+
+After creating a new handler object, you just tell it what action you want to perform. It will return you a special object called a presenter, which can be used to actually perform the action. Here's how you'd open an email compose screen on an iPhone:
+
+```obj-c
+INKMailHandler *mailHandler = [[INKMailHandler alloc] init];
+[[mailHandler sendMailTo:@"steve@apple.com"] presentModally];
+```
+
+If the user doesn't have any third-party mail apps installed (such as Mailbox or Google's native Gmail app), this will display an in-line `MFMailComposeViewController`, just as if you had created and presented one yourself. If the user does have other mail apps installed, this will display a modal sheet that looks like a `UIActivityViewController` listing each available application. It will also give them a switch they can tap to remember their choice for all future links of that type.
+
+
+### "Convention Over Configuration" mode
+Depending on your application and userbase, that user experience might not be ideal. If 99% of your users want to use the Apple default, why should they have to go through an extra tap?
+
+Each `INKHandler` object has an `useSystemDefault` property. If you set it to `YES`, performing an INKHandler action will not result in a custom UI being shown. Instead, the system will silently pick an application to handle the request. Sensible defaults are picked for each handler type: all handlers that have an Apple-provided application will use that one, and handlers that are based on a third-party service (e.g. Twitter) will default to using the first-party application.
+
+If you use this method of presenting IntentKit, it's recommended that you give users a way to set their own defaults. IntentKit provides a view controller called `INKDefaultsViewController` that lets users set preferences. Just create a new `INKDefaultsViewController` object (`[[INKDefaultsViewController alloc] init]`), optionally limit which handler types should be displayed, and present it on-screen. It looks something like this:
+
+![Example of defaults selector](https://raw.github.com/intentkit/IntentKit/master/example-defaults.gif)
+ 
+If you'd rather more control over the user experience, IntentKit also offers API hooks to set your own defaults. Every INKHandler object has a `promptToSetDefault` method that will return an `INKActivityPresenter` object that handles prompting the user to select an application. For even lower-level control, the `INKApplicationList` and `INKDefaultsManager` classes can be used to fetch a list of available applications and manually set defaults.
+
+
+### Optional Parameters
+Some handlers have optional configuration parameters. For example, when linking to a map application, you can specify where the map should be centered and how zoomed-in it should be; these options will take effect whether you're searching for a location, getting turn-by-turn directions, or doing any other action supported by the handler.
+
+```obj-c
+INKMapsHandler *mapsHandler = [[INKMapsHandler alloc] init];
+mapsHandler.center = CLLocationCoordinate2DMake(42.523, -73.544);
+mapsHandler.zoom = 14;
+[mapsHandler directionsFrom:@"Washington Square Park" to:@"Lincoln Center"];
+```
+
+This is where the real power of `IntentKit` shines through. This gives you a clean, semantic API to construct links rather than having to manually cobble together URLs, regardless of whether your user wants to use Apple Maps or a third-party app.
+
+An up-to-date list of available handlers and what methods and configuration options is available in the project's documentation.
+
+
+### Explicitly specifying the view controller
+If you're using `presentModally`, it will attempt to intelligently figure out which view controller to present itself on. It's possible it won't pick the correct one automatically; if that's the case, you probably want to explicitly specify the correct view controller.
+
+```obj-c
 NSURL *url = [NSURL URLWithString:@"http://google.com"]
 INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
-NKActivityPresenter *present presentModallytivitySheetFromViewController:self];
-```]
+INKActivityPresenter *presenter = ][browserHandler openURL:url];
+[presenter presentModalActivitySheetFromViewController:self];
+```
 
-If the user only has MobileSafari installed, this will open up Safari just as if you had called `[[UIApplication sharedApplication] openURL:url]`.
 
-If the user has multiple web browsers installed, this will display a modal sheet (similar to the iOS 7-style `UIActivityViewController`) listing each of the available applications.
-
-#### iPad
-This will always display as a modal sheet, but if your app is Universal or iPad-only you probably want to display the application sheet as popover instead. The following code will automatically display itself modally on an iPhone and in a `UIPopoverController` on an iPad.
+### iPad and UIPopoverController
+If your app is Universal or iPad-only, if you're displaying an IntentKit `INKActivityViewController` you probably want to display it as a popover instead of a modal sheet. The following code will automatically display itself modally on an iPhone and in a `UIPopoverController` on an iPad.
 
 ```obj-c
 NSURL *url = [NSURL URLWithString:@"http://google.com"]
@@ -68,62 +107,17 @@ INKActivityPresenter *presenter = [browserHandler openURL:url];
                                          animated:YES];
 ```
 
-All of those options will be passed directly into a `UIPopoverController`. Similarly, there exists a `presentActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections:animated:` that calls the equivalent `UIPopove
-
-
-#### Explicitly specifying the view controller
-If you're using `presentModally`, it will attempt to intelligently figure out which view controller to present itself on. It's possible it won't pick the correct one automatically; if that's the case, you probably want to explicitly specify the correct view controller.
-
-```obj-c
-NSURL *url = [NSURL URLWithString:@"http://google.com"]
-INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
-INKActivityPresenter *presenter = ][browserHandler openURL:url];
-[presenter presentModalActivitySheetFromViewController:self];
-```
-
-
-### Different Handlers
-There are a number of different handler objects, all grouped by the type of application. For example, `INKBrowserHandler`, `INKMapsHandler`, and `INKTwitterHandler` handle opening links in web browsers, mapping applications, and Twitter clients, respectively.
-
-Some of these handlers have optional configuration parameters. For example, when linking to a map application, you can specify where the map should be centered and how zoomed-in it should be; these options will take effect whether you're searching for a location, getting turn-by-turn directions, or doing any other action supported by the handler.
-
-```obj-c
-INKMapsHandler *mapsHandler = [[INKMapsHandler alloc] init];
-mapsHandler.center = CLLocationCoordinate2DMake(42.523, -73.544);
-mapsHandler.zoom = 14;
-[mapsHandler directionsFrom:@"Washington Square Park" to:@"Lincoln Center"];
-```
-
-Here's where the real power of `IntentKit` shines through. This gives you a clean, semantic API to construct links rather than having to manually cobble together URLs, regardless of whether your user wants to use Apple Maps or a third-party app.
-
-An up-to-date list of available handlers and what methods and configuration options is available in the project's documentation.
+All of those options will be passed directly into a UIPopoverController. Similarly, there exists a presentActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections:animated: that calls the equivalent UIPopoverController method if appropriate.
 
 
 ### Fallback URLs
-If a user doesn't have any appropriate apps installed that can perform an action, IntentKit will try to use a web browser as a fallback. For example, if a user tries to do something involving Twitter but doesn't have any Twitter clients installed, IntentKit will try to load the appropriate `twitter.com` URL. It does this by presenting an `INKBrowserHandler` so the user can still pick their preferred web browser.
+If a user doesn't have any appropriate apps installed that can perform an action, IntentKit will try to use a web browser as a fallback. For example, if a user tries to do something involving Twitter but doesn't have a Twitter client installed, IntentKit will try to load the appropriate `twitter.com` URL. It does this by presenting an `INKBrowserHandler` so the user can still pick their preferred web browser.
 
 If you don't want this behavior, you can disable it by setting a handler's `useFallback` property to `NO` before invoking an action.
 
-### Dealing With Defaults
-There are two main ways IntentKit can present its interface to the user. You can switch between them by setting the `useSystemDefault` property of an `INKHandler` object.
 
-#### Convention over configuration (recommended)
-If `useSystemDefault` is set to `YES`, performing an INKHandler action will not result in a custom UI being shown; the system will silently pick an application to handle the request. Sensible defaults are picked for each handler type: all handlers that have an Apple-provided application will use that one, and handlers that are based on a third-party service (e.g. Twitter) will default to using the first-party application.
-
-If you use this method of presenting IntentKit, it's recommended that you give users a way to set their own defaults. There are two ways you can go about doing this.
-
-* If you want an easy, drop-in solution, IntentKit provides a view controller called `INKDefaultsViewController` that will take care of presenting an interface to the user. You just need to create a new `INKDefaultsViewController` object (`[[INKDefaultsViewController alloc] init]`) and present it on-screen using whatever mechanism you'd like.
-
-* If you want more control over the UI experience, IntentKit offers lots of hooks into the data to set your own defaults. At a high level, every INKHandler object has a `promptToSetDefault` method that will return an `INKActivityPresenter` object that handles prompting the user to select an application. If you want even lower-level control, your custom interface can fetch which applications are available for a given handler using an `INKApplicationList` and manually adjust preferences using the `INKDefaultsManager` class.
-
-
-The built-in `INKDefaultsViewController` class looks something like this:
- ![Example of defaults selector](https://raw.github.com/intentkit/IntentKit/master/example-defaults.gif)
-
-#### Explicit choice
-When `useSystemDefault` is set to `NO`, the first time you perform an action for a given INKHandler the user will be presented with a  selection interface not unlike a UIActivityViewController. It also gives users the option to save that app as the default; if they do so, then that application will be opened automatically every time that handler is presented, skipping the UI. If the default app doesn't support a given action (for example, if a user has picked Twitter.app as their default Twitter client, but then tries to do something that only Tweetbot can do), the share sheet will be displayed as normal. In this case, the "Remember" toggle will be disabled.
-
-Currently, `useSystemDefault` defaults to `NO`. Setting it to `YES` is *highly* recommended, but since it requires additional integration work (finding a place in your UI to allow users to set preferences), it's not currently the default. This will likely change in the future.
+### Safari and UIWebViews
+It's worth mentioning that IntentKit's default web browser is an in-app modal UIWebView. This is true both for actions triggered by an `INKBrowserHandler` and actions triggered by other handlers falling back to a web URL. If you don't want to do that, and would rather fall back on Safari for web actions, you can set your handler's `disableInAppOption` property to `NO`.
 
 
 Documentation
@@ -147,9 +141,11 @@ The demo lets you perform any of the actions supported by IntentKit.
 If you only have one app installed capable of performing a task, IntentKit will by default open up that app directly rather than prompt the user to pick. In the demo app, there is a toggle to always show the selection UI if there is at least one application available. It's recommended that you run the demo on an actual iOS device that has third-party apps installed, but if you must run it in the simulator that toggle will let you see what the selection UI looks like.
 
 
-Adding new URL Schemes
+Adding Your Own Actions
 ----------------------
-Extending IntentKit to include your own application's URL scheme is easy.
+Extending IntentKit is easy.
+
+#### Including your own URL Scheme
 
 1. Inside the `IntentKit/Apps/` directory, create a new directory with the name of your app.
 
@@ -186,6 +182,8 @@ Extending IntentKit to include your own application's URL scheme is easy.
 
     In general, the template variable keys are named the same as the argument names of the corresponding handler methods, but there is currently nothing enforcing that. It's recommended that you look at the plist files for other apps that respond to the same actions to see what the correct template keys are.
 
+If your application supports actions not currently represented in a handler, or is part of a class of applications that doesn't currently have a handler, you'll have to write code to add support. The current handler code is easy to read; refer to an existing handler subclass as a reference for creating your own handler methods or `INKHandler` subclasses.
+
 3. Your app's icon goes in the same directory. You will need four copies of the icon, all with the same root name as your plist file:
     * `AppName.png`: 60x60
     * `AppName~ipad.png`: 76x76
@@ -193,18 +191,28 @@ Extending IntentKit to include your own application's URL scheme is easy.
     * `AppName@2x~ipad.png`: 152x152
 
     Use the same square icons you're using in your app's Xcode project; IntentKit will take care of masking them so they appear as iOS-style rounded rectangles/superellipses. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
-
-4. Open the example project in Xcode and run the tests (`Cmd+U`). This runs a linter which will let you know if any of the actions defined in your plist don't correspond to actual Objective-C handler methods, helping make sure you didn't make any typos.
-
-    Note that you don't need to manually add any of the files to Xcode; they'll be picked up automatically. If you're seeing unexpected behavior and suspect your changes aren't taking effect, clean the project in Xcode, delete the derived data folder, and reset the simulator.
-
-    You also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
+    
+4. In the root of your IntentKit codebase, run `pod install`. This will cause XCode to pick up any new files you've added. Next, run `rake` to run the test suite, which includes a linter to make sure that every action you've defined in your plist corresponds to a valid handler action. You'll also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
 
 5. In `IntentKit.podspec`, add your app to the subspec that corresponds to the handler your application responds to. Just add your app's folder name to the list of other application folder names in the appropriate resource bundle file glob.
 
 6. Submit a pull request!
 
-If your application supports actions not currently represented in a handler, or is part of a class of applications that doesn't currently have a handler, you'll have to write code to add support. The current handler code is easy to read; refer to an existing handler subclass as a reference for creating your own handler methods or `INKHandler` subclasses.
+
+#### Including Your Own In-App View Controller
+
+Adding your own modal in-app action is very similar to adding your own URL scheme, with a few exceptions.
+
+All presentable IntentKit activities must conform to the `INKPresentable` protocol, which defines two methods: one which returns whether or not it can perform a given action, and tells it to actually perform an action. The latter method is passed a view controller to present your view controller modally on; it should both present your view controller, and take care of dismissing it once your action is complete.
+
+A few other changes must be made to your application's IntentKit plist file:
+
+1. `actions` should be an array of action names, rather than a dictionary.
+
+2. There should be a field called `className` that lists the name of your `INKPresententable` class.
+
+3. The `name` field should refer to whatever you want the activity to be listed as inside the app. For example, `INKMailSheet` (the activity that displays a MFMailComposeViewController) has a `name` of "In App".
+
 
 
 Requirements
@@ -223,7 +231,6 @@ Roadmap
 -------
 The goal of the initial version of `IntentKit` was just to create a simple way to integrate third-party app linking without a lot of boilerplate code. Here's a non-exhaustive list of ways it could be extended in to the future.
 
-* The ability to have handlers perform custom code instead of always opening a URL (e.g. showing a `MFMailComposeViewController` or an in-app web view)
 * Downloading and caching plists at runtime, allowing an app to pull in the latest URL schemes without needing an App Store update
 * A web-based CMS to add and manage URL schemes without needing to manually edit plists or submit pull requests.
 * Saving user app preferences across all applications on a single device that use IntentKit
