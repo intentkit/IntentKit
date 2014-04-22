@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>default</key>
-	<string>Facebook</string>
+	<string>INKFacebookSheet</string>
 	<key>fallbackUrls</key>
 	<dict>
 		<key>showProfileWithId:</key>

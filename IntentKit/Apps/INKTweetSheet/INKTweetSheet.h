@@ -8,7 +8,8 @@
 
 #import "INKPresentable.h"
 
-/** An INKPresentable presenter object that wraps TWTweetComposeViewController, allowing INKTwitterHandler to display an inline Tweet compose screen. */
+/** An INKPresentable presenter object that wraps SLComposeViewController, 
+ allowing INKTwitterHandler to display an inline tweet compose screen. */
 @interface INKTweetSheet : NSObject<INKPresentable>
 
 @end

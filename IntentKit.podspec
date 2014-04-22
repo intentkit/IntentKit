@@ -44,8 +44,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Facebook' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.source_files = 'IntentKit/Handlers/INKFacebookHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKFacebookHandler' => "IntentKit/Apps/Facebook/*.{plist,png}" }
+    ss.source_files = 'IntentKit/Handlers/INKFacebookHandler.{h,m}', 'IntentKit/Apps/INKFacebookSheet/*.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKFacebookHandler' => "IntentKit/Apps/{Facebook,INKFacebookSheet}/*.{plist,png}" }
     ss.requires_arc = true
   end
 
