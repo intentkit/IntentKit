@@ -21,8 +21,9 @@ Pod::Spec.new do |s|
 
   s.subspec 'Twitter' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.resource_bundles = { 'IntentKit-INKTwitterHandler' => "IntentKit/Apps/{Twitter,Twitterrific,Tweetbot}/*.{plist,png}" }
-    ss.source_files = 'IntentKit/Handlers/INKTwitterHandler.{h,m}'
+    ss.source_files = 'IntentKit/Handlers/INKTwitterHandler.{h,m}', 'IntentKit/Apps/INKTweetSheet/*.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKTwitterHandler' => "IntentKit/Apps/{Twitter,Twitterrific,Tweetbot,INKTweetSheet}/*.{plist,png}" }
+    ss.framework = "Twitter"
     ss.requires_arc = true
   end
 

@@ -20,6 +20,7 @@
 		A660DD3118513B7F00EFF0E6 /* IntentKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6A16CC81851375000778944 /* IntentKit.bundle */; };
 		A66B7E1918C191000062BC4D /* INKDefaultsCellSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A66B7E1818C191000062BC4D /* INKDefaultsCellSpec.m */; };
 		A67693F918BFB10F00D531C2 /* INKDefaultsViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A67693F818BFB10F00D531C2 /* INKDefaultsViewControllerSpec.m */; };
+		A6942BB31905F58E00977692 /* INKTweetSheetSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A6942BB21905F58E00977692 /* INKTweetSheetSpec.m */; };
 		A6B73C67184D341E0055C60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C66184D341E0055C60D /* Foundation.framework */; };
 		A6B73C69184D341E0055C60D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C68184D341E0055C60D /* CoreGraphics.framework */; };
 		A6B73C6B184D341E0055C60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B73C6A184D341E0055C60D /* UIKit.framework */; };
@@ -80,6 +81,7 @@
 		A67F39D8184EDFE5002EED53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A67F39D9184EDFE5002EED53 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A67F39DA184EDFE5002EED53 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A6942BB21905F58E00977692 /* INKTweetSheetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INKTweetSheetSpec.m; path = INKPresentables/INKTweetSheetSpec.m; sourceTree = "<group>"; };
 		A6A16CC81851375000778944 /* IntentKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntentKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C63184D341E0055C60D /* IntentKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntentKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C66184D341E0055C60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -248,6 +250,7 @@
 			children = (
 				A6E7675C18FDF85100749E0A /* INKMailSheetSpec.m */,
 				A62938FA18FF417500C78223 /* INKWebViewSpec.m */,
+				A6942BB21905F58E00977692 /* INKTweetSheetSpec.m */,
 			);
 			name = INKPresentables;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				A6B73CFE184D38650055C60D /* INKHandlerSharedExampleSpec.m in Sources */,
 				A6B73D00184D38650055C60D /* INKMapsHandlerSpec.m in Sources */,
 				A61B5CC91858D4F800BA1F66 /* INKAppPlistLinter.m in Sources */,
+				A6942BB31905F58E00977692 /* INKTweetSheetSpec.m in Sources */,
 				A61B5CC71858D19D00BA1F66 /* EXPMatchers+beAValidAction.m in Sources */,
 				A61B5CC118579EBC00BA1F66 /* INKActivityViewControllerSpec.m in Sources */,
 				A66B7E1918C191000062BC4D /* INKDefaultsCellSpec.m in Sources */,
