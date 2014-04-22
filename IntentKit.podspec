@@ -10,12 +10,12 @@ Pod::Spec.new do |s|
   s.platform  = :ios, '7.0'
 
   s.subspec 'Core' do |ss|
-    ss.source_files = 'IntentKit', 'IntentKit/Core/**/*.{h,m}', "IntentKit/Handlers/INKBrowserHandler.{h,m}", 'IntentKit/Apps/UIWebView/*.{h,m}'
+    ss.source_files = 'IntentKit', 'IntentKit/Core/**/*.{h,m}', "IntentKit/Handlers/INKBrowserHandler.{h,m}", 'IntentKit/Apps/INKWebView/*.{h,m}'
     ss.dependency "MWLayoutHelpers"
     ss.resources = 'IntentKit/IntentKit-Localizations.bundle'
     ss.resource_bundles = { 'IntentKit' => 'IntentKit/{**/*.strings,Images/*.png}',
                             'IntentKit-Defaults' => "IntentKit/Apps/Defaults/*.{plist,png}",
-                            'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,UIWebView}/*.{plist,png}" }
+                            'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,INKWebView}/*.{plist,png}" }
     ss.requires_arc = true
   end
 
@@ -35,8 +35,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Mail' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.source_files = 'IntentKit/Handlers/INKMailHandler.{h,m}', "IntentKit/Apps/MFMailComposeViewController/*.{h,m}"
-    ss.resource_bundles = { 'IntentKit-INKMailHandler' => "IntentKit/Apps/{Mail,Gmail,MFMailComposeViewController}/*.{plist,png}" }
+    ss.source_files = 'IntentKit/Handlers/INKMailHandler.{h,m}', "IntentKit/Apps/INKMailSheet/*.{h,m}"
+    ss.resource_bundles = { 'IntentKit-INKMailHandler' => "IntentKit/Apps/{Mail,Gmail,INKMailSheet}/*.{plist,png}" }
     ss.framework = "MessageUI"
     ss.requires_arc = true
   end

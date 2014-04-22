@@ -32,7 +32,7 @@ describe(@"INKDefaultsManager", ^{
 
     describe(@"when nothing has been set", ^{
         it(@"should return a handler's default application", ^{
-            expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:YES]).to.equal(@"In App");
+            expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:YES]).to.equal(@"INKWebView");
         });
     });
 
@@ -78,7 +78,7 @@ describe(@"INKDefaultsManager", ^{
         it(@"should remove all of them", ^{
             [manager removeAllDefaults];
             expect([manager defaultApplicationForHandler:INKHandler.class allowSystemDefault:NO]).to.beNil();
-            expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:YES]).to.equal(@"In App");
+            expect([manager defaultApplicationForHandler:INKBrowserHandler.class allowSystemDefault:YES]).to.equal(@"INKWebView");
         });
     });
     

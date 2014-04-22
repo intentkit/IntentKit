@@ -39,7 +39,7 @@ describe(@"INKBrowserHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             NSString *urlString = @"http://google.com";
             return @{@"handler":  handler,
-                     @"appName": @"In App",
+                     @"appName": @"INKWebView",
                      @"urlString": urlString,
                      @"subjectAction": [^{
                          return [handler openURL:[NSURL URLWithString:urlString]];
@@ -51,7 +51,7 @@ describe(@"INKBrowserHandler", ^{
         itShouldBehaveLike(@"a handler action", ^{
             NSString *urlString = @"http://google.com";
             return @{@"handler":  handler,
-                     @"appName": @"In App",
+                     @"appName": @"INKWebView",
                      @"urlString": urlString,
                      @"subjectAction": [^{
                          return [handler openURL:[NSURL URLWithString:urlString]];

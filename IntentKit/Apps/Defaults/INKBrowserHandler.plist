@@ -5,6 +5,6 @@
 	<key>firstPartyAppName</key>
 	<string>Safari</string>
 	<key>default</key>
-	<string>In App</string>
+	<string>INKWebView</string>
 </dict>
 </plist>

@@ -139,6 +139,7 @@ describe(@"INKActivity", ^{
 
                 activity = [[INKActivity alloc] initWithPresenter:presenter
                                                       actions:@[@"anAction"]
+                                                     internalName:@"an app name"
                                                         names:@{@"en":@"A name"}
                                                   application:app
                                                        bundle:nil];

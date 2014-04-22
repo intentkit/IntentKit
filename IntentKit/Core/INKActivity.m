@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IntentKit *intentKit;
 
 @property (strong, nonatomic) Class className;
+@property (strong, nonatomic) NSString *internalName;
 @property (strong, nonatomic) NSString *activityCommand;
 @property (strong, nonatomic) NSDictionary *activityArguments;
 @property (strong, nonatomic) NSDictionary *names;
@@ -30,14 +31,16 @@
 @implementation INKActivity
 
 - (instancetype)initWithPresenter:(id<INKPresentable>)presenter
-                      actions:(NSArray *)actions
-                        names: (NSDictionary *)names
-                  application:(UIApplication *)application
-                       bundle:(NSBundle *)bundle {
+                          actions:(NSArray *)actions
+                     internalName:(NSString *)internalName
+                            names:(NSDictionary *)names
+                      application:(UIApplication *)application
+                           bundle:(NSBundle *)bundle {
     self = [super init];
     if (!self) return nil;
 
     self.presenter = presenter;
+    self.internalName = internalName;
     self.names = names;
     self.actions = [[NSDictionary alloc] initWithObjects:actions forKeys:actions];
     self.application = application;
@@ -49,7 +52,7 @@
 
 - (instancetype)initWithActions:(NSDictionary *)actions
                  optionalParams:(NSDictionary *)optionalParams
-                         names:(NSDictionary *)names
+                          names:(NSDictionary *)names
                     application:(UIApplication *)application
                          bundle:(NSBundle *)bundle
                    escapeParams:(BOOL)escapeParams {
@@ -84,7 +87,9 @@
 }
 
 - (NSString *)name {
-    if (self.names[@"en"]) {
+    if (self.internalName) {
+        return self.internalName;
+    } else if (self.names[@"en"]) {
         return self.names[@"en"];
     } else {
         return self.names[self.names.allKeys.firstObject];

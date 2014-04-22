@@ -74,7 +74,7 @@
         [self setNeedsLayout];
     }];
 
-    self.textLabel.text = activity.localizedName;
+    self.textLabel.text = activity.activityTitle;
 }
 
 @end

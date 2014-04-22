@@ -17,7 +17,9 @@
  @warning `INKActivity` currently makes use of the private method `_activityImage` to coax the `UIActivityViewController` into displaying a full-color image rather than creating a black-and-white representation using the `UIImage` returned by `activityImage` as a mask. It remains to be seen whether Apple will allow this private API usage or not. */
 @interface INKActivity : UIActivity
 
-/** The English name of the application */
+/** The internal name of the application. May differ from what is displayed to the user.
+ Namely, most modal/in-app activities have a unique `name` identifier 
+ while their `localizedName` is a localized version of the string "In App". */
 @property (readonly) NSString *name;
 
 /** The localized name of the application, taking the device's current language
@@ -49,6 +51,7 @@
 
  @param presenter An INKPresentable object that will have `performAction:params:inViewController:` called on it when it is time to perform an action.
  @param actions The dictionary mapping commands to valid URL schemes for the third-party application.
+ @param internalName An string to uniquely identify this activity.
  @param names A dictionary of localized app names. The keys are short locale names (e.g. `en`, `fr`), the values are strings representing the name for the given locale.
  @param application The UIApplication to use when calling `[UIApplication openURL:]` and `[UIApplication canOpenURL:]`. You probably want this to be `[UIApplication sharedApplication]`, but it is injected here for test purposes.
  @param bundle the NSBundle to fetch the app icon from.
@@ -56,7 +59,8 @@
  @return an initialized `INKActivity` object. */
 - (instancetype)initWithPresenter:(id<INKPresentable>)presenter
                           actions:(NSArray *)actions
-                            names: (NSDictionary *)names
+                     internalName:(NSString *)internalName
+                            names:(NSDictionary *)names
                       application:(UIApplication *)application
                            bundle:(NSBundle *)bundle;
 

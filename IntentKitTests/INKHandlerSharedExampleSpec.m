@@ -79,7 +79,8 @@ sharedExamplesFor(@"a handler action", ^(NSDictionary *data) {
     context(@"when a default has been set", ^{
         beforeEach(^{
             [given([handler.application canOpenURL:anything()]) willReturnBool:YES];
-            [given([handler.defaultsManager defaultApplicationForHandler:anything()allowSystemDefault:NO]) willReturn:appName];
+            [given([handler.defaultsManager defaultApplicationForHandler:anything()
+                                                      allowSystemDefault:NO]) willReturn:appName];
             presenter = subjectAction();
         });
 

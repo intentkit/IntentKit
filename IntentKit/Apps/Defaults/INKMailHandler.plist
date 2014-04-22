@@ -5,6 +5,6 @@
 	<key>firstPartyAppName</key>
 	<string>Mail</string>
 	<key>default</key>
-	<string>In App</string>
+	<string>INKMailSheet</string>
 </dict>
 </plist>
