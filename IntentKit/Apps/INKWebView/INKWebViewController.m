@@ -13,6 +13,7 @@
 @interface INKWebViewController ()<UIWebViewDelegate, UIPopoverControllerDelegate>
 @property (strong, nonatomic) UIWebView *webView;
 @property (assign, nonatomic) BOOL networkIndicatorWasVisible;
+@property (strong, nonatomic) NSURL *initialURL;
 
 @property (strong, nonatomic) UIBarButtonItem *backButton;
 @property (strong, nonatomic) UIBarButtonItem *forwardButton;
@@ -51,6 +52,7 @@
 }
 
 - (void)loadURL:(NSURL *)url {
+    self.initialURL = url;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
 }
@@ -104,7 +106,7 @@
 - (void)didTapShareButton {
     INKOpenInActivity *openIn = [INKOpenInActivity new];
 
-    UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:@[self.webView.request.URL] applicationActivities:@[openIn]];
+    UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:@[self.url] applicationActivities:@[openIn]];
 
     if (IntentKit.sharedInstance.isPad) {
         self.popover = [[UIPopoverController alloc] initWithContentViewController:shareSheet];
@@ -138,4 +140,13 @@
     self.popover = nil;
 }
 
+#pragma mark - Private
+- (NSURL *)url {
+    NSURL *webViewURL = self.webView.request.URL;
+    if ([webViewURL.absoluteString isEqualToString:@""]) {
+        return self.initialURL;
+    } else {
+        return webViewURL;
+    }
+}
 @end
