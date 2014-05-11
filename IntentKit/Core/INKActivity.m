@@ -9,7 +9,6 @@
 #import "INKActivity.h"
 #import "NSString+Helpers.h"
 #import "IntentKit.h"
-#import "INKMailSheet.h"
 
 @interface INKActivity ()
 
