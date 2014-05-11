@@ -1,3 +1,33 @@
+## 0.6.0
+
+###### Enhancements
+* IntentKit now supports in-app modal view controllers as actions!
+  INKWebView, INKTweetSheet, and INKMailSheet exist as default options for
+  INKBrowserHandler, INKTwitterHandler, and INKMailHandler, respectively.
+  This can be disabled by setting a handler's `disableInAppOption` property to YES.
+
+* As a result, the default behavior for handlers is to not show the respective
+  first-party app when an in-app option exists (namely, Safari and Mail.app).
+  You can forcibly show them by setting a handler's `showFirstPartyApp` to YES.
+
+* IntentKit can now intelligently guess which view controller to present itself on.
+  Instead of `presentModallyInViewController:`, you can now show a presenter action
+  simply by calling `presentModally`. See the README for examples.
+  (The old method still exists for backwards compatibility and for when detection fails.)
+
+* Application plists now follow Mustache templating conventions for interpolated
+  values. Variable names encased in {{double curly braces}} will be HTML-escaped,
+  whereas {{{triple curly braces}}} will be used as raw values.
+
+* Handlers can explicitly disallow showing the 'Remember my choice' toggle
+
+###### Bugfixes
+  * Fixed an issue causing browser fallbacks to not fire.
+
+###### Refactors
+* Running `rake test` on the command line causes specs to be run using `xcpretty`,
+  resulting in better output.
+
 ## 0.5.2
 
 ###### Enhancements
