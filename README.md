@@ -58,7 +58,7 @@ If the user doesn't have any third-party mail apps installed (such as Mailbox or
 ### "Convention Over Configuration" mode
 Depending on your application and userbase, that user experience might not be ideal. If 99% of your users want to use the Apple default, why should they have to go through an extra tap?
 
-Each `INKHandler` object has an `useSystemDefault` property. If you set it to `YES`, performing an INKHandler action will not result in a custom UI being shown). Instead, the system will silently pick an application to handle the request. Sensible defaults are picked for each handler type: all handlers that have an Apple-provided application will use that one, and handlers that are based on a third-party service (e.g. Twitter) will default to using the first-party application.
+Each `INKHandler` object has an `useSystemDefault` property. If you set it to `YES`, performing an INKHandler action will not result in a custom UI being shown. Instead, the system will silently pick an application to handle the request. Sensible defaults are picked for each handler type: all handlers that have an Apple-provided application will use that one, and handlers that are based on a third-party service (e.g. Twitter) will default to using the first-party application.
 
 If you use this method of presenting IntentKit, it's recommended that you give users a way to set their own defaults. IntentKit provides a view controller called `INKDefaultsViewController` that lets users set preferences. Just create a new `INKDefaultsViewController` object, optionally limit which handler types should be displayed, and present it on-screen:
 
@@ -66,12 +66,12 @@ If you use this method of presenting IntentKit, it's recommended that you give u
 INKDefaultsViewController *defaultsController = [[INKDefaultsViewController alloc] init];
 defaultsController.allowedHandlers = @[[INKBrowserHandler class], [INKMailHandler class]];
 [self pushViewController:defaultsController animated:YES];
-```	
+```
 
 When you don't manually limit the handler types, it looks something like this:
 
 ![Example of defaults selector](https://raw.github.com/intentkit/IntentKit/master/example-defaults.gif)
- 
+
 If you'd rather more control over the user experience, IntentKit also offers API hooks to set your own defaults. Every INKHandler object has a `promptToSetDefault` method that will return an `INKActivityPresenter` object that handles prompting the user to select an application. For even lower-level control, the `INKApplicationList` and `INKDefaultsManager` classes can be used to fetch a list of available applications and manually set defaults.
 
 
@@ -199,7 +199,7 @@ If your application supports actions not currently represented in a handler, or 
     * `AppName@2x~ipad.png`: 152x152
 
     Use the same square icons you're using in your app's Xcode project; IntentKit will take care of masking them so they appear as iOS-style rounded rectangles/superellipses. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
-    
+
 4. In the root of your IntentKit codebase, run `pod install`. This will cause XCode to pick up any new files you've added. Next, run `rake` to run the test suite, which includes a linter to make sure that every action you've defined in your plist corresponds to a valid handler action. You'll also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
 
 5. In `IntentKit.podspec`, add your app to the subspec that corresponds to the handler your application responds to. Just add your app's folder name to the list of other application folder names in the appropriate resource bundle file glob.
