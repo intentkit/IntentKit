@@ -115,7 +115,7 @@ INKActivityPresenter *presenter = [browserHandler openURL:url];
                                          animated:YES];
 ```
 
-All of those options will be passed directly into a UIPopoverController. Similarly, there exists a presentActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections:animated: that calls the equivalent UIPopoverController method if appropriate.
+All of those options will be passed directly into a UIPopoverController. Similarly, there exists a `presentActivitySheetFromViewController:popoverFromBarButtonItem:permittedArrowDirections:animated:` method that calls the equivalent UIPopoverController method if appropriate.
 
 
 ### Fallback URLs
