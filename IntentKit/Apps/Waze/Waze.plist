@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Waze</string>
+	<key>actions</key>
+	<dict>
+		<key>directionsFrom:to:mode:</key>
+		<string>waze://?ll={{to}}&amp;navigate=yes</string>
+	</dict>
+</dict>
+</plist>
