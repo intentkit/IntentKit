@@ -20,6 +20,9 @@
 @property (assign, nonatomic) UIModalPresentationStyle originalPresentingModalPresentationStyle;
 @property (assign, nonatomic) UIModalPresentationStyle originalRootModalPresentationStyle;
 
+@property (assign, nonatomic) BOOL originalRootProvidesPresentationContextTransitionStyle;
+@property (assign, nonatomic) BOOL originalRootDefinesPresentationContext;
+
 @property (copy, nonatomic) void (^completionBlock)();
 
 @end
@@ -67,27 +70,46 @@
     if (self.activity) {
         [self.activity performActivityInViewController:presentingViewController];
     } else if (self.activitySheet) {
-        self.originalRootModalPresentationStyle = UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle;
-        UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
 
         self.presentingViewController = presentingViewController;
-
+        
         self.shadeView = [[UIView alloc] initWithFrame:self.presentingViewController.view.bounds];
         self.shadeView.backgroundColor = [UIColor blackColor];
         [self.presentingViewController.view addSubview:self.shadeView];
 
-        self.originalPresentingModalPresentationStyle = presentingViewController.modalPresentationStyle;
-        presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-        [presentingViewController presentViewController:self.activitySheet animated:NO completion:nil];
+        BOOL isiOS8OrSuperior = [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f;
 
+        if (!isiOS8OrSuperior) {
+            self.originalRootModalPresentationStyle = UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle;
+            UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            
+            self.originalPresentingModalPresentationStyle = presentingViewController.modalPresentationStyle;
+            presentingViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        }
+        else {
+            self.originalRootProvidesPresentationContextTransitionStyle = UIApplication.sharedApplication.keyWindow.rootViewController.providesPresentationContextTransitionStyle;
+            self.originalRootDefinesPresentationContext = UIApplication.sharedApplication.keyWindow.rootViewController.definesPresentationContext;
+            
+            UIApplication.sharedApplication.keyWindow.rootViewController.providesPresentationContextTransitionStyle = YES;
+            UIApplication.sharedApplication.keyWindow.rootViewController.definesPresentationContext = YES;
+            [self.activitySheet setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+        }
+        
+        [presentingViewController presentViewController:self.activitySheet animated:isiOS8OrSuperior completion:nil];
+        
         self.shadeView.alpha = 0;
         CGPoint activitySheetOrigin = self.activitySheet.contentView.frame.origin;
-        [self.activitySheet.contentView moveToPoint:CGPointMake(self.presentingViewController.view.left, self.presentingViewController.view.bottom)];
+        if (!isiOS8OrSuperior) {
+            [self.activitySheet.contentView moveToPoint:CGPointMake(self.presentingViewController.view.left, self.presentingViewController.view.bottom)];
+        }
+        
         [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations: ^{
             self.shadeView.alpha = 0.4;
-            [self.activitySheet.contentView moveToPoint:activitySheetOrigin];
+            if (!isiOS8OrSuperior) {
+                [self.activitySheet.contentView moveToPoint:activitySheetOrigin];
+            }
         } completion:nil];
-    }
+}
 }
 
 - (void)presentActivitySheetFromViewController:(UIViewController *)presentingViewController popoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated completion:(void (^)())completion {
@@ -138,6 +160,12 @@
 
         if (self.originalRootModalPresentationStyle != -1) {
             UIApplication.sharedApplication.keyWindow.rootViewController.modalPresentationStyle = self.originalRootModalPresentationStyle;
+        }
+        
+        BOOL isiOS8OrSuperior = [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f;
+        if (isiOS8OrSuperior) {
+            UIApplication.sharedApplication.keyWindow.rootViewController.providesPresentationContextTransitionStyle = self.originalRootProvidesPresentationContextTransitionStyle;
+            UIApplication.sharedApplication.keyWindow.rootViewController.definesPresentationContext = self.originalRootDefinesPresentationContext;
         }
 
         [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
