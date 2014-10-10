@@ -67,6 +67,10 @@
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
++ (BOOL)requiresConstraintBasedLayout {
+    return YES;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
 

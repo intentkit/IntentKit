@@ -86,6 +86,10 @@
     }
 }
 
++ (BOOL)requiresConstraintBasedLayout {
+    return YES;
+}
+
 #pragma mark - Event handlers
 - (void)didTapTextLabel {
     [self.toggle setOn:!self.toggle.isOn animated:YES];

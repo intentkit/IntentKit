@@ -62,9 +62,7 @@
 
 /* Begin PBXFileReference section */
 		0CFB950D1860E110006BB1EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4D175A3D31E9461F80754612 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntentKitTests.xcconfig"; path = "Pods/Pods-IntentKitTests.xcconfig"; sourceTree = "<group>"; };
 		A605C31718623D0F007E6AFE /* INKDefaultsManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INKDefaultsManagerSpec.m; sourceTree = "<group>"; };
 		A6170A6818543FFA0086AC63 /* INKHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKHandlerSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A61B5CBC18579B2100BA1F66 /* INKActivityPresenterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INKActivityPresenterSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -81,6 +79,7 @@
 		A67F39D8184EDFE5002EED53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A67F39D9184EDFE5002EED53 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A67F39DA184EDFE5002EED53 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A693CC7DFE3240DB77220442 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A6942BB21905F58E00977692 /* INKTweetSheetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INKTweetSheetSpec.m; path = INKPresentables/INKTweetSheetSpec.m; sourceTree = "<group>"; };
 		A6A16CC81851375000778944 /* IntentKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntentKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B73C63184D341E0055C60D /* IntentKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntentKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +108,9 @@
 		A6E7675C18FDF85100749E0A /* INKMailSheetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INKMailSheetSpec.m; path = INKPresentables/INKMailSheetSpec.m; sourceTree = "<group>"; };
 		A6E7675F18FDF98100749E0A /* UIViewController+Spec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Spec.h"; path = "Helpers/UIViewController+Spec.h"; sourceTree = "<group>"; };
 		A6E7676018FDF98100749E0A /* UIViewController+Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Spec.m"; path = "Helpers/UIViewController+Spec.m"; sourceTree = "<group>"; };
+		ADA03402BC031023D51599B3 /* Pods-IntentKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntentKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntentKitTests/Pods-IntentKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C6AAA3836BF05FC4A2C0A07D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E10F6DFA474458AD1A88B38E /* Pods-IntentKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntentKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntentKitTests/Pods-IntentKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		E19E678BCBB9409FBE1FDD1D /* libPods-IntentKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntentKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -174,8 +176,7 @@
 				A6B73CDB184D38450055C60D /* IntentKitDemo */,
 				A6B73C65184D341E0055C60D /* Frameworks */,
 				A6B73C64184D341E0055C60D /* Products */,
-				7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */,
-				17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */,
+				BDBBCC19F730F981E3685F49 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,6 +263,17 @@
 				A6E7676018FDF98100749E0A /* UIViewController+Spec.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		BDBBCC19F730F981E3685F49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A693CC7DFE3240DB77220442 /* Pods.debug.xcconfig */,
+				C6AAA3836BF05FC4A2C0A07D /* Pods.release.xcconfig */,
+				ADA03402BC031023D51599B3 /* Pods-IntentKitTests.debug.xcconfig */,
+				E10F6DFA474458AD1A88B38E /* Pods-IntentKitTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,7 +405,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		51B52ECD75E547B2B61EFA91 /* Copy Pods Resources */ = {
@@ -408,7 +420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-IntentKitTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IntentKitTests/Pods-IntentKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8B19D2BFC4234EA5B2770355 /* Check Pods Manifest.lock */ = {
@@ -539,7 +551,6 @@
 /* Begin XCBuildConfiguration section */
 		A6A16CD21851375000778944 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -659,7 +670,7 @@
 		};
 		A6B73C90184D341E0055C60D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */;
+			baseConfigurationReference = A693CC7DFE3240DB77220442 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -677,7 +688,7 @@
 		};
 		A6B73C91184D341E0055C60D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17EA3B95307C4A4A8B304C44 /* Pods.xcconfig */;
+			baseConfigurationReference = C6AAA3836BF05FC4A2C0A07D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -695,7 +706,7 @@
 		};
 		A6B73C93184D341E0055C60D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */;
+			baseConfigurationReference = ADA03402BC031023D51599B3 /* Pods-IntentKitTests.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IntentKitDemo.app/IntentKitDemo";
@@ -719,7 +730,7 @@
 		};
 		A6B73C94184D341E0055C60D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CB1A92AD90442B2ADE581B1 /* Pods-IntentKitTests.xcconfig */;
+			baseConfigurationReference = E10F6DFA474458AD1A88B38E /* Pods-IntentKitTests.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IntentKitDemo.app/IntentKitDemo";
