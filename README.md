@@ -35,7 +35,7 @@ After running `pod install`, you should be able to #import any INKHandler header
 If you're concerned about the increase in your app bundle's size, you can choose to only include a subset of IntentKit's supported applications. Subspecs exist for each handler class.
 
     # Only includes web browsers
-    pod "IntentKit/Browsers", :git => "https://github.com/intentkit/IntentKit.git"
+    pod "IntentKit/Browsers"
 
 For more information on what subspecs are available, refer to the project's [Podspec](https://github.com/intentkit/IntentKit/blob/master/IntentKit.podspec).
 
