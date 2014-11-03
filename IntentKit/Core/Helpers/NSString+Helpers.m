@@ -7,7 +7,7 @@
 //
 #import "NSString+Helpers.h"
 
-NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
+NSString *(^ink_urlEncode)(NSString *) = ^NSString *(NSString *input){
     CFStringRef urlString = CFURLCreateStringByAddingPercentEscapes(
                                                                     kCFAllocatorDefault,
                                                                     (CFStringRef)input,
@@ -36,7 +36,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
         tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:value];
 
         handlebarKey = [NSString stringWithFormat:@"{{%@}}", key];
-        tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:urlEncode(value)];
+        tempString = [tempString stringByReplacingOccurrencesOfString:handlebarKey withString:ink_urlEncode(value)];
     }
     return tempString;
 }
@@ -55,7 +55,7 @@ NSString *(^urlEncode)(NSString *) = ^NSString *(NSString *input){
 
             handlebarKey = [NSString stringWithFormat:@"{{%@}}", key];
             optionalString = [optionalString stringByReplacingOccurrencesOfString:handlebarKey
-                                                                                withString:urlEncode(value)];
+                                                                                withString:ink_urlEncode(value)];
 
             [evaluatedParams addObject:optionalString];
         }
