@@ -41,7 +41,8 @@ static char AssociatedObjectKey;
     }
 
     if (params[@"messageBody"]) {
-        [self.controller setMessageBody:params[@"messageBody"] isHTML:NO];
+        BOOL isHtml = params[@"isHtml"] ? [params[@"isHtml"] boolValue] : NO;
+        [self.controller setMessageBody:params[@"messageBody"] isHTML:isHtml];
     }
 
     [presentingViewController presentViewController:self.controller animated:YES completion:nil];

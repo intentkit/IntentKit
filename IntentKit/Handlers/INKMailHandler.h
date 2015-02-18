@@ -11,6 +11,7 @@
 
 @property (nonatomic, assign) NSString *subject;
 @property (nonatomic, assign) NSString *messageBody;
+@property (nonatomic, assign) BOOL isHtml;
 
 - (INKActivityPresenter *)sendMailTo:(NSString *)recipient;
 

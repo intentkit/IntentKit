@@ -35,6 +35,10 @@
         newArgs[@"messageBody"] = self.messageBody;
     }
 
+    if (self.isHtml) {
+        newArgs[@"isHtml"] = [NSNumber numberWithBool:self.isHtml];
+    }
+
     return [newArgs copy];
 }
 @end
