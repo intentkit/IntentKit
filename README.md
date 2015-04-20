@@ -1,4 +1,6 @@
-IntentKit [![Build Status](https://travis-ci.org/intentkit/IntentKit.png)](https://travis-ci.org/intentkit/IntentKit)
+IntentKit [![Build Status](https://travis-ci.org/intentkit/IntentKit.png)](https://travis-ci.org/intentkit/IntentKit) [![Coverage Status](https://coveralls.io/repos/intentkit/IntentKit/badge.svg)](https://coveralls.io/r/intentkit/IntentKit)
+
+
 =========
 
 IntentKit is an easier way to handle third-party URL schemes in iOS apps.
