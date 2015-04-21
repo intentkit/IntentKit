@@ -1,4 +1,4 @@
 language: objective-c
-before_install: gem install cocoapods xcpretty slather -N
+before_install: gem install cocoapods xcpretty slather activesupport -N
 script: rake test
 after_success: slather
