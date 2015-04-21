@@ -1,5 +1,6 @@
-pod "IntentKit", :path => "."
+plugin 'slather'
 
+pod "IntentKit", :path => "."
 pod "MWLayoutHelpers"
 
 target :IntentKitTests do
