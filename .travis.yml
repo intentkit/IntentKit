@@ -6,6 +6,6 @@ xcode_sdk: iphonesimulator
 podfile: Podfile
 
 before_install:
-  - gem install cocoapods slather -N
+  - gem install cocoapods slather activesupport -N
 
 after_success: slather
