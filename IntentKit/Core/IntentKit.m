@@ -50,7 +50,7 @@
 }
 
 - (UIImage *)imageNamed:(NSString *)name {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle bundleForClass:[IntentKit class]] URLForResource:@"IntentKit" withExtension:@"bundle"];
     NSBundle *bundle;
     if (bundleURL) {
         bundle  = [NSBundle bundleWithURL:bundleURL];
