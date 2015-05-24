@@ -7,6 +7,7 @@
 //
 
 #import "INKLocalizedString.h"
+#import "IntentKit.h"
 
 NSString *INKLocalizedString(NSString *key, NSString *comment) {
     NSString *result = @"";
@@ -14,7 +15,7 @@ NSString *INKLocalizedString(NSString *key, NSString *comment) {
     static NSBundle *bundle = nil;
     if (bundle == nil)
     {
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"IntentKit-Localizations" ofType:@"bundle"];
+        NSString *bundlePath = [[NSBundle bundleForClass:[IntentKit class]] pathForResource:@"IntentKit-Localizations" ofType:@"bundle"];
         bundle = [NSBundle bundleWithPath:bundlePath];
         
         NSString *language = [[NSLocale preferredLanguages] count]? [NSLocale preferredLanguages][0]: @"en";
@@ -30,6 +31,6 @@ NSString *INKLocalizedString(NSString *key, NSString *comment) {
         bundle = [NSBundle bundleWithPath:bundlePath] ?: [NSBundle mainBundle];
     }
     result = [bundle localizedStringForKey:key value:result table:nil];
-    return [[NSBundle mainBundle] localizedStringForKey:key value:result table:nil];
+    return [[NSBundle bundleForClass:[IntentKit class]] localizedStringForKey:key value:result table:nil];
 
 };

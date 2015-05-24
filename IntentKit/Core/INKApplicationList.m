@@ -128,7 +128,7 @@ static NSString * const FirstPartyAppNameKey = @"firstPartyAppName";
 }
 
 - (NSDictionary *)handlerDefaults {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit-Defaults" withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle bundleForClass:[INKApplicationList class]] URLForResource:@"IntentKit-Defaults" withExtension:@"bundle"];
     NSBundle *bundle;
     if (bundleURL) {
         bundle = [NSBundle bundleWithURL:bundleURL];
@@ -140,21 +140,21 @@ static NSString * const FirstPartyAppNameKey = @"firstPartyAppName";
 
 - (NSBundle *)bundleForCurrentHandler {
     NSString *resourceName = [NSString stringWithFormat:@"IntentKit-%@", NSStringFromClass(self.handlerClass)];
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:resourceName withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle bundleForClass:[INKApplicationList class]] URLForResource:resourceName withExtension:@"bundle"];
     NSBundle *bundle;
     if (bundleURL) {
         bundle = [NSBundle bundleWithURL:bundleURL];
     }
 
     if (!bundle) {
-        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"IntentKit" withExtension:@"bundle"];
+        NSURL *bundleURL = [[NSBundle bundleForClass:[INKApplicationList class]] URLForResource:@"IntentKit" withExtension:@"bundle"];
         if (bundleURL) {
             bundle = [NSBundle bundleWithURL:bundleURL];
         }
     }
 
     if (!bundle) {
-        bundle = [NSBundle mainBundle];
+        bundle = [NSBundle bundleForClass:[INKApplicationList class]];
     }
     
     return bundle;
