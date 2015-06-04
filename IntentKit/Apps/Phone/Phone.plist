@@ -6,7 +6,7 @@
 	<string>Phone</string>
 	<key>actions</key>
 	<dict>
-		<key>textMessage:</key>
+		<key>communicateWith:</key>
 		<string>telprompt://{{number}}</string>
 		<key>voiceCall:</key>
 		<string>telprompt://{{number}}</string>
