@@ -54,4 +54,18 @@ Pod::Spec.new do |s|
     ss.resource_bundles = { 'IntentKit-INKGPlusHandler' => "IntentKit/Apps/Google+/*.{plist,png}" }
     ss.requires_arc = true
   end
+  
+  s.subspec 'SendMessage' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.source_files = 'IntentKit/Handlers/INKSendMessageHandler.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKSendMessageHandler' => "IntentKit/Apps/{Phone,Messanger}/*.{plist,png}" }
+    ss.requires_arc = true
+  end
+  
+  s.subspec 'Phone' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.source_files = 'IntentKit/Handlers/INKPhoneHandler.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKPhoneHandler' => "IntentKit/Apps/{Phone}/*.{plist,png}" }
+    ss.requires_arc = true
+  end
 end
