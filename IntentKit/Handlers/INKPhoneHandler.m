@@ -18,7 +18,7 @@
 
 }
 
-- (INKActivityPresenter *)communicateWith:(NSString *)number {
+- (INKActivityPresenter *)communicateWithPhoneNumber:(NSString *)number {
 	
 	NSDictionary *args = @{ @"number" : number };
 	return [self performCommand:NSStringFromSelector(_cmd) withArguments:args];

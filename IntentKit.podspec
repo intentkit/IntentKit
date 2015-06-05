@@ -55,17 +55,38 @@ Pod::Spec.new do |s|
     ss.requires_arc = true
   end
   
-  s.subspec 'SendMessage' do |ss|
+  s.subspec 'Messanger' do |ss|
     ss.dependency 'IntentKit/Core'
-    ss.source_files = 'IntentKit/Handlers/INKSendMessageHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKSendMessageHandler' => "IntentKit/Apps/{Phone,Messanger}/*.{plist,png}" }
+    ss.source_files = 'IntentKit/Handlers/INKMessangerHandler.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKMessangerHandler' => "IntentKit/Apps/{Messanger,Phone,FaceTime}/*.{plist,png}" }
     ss.requires_arc = true
   end
   
   s.subspec 'Phone' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.source_files = 'IntentKit/Handlers/INKPhoneHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKPhoneHandler' => "IntentKit/Apps/{Phone}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKPhoneHandler' => "IntentKit/Apps/{Messanger,Phone,FaceTime}/*.{plist,png}" }
+    ss.requires_arc = true
+  end
+
+  s.subspec 'FaceTime' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.source_files = 'IntentKit/Handlers/INKFaceTimeHandler.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKFaceTimeHandler' => "IntentKit/Apps/{Messanger,Phone,FaceTime}/*.{plist,png}" }
+    ss.requires_arc = true
+  end
+
+  s.subspec 'Skype' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.source_files = 'IntentKit/Handlers/INKSkypeHandler.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKSkypeHandler' => "IntentKit/Apps/{Skype}/*.{plist,png}" }
+    ss.requires_arc = true
+  end
+
+  s.subspec 'WhatsApp' do |ss|
+    ss.dependency 'IntentKit/Core'
+    ss.source_files = 'IntentKit/Handlers/INKWhatsAppHandler.{h,m}'
+    ss.resource_bundles = { 'IntentKit-INKWhatsAppHandler' => "IntentKit/Apps/{WhatsApp}/*.{plist,png}" }
     ss.requires_arc = true
   end
 end

@@ -7,7 +7,12 @@
 	<key>actions</key>
 	<dict>
 		<key>videoCall:</key>
-		<string>facetime://{{number}}</string>
+		<string>skype:{{number}}?call&amp;video=true</string>
+		<key>voiceCall:</key>
+		<string>skype:{{number}}?call</string>
+		<key>chatWith:</key>
+		<string>skype:{{number}}?chat</string>
+<!--		Chat has an addition parameter &topic-->
 	</dict>
 </dict>
 </plist>

@@ -6,8 +6,8 @@
 	<string>WhatsApp</string>
 	<key>actions</key>
 	<dict>
-		<key>textMessage:</key>
-		<string>sms://{{number}}</string>
+		<key>chat:withText:</key>
+		<string>whatsapp://send?abid={{userid}}&amp;text={{text}}</string>
 	</dict>
 </dict>
 </plist>

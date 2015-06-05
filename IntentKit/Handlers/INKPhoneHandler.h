@@ -14,6 +14,6 @@
 @interface INKPhoneHandler : INKHandler
 
 - (INKActivityPresenter *)voiceCall:(NSString *)number;
-- (INKActivityPresenter *)communicateWith:(NSString *)number;
+- (INKActivityPresenter *)communicateWithPhoneNumber:(NSString *)number;
 
 @end

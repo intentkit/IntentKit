@@ -8,6 +8,8 @@
 	<dict>
 		<key>videoCall:</key>
 		<string>facetime://{{number}}</string>
+		<key>communicateWithPhoneNumber:</key>
+		<string>telprompt://{{number}}</string>
 	</dict>
 </dict>
 </plist>

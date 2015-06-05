@@ -8,7 +8,7 @@
 	<dict>
 		<key>textMessage:</key>
 		<string>sms://{{number}}</string>
-		<key>communicateWith:</key>
+		<key>communicateWithPhoneNumber:</key>
 		<string>sms://{{number}}</string>
 	</dict>
 </dict>
