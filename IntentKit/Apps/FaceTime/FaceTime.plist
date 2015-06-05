@@ -9,7 +9,7 @@
 		<key>videoCall:</key>
 		<string>facetime://{{number}}</string>
 		<key>communicateWithPhoneNumber:</key>
-		<string>telprompt://{{number}}</string>
+		<string>facetime://{{number}}</string>
 	</dict>
 </dict>
 </plist>
