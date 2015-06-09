@@ -12,9 +12,9 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |ss|
     ss.source_files = 'IntentKit', 'IntentKit/Core/**/*.{h,m}', "IntentKit/Handlers/INKBrowserHandler.{h,m}", 'IntentKit/Apps/INKWebView/*.{h,m}'
     ss.dependency "MWLayoutHelpers"
+    ss.resources = 'IntentKit/IntentKit-Localizations.bundle'
     ss.resource_bundles = { 'IntentKit' => 'IntentKit/{**/*.strings,Images/*.png}',
                             'IntentKit-Defaults' => "IntentKit/Apps/Defaults/*.{plist,png}",
-                            'IntentKit-Localizations' => "IntentKit/IntentKit-Localizations.bundle",
                             'IntentKit-INKBrowserHandler' => "IntentKit/Apps/{Chrome,Safari,1Password,INKWebView}/*.{plist,png}" }
     ss.requires_arc = true
   end
