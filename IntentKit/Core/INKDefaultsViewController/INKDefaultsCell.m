@@ -12,7 +12,7 @@
 #import "INKApplicationList.h"
 #import "INKAppIconView.h"
 
-#import <UIView+MWLayoutHelpers.h>
+#import "UIView+MWLayoutHelpers.h"
 
 @interface INKDefaultsCell ()
 @property (readwrite, assign, nonatomic) BOOL isUsingFallback;
