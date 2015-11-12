@@ -27,7 +27,7 @@ IntentKit attempts to solve this problem.
 
 Installation
 ------------
-IntentKit is easiest to install using [CocoaPods](http://cocoapods.org). Just add the following to your Podfile.
+IntentKit is easiest to install using [CocoaPods](https://cocoapods.org/). Just add the following to your Podfile.
 
     pod "IntentKit"
 
@@ -96,7 +96,7 @@ An up-to-date list of available handlers and what methods and configuration opti
 If you're using `presentModally`, it will attempt to intelligently figure out which view controller to present itself on. It's possible it won't pick the correct one automatically; if that's the case, you probably want to explicitly specify the correct view controller.
 
 ```obj-c
-NSURL *url = [NSURL URLWithString:@"http://google.com"]
+NSURL *url = [NSURL URLWithString:@"http://www.google.com/"]
 INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
 INKActivityPresenter *presenter = ][browserHandler openURL:url];
 [presenter presentModalActivitySheetFromViewController:self];
@@ -107,7 +107,7 @@ INKActivityPresenter *presenter = ][browserHandler openURL:url];
 If your app is Universal or iPad-only, if you're displaying an IntentKit `INKActivityViewController` you probably want to display it as a popover instead of a modal sheet. The following code will automatically display itself modally on an iPhone and in a `UIPopoverController` on an iPad.
 
 ```obj-c
-NSURL *url = [NSURL URLWithString:@"http://google.com"]
+NSURL *url = [NSURL URLWithString:@"http://www.google.com/"]
 INKBrowserHandler *browserHandler = [[INKBrowserHandler alloc] init];
 INKActivityPresenter *presenter = [browserHandler openURL:url];
 [presenter presentActivitySheetFromViewController:self
@@ -252,10 +252,10 @@ Contact
 Mike Walker
 
 - https://github.com/lazerwalker
-- [@lazerwalker](http://twitter.com/lazerwalker)
+- [@lazerwalker](https://twitter.com/lazerwalker)
 - http://lazerwalker.com
 
-The initial version of IntentKit was built at [Hacker School](http://hackerschool.com).
+The initial version of IntentKit was built at [Hacker School](https://www.recurse.com/).
 
 License
 -------
