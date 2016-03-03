@@ -202,7 +202,7 @@ If your application supports actions not currently represented in a handler, or 
 
     Use the same square icons you're using in your app's Xcode project; IntentKit will take care of masking them so they appear as iOS-style rounded rectangles/superellipses. The root filename ("AppName" in those examples) must exactly match the filename of the plist.
 
-4. In the root of your IntentKit codebase, run `pod install`. This will cause XCode to pick up any new files you've added. Next, run `rake` to run the test suite, which includes a linter to make sure that every action you've defined in your plist corresponds to a valid handler action. You'll also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
+4. In the root of your IntentKit codebase, run `pod install`. This will cause Xcode to pick up any new files you've added. Next, run `rake` to run the test suite, which includes a linter to make sure that every action you've defined in your plist corresponds to a valid handler action. You'll also probably want to run the example app on an actual iOS device to make sure your links all work as expected.
 
 5. In `IntentKit.podspec`, add your app to the subspec that corresponds to the handler your application responds to. Just add your app's folder name to the list of other application folder names in the appropriate resource bundle file glob.
 
