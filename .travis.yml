@@ -3,6 +3,8 @@ cache: cocoapods
 xcode_workspace: IntentKitDemo.xcworkspace
 xcode_scheme: IntentKitDemo
 xcode_sdk: iphonesimulator
+rvm:
+  - 2.2.2
 
 before_install:
   - gem install cocoapods slather activesupport -N

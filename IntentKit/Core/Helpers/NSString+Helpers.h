@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mike Walker. All rights reserved.
 //
 
-NSString *(^ink_urlEncode)(NSString *);
+extern NSString *(^ink_urlEncode)(NSString *);
 
 @interface NSString (Helpers)
 
