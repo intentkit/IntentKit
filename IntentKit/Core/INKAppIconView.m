@@ -7,7 +7,7 @@
 //
 
 #import "INKAppIconView.h"
-#import "UIView+MWLayoutHelpers.h"
+#import <MWLayoutHelpers/UIView+MWLayoutHelpers.h>
 #import "IntentKit.h"
 
 CGFloat const INKActivityCellIconSize_Pad = 76.f;
