@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name      = 'IntentKit'
-  s.version   = '0.7.2'
+  s.version   = '0.7.3'
   s.license   = { :type => 'MIT', :file => "LICENSE" }
   s.summary   = "An easier way to handle third-party URL schemes in iOS apps."
   s.homepage  = 'https://github.com/intentkit/IntentKit'
   s.authors   = { 'Mike Walker' => 'michael@lazerwalker.com' }
-  s.source    = { :git => 'https://github.com/intentkit/IntentKit.git', :tag => "0.7.2" }
+  s.source    = { :git => 'https://github.com/intentkit/IntentKit.git', :tag => "0.7.3" }
   s.requires_arc = true
   s.platform  = :ios, '7.0'
 
