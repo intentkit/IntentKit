@@ -8,5 +8,5 @@ rvm:
 
 before_install:
   - gem install cocoapods slather activesupport -N
-
+  - pod install --repo-update
 after_success: slather
