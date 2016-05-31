@@ -1,5 +1,4 @@
 Pods/*
-Podfile.lock
 docs/*
 # gitignore.io
 *.xcworkspace
