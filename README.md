@@ -42,6 +42,21 @@ If you're concerned about the increase in your app bundle's size, you can choose
 For more information on what subspecs are available, refer to the project's [Podspec](https://github.com/intentkit/IntentKit/blob/master/IntentKit.podspec).
 
 
+### URL Schemes and Info.plist
+
+As of iOS 9, Apple requires you to whitelist all third-party URL schemes you plan to use in-app. This means that using IntentKit requires adding all URL schemes it might use to your `info.plist` file, as an array with the key `LSApplicationQueriesScheme`. For example, here's what it looks like to add support for Google Maps. 
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>comgooglemaps</string>
+    <string>comgooglemaps-x-callback</string>
+</array>
+```
+
+For now, you'll have to manually look up which URL schemes the IntentKit handlers you are using might query (check the various `plist` files nested within the `Apps` folder. We recognize that sucks. In the future, IntentKit might provide either a definitive list of which URL schemes are necessary per-handler, or even a way to automate adding this to your `Info.plist`.
+
+
 Usage
 -----
 
