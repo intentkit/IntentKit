@@ -17,6 +17,7 @@
 #import "INKTwitterHandler.h"
 #import "INKFacebookHandler.h"
 #import "INKGPlusHandler.h"
+#import "INKMessageHandler.h"
 
 #import <UIView+MWLayoutHelpers.h>
 
@@ -210,7 +211,18 @@
                              return [handler showGPlusProfileWithName:@"ArvidGerstmann"];
                          }},
                        ]
-               }
+               },
+						 @{@"name": @"INKMessageHandler",
+							 @"items": @[
+									 @{@"description": @"Send message to or phone number",
+										 @"action": (UIActivityViewController *)^{
+											 INKMessageHandler *handler = [[INKMessageHandler alloc] init];
+											 handler.alwaysShowActivityView = self.activitySwitch.on;
+											 handler.useSystemDefault = self.useSystemDefaultSwitch.on;
+											 return [handler sendMessage:@"1234567890"];
+										 }},
+									 ]
+							 }
              ];
 };
 
