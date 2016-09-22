@@ -57,6 +57,12 @@ As of iOS 9, Apple requires you to whitelist all third-party URL schemes you pla
 For now, you'll have to manually look up which URL schemes the IntentKit handlers you are using might query (check the various `plist` files nested within the `Apps` folder. We recognize that sucks. In the future, IntentKit might provide either a definitive list of which URL schemes are necessary per-handler, or even a way to automate adding this to your `Info.plist`.
 
 
+### Swift
+
+IntentKit works great in both Swift and Objective-C. 
+
+If you're using Swift, it's recommended you have the `use_frameworks!` option enabled in CocoaPods. From there, just `import IntentKit` (or an equivalent subspec) from whatever Swift file you want to use IntentKit in.
+
 Usage
 -----
 
