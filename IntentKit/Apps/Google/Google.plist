@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Google</string>
+	<key>actions</key>
+	<dict>
+		<!-- Can't find concrete examples of GoogleVoice URL scheme
+		and since I'm not in the US, I can't test it either
+		The GoogleVoice app "seems" to have been rolled into the
+		Google App as near as I can tell
+		<key>voiceCall:</key>
+		<string>gvmdial://{{number}}</string>
+		<key>textMessage:</key>
+		<string>gvmsms://{{number}}</string>
+		-->
+	</dict>
+</dict>
+</plist>

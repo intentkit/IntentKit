@@ -17,6 +17,9 @@
 #import "INKTwitterHandler.h"
 #import "INKFacebookHandler.h"
 #import "INKGPlusHandler.h"
+#import "INKMessangerHandler.h"
+#import "INKPhoneHandler.h"
+#import "INKFaceTimeHandler.h"
 
 #import <UIView+MWLayoutHelpers.h>
 
@@ -210,7 +213,61 @@
                              return [handler showGPlusProfileWithName:@"ArvidGerstmann"];
                          }},
                        ]
-               }
+               },
+						 @{@"name": @"INKMessagerHandler",
+							 @"items": @[
+									 @{@"description": @"Send message via phone",
+										 @"action": (UIActivityViewController *)^{
+											 INKMessangerHandler *handler = [[INKMessangerHandler alloc] init];
+											 handler.alwaysShowActivityView = self.activitySwitch.on;
+											 handler.useSystemDefault = self.useSystemDefaultSwitch.on;
+											 return [handler textMessage:@"1234567890"];
+										 }},
+									 @{@"description": @"Communicate with phone number",
+										 @"action": (UIActivityViewController *)^{
+											 INKMessangerHandler *handler = [[INKMessangerHandler alloc] init];
+											 handler.alwaysShowActivityView = self.activitySwitch.on;
+											 handler.useSystemDefault = self.useSystemDefaultSwitch.on;
+											 return [handler communicateWithPhoneNumber:@"1234567890"];
+										 }},
+									 ]
+							 },
+						 @{@"name": @"INKPhoneHandler",
+							 @"items": @[
+									 @{@"description": @"Call phone number",
+										 @"action": (UIActivityViewController *)^{
+											 INKPhoneHandler *handler = [[INKPhoneHandler alloc] init];
+											 handler.alwaysShowActivityView = self.activitySwitch.on;
+											 handler.useSystemDefault = self.useSystemDefaultSwitch.on;
+											 return [handler voiceCall:@"1234567890"];
+										 }},
+									 @{@"description": @"Communicate with phone number",
+										 @"action": (UIActivityViewController *)^{
+											 INKPhoneHandler *handler = [[INKPhoneHandler alloc] init];
+											 handler.alwaysShowActivityView = self.activitySwitch.on;
+											 handler.useSystemDefault = self.useSystemDefaultSwitch.on;
+											 return [handler communicateWithPhoneNumber:@"1234567890"];
+										 }},
+									 ]
+							 },
+						 @{@"name": @"INKFaceTimeHandler",
+							 @"items": @[
+									 @{@"description": @"Make FaceTime call",
+										 @"action": (UIActivityViewController *)^{
+											 INKFaceTimeHandler *handler = [[INKFaceTimeHandler alloc] init];
+											 handler.alwaysShowActivityView = self.activitySwitch.on;
+											 handler.useSystemDefault = self.useSystemDefaultSwitch.on;
+											 return [handler communicateWithPhoneNumber:@"1234567890"];
+										 }},
+									 @{@"description": @"Communicate with phone number",
+										 @"action": (UIActivityViewController *)^{
+											 INKFaceTimeHandler *handler = [[INKFaceTimeHandler alloc] init];
+											 handler.alwaysShowActivityView = self.activitySwitch.on;
+											 handler.useSystemDefault = self.useSystemDefaultSwitch.on;
+											 return [handler communicateWithPhoneNumber:@"1234567890"];
+										 }},
+									 ]
+							 }
              ];
 };
 

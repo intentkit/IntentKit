@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Skype</string>
+	<key>actions</key>
+	<dict>
+		<key>videoCall:</key>
+		<string>skype:{{number}}?call&amp;video=true</string>
+		<key>voiceCall:</key>
+		<string>skype:{{number}}?call</string>
+		<key>chatWith:</key>
+		<string>skype:{{number}}?chat</string>
+<!--		Chat has an addition parameter &topic-->
+	</dict>
+</dict>
+</plist>
