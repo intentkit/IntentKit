@@ -1,0 +1,54 @@
+PODS:
+  - Expecta (0.2.4)
+  - IntentKit (0.7.4):
+    - IntentKit/Core (= 0.7.4)
+    - IntentKit/Facebook (= 0.7.4)
+    - IntentKit/GPlus (= 0.7.4)
+    - IntentKit/Mail (= 0.7.4)
+    - IntentKit/Maps (= 0.7.4)
+    - IntentKit/Twitter (= 0.7.4)
+  - IntentKit/Core (0.7.4):
+    - MWLayoutHelpers
+  - IntentKit/Facebook (0.7.4):
+    - IntentKit/Core
+  - IntentKit/GPlus (0.7.4):
+    - IntentKit/Core
+  - IntentKit/Mail (0.7.4):
+    - IntentKit/Core
+  - IntentKit/Maps (0.7.4):
+    - IntentKit/Core
+  - IntentKit/Twitter (0.7.4):
+    - IntentKit/Core
+  - MWLayoutHelpers (1.1.0)
+  - OCHamcrest (5.3.0)
+  - OCMockito (3.0.1):
+    - OCHamcrest (~> 5.1)
+  - Specta (0.2.1)
+
+DEPENDENCIES:
+  - Expecta (~> 0.2.3)
+  - IntentKit (from `https://github.com/intentkit/intentkit.git`)
+  - MWLayoutHelpers
+  - OCMockito (~> 3.0)
+  - Specta (~> 0.2.1)
+
+EXTERNAL SOURCES:
+  IntentKit:
+    :git: https://github.com/intentkit/intentkit.git
+
+CHECKOUT OPTIONS:
+  IntentKit:
+    :commit: 51a96a62672b64529ca3dba3ad8351d298b94934
+    :git: https://github.com/intentkit/intentkit.git
+
+SPEC CHECKSUMS:
+  Expecta: cfaf1d3e2e194ca704a25e997093d30a1ce70b61
+  IntentKit: 38c5c033b08baaf97305da7b1a673f7de7ab11d7
+  MWLayoutHelpers: 8af2eedae30fe06b75106b7be28b9fee1298512a
+  OCHamcrest: 14696874144153e924a434742cbca38bdbbd4f25
+  OCMockito: 9eee3c61e42f7cb8aa015d66f8cc16849701d973
+  Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
+
+PODFILE CHECKSUM: 5dc4b7a624ce72fec86022aa9c02294706183819
+
+COCOAPODS: 1.1.0.rc.2

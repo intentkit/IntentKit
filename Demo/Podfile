@@ -1,0 +1,12 @@
+#plugin 'slather'
+
+target :IntentKit do
+  pod "MWLayoutHelpers"
+  pod "IntentKit", :path => "../"
+end
+
+target :IntentKitTests do
+    pod "Specta", "~> 0.2.1"
+    pod "Expecta", "~> 0.2.3"
+    pod "OCMockito", "~> 3.0"
+end
