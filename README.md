@@ -164,7 +164,7 @@ A demo app has been provided so you can see IntentKit in action.
 
 1. Clone this repo.
 2. Run `pod install` inside the project directory.
-2. Open `IntentKitDemo.xcworkspace`.
+2. Open `Example/IntentKitDemo.xcworkspace`.
 3. Build and run the app.
 
 The demo lets you perform any of the actions supported by IntentKit.
