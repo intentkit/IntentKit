@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name      = 'IntentKit'
-  s.version   = '0.7.5'
+  s.version   = '0.7.6'
   s.license   = { :type => 'MIT', :file => "LICENSE" }
   s.summary   = "An easier way to handle third-party URL schemes in iOS apps."
   s.homepage  = 'https://github.com/intentkit/IntentKit'
   s.authors   = { 'Mike Walker' => 'michael@lazerwalker.com' }
-  s.source    = { :git => 'https://github.com/intentkit/IntentKit.git', :tag => "0.7.5" }
+  s.source    = { :git => 'https://github.com/intentkit/IntentKit.git', :tag => "0.7.6" }
   s.requires_arc = true
   s.platform  = :ios, '7.0'
 
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.subspec 'Maps' do |ss|
     ss.dependency 'IntentKit/Core'
     ss.source_files = 'IntentKit/Handlers/INKMapsHandler.{h,m}'
-    ss.resource_bundles = { 'IntentKit-INKMapsHandler' => "IntentKit/Apps/{Maps,Google Maps,Waze}/*.{plist,png}" }
+    ss.resource_bundles = { 'IntentKit-INKMapsHandler' => "IntentKit/Apps/{Maps,Google Maps,Waze,CityMapper}/*.{plist,png}" }
     ss.requires_arc = true
   end
 
