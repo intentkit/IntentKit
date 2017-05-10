@@ -8,6 +8,10 @@
 	<dict>
 		<key>directionsFrom:to:mode:</key>
 		<string>waze://?ll={{to}}&amp;navigate=yes</string>
+		<key>openLocation:title:</key>
+		<string>waze://?ll={{coordinate}}</string>
+		<key>searchForLocation:</key>
+		<string>waze://?q={{query}}</string>
 	</dict>
 </dict>
 </plist>

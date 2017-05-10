@@ -17,6 +17,8 @@
 		<string>comgooglemaps://?saddr={{from}}&amp;daddr={{to}}&amp;directionsmode={{mode}}</string>
 		<key>searchForLocation:</key>
 		<string>comgooglemaps://?q={{query}}</string>
+		<key>openLocation:title:</key>
+		<string>comgooglemaps://?q={{coordinate}}</string>
 	</dict>
 </dict>
 </plist>
