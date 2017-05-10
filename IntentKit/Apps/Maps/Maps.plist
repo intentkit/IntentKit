@@ -12,6 +12,8 @@
 		<string>Plans</string>
 		<key>nl</key>
 		<string>Kaarten</string>
+		<key>es</key>
+		<string>Mapas</string>
 	</dict>
 	<key>optional</key>
 	<dict>
