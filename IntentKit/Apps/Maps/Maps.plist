@@ -12,6 +12,8 @@
 		<string>Plans</string>
 		<key>nl</key>
 		<string>Kaarten</string>
+		<key>es</key>
+		<string>Mapas</string>
 	</dict>
 	<key>optional</key>
 	<dict>
@@ -26,6 +28,8 @@
 		<string>http://maps.apple.com/?saddr={{from}}&amp;daddr={{to}}</string>
 		<key>searchForLocation:</key>
 		<string>http://maps.apple.com/?q={{query}}</string>
+		<key>openLocation:title:</key>
+		<string>http://maps.apple.com/?q={{title}}&amp;ll={{coordinate}}</string>
 	</dict>
 </dict>
 </plist>

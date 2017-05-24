@@ -50,7 +50,6 @@ typedef NS_ENUM(NSInteger, INKMapsHandlerDirectionsMode) {
  @return A `INKActivityPresenter` object to present.
 
  @warning This does not currently verify that an application can support multiple modes of transportation. If you pick an application that doesn't support the mode of transporation you've asked for, that application will likely ignore that part of the request. */
-
 - (INKActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to mode:(INKMapsHandlerDirectionsMode)mode;
 
 /** Brings up turn-by-turn driving directions between two locations 
@@ -59,5 +58,14 @@ typedef NS_ENUM(NSInteger, INKMapsHandlerDirectionsMode) {
 
  @see directionsFrom:to:mode: */
 - (INKActivityPresenter *)directionsFrom:(NSString *)from to:(NSString *)to;
+
+
+/** Opens a specific point in a map
+
+ @param coordinate Coordinate to open
+ @param title String Name of the location. Note that some providers can not display name
+ @return A `INKActivityPresenter` object to present. */
+- (INKActivityPresenter *)openLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
+
 
 @end
